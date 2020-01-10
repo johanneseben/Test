@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4BEADE05-2594-4CB5-AE99-29367B4E5805}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.2\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Kurs.cs" />
+    <Compile Include="Models\Bankverbindung.cs" />
+    <Compile Include="Models\Kontakt.cs" />
+    <Compile Include="Models\KontaktKurs.cs" />
+    <Compile Include="Models\Altersgruppe.cs" />
+    <Compile Include="Models\Gutschein.cs" />
+    <Compile Include="Models\Kassabuchkonto.cs" />
+    <Compile Include="Models\Kassabuch.cs" />
+    <Compile Include="Models\Benutzer.cs" />
+    <Compile Include="Models\KontaktGutschein.cs" />
+    <Compile Include="Models\Mapping\SchluesselKontaktMap.cs" />
+    <Compile Include="Models\SchluesselKontakt.cs" />
+    <Compile Include="Models\Mapping\BenutzerMap.cs" />
+    <Compile Include="Models\Mapping\KontaktGutscheinMap.cs" />
+    <Compile Include="Models\Mapping\MitgliedschaftKontaktMap.cs" />
+    <Compile Include="Models\MitgliedschaftKontakt.cs" />
+    <Compile Include="Models\Mapping\KassabuchMap.cs" />
+    <Compile Include="Models\Mapping\MitgliedschaftMap.cs" />
+    <Compile Include="Models\Mitgliedschaft.cs" />
+    <Compile Include="Models\Mapping\SchluesselMap.cs" />
+    <Compile Include="Models\Schluessel.cs" />
+    <Compile Include="Models\Mapping\KassabuchkontoMap.cs" />
+    <Compile Include="Models\Mapping\PassMap.cs" />
+    <Compile Include="Models\Pass.cs" />
+    <Compile Include="Models\Mapping\GutscheinMap.cs" />
+    <Compile Include="Models\Mapping\StaatsbuergerschaftMap.cs" />
+    <Compile Include="Models\Staatsbuergerschaft.cs" />
+    <Compile Include="Models\Mapping\SozialgruppeMap.cs" />
+    <Compile Include="Models\Sozialgruppe.cs" />
+    <Compile Include="Models\KursleiterKurs.cs" />
+    <Compile Include="Models\Kursleiter.cs" />
+    <Compile Include="Models\Mapping\KontaktKursMap.cs" />
+    <Compile Include="Models\Mapping\AltersgruppeMap.cs" />
+    <Compile Include="Models\Mapping\KursleiterKursMap.cs" />
+    <Compile Include="Models\Mapping\KursleiterMap.cs" />
+    <Compile Include="Models\Mapping\RechnungMap.cs" />
+    <Compile Include="Models\Rechnung.cs" />
+    <Compile Include="Models\Mapping\BankverbindungMap.cs" />
+    <Compile Include="Models\Mapping\KontaktMap.cs" />
+    <Compile Include="Models\Mapping\TitelMap.cs" />
+    <Compile Include="Models\Titel.cs" />
+    <Compile Include="Models\Mapping\PostleitzahlMap.cs" />
+    <Compile Include="Models\Postleitzahl.cs" />
+    <Compile Include="Models\Kursort.cs" />
+    <Compile Include="Models\Kurskategorie.cs" />
+    <Compile Include="Models\Mapping\KursortMap.cs" />
+    <Compile Include="Models\Mapping\KursMap.cs" />
+    <Compile Include="Models\Mapping\KurskatekorieMap.cs" />
+    <Compile Include="Models\Termin.cs" />
+    <Compile Include="Models\Mapping\TerminMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

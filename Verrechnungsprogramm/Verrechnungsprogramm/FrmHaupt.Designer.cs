@@ -1,0 +1,1607 @@
+﻿namespace Verrechnungsprogramm
+{
+    partial class FrmHaupt
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.tableLayoutPanelÜberschrift = new System.Windows.Forms.TableLayoutPanel();
+            this.labelÜberschrift = new System.Windows.Forms.Label();
+            this.tableLayoutPanelStammdaten = new System.Windows.Forms.TableLayoutPanel();
+            this.labelBtSchluesselverwaltung = new System.Windows.Forms.Label();
+            this.buttonSchluesselVerwaltung = new System.Windows.Forms.Button();
+            this.labelBtMitgliedschaft = new System.Windows.Forms.Label();
+            this.labelBtPass = new System.Windows.Forms.Label();
+            this.labelBtBankverbindung = new System.Windows.Forms.Label();
+            this.labelBtAltersgruppe = new System.Windows.Forms.Label();
+            this.buttonAltersgruppe = new System.Windows.Forms.Button();
+            this.buttonTitel = new System.Windows.Forms.Button();
+            this.labelBtTitel = new System.Windows.Forms.Label();
+            this.labelBtKontakt = new System.Windows.Forms.Label();
+            this.buttonKontakt = new System.Windows.Forms.Button();
+            this.buttonSozialgruppe = new System.Windows.Forms.Button();
+            this.labelBtSozialgruppe = new System.Windows.Forms.Label();
+            this.buttonBankverbindung = new System.Windows.Forms.Button();
+            this.buttonPass = new System.Windows.Forms.Button();
+            this.labelBtSchluessel = new System.Windows.Forms.Label();
+            this.buttonSchluessel = new System.Windows.Forms.Button();
+            this.buttonMitgliedschaft = new System.Windows.Forms.Button();
+            this.labelBtGutschein = new System.Windows.Forms.Label();
+            this.buttonGutschein = new System.Windows.Forms.Button();
+            this.listViewKontakt = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripKontakt = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelOberKategorien = new System.Windows.Forms.TableLayoutPanel();
+            this.labelBtFinanz = new System.Windows.Forms.Label();
+            this.labelBtKursTermin = new System.Windows.Forms.Label();
+            this.buttonFinanz = new System.Windows.Forms.Button();
+            this.buttonStammdaten = new System.Windows.Forms.Button();
+            this.buttonKursTermin = new System.Windows.Forms.Button();
+            this.labelBtStammdaten = new System.Windows.Forms.Label();
+            this.buttonHinzufügen = new System.Windows.Forms.Button();
+            this.buttonBearbeiten = new System.Windows.Forms.Button();
+            this.listViewAltersgruppe = new System.Windows.Forms.ListView();
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripAltersgruppe = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listViewTitel = new System.Windows.Forms.ListView();
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripTitel = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listViewSozialgruppe = new System.Windows.Forms.ListView();
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripSozialgruppe = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanelKursTermin = new System.Windows.Forms.TableLayoutPanel();
+            this.labelBtTermin = new System.Windows.Forms.Label();
+            this.buttonTermine = new System.Windows.Forms.Button();
+            this.buttonKurskategorie = new System.Windows.Forms.Button();
+            this.labelBtKurskategorie = new System.Windows.Forms.Label();
+            this.labelBtKurs = new System.Windows.Forms.Label();
+            this.buttonKurs = new System.Windows.Forms.Button();
+            this.listViewKurs = new System.Windows.Forms.ListView();
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader31 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader33 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewKurskategorie = new System.Windows.Forms.ListView();
+            this.columnHeader41 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader42 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripKurskategorie = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listViewBankverbindung = new System.Windows.Forms.ListView();
+            this.columnHeader43 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader44 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader45 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader46 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripBankverbindung = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ändernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listViewPass = new System.Windows.Forms.ListView();
+            this.columnHeader47 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader48 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader49 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader50 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader51 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripPass = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listViewSchluessel = new System.Windows.Forms.ListView();
+            this.columnHeader52 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader53 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader54 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader55 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader56 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader57 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripGutschein = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listViewGutschein = new System.Windows.Forms.ListView();
+            this.columnHeader58 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader59 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader60 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewMitgliedschaft = new System.Windows.Forms.ListView();
+            this.columnHeader61 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader62 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader63 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader64 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripMitgliedschaft = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ändernToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripSchluessel = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bearbeitenToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelBtRechnung = new System.Windows.Forms.Label();
+            this.labelBtKassabuch = new System.Windows.Forms.Label();
+            this.labelBtKassabuchkonto = new System.Windows.Forms.Label();
+            this.buttonKassabuchkonto = new System.Windows.Forms.Button();
+            this.buttonKassabuch = new System.Windows.Forms.Button();
+            this.buttonRechnung = new System.Windows.Forms.Button();
+            this.columnHeader65 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader66 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader67 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tableLayoutPanelÜberschrift.SuspendLayout();
+            this.tableLayoutPanelStammdaten.SuspendLayout();
+            this.contextMenuStripKontakt.SuspendLayout();
+            this.tableLayoutPanelOberKategorien.SuspendLayout();
+            this.contextMenuStripAltersgruppe.SuspendLayout();
+            this.contextMenuStripTitel.SuspendLayout();
+            this.contextMenuStripSozialgruppe.SuspendLayout();
+            this.tableLayoutPanelKursTermin.SuspendLayout();
+            this.contextMenuStripKurskategorie.SuspendLayout();
+            this.contextMenuStripBankverbindung.SuspendLayout();
+            this.contextMenuStripPass.SuspendLayout();
+            this.contextMenuStripGutschein.SuspendLayout();
+            this.contextMenuStripMitgliedschaft.SuspendLayout();
+            this.contextMenuStripSchluessel.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tableLayoutPanelÜberschrift
+            // 
+            this.tableLayoutPanelÜberschrift.ColumnCount = 1;
+            this.tableLayoutPanelÜberschrift.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelÜberschrift.Controls.Add(this.labelÜberschrift, 0, 0);
+            this.tableLayoutPanelÜberschrift.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanelÜberschrift.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelÜberschrift.Name = "tableLayoutPanelÜberschrift";
+            this.tableLayoutPanelÜberschrift.RowCount = 1;
+            this.tableLayoutPanelÜberschrift.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelÜberschrift.Size = new System.Drawing.Size(1924, 115);
+            this.tableLayoutPanelÜberschrift.TabIndex = 1;
+            // 
+            // labelÜberschrift
+            // 
+            this.labelÜberschrift.BackColor = System.Drawing.Color.DarkRed;
+            this.labelÜberschrift.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelÜberschrift.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelÜberschrift.Location = new System.Drawing.Point(3, 0);
+            this.labelÜberschrift.Name = "labelÜberschrift";
+            this.labelÜberschrift.Size = new System.Drawing.Size(1918, 115);
+            this.labelÜberschrift.TabIndex = 0;
+            this.labelÜberschrift.Text = "VHS Mistelbach";
+            this.labelÜberschrift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanelStammdaten
+            // 
+            this.tableLayoutPanelStammdaten.ColumnCount = 2;
+            this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtSchluesselverwaltung, 0, 7);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSchluesselVerwaltung, 1, 7);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtMitgliedschaft, 0, 8);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtPass, 0, 5);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtBankverbindung, 0, 4);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtAltersgruppe, 0, 2);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonAltersgruppe, 1, 2);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonTitel, 1, 1);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtTitel, 0, 1);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtKontakt, 0, 0);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonKontakt, 1, 0);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSozialgruppe, 1, 3);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtSozialgruppe, 0, 3);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonBankverbindung, 1, 4);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonPass, 1, 5);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtSchluessel, 0, 6);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSchluessel, 1, 6);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonMitgliedschaft, 1, 8);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtGutschein, 0, 9);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonGutschein, 1, 9);
+            this.tableLayoutPanelStammdaten.Location = new System.Drawing.Point(9, 205);
+            this.tableLayoutPanelStammdaten.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelStammdaten.Name = "tableLayoutPanelStammdaten";
+            this.tableLayoutPanelStammdaten.RowCount = 10;
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelStammdaten.Size = new System.Drawing.Size(221, 383);
+            this.tableLayoutPanelStammdaten.TabIndex = 2;
+            this.tableLayoutPanelStammdaten.Visible = false;
+            this.tableLayoutPanelStammdaten.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelStammdaten_Paint);
+            // 
+            // labelBtSchluesselverwaltung
+            // 
+            this.labelBtSchluesselverwaltung.BackColor = System.Drawing.Color.Lime;
+            this.labelBtSchluesselverwaltung.Location = new System.Drawing.Point(0, 267);
+            this.labelBtSchluesselverwaltung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtSchluesselverwaltung.Name = "labelBtSchluesselverwaltung";
+            this.labelBtSchluesselverwaltung.Size = new System.Drawing.Size(11, 36);
+            this.labelBtSchluesselverwaltung.TabIndex = 23;
+            this.labelBtSchluesselverwaltung.Visible = false;
+            // 
+            // buttonSchluesselVerwaltung
+            // 
+            this.buttonSchluesselVerwaltung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSchluesselVerwaltung.Location = new System.Drawing.Point(11, 266);
+            this.buttonSchluesselVerwaltung.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSchluesselVerwaltung.Name = "buttonSchluesselVerwaltung";
+            this.buttonSchluesselVerwaltung.Size = new System.Drawing.Size(210, 38);
+            this.buttonSchluesselVerwaltung.TabIndex = 19;
+            this.buttonSchluesselVerwaltung.Text = "Schlüsselverwaltung";
+            this.buttonSchluesselVerwaltung.UseVisualStyleBackColor = true;
+            // 
+            // labelBtMitgliedschaft
+            // 
+            this.labelBtMitgliedschaft.BackColor = System.Drawing.Color.Lime;
+            this.labelBtMitgliedschaft.Location = new System.Drawing.Point(0, 305);
+            this.labelBtMitgliedschaft.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtMitgliedschaft.Name = "labelBtMitgliedschaft";
+            this.labelBtMitgliedschaft.Size = new System.Drawing.Size(11, 36);
+            this.labelBtMitgliedschaft.TabIndex = 18;
+            this.labelBtMitgliedschaft.Visible = false;
+            // 
+            // labelBtPass
+            // 
+            this.labelBtPass.BackColor = System.Drawing.Color.Lime;
+            this.labelBtPass.Location = new System.Drawing.Point(0, 191);
+            this.labelBtPass.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtPass.Name = "labelBtPass";
+            this.labelBtPass.Size = new System.Drawing.Size(11, 36);
+            this.labelBtPass.TabIndex = 11;
+            this.labelBtPass.Visible = false;
+            // 
+            // labelBtBankverbindung
+            // 
+            this.labelBtBankverbindung.BackColor = System.Drawing.Color.Lime;
+            this.labelBtBankverbindung.Location = new System.Drawing.Point(0, 153);
+            this.labelBtBankverbindung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtBankverbindung.Name = "labelBtBankverbindung";
+            this.labelBtBankverbindung.Size = new System.Drawing.Size(11, 36);
+            this.labelBtBankverbindung.TabIndex = 9;
+            this.labelBtBankverbindung.Visible = false;
+            // 
+            // labelBtAltersgruppe
+            // 
+            this.labelBtAltersgruppe.BackColor = System.Drawing.Color.Lime;
+            this.labelBtAltersgruppe.Location = new System.Drawing.Point(0, 77);
+            this.labelBtAltersgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtAltersgruppe.Name = "labelBtAltersgruppe";
+            this.labelBtAltersgruppe.Size = new System.Drawing.Size(11, 36);
+            this.labelBtAltersgruppe.TabIndex = 5;
+            this.labelBtAltersgruppe.Visible = false;
+            // 
+            // buttonAltersgruppe
+            // 
+            this.buttonAltersgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAltersgruppe.Location = new System.Drawing.Point(11, 76);
+            this.buttonAltersgruppe.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAltersgruppe.Name = "buttonAltersgruppe";
+            this.buttonAltersgruppe.Size = new System.Drawing.Size(210, 38);
+            this.buttonAltersgruppe.TabIndex = 2;
+            this.buttonAltersgruppe.Text = "Altersgruppe";
+            this.buttonAltersgruppe.UseVisualStyleBackColor = true;
+            this.buttonAltersgruppe.Click += new System.EventHandler(this.buttonAltersgruppe_Click);
+            // 
+            // buttonTitel
+            // 
+            this.buttonTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTitel.Location = new System.Drawing.Point(11, 38);
+            this.buttonTitel.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonTitel.Name = "buttonTitel";
+            this.buttonTitel.Size = new System.Drawing.Size(210, 38);
+            this.buttonTitel.TabIndex = 0;
+            this.buttonTitel.Text = "Titel";
+            this.buttonTitel.UseVisualStyleBackColor = true;
+            this.buttonTitel.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // labelBtTitel
+            // 
+            this.labelBtTitel.BackColor = System.Drawing.Color.Lime;
+            this.labelBtTitel.Location = new System.Drawing.Point(0, 39);
+            this.labelBtTitel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtTitel.Name = "labelBtTitel";
+            this.labelBtTitel.Size = new System.Drawing.Size(11, 36);
+            this.labelBtTitel.TabIndex = 3;
+            this.labelBtTitel.Visible = false;
+            // 
+            // labelBtKontakt
+            // 
+            this.labelBtKontakt.BackColor = System.Drawing.Color.Lime;
+            this.labelBtKontakt.Location = new System.Drawing.Point(0, 1);
+            this.labelBtKontakt.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtKontakt.Name = "labelBtKontakt";
+            this.labelBtKontakt.Size = new System.Drawing.Size(11, 36);
+            this.labelBtKontakt.TabIndex = 4;
+            this.labelBtKontakt.Visible = false;
+            // 
+            // buttonKontakt
+            // 
+            this.buttonKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKontakt.Location = new System.Drawing.Point(11, 0);
+            this.buttonKontakt.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonKontakt.Name = "buttonKontakt";
+            this.buttonKontakt.Size = new System.Drawing.Size(210, 38);
+            this.buttonKontakt.TabIndex = 1;
+            this.buttonKontakt.Text = "Kontakt";
+            this.buttonKontakt.UseVisualStyleBackColor = true;
+            this.buttonKontakt.Click += new System.EventHandler(this.buttonKontakt_Click);
+            // 
+            // buttonSozialgruppe
+            // 
+            this.buttonSozialgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSozialgruppe.Location = new System.Drawing.Point(11, 114);
+            this.buttonSozialgruppe.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSozialgruppe.Name = "buttonSozialgruppe";
+            this.buttonSozialgruppe.Size = new System.Drawing.Size(210, 38);
+            this.buttonSozialgruppe.TabIndex = 6;
+            this.buttonSozialgruppe.Text = "Sozialgruppe";
+            this.buttonSozialgruppe.UseVisualStyleBackColor = true;
+            this.buttonSozialgruppe.Click += new System.EventHandler(this.buttonSozialgruppe_Click);
+            // 
+            // labelBtSozialgruppe
+            // 
+            this.labelBtSozialgruppe.BackColor = System.Drawing.Color.Lime;
+            this.labelBtSozialgruppe.Location = new System.Drawing.Point(0, 115);
+            this.labelBtSozialgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtSozialgruppe.Name = "labelBtSozialgruppe";
+            this.labelBtSozialgruppe.Size = new System.Drawing.Size(11, 36);
+            this.labelBtSozialgruppe.TabIndex = 7;
+            this.labelBtSozialgruppe.Visible = false;
+            // 
+            // buttonBankverbindung
+            // 
+            this.buttonBankverbindung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBankverbindung.Location = new System.Drawing.Point(11, 152);
+            this.buttonBankverbindung.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonBankverbindung.Name = "buttonBankverbindung";
+            this.buttonBankverbindung.Size = new System.Drawing.Size(210, 38);
+            this.buttonBankverbindung.TabIndex = 8;
+            this.buttonBankverbindung.Text = "Bankverbindung";
+            this.buttonBankverbindung.UseVisualStyleBackColor = true;
+            this.buttonBankverbindung.Click += new System.EventHandler(this.buttonBankverbindung_Click);
+            // 
+            // buttonPass
+            // 
+            this.buttonPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPass.Location = new System.Drawing.Point(11, 190);
+            this.buttonPass.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPass.Name = "buttonPass";
+            this.buttonPass.Size = new System.Drawing.Size(210, 38);
+            this.buttonPass.TabIndex = 10;
+            this.buttonPass.Text = "Pass";
+            this.buttonPass.UseVisualStyleBackColor = true;
+            this.buttonPass.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // labelBtSchluessel
+            // 
+            this.labelBtSchluessel.BackColor = System.Drawing.Color.Lime;
+            this.labelBtSchluessel.Location = new System.Drawing.Point(0, 229);
+            this.labelBtSchluessel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtSchluessel.Name = "labelBtSchluessel";
+            this.labelBtSchluessel.Size = new System.Drawing.Size(11, 36);
+            this.labelBtSchluessel.TabIndex = 13;
+            this.labelBtSchluessel.Visible = false;
+            // 
+            // buttonSchluessel
+            // 
+            this.buttonSchluessel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSchluessel.Location = new System.Drawing.Point(11, 228);
+            this.buttonSchluessel.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSchluessel.Name = "buttonSchluessel";
+            this.buttonSchluessel.Size = new System.Drawing.Size(210, 38);
+            this.buttonSchluessel.TabIndex = 15;
+            this.buttonSchluessel.Text = "Schlüssel";
+            this.buttonSchluessel.UseVisualStyleBackColor = true;
+            this.buttonSchluessel.Click += new System.EventHandler(this.buttonSchluessel_Click);
+            // 
+            // buttonMitgliedschaft
+            // 
+            this.buttonMitgliedschaft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMitgliedschaft.Location = new System.Drawing.Point(11, 304);
+            this.buttonMitgliedschaft.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonMitgliedschaft.Name = "buttonMitgliedschaft";
+            this.buttonMitgliedschaft.Size = new System.Drawing.Size(210, 38);
+            this.buttonMitgliedschaft.TabIndex = 17;
+            this.buttonMitgliedschaft.Text = "Mitgliedschaft";
+            this.buttonMitgliedschaft.UseVisualStyleBackColor = true;
+            this.buttonMitgliedschaft.Click += new System.EventHandler(this.buttonMitgliedschaft_Click);
+            // 
+            // labelBtGutschein
+            // 
+            this.labelBtGutschein.BackColor = System.Drawing.Color.Lime;
+            this.labelBtGutschein.Location = new System.Drawing.Point(0, 343);
+            this.labelBtGutschein.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtGutschein.Name = "labelBtGutschein";
+            this.labelBtGutschein.Size = new System.Drawing.Size(11, 39);
+            this.labelBtGutschein.TabIndex = 12;
+            this.labelBtGutschein.Visible = false;
+            // 
+            // buttonGutschein
+            // 
+            this.buttonGutschein.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGutschein.Location = new System.Drawing.Point(11, 342);
+            this.buttonGutschein.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonGutschein.Name = "buttonGutschein";
+            this.buttonGutschein.Size = new System.Drawing.Size(210, 41);
+            this.buttonGutschein.TabIndex = 16;
+            this.buttonGutschein.Text = "Gutschein";
+            this.buttonGutschein.UseVisualStyleBackColor = true;
+            this.buttonGutschein.Click += new System.EventHandler(this.buttonGutschein_Click);
+            // 
+            // listViewKontakt
+            // 
+            this.listViewKontakt.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader65,
+            this.columnHeader66,
+            this.columnHeader67,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14});
+            this.listViewKontakt.ContextMenuStrip = this.contextMenuStripKontakt;
+            this.listViewKontakt.Location = new System.Drawing.Point(247, 223);
+            this.listViewKontakt.Name = "listViewKontakt";
+            this.listViewKontakt.Size = new System.Drawing.Size(1609, 414);
+            this.listViewKontakt.TabIndex = 3;
+            this.listViewKontakt.UseCompatibleStateImageBehavior = false;
+            this.listViewKontakt.View = System.Windows.Forms.View.Details;
+            this.listViewKontakt.Visible = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 30;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Titel";
+            this.columnHeader2.Width = 30;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Vorname";
+            this.columnHeader3.Width = 160;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Nachname";
+            this.columnHeader4.Width = 190;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "SVNr";
+            this.columnHeader5.Width = 90;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Geschlecht";
+            this.columnHeader6.Width = 90;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Familienstand";
+            this.columnHeader7.Width = 100;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "E-Mail";
+            this.columnHeader9.Width = 170;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Telefonnummer";
+            this.columnHeader10.Width = 160;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Altersgruppe";
+            this.columnHeader12.Width = 30;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Sozialgruppe";
+            this.columnHeader13.Width = 30;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Staatsbuergerschaft";
+            this.columnHeader14.Width = 30;
+            // 
+            // contextMenuStripKontakt
+            // 
+            this.contextMenuStripKontakt.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripKontakt.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem});
+            this.contextMenuStripKontakt.Name = "contextMenuStripTitel";
+            this.contextMenuStripKontakt.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripKontakt.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripKontakt_Opening);
+            // 
+            // bearbeitenToolStripMenuItem
+            // 
+            this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1693, 674);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(111, 60);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // tableLayoutPanelOberKategorien
+            // 
+            this.tableLayoutPanelOberKategorien.ColumnCount = 3;
+            this.tableLayoutPanelOberKategorien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanelOberKategorien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanelOberKategorien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanelOberKategorien.Controls.Add(this.labelBtFinanz, 2, 1);
+            this.tableLayoutPanelOberKategorien.Controls.Add(this.labelBtKursTermin, 1, 1);
+            this.tableLayoutPanelOberKategorien.Controls.Add(this.buttonFinanz, 2, 0);
+            this.tableLayoutPanelOberKategorien.Controls.Add(this.buttonStammdaten, 0, 0);
+            this.tableLayoutPanelOberKategorien.Controls.Add(this.buttonKursTermin, 1, 0);
+            this.tableLayoutPanelOberKategorien.Controls.Add(this.labelBtStammdaten, 0, 1);
+            this.tableLayoutPanelOberKategorien.Location = new System.Drawing.Point(242, 118);
+            this.tableLayoutPanelOberKategorien.Name = "tableLayoutPanelOberKategorien";
+            this.tableLayoutPanelOberKategorien.RowCount = 2;
+            this.tableLayoutPanelOberKategorien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelOberKategorien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanelOberKategorien.Size = new System.Drawing.Size(1614, 81);
+            this.tableLayoutPanelOberKategorien.TabIndex = 4;
+            // 
+            // labelBtFinanz
+            // 
+            this.labelBtFinanz.BackColor = System.Drawing.Color.Lime;
+            this.labelBtFinanz.Location = new System.Drawing.Point(1077, 73);
+            this.labelBtFinanz.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.labelBtFinanz.Name = "labelBtFinanz";
+            this.labelBtFinanz.Size = new System.Drawing.Size(536, 8);
+            this.labelBtFinanz.TabIndex = 5;
+            this.labelBtFinanz.Visible = false;
+            // 
+            // labelBtKursTermin
+            // 
+            this.labelBtKursTermin.BackColor = System.Drawing.Color.Lime;
+            this.labelBtKursTermin.Location = new System.Drawing.Point(539, 73);
+            this.labelBtKursTermin.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.labelBtKursTermin.Name = "labelBtKursTermin";
+            this.labelBtKursTermin.Size = new System.Drawing.Size(535, 8);
+            this.labelBtKursTermin.TabIndex = 4;
+            this.labelBtKursTermin.Visible = false;
+            // 
+            // buttonFinanz
+            // 
+            this.buttonFinanz.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFinanz.Location = new System.Drawing.Point(1076, 0);
+            this.buttonFinanz.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonFinanz.Name = "buttonFinanz";
+            this.buttonFinanz.Size = new System.Drawing.Size(538, 73);
+            this.buttonFinanz.TabIndex = 2;
+            this.buttonFinanz.Text = "Finanz";
+            this.buttonFinanz.UseVisualStyleBackColor = true;
+            this.buttonFinanz.Click += new System.EventHandler(this.buttonKassabuch_Click);
+            // 
+            // buttonStammdaten
+            // 
+            this.buttonStammdaten.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStammdaten.Location = new System.Drawing.Point(0, 0);
+            this.buttonStammdaten.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonStammdaten.Name = "buttonStammdaten";
+            this.buttonStammdaten.Size = new System.Drawing.Size(537, 73);
+            this.buttonStammdaten.TabIndex = 0;
+            this.buttonStammdaten.Text = "Stammdaten";
+            this.buttonStammdaten.UseVisualStyleBackColor = true;
+            this.buttonStammdaten.Click += new System.EventHandler(this.buttonStammdaten_Click_1);
+            // 
+            // buttonKursTermin
+            // 
+            this.buttonKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKursTermin.Location = new System.Drawing.Point(538, 0);
+            this.buttonKursTermin.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonKursTermin.Name = "buttonKursTermin";
+            this.buttonKursTermin.Size = new System.Drawing.Size(537, 73);
+            this.buttonKursTermin.TabIndex = 1;
+            this.buttonKursTermin.Text = "Kurse und Termine";
+            this.buttonKursTermin.UseVisualStyleBackColor = true;
+            this.buttonKursTermin.Click += new System.EventHandler(this.buttonKursTermin_Click);
+            // 
+            // labelBtStammdaten
+            // 
+            this.labelBtStammdaten.BackColor = System.Drawing.Color.Lime;
+            this.labelBtStammdaten.Location = new System.Drawing.Point(1, 73);
+            this.labelBtStammdaten.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.labelBtStammdaten.Name = "labelBtStammdaten";
+            this.labelBtStammdaten.Size = new System.Drawing.Size(535, 8);
+            this.labelBtStammdaten.TabIndex = 3;
+            this.labelBtStammdaten.Visible = false;
+            // 
+            // buttonHinzufügen
+            // 
+            this.buttonHinzufügen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHinzufügen.Location = new System.Drawing.Point(247, 655);
+            this.buttonHinzufügen.Name = "buttonHinzufügen";
+            this.buttonHinzufügen.Size = new System.Drawing.Size(269, 63);
+            this.buttonHinzufügen.TabIndex = 5;
+            this.buttonHinzufügen.Text = "anlegen";
+            this.buttonHinzufügen.UseVisualStyleBackColor = true;
+            this.buttonHinzufügen.Visible = false;
+            this.buttonHinzufügen.Click += new System.EventHandler(this.buttonHinzufügen_Click);
+            // 
+            // buttonBearbeiten
+            // 
+            this.buttonBearbeiten.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBearbeiten.Location = new System.Drawing.Point(522, 655);
+            this.buttonBearbeiten.Name = "buttonBearbeiten";
+            this.buttonBearbeiten.Size = new System.Drawing.Size(269, 63);
+            this.buttonBearbeiten.TabIndex = 6;
+            this.buttonBearbeiten.Text = "bearbeiten";
+            this.buttonBearbeiten.UseVisualStyleBackColor = true;
+            this.buttonBearbeiten.Visible = false;
+            this.buttonBearbeiten.Click += new System.EventHandler(this.buttonBearbeiten_Click);
+            // 
+            // listViewAltersgruppe
+            // 
+            this.listViewAltersgruppe.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader15,
+            this.columnHeader16});
+            this.listViewAltersgruppe.ContextMenuStrip = this.contextMenuStripAltersgruppe;
+            this.listViewAltersgruppe.Location = new System.Drawing.Point(247, 223);
+            this.listViewAltersgruppe.Name = "listViewAltersgruppe";
+            this.listViewAltersgruppe.Size = new System.Drawing.Size(592, 317);
+            this.listViewAltersgruppe.TabIndex = 7;
+            this.listViewAltersgruppe.UseCompatibleStateImageBehavior = false;
+            this.listViewAltersgruppe.View = System.Windows.Forms.View.Details;
+            this.listViewAltersgruppe.Visible = false;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "ID";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Bezeichnung";
+            this.columnHeader16.Width = 300;
+            // 
+            // contextMenuStripAltersgruppe
+            // 
+            this.contextMenuStripAltersgruppe.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripAltersgruppe.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem2});
+            this.contextMenuStripAltersgruppe.Name = "contextMenuStripTitel";
+            this.contextMenuStripAltersgruppe.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripAltersgruppe.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripAltersgruppe_Opening);
+            // 
+            // bearbeitenToolStripMenuItem2
+            // 
+            this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
+            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem2.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
+            // 
+            // listViewTitel
+            // 
+            this.listViewTitel.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader17,
+            this.columnHeader18,
+            this.columnHeader19});
+            this.listViewTitel.ContextMenuStrip = this.contextMenuStripTitel;
+            this.listViewTitel.Location = new System.Drawing.Point(247, 223);
+            this.listViewTitel.Name = "listViewTitel";
+            this.listViewTitel.Size = new System.Drawing.Size(284, 168);
+            this.listViewTitel.TabIndex = 8;
+            this.listViewTitel.UseCompatibleStateImageBehavior = false;
+            this.listViewTitel.View = System.Windows.Forms.View.Details;
+            this.listViewTitel.Visible = false;
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "ID";
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Titel";
+            this.columnHeader18.Width = 120;
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Vorgestellt";
+            this.columnHeader19.Width = 90;
+            // 
+            // contextMenuStripTitel
+            // 
+            this.contextMenuStripTitel.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripTitel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem1});
+            this.contextMenuStripTitel.Name = "contextMenuStripTitel";
+            this.contextMenuStripTitel.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripTitel.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTitel_Opening);
+            // 
+            // bearbeitenToolStripMenuItem1
+            // 
+            this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem1.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
+            // 
+            // listViewSozialgruppe
+            // 
+            this.listViewSozialgruppe.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader20,
+            this.columnHeader21});
+            this.listViewSozialgruppe.ContextMenuStrip = this.contextMenuStripSozialgruppe;
+            this.listViewSozialgruppe.Location = new System.Drawing.Point(247, 223);
+            this.listViewSozialgruppe.Name = "listViewSozialgruppe";
+            this.listViewSozialgruppe.Size = new System.Drawing.Size(592, 168);
+            this.listViewSozialgruppe.TabIndex = 9;
+            this.listViewSozialgruppe.UseCompatibleStateImageBehavior = false;
+            this.listViewSozialgruppe.View = System.Windows.Forms.View.Details;
+            this.listViewSozialgruppe.Visible = false;
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "ID";
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Bezeichnung";
+            this.columnHeader21.Width = 260;
+            // 
+            // contextMenuStripSozialgruppe
+            // 
+            this.contextMenuStripSozialgruppe.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripSozialgruppe.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem3});
+            this.contextMenuStripSozialgruppe.Name = "contextMenuStripTitel";
+            this.contextMenuStripSozialgruppe.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripSozialgruppe.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSozialgruppe_Opening);
+            // 
+            // bearbeitenToolStripMenuItem3
+            // 
+            this.bearbeitenToolStripMenuItem3.Name = "bearbeitenToolStripMenuItem3";
+            this.bearbeitenToolStripMenuItem3.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem3.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem3.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem3_Click);
+            // 
+            // tableLayoutPanelKursTermin
+            // 
+            this.tableLayoutPanelKursTermin.ColumnCount = 2;
+            this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtTermin, 0, 2);
+            this.tableLayoutPanelKursTermin.Controls.Add(this.buttonTermine, 1, 2);
+            this.tableLayoutPanelKursTermin.Controls.Add(this.buttonKurskategorie, 1, 1);
+            this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtKurskategorie, 0, 1);
+            this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtKurs, 0, 0);
+            this.tableLayoutPanelKursTermin.Controls.Add(this.buttonKurs, 1, 0);
+            this.tableLayoutPanelKursTermin.Location = new System.Drawing.Point(9, 191);
+            this.tableLayoutPanelKursTermin.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelKursTermin.Name = "tableLayoutPanelKursTermin";
+            this.tableLayoutPanelKursTermin.RowCount = 6;
+            this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanelKursTermin.Size = new System.Drawing.Size(221, 356);
+            this.tableLayoutPanelKursTermin.TabIndex = 10;
+            this.tableLayoutPanelKursTermin.Visible = false;
+            // 
+            // labelBtTermin
+            // 
+            this.labelBtTermin.BackColor = System.Drawing.Color.Lime;
+            this.labelBtTermin.Location = new System.Drawing.Point(0, 119);
+            this.labelBtTermin.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtTermin.Name = "labelBtTermin";
+            this.labelBtTermin.Size = new System.Drawing.Size(11, 57);
+            this.labelBtTermin.TabIndex = 5;
+            this.labelBtTermin.Visible = false;
+            // 
+            // buttonTermine
+            // 
+            this.buttonTermine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTermine.Location = new System.Drawing.Point(11, 118);
+            this.buttonTermine.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonTermine.Name = "buttonTermine";
+            this.buttonTermine.Size = new System.Drawing.Size(210, 59);
+            this.buttonTermine.TabIndex = 2;
+            this.buttonTermine.Text = "Termine";
+            this.buttonTermine.UseVisualStyleBackColor = true;
+            // 
+            // buttonKurskategorie
+            // 
+            this.buttonKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKurskategorie.Location = new System.Drawing.Point(11, 59);
+            this.buttonKurskategorie.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonKurskategorie.Name = "buttonKurskategorie";
+            this.buttonKurskategorie.Size = new System.Drawing.Size(210, 59);
+            this.buttonKurskategorie.TabIndex = 0;
+            this.buttonKurskategorie.Text = "Kurskategorie";
+            this.buttonKurskategorie.UseVisualStyleBackColor = true;
+            this.buttonKurskategorie.Click += new System.EventHandler(this.buttonKurskategorie_Click);
+            // 
+            // labelBtKurskategorie
+            // 
+            this.labelBtKurskategorie.BackColor = System.Drawing.Color.Lime;
+            this.labelBtKurskategorie.Location = new System.Drawing.Point(0, 60);
+            this.labelBtKurskategorie.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtKurskategorie.Name = "labelBtKurskategorie";
+            this.labelBtKurskategorie.Size = new System.Drawing.Size(11, 57);
+            this.labelBtKurskategorie.TabIndex = 3;
+            this.labelBtKurskategorie.Visible = false;
+            // 
+            // labelBtKurs
+            // 
+            this.labelBtKurs.BackColor = System.Drawing.Color.Lime;
+            this.labelBtKurs.Location = new System.Drawing.Point(0, 1);
+            this.labelBtKurs.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtKurs.Name = "labelBtKurs";
+            this.labelBtKurs.Size = new System.Drawing.Size(11, 57);
+            this.labelBtKurs.TabIndex = 4;
+            this.labelBtKurs.Visible = false;
+            // 
+            // buttonKurs
+            // 
+            this.buttonKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKurs.Location = new System.Drawing.Point(11, 0);
+            this.buttonKurs.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonKurs.Name = "buttonKurs";
+            this.buttonKurs.Size = new System.Drawing.Size(210, 59);
+            this.buttonKurs.TabIndex = 1;
+            this.buttonKurs.Text = "Kurs";
+            this.buttonKurs.UseVisualStyleBackColor = true;
+            this.buttonKurs.Click += new System.EventHandler(this.buttonKurs_Click);
+            // 
+            // listViewKurs
+            // 
+            this.listViewKurs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader22,
+            this.columnHeader23,
+            this.columnHeader24,
+            this.columnHeader25,
+            this.columnHeader26,
+            this.columnHeader27,
+            this.columnHeader28,
+            this.columnHeader29,
+            this.columnHeader30,
+            this.columnHeader31,
+            this.columnHeader32,
+            this.columnHeader33,
+            this.columnHeader34,
+            this.columnHeader35,
+            this.columnHeader36,
+            this.columnHeader37,
+            this.columnHeader38,
+            this.columnHeader39,
+            this.columnHeader40});
+            this.listViewKurs.Location = new System.Drawing.Point(247, 223);
+            this.listViewKurs.Name = "listViewKurs";
+            this.listViewKurs.Size = new System.Drawing.Size(1528, 280);
+            this.listViewKurs.TabIndex = 11;
+            this.listViewKurs.UseCompatibleStateImageBehavior = false;
+            this.listViewKurs.View = System.Windows.Forms.View.Details;
+            this.listViewKurs.Visible = false;
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "KursID";
+            // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "Bezeichnung";
+            // 
+            // columnHeader24
+            // 
+            this.columnHeader24.Text = "Preis";
+            // 
+            // columnHeader25
+            // 
+            this.columnHeader25.Text = "minTeilnehmer";
+            // 
+            // columnHeader26
+            // 
+            this.columnHeader26.Text = "maxTeilnehmer";
+            // 
+            // columnHeader27
+            // 
+            this.columnHeader27.Text = "AnzEinheiten";
+            // 
+            // columnHeader28
+            // 
+            this.columnHeader28.Text = "Verbindlichkeit";
+            // 
+            // columnHeader29
+            // 
+            this.columnHeader29.Text = "Förderung";
+            // 
+            // columnHeader30
+            // 
+            this.columnHeader30.Text = "Status";
+            // 
+            // columnHeader31
+            // 
+            this.columnHeader31.Text = "Beschreibung";
+            // 
+            // columnHeader32
+            // 
+            this.columnHeader32.Text = "ZeitVon";
+            // 
+            // columnHeader33
+            // 
+            this.columnHeader33.Text = "ZeitBis";
+            // 
+            // columnHeader34
+            // 
+            this.columnHeader34.Text = "DatumVon";
+            // 
+            // columnHeader35
+            // 
+            this.columnHeader35.Text = "DatumBis";
+            // 
+            // columnHeader36
+            // 
+            this.columnHeader36.Text = "Seminarnummer";
+            // 
+            // columnHeader37
+            // 
+            this.columnHeader37.Text = "Kurskategorie";
+            // 
+            // columnHeader38
+            // 
+            this.columnHeader38.Text = "Kursort";
+            // 
+            // columnHeader39
+            // 
+            this.columnHeader39.Text = "Anmeldeschluss";
+            // 
+            // columnHeader40
+            // 
+            this.columnHeader40.Text = "Anmerkung";
+            // 
+            // listViewKurskategorie
+            // 
+            this.listViewKurskategorie.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader41,
+            this.columnHeader42});
+            this.listViewKurskategorie.ContextMenuStrip = this.contextMenuStripKurskategorie;
+            this.listViewKurskategorie.Location = new System.Drawing.Point(247, 223);
+            this.listViewKurskategorie.Name = "listViewKurskategorie";
+            this.listViewKurskategorie.Size = new System.Drawing.Size(432, 247);
+            this.listViewKurskategorie.TabIndex = 12;
+            this.listViewKurskategorie.UseCompatibleStateImageBehavior = false;
+            this.listViewKurskategorie.View = System.Windows.Forms.View.Details;
+            this.listViewKurskategorie.Visible = false;
+            // 
+            // columnHeader41
+            // 
+            this.columnHeader41.Text = "ID";
+            // 
+            // columnHeader42
+            // 
+            this.columnHeader42.Text = "Bezeichnung";
+            this.columnHeader42.Width = 176;
+            // 
+            // contextMenuStripKurskategorie
+            // 
+            this.contextMenuStripKurskategorie.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripKurskategorie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem4});
+            this.contextMenuStripKurskategorie.Name = "contextMenuStripKurskategorie";
+            this.contextMenuStripKurskategorie.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripKurskategorie.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripKurskategorie_Opening);
+            // 
+            // bearbeitenToolStripMenuItem4
+            // 
+            this.bearbeitenToolStripMenuItem4.Name = "bearbeitenToolStripMenuItem4";
+            this.bearbeitenToolStripMenuItem4.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem4.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem4.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem4_Click);
+            // 
+            // listViewBankverbindung
+            // 
+            this.listViewBankverbindung.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader43,
+            this.columnHeader44,
+            this.columnHeader45,
+            this.columnHeader46});
+            this.listViewBankverbindung.ContextMenuStrip = this.contextMenuStripBankverbindung;
+            this.listViewBankverbindung.Location = new System.Drawing.Point(247, 223);
+            this.listViewBankverbindung.Name = "listViewBankverbindung";
+            this.listViewBankverbindung.Size = new System.Drawing.Size(709, 217);
+            this.listViewBankverbindung.TabIndex = 14;
+            this.listViewBankverbindung.UseCompatibleStateImageBehavior = false;
+            this.listViewBankverbindung.View = System.Windows.Forms.View.Details;
+            this.listViewBankverbindung.Visible = false;
+            // 
+            // columnHeader43
+            // 
+            this.columnHeader43.Text = "ID";
+            // 
+            // columnHeader44
+            // 
+            this.columnHeader44.Text = "IBAN";
+            // 
+            // columnHeader45
+            // 
+            this.columnHeader45.Text = "Kontoinhaber";
+            // 
+            // columnHeader46
+            // 
+            this.columnHeader46.Text = "KontaktID";
+            this.columnHeader46.Width = 93;
+            // 
+            // contextMenuStripBankverbindung
+            // 
+            this.contextMenuStripBankverbindung.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripBankverbindung.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ändernToolStripMenuItem});
+            this.contextMenuStripBankverbindung.Name = "contextMenuStripBankverbindung";
+            this.contextMenuStripBankverbindung.Size = new System.Drawing.Size(151, 28);
+            // 
+            // ändernToolStripMenuItem
+            // 
+            this.ändernToolStripMenuItem.Name = "ändernToolStripMenuItem";
+            this.ändernToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
+            this.ändernToolStripMenuItem.Text = "bearbeiten";
+            this.ändernToolStripMenuItem.Click += new System.EventHandler(this.ändernToolStripMenuItem_Click);
+            // 
+            // listViewPass
+            // 
+            this.listViewPass.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader47,
+            this.columnHeader48,
+            this.columnHeader49,
+            this.columnHeader50,
+            this.columnHeader51});
+            this.listViewPass.ContextMenuStrip = this.contextMenuStripPass;
+            this.listViewPass.Location = new System.Drawing.Point(247, 223);
+            this.listViewPass.Name = "listViewPass";
+            this.listViewPass.Size = new System.Drawing.Size(709, 197);
+            this.listViewPass.TabIndex = 16;
+            this.listViewPass.UseCompatibleStateImageBehavior = false;
+            this.listViewPass.View = System.Windows.Forms.View.Details;
+            this.listViewPass.Visible = false;
+            // 
+            // columnHeader47
+            // 
+            this.columnHeader47.Text = "ID";
+            // 
+            // columnHeader48
+            // 
+            this.columnHeader48.Text = "KontaktID";
+            this.columnHeader48.Width = 99;
+            // 
+            // columnHeader49
+            // 
+            this.columnHeader49.Text = "PassNr";
+            this.columnHeader49.Width = 111;
+            // 
+            // columnHeader50
+            // 
+            this.columnHeader50.Text = "PassBeginn";
+            this.columnHeader50.Width = 95;
+            // 
+            // columnHeader51
+            // 
+            this.columnHeader51.Text = "PassEnde";
+            this.columnHeader51.Width = 114;
+            // 
+            // contextMenuStripPass
+            // 
+            this.contextMenuStripPass.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripPass.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem5});
+            this.contextMenuStripPass.Name = "contextMenuStripPass";
+            this.contextMenuStripPass.Size = new System.Drawing.Size(151, 28);
+            // 
+            // bearbeitenToolStripMenuItem5
+            // 
+            this.bearbeitenToolStripMenuItem5.Name = "bearbeitenToolStripMenuItem5";
+            this.bearbeitenToolStripMenuItem5.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem5.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem5.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem5_Click);
+            // 
+            // listViewSchluessel
+            // 
+            this.listViewSchluessel.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader52,
+            this.columnHeader53,
+            this.columnHeader54,
+            this.columnHeader55,
+            this.columnHeader56,
+            this.columnHeader57});
+            this.listViewSchluessel.ContextMenuStrip = this.contextMenuStripGutschein;
+            this.listViewSchluessel.Location = new System.Drawing.Point(247, 223);
+            this.listViewSchluessel.Name = "listViewSchluessel";
+            this.listViewSchluessel.Size = new System.Drawing.Size(682, 317);
+            this.listViewSchluessel.TabIndex = 17;
+            this.listViewSchluessel.UseCompatibleStateImageBehavior = false;
+            this.listViewSchluessel.View = System.Windows.Forms.View.Details;
+            this.listViewSchluessel.Visible = false;
+            // 
+            // columnHeader52
+            // 
+            this.columnHeader52.Text = "ID";
+            // 
+            // columnHeader53
+            // 
+            this.columnHeader53.Text = "Bezeichnung";
+            // 
+            // columnHeader54
+            // 
+            this.columnHeader54.Text = "Code";
+            // 
+            // columnHeader55
+            // 
+            this.columnHeader55.Text = "Platz";
+            // 
+            // columnHeader56
+            // 
+            this.columnHeader56.Text = "Anmerkung";
+            // 
+            // columnHeader57
+            // 
+            this.columnHeader57.Text = "Aktiv";
+            // 
+            // contextMenuStripGutschein
+            // 
+            this.contextMenuStripGutschein.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripGutschein.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem7});
+            this.contextMenuStripGutschein.Name = "contextMenuStripGutschein";
+            this.contextMenuStripGutschein.Size = new System.Drawing.Size(151, 28);
+            // 
+            // bearbeitenToolStripMenuItem7
+            // 
+            this.bearbeitenToolStripMenuItem7.Name = "bearbeitenToolStripMenuItem7";
+            this.bearbeitenToolStripMenuItem7.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem7.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem7.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem7_Click);
+            // 
+            // listViewGutschein
+            // 
+            this.listViewGutschein.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader58,
+            this.columnHeader59,
+            this.columnHeader60});
+            this.listViewGutschein.ContextMenuStrip = this.contextMenuStripGutschein;
+            this.listViewGutschein.Location = new System.Drawing.Point(247, 223);
+            this.listViewGutschein.Name = "listViewGutschein";
+            this.listViewGutschein.Size = new System.Drawing.Size(296, 245);
+            this.listViewGutschein.TabIndex = 18;
+            this.listViewGutschein.UseCompatibleStateImageBehavior = false;
+            this.listViewGutschein.View = System.Windows.Forms.View.Details;
+            this.listViewGutschein.Visible = false;
+            // 
+            // columnHeader58
+            // 
+            this.columnHeader58.Text = "ID";
+            // 
+            // columnHeader59
+            // 
+            this.columnHeader59.Text = "Bezeichnung";
+            // 
+            // columnHeader60
+            // 
+            this.columnHeader60.Text = "Betrag";
+            // 
+            // listViewMitgliedschaft
+            // 
+            this.listViewMitgliedschaft.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader61,
+            this.columnHeader62,
+            this.columnHeader63,
+            this.columnHeader64});
+            this.listViewMitgliedschaft.ContextMenuStrip = this.contextMenuStripMitgliedschaft;
+            this.listViewMitgliedschaft.Location = new System.Drawing.Point(247, 223);
+            this.listViewMitgliedschaft.Name = "listViewMitgliedschaft";
+            this.listViewMitgliedschaft.Size = new System.Drawing.Size(653, 275);
+            this.listViewMitgliedschaft.TabIndex = 19;
+            this.listViewMitgliedschaft.UseCompatibleStateImageBehavior = false;
+            this.listViewMitgliedschaft.View = System.Windows.Forms.View.Details;
+            this.listViewMitgliedschaft.Visible = false;
+            this.listViewMitgliedschaft.SelectedIndexChanged += new System.EventHandler(this.listViewMitgliedschaft_SelectedIndexChanged);
+            // 
+            // columnHeader61
+            // 
+            this.columnHeader61.Text = "ID";
+            // 
+            // columnHeader62
+            // 
+            this.columnHeader62.Text = "Bezeichnung";
+            this.columnHeader62.Width = 111;
+            // 
+            // columnHeader63
+            // 
+            this.columnHeader63.Text = "Mitgliedschaftsbeitrag";
+            this.columnHeader63.Width = 151;
+            // 
+            // columnHeader64
+            // 
+            this.columnHeader64.Text = "Ermäßigung";
+            this.columnHeader64.Width = 150;
+            // 
+            // contextMenuStripMitgliedschaft
+            // 
+            this.contextMenuStripMitgliedschaft.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripMitgliedschaft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ändernToolStripMenuItem1});
+            this.contextMenuStripMitgliedschaft.Name = "contextMenuStripMitgliedschaft";
+            this.contextMenuStripMitgliedschaft.Size = new System.Drawing.Size(151, 28);
+            // 
+            // ändernToolStripMenuItem1
+            // 
+            this.ändernToolStripMenuItem1.Name = "ändernToolStripMenuItem1";
+            this.ändernToolStripMenuItem1.Size = new System.Drawing.Size(150, 24);
+            this.ändernToolStripMenuItem1.Text = "bearbeiten";
+            this.ändernToolStripMenuItem1.Click += new System.EventHandler(this.ändernToolStripMenuItem1_Click);
+            // 
+            // contextMenuStripSchluessel
+            // 
+            this.contextMenuStripSchluessel.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripSchluessel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bearbeitenToolStripMenuItem6});
+            this.contextMenuStripSchluessel.Name = "contextMenuStripSchluessel";
+            this.contextMenuStripSchluessel.Size = new System.Drawing.Size(151, 28);
+            // 
+            // bearbeitenToolStripMenuItem6
+            // 
+            this.bearbeitenToolStripMenuItem6.Name = "bearbeitenToolStripMenuItem6";
+            this.bearbeitenToolStripMenuItem6.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem6.Text = "bearbeiten";
+            this.bearbeitenToolStripMenuItem6.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem6_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.5F));
+            this.tableLayoutPanel2.Controls.Add(this.labelBtRechnung, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.labelBtKassabuch, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.labelBtKassabuchkonto, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonKassabuchkonto, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonKassabuch, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonRechnung, 1, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 178);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(221, 213);
+            this.tableLayoutPanel2.TabIndex = 23;
+            this.tableLayoutPanel2.Visible = false;
+            // 
+            // labelBtRechnung
+            // 
+            this.labelBtRechnung.BackColor = System.Drawing.Color.Lime;
+            this.labelBtRechnung.Location = new System.Drawing.Point(0, 143);
+            this.labelBtRechnung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtRechnung.Name = "labelBtRechnung";
+            this.labelBtRechnung.Size = new System.Drawing.Size(12, 69);
+            this.labelBtRechnung.TabIndex = 16;
+            this.labelBtRechnung.Visible = false;
+            // 
+            // labelBtKassabuch
+            // 
+            this.labelBtKassabuch.BackColor = System.Drawing.Color.Lime;
+            this.labelBtKassabuch.Location = new System.Drawing.Point(0, 72);
+            this.labelBtKassabuch.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtKassabuch.Name = "labelBtKassabuch";
+            this.labelBtKassabuch.Size = new System.Drawing.Size(12, 68);
+            this.labelBtKassabuch.TabIndex = 13;
+            this.labelBtKassabuch.Visible = false;
+            // 
+            // labelBtKassabuchkonto
+            // 
+            this.labelBtKassabuchkonto.BackColor = System.Drawing.Color.Lime;
+            this.labelBtKassabuchkonto.Location = new System.Drawing.Point(0, 1);
+            this.labelBtKassabuchkonto.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtKassabuchkonto.Name = "labelBtKassabuchkonto";
+            this.labelBtKassabuchkonto.Size = new System.Drawing.Size(12, 68);
+            this.labelBtKassabuchkonto.TabIndex = 12;
+            this.labelBtKassabuchkonto.Visible = false;
+            // 
+            // buttonKassabuchkonto
+            // 
+            this.buttonKassabuchkonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKassabuchkonto.Location = new System.Drawing.Point(12, 0);
+            this.buttonKassabuchkonto.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonKassabuchkonto.Name = "buttonKassabuchkonto";
+            this.buttonKassabuchkonto.Size = new System.Drawing.Size(209, 70);
+            this.buttonKassabuchkonto.TabIndex = 14;
+            this.buttonKassabuchkonto.Text = "Kassabuchkonto";
+            this.buttonKassabuchkonto.UseVisualStyleBackColor = true;
+            // 
+            // buttonKassabuch
+            // 
+            this.buttonKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKassabuch.Location = new System.Drawing.Point(12, 71);
+            this.buttonKassabuch.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonKassabuch.Name = "buttonKassabuch";
+            this.buttonKassabuch.Size = new System.Drawing.Size(209, 70);
+            this.buttonKassabuch.TabIndex = 15;
+            this.buttonKassabuch.Text = "Kassabuch";
+            this.buttonKassabuch.UseVisualStyleBackColor = true;
+            // 
+            // buttonRechnung
+            // 
+            this.buttonRechnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRechnung.Location = new System.Drawing.Point(12, 142);
+            this.buttonRechnung.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonRechnung.Name = "buttonRechnung";
+            this.buttonRechnung.Size = new System.Drawing.Size(209, 71);
+            this.buttonRechnung.TabIndex = 17;
+            this.buttonRechnung.Text = "Rechnung";
+            this.buttonRechnung.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader65
+            // 
+            this.columnHeader65.Text = "Plz";
+            // 
+            // columnHeader66
+            // 
+            this.columnHeader66.Text = "Ort";
+            // 
+            // columnHeader67
+            // 
+            this.columnHeader67.Text = "Straße";
+            // 
+            // FrmHaupt
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Maroon;
+            this.ClientSize = new System.Drawing.Size(1924, 746);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanelKursTermin);
+            this.Controls.Add(this.listViewMitgliedschaft);
+            this.Controls.Add(this.listViewGutschein);
+            this.Controls.Add(this.listViewSchluessel);
+            this.Controls.Add(this.listViewPass);
+            this.Controls.Add(this.listViewBankverbindung);
+            this.Controls.Add(this.listViewKurskategorie);
+            this.Controls.Add(this.listViewKurs);
+            this.Controls.Add(this.listViewSozialgruppe);
+            this.Controls.Add(this.listViewTitel);
+            this.Controls.Add(this.listViewAltersgruppe);
+            this.Controls.Add(this.buttonBearbeiten);
+            this.Controls.Add(this.buttonHinzufügen);
+            this.Controls.Add(this.listViewKontakt);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanelOberKategorien);
+            this.Controls.Add(this.tableLayoutPanelÜberschrift);
+            this.Controls.Add(this.tableLayoutPanelStammdaten);
+            this.Name = "FrmHaupt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Anwendungsprogramm";
+            this.Load += new System.EventHandler(this.frmHaupt_Load);
+            this.tableLayoutPanelÜberschrift.ResumeLayout(false);
+            this.tableLayoutPanelStammdaten.ResumeLayout(false);
+            this.contextMenuStripKontakt.ResumeLayout(false);
+            this.tableLayoutPanelOberKategorien.ResumeLayout(false);
+            this.contextMenuStripAltersgruppe.ResumeLayout(false);
+            this.contextMenuStripTitel.ResumeLayout(false);
+            this.contextMenuStripSozialgruppe.ResumeLayout(false);
+            this.tableLayoutPanelKursTermin.ResumeLayout(false);
+            this.contextMenuStripKurskategorie.ResumeLayout(false);
+            this.contextMenuStripBankverbindung.ResumeLayout(false);
+            this.contextMenuStripPass.ResumeLayout(false);
+            this.contextMenuStripGutschein.ResumeLayout(false);
+            this.contextMenuStripMitgliedschaft.ResumeLayout(false);
+            this.contextMenuStripSchluessel.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelÜberschrift;
+        private System.Windows.Forms.Label labelÜberschrift;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelStammdaten;
+        private System.Windows.Forms.Button buttonTitel;
+        private System.Windows.Forms.Button buttonAltersgruppe;
+        private System.Windows.Forms.Button buttonKontakt;
+        private System.Windows.Forms.ListView listViewKontakt;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelOberKategorien;
+        private System.Windows.Forms.Button buttonFinanz;
+        private System.Windows.Forms.Button buttonKursTermin;
+        private System.Windows.Forms.Button buttonStammdaten;
+        private System.Windows.Forms.Label labelBtStammdaten;
+        private System.Windows.Forms.Label labelBtFinanz;
+        private System.Windows.Forms.Label labelBtKursTermin;
+        private System.Windows.Forms.Label labelBtTitel;
+        private System.Windows.Forms.Label labelBtAltersgruppe;
+        private System.Windows.Forms.Label labelBtKontakt;
+        private System.Windows.Forms.Button buttonHinzufügen;
+        private System.Windows.Forms.Button buttonBearbeiten;
+        private System.Windows.Forms.ListView listViewAltersgruppe;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.Button buttonSozialgruppe;
+        private System.Windows.Forms.Label labelBtSozialgruppe;
+        private System.Windows.Forms.ListView listViewTitel;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ListView listViewSozialgruppe;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.ColumnHeader columnHeader21;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripKontakt;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripAltersgruppe;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripTitel;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripSozialgruppe;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelKursTermin;
+        private System.Windows.Forms.Label labelBtTermin;
+        private System.Windows.Forms.Button buttonTermine;
+        private System.Windows.Forms.Button buttonKurskategorie;
+        private System.Windows.Forms.Label labelBtKurskategorie;
+        private System.Windows.Forms.Label labelBtKurs;
+        private System.Windows.Forms.Button buttonKurs;
+        private System.Windows.Forms.ListView listViewKurs;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
+        private System.Windows.Forms.ColumnHeader columnHeader23;
+        private System.Windows.Forms.ColumnHeader columnHeader24;
+        private System.Windows.Forms.ColumnHeader columnHeader25;
+        private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.Windows.Forms.ColumnHeader columnHeader27;
+        private System.Windows.Forms.ColumnHeader columnHeader28;
+        private System.Windows.Forms.ColumnHeader columnHeader29;
+        private System.Windows.Forms.ColumnHeader columnHeader30;
+        private System.Windows.Forms.ColumnHeader columnHeader31;
+        private System.Windows.Forms.ColumnHeader columnHeader32;
+        private System.Windows.Forms.ColumnHeader columnHeader33;
+        private System.Windows.Forms.ColumnHeader columnHeader34;
+        private System.Windows.Forms.ColumnHeader columnHeader35;
+        private System.Windows.Forms.ColumnHeader columnHeader36;
+        private System.Windows.Forms.ColumnHeader columnHeader37;
+        private System.Windows.Forms.ColumnHeader columnHeader38;
+        private System.Windows.Forms.ColumnHeader columnHeader39;
+        private System.Windows.Forms.ColumnHeader columnHeader40;
+        private System.Windows.Forms.ListView listViewKurskategorie;
+        private System.Windows.Forms.ColumnHeader columnHeader41;
+        private System.Windows.Forms.ColumnHeader columnHeader42;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripKurskategorie;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem4;
+        private System.Windows.Forms.Label labelBtBankverbindung;
+        private System.Windows.Forms.Button buttonBankverbindung;
+        private System.Windows.Forms.ListView listViewBankverbindung;
+        private System.Windows.Forms.ColumnHeader columnHeader43;
+        private System.Windows.Forms.ColumnHeader columnHeader44;
+        private System.Windows.Forms.ColumnHeader columnHeader45;
+        private System.Windows.Forms.ColumnHeader columnHeader46;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripBankverbindung;
+        private System.Windows.Forms.ToolStripMenuItem ändernToolStripMenuItem;
+        private System.Windows.Forms.Button buttonPass;
+        private System.Windows.Forms.Label labelBtPass;
+        private System.Windows.Forms.ListView listViewPass;
+        private System.Windows.Forms.ColumnHeader columnHeader47;
+        private System.Windows.Forms.ColumnHeader columnHeader48;
+        private System.Windows.Forms.ColumnHeader columnHeader49;
+        private System.Windows.Forms.ColumnHeader columnHeader50;
+        private System.Windows.Forms.ColumnHeader columnHeader51;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripPass;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem5;
+        private System.Windows.Forms.Label labelBtSchluessel;
+        private System.Windows.Forms.Label labelBtGutschein;
+        private System.Windows.Forms.Button buttonSchluessel;
+        private System.Windows.Forms.Button buttonGutschein;
+        private System.Windows.Forms.ListView listViewSchluessel;
+        private System.Windows.Forms.ColumnHeader columnHeader52;
+        private System.Windows.Forms.ColumnHeader columnHeader53;
+        private System.Windows.Forms.ColumnHeader columnHeader54;
+        private System.Windows.Forms.ColumnHeader columnHeader55;
+        private System.Windows.Forms.ColumnHeader columnHeader56;
+        private System.Windows.Forms.ColumnHeader columnHeader57;
+        private System.Windows.Forms.ListView listViewGutschein;
+        private System.Windows.Forms.ColumnHeader columnHeader58;
+        private System.Windows.Forms.ColumnHeader columnHeader59;
+        private System.Windows.Forms.ColumnHeader columnHeader60;
+        private System.Windows.Forms.Label labelBtMitgliedschaft;
+        private System.Windows.Forms.Button buttonMitgliedschaft;
+        private System.Windows.Forms.ListView listViewMitgliedschaft;
+        private System.Windows.Forms.ColumnHeader columnHeader61;
+        private System.Windows.Forms.ColumnHeader columnHeader62;
+        private System.Windows.Forms.ColumnHeader columnHeader63;
+        private System.Windows.Forms.ColumnHeader columnHeader64;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripMitgliedschaft;
+        private System.Windows.Forms.ToolStripMenuItem ändernToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripGutschein;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem7;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripSchluessel;
+        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem6;
+        private System.Windows.Forms.Label labelBtSchluesselverwaltung;
+        private System.Windows.Forms.Button buttonSchluesselVerwaltung;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label labelBtKassabuch;
+        private System.Windows.Forms.Label labelBtKassabuchkonto;
+        private System.Windows.Forms.Button buttonKassabuchkonto;
+        private System.Windows.Forms.Button buttonKassabuch;
+        private System.Windows.Forms.Label labelBtRechnung;
+        private System.Windows.Forms.Button buttonRechnung;
+        private System.Windows.Forms.ColumnHeader columnHeader65;
+        private System.Windows.Forms.ColumnHeader columnHeader66;
+        private System.Windows.Forms.ColumnHeader columnHeader67;
+    }
+}
