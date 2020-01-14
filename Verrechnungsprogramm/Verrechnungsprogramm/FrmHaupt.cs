@@ -136,6 +136,11 @@ namespace Verrechnungsprogramm
             listViewMitgliedschaft.Visible = false;
             labelBtMitgliedschaft.Visible = false;
             labelBtSchluesselverwaltung.Visible = false;
+            tableLayoutPanelFinanz.Visible = false;
+            labelBtKassabuch.Visible = false;
+            labelBtKassabuchkonto.Visible = false;
+            labelBtRechnung.Visible = false;
+            listViewKassabuchkonto.Visible = false;
         }
 
         private void buttonKontakt_Click(object sender, EventArgs e)
@@ -272,28 +277,37 @@ namespace Verrechnungsprogramm
             var request = new RestRequest("kontakte", Method.GET);
 
             request.AddHeader("Content-Type", "application/json");
+
+           
             var response = client.Execute<List<Kontakt>>(request);
+
 
             foreach (Kontakt k in response.Data)
             {
-                ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
-                lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
-                lvItem.SubItems.Add(k.Vorname.ToString());
-                lvItem.SubItems.Add(k.Nachname.ToString());
-                lvItem.SubItems.Add(k.SVNr.ToString());
-                lvItem.SubItems.Add(k.Geschlecht.ToString());
-                lvItem.SubItems.Add(k.Familienstand.ToString());
-                lvItem.SubItems.Add(k.Email.ToString());
-                lvItem.SubItems.Add(k.Telefonnummer.ToString());
-                lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
-                lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
-                lvItem.SubItems.Add(k.Strasse.ToString());
-                lvItem.SubItems.Add(k.AltersgruppeID.Bezeichnung.ToString());
-                lvItem.SubItems.Add(k.SozialgruppeID.Bezeichnung.ToString());
-                lvItem.SubItems.Add(k.StaatsbuergerschaftID.Staat.ToString());
+                        ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                        lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                        lvItem.SubItems.Add(k.Vorname.ToString());
+                        lvItem.SubItems.Add(k.Nachname.ToString());
+                        lvItem.SubItems.Add(k.SVNr.ToString());
+                        lvItem.SubItems.Add(k.Geschlecht.ToString());
+                        lvItem.SubItems.Add(k.Familienstand.ToString());
+                        lvItem.SubItems.Add(k.Email.ToString());
+                        lvItem.SubItems.Add(k.Telefonnummer.ToString());
+                        lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                        lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                        lvItem.SubItems.Add(k.Strasse.ToString());
+                        lvItem.SubItems.Add(k.AltersgruppeID.Bezeichnung.ToString());
+                        lvItem.SubItems.Add(k.SozialgruppeID.Bezeichnung.ToString());
+                        lvItem.SubItems.Add(k.StaatsbuergerschaftID.Staat.ToString());
 
-                listViewKontakt.Items.Add(lvItem);
-            }
+                        listViewKontakt.Items.Add(lvItem);
+                    }
+                   
+                
+
+            
+
+
         }
 
         private void buttonStammdaten_Click(object sender, EventArgs e)
@@ -328,6 +342,7 @@ namespace Verrechnungsprogramm
             labelBtStammdaten.Visible = false;
             labelBtKursTermin.Visible = false;
             labelBtFinanz.Visible = true;
+            tableLayoutPanelFinanz.Visible = true;
         }
 
         private void buttonHinzufügen_Click(object sender, EventArgs e)
@@ -874,6 +889,45 @@ namespace Verrechnungsprogramm
         private void bearbeitenToolStripMenuItem7_Click(object sender, EventArgs e)
         {
             gutscheinBearbeiten();
+        }
+
+        private void buttonKassabuchkonto_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Kassabuchkonto";
+            listViewKassabuchkonto.Visible = true;
+            tableLayoutPanelFinanz.Visible = true;
+            labelBtKassabuchkonto.Visible = true;
+            labelBtFinanz.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonBearbeiten.Visible = true;
+            //gutscheinEinlesen();
+        }
+
+        private void buttonKassabuch_Click_1(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Kassabuch";
+            //listViewGutschein.Visible = true;
+            tableLayoutPanelFinanz.Visible = true;
+            labelBtKassabuch.Visible = true;
+            labelBtFinanz.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonBearbeiten.Visible = true;
+            //gutscheinEinlesen();
+        }
+
+        private void buttonRechnung_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Rechnung";
+            //listViewGutschein.Visible = true;
+            tableLayoutPanelFinanz.Visible = true;
+            labelBtRechnung.Visible = true;
+            labelBtFinanz.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonBearbeiten.Visible = true;
+            //gutscheinEinlesen();
         }
     }
 }
