@@ -520,6 +520,36 @@ namespace Verrechnungsprogramm
             sozialgruppeEinlesen();
         }
 
+        private void kontaktBearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            if (listViewKontakt.SelectedItems.Count == 0)
+                return;
+
+            fHinzuBea.panelKontakt.Visible = true;
+
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
+            fHinzuBea.labelID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text;
+            fHinzuBea.comboBoxTitel.Text = listViewKontakt.SelectedItems[0].SubItems[1].Text;
+            fHinzuBea.textBoxVorname.Text = listViewKontakt.SelectedItems[0].SubItems[2].Text;
+            fHinzuBea.textBoxNachname.Text = listViewKontakt.SelectedItems[0].SubItems[3].Text;
+            fHinzuBea.textBoxSVNr.Text = listViewKontakt.SelectedItems[0].SubItems[4].Text;
+            fHinzuBea.comboBoxGeschlecht.Text = listViewKontakt.SelectedItems[0].SubItems[5].Text;
+            fHinzuBea.comboBoxFamilienstand.Text = listViewKontakt.SelectedItems[0].SubItems[6].Text;
+            fHinzuBea.textBoxEMail.Text = listViewKontakt.SelectedItems[0].SubItems[7].Text;
+            fHinzuBea.textBoxTelefonnummer.Text = listViewKontakt.SelectedItems[0].SubItems[8].Text;
+            fHinzuBea.comboBoxKontaktPostleitzahl.Text = listViewKontakt.SelectedItems[0].SubItems[9].Text;
+            fHinzuBea.comboBoxKontaktOrt.Text = listViewKontakt.SelectedItems[0].SubItems[10].Text;
+            fHinzuBea.textBoxKontaktStrasse.Text = listViewKontakt.SelectedItems[0].SubItems[11].Text;
+            fHinzuBea.comboBoxAltersgruppe.Text = listViewKontakt.SelectedItems[0].SubItems[12].Text;
+            fHinzuBea.comboBoxSozialgruppe.Text = listViewKontakt.SelectedItems[0].SubItems[13].Text;
+            fHinzuBea.comboBoxStaatsbuergerschaft.Text = listViewKontakt.SelectedItems[0].SubItems[14].Text;
+            fHinzuBea.ShowDialog();
+            kontakteEinlesen();
+        }
+
         private void passBearbeiten()
         {
             FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
@@ -557,6 +587,8 @@ namespace Verrechnungsprogramm
             fHinzuBea.ShowDialog();
             bankverbindungEinlesen();
         }
+
+
 
         private void schluesselBearbeiten()
         {
@@ -657,7 +689,10 @@ namespace Verrechnungsprogramm
             {
                 mitgliedschaftBearbeiten();
             }
-
+            if (labelÜberschrift.Text.Equals("Kontakt"))
+            {
+                kontaktBearbeiten();
+            }
         }
 
         private void contextMenuStripTitel_Opening(object sender, CancelEventArgs e)

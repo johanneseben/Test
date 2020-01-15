@@ -56,6 +56,7 @@
             this.buttonKontaktAbbrechen = new System.Windows.Forms.Button();
             this.buttonKontaktSpeichern = new System.Windows.Forms.Button();
             this.panelKontakt = new System.Windows.Forms.Panel();
+            this.textBoxKontaktStrasse = new System.Windows.Forms.TextBox();
             this.labelKontaktOrt = new System.Windows.Forms.Label();
             this.labelKontaktStrasse = new System.Windows.Forms.Label();
             this.comboBoxKontaktOrt = new System.Windows.Forms.ComboBox();
@@ -126,6 +127,9 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -176,10 +180,6 @@
             this.labelKontaktSucheNachname = new System.Windows.Forms.Label();
             this.labelKontaktSucheVorname = new System.Windows.Forms.Label();
             this.buttonKontaktSuchen = new System.Windows.Forms.Button();
-            this.textBoxKontaktStrasse = new System.Windows.Forms.TextBox();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelKontakt.SuspendLayout();
             this.panelAltersgruppeSozialgruppeKurskategorie.SuspendLayout();
             this.panelTitel.SuspendLayout();
@@ -508,6 +508,14 @@
             this.panelKontakt.Size = new System.Drawing.Size(665, 775);
             this.panelKontakt.TabIndex = 32;
             this.panelKontakt.Visible = false;
+            // 
+            // textBoxKontaktStrasse
+            // 
+            this.textBoxKontaktStrasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKontaktStrasse.Location = new System.Drawing.Point(288, 483);
+            this.textBoxKontaktStrasse.Name = "textBoxKontaktStrasse";
+            this.textBoxKontaktStrasse.Size = new System.Drawing.Size(298, 38);
+            this.textBoxKontaktStrasse.TabIndex = 37;
             // 
             // labelKontaktOrt
             // 
@@ -1226,6 +1234,18 @@
             this.columnHeader4.Text = "Nachname";
             this.columnHeader4.Width = 190;
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Plz";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Ort";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Straße";
+            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "SVNr";
@@ -1729,31 +1749,12 @@
             this.buttonKontaktSuchen.UseVisualStyleBackColor = true;
             this.buttonKontaktSuchen.Click += new System.EventHandler(this.buttonKontaktSuchen_Click);
             // 
-            // textBoxKontaktStrasse
-            // 
-            this.textBoxKontaktStrasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKontaktStrasse.Location = new System.Drawing.Point(288, 483);
-            this.textBoxKontaktStrasse.Name = "textBoxKontaktStrasse";
-            this.textBoxKontaktStrasse.Size = new System.Drawing.Size(298, 38);
-            this.textBoxKontaktStrasse.TabIndex = 37;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Plz";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Ort";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Straße";
-            // 
             // FrmHinzufügenBearbeiten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1063, 1055);
+            this.Controls.Add(this.panelKontakt);
             this.Controls.Add(this.panelKontaktSuche);
             this.Controls.Add(this.panelSchluessel);
             this.Controls.Add(this.panelMitgliedschaft);
@@ -1765,7 +1766,6 @@
             this.Controls.Add(this.panelAltersgruppeSozialgruppeKurskategorie);
             this.Controls.Add(this.panelGutschein);
             this.Controls.Add(this.panelKurs);
-            this.Controls.Add(this.panelKontakt);
             this.Location = new System.Drawing.Point(250, 20);
             this.Name = "FrmHinzufügenBearbeiten";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
