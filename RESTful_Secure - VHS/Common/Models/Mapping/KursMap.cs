@@ -30,6 +30,7 @@ namespace Common.Models.Mapping
             References(x => x.KursortID).Column("KursortID").Not.Nullable().Not.LazyLoad();
             Map(x => x.Anmeldeschluss);
             Map(x => x.Anmerkung);
+            Map(x => x.Anzeigen);
 
         }
     }

@@ -359,6 +359,10 @@ namespace Verrechnungsprogramm
             requestTitel.AddHeader("Content-Type", "application/json");
             var responseTitel = client.Execute<List<Titel>>(requestTitel);
 
+            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
+            requestPlz.AddHeader("Content-Type", "application/json");
+            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
+
             var requestAltersgruppe = new RestRequest("altersgruppen", Method.GET);
             requestAltersgruppe.AddHeader("Content-Type", "application/json");
             var responseAltersgruppe = client.Execute<List<Altersgruppe>>(requestAltersgruppe);
@@ -375,9 +379,6 @@ namespace Verrechnungsprogramm
             requestKurskategorie.AddHeader("Content-Type", "application/json");
             var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
 
-         
-
-
             if (labelÜberschrift.Text.Equals("Kontakt"))
             {
                 foreach (Titel t in responseTitel.Data)
@@ -385,17 +386,22 @@ namespace Verrechnungsprogramm
                     fHinzuBea.comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
                 }
 
-                foreach(Altersgruppe a in responseAltersgruppe.Data)
+                foreach(Postleitzahl p in responsePlz.Data)
+                {
+                    fHinzuBea.comboBoxKontaktPostleitzahl.Items.Add(p.Plz.ToString());
+                }
+
+                foreach (Altersgruppe a in responseAltersgruppe.Data)
                 {
                     fHinzuBea.comboBoxAltersgruppe.Items.Add(a.Bezeichnung.ToString());
                 }
 
-                foreach(Sozialgruppe s in responseSozialgruppe.Data)
+                foreach (Sozialgruppe s in responseSozialgruppe.Data)
                 {
                     fHinzuBea.comboBoxSozialgruppe.Items.Add(s.Bezeichnung.ToString());
                 }
 
-                foreach(Staatsbuergerschaft s in responseStaatsbuergerschaft.Data)
+                foreach (Staatsbuergerschaft s in responseStaatsbuergerschaft.Data)
                 {
                     fHinzuBea.comboBoxStaatsbuergerschaft.Items.Add(s.Staat.ToString());
                 }
@@ -410,7 +416,7 @@ namespace Verrechnungsprogramm
                 }
             }
 
-                fHinzuBea.ShowDialog();
+            fHinzuBea.ShowDialog();
 
             sozialgruppeEinlesen();
             altersgruppenEinlesen();
@@ -425,6 +431,7 @@ namespace Verrechnungsprogramm
             schluesselEinlesen();
             KassabuchkontoEinlesen();
         }
+
 
         private void buttonAltersgruppe_Click(object sender, EventArgs e)
         {
@@ -657,7 +664,75 @@ namespace Verrechnungsprogramm
 
         private void buttonBearbeiten_Click(object sender, EventArgs e)
         {
-            if(labelÜberschrift.Text.Equals("Titel"))
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+
+            var client = new RestClient("http://localhost:8888");
+
+            var requestTitel = new RestRequest("titel", Method.GET);
+            requestTitel.AddHeader("Content-Type", "application/json");
+            var responseTitel = client.Execute<List<Titel>>(requestTitel);
+
+            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
+            requestPlz.AddHeader("Content-Type", "application/json");
+            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
+
+            var requestAltersgruppe = new RestRequest("altersgruppen", Method.GET);
+            requestAltersgruppe.AddHeader("Content-Type", "application/json");
+            var responseAltersgruppe = client.Execute<List<Altersgruppe>>(requestAltersgruppe);
+
+            var requestSozialgruppe = new RestRequest("sozialgruppen", Method.GET);
+            requestSozialgruppe.AddHeader("Content-Type", "application/json");
+            var responseSozialgruppe = client.Execute<List<Sozialgruppe>>(requestSozialgruppe);
+
+            var requestStaatsbuergerschaft = new RestRequest("staatsbuergerschaften", Method.GET);
+            requestStaatsbuergerschaft.AddHeader("Content-Type", "application/json");
+            var responseStaatsbuergerschaft = client.Execute<List<Staatsbuergerschaft>>(requestStaatsbuergerschaft);
+
+            var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
+            requestKurskategorie.AddHeader("Content-Type", "application/json");
+            var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
+
+            
+            if (labelÜberschrift.Text.Equals("Kontakt"))
+            { 
+                foreach (Titel t in responseTitel.Data)
+                {
+                    MessageBox.Show(t.Bezeichnung);
+                    fHinzuBea.comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
+                }
+
+                foreach(Postleitzahl p in responsePlz.Data)
+                {
+                    fHinzuBea.comboBoxKontaktPostleitzahl.Items.Add(p.Plz.ToString());
+                }
+
+                foreach (Altersgruppe a in responseAltersgruppe.Data)
+                {
+                    fHinzuBea.comboBoxAltersgruppe.Items.Add(a.Bezeichnung.ToString());
+                }
+
+                foreach (Sozialgruppe s in responseSozialgruppe.Data)
+                {
+                    fHinzuBea.comboBoxSozialgruppe.Items.Add(s.Bezeichnung.ToString());
+                }
+
+                foreach (Staatsbuergerschaft s in responseStaatsbuergerschaft.Data)
+                {
+                    fHinzuBea.comboBoxStaatsbuergerschaft.Items.Add(s.Staat.ToString());
+                }
+
+            }
+
+            if (labelÜberschrift.Text.Equals("Kurs"))
+            {
+                foreach (Kurskategorie kk in responseKurskategorie.Data)
+                {
+                    fHinzuBea.comboBoxKursKurskategorie.Items.Add(kk.Bezeichnung.ToString());
+                }
+            }
+
+
+            if (labelÜberschrift.Text.Equals("Titel"))
             {
                 titelBearbeiten();
             }
@@ -697,6 +772,7 @@ namespace Verrechnungsprogramm
             {
                 kontaktBearbeiten();
             }
+            
         }
 
         private void contextMenuStripTitel_Opening(object sender, CancelEventArgs e)

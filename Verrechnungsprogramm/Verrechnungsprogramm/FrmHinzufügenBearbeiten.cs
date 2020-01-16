@@ -21,11 +21,6 @@ namespace Verrechnungsprogramm
             InitializeComponent();
         }
 
-        //public List<Titel> lstTitel = new List<Titel>();
-        //public List<Altersgruppe> lstAltersgruppe = new List<Altersgruppe>();
-        //public List<Kontakt> lstKontakt = new List<Kontakt>();
-        //public List<Sozialgruppe> lstSozialgruppe = new List<Sozialgruppe>();
-
         private void FrmHinzufügenBearbeiten_Load(object sender, EventArgs e)
         {
             listViewKontakt.FullRowSelect = true;
@@ -70,47 +65,6 @@ namespace Verrechnungsprogramm
             {
                 panelGutschein.Visible = true;
             }
-
-
-            var client = new RestClient("http://localhost:8888");
-            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
-            requestPlz.AddHeader("Content-Type", "application/json");
-            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
-
-            ArrayList arrPlz = new ArrayList();
-
-            if (panelKontakt.Visible ==  true)
-            {
-                foreach(Postleitzahl p in responsePlz.Data)
-                {
-                    arrPlz.Add(p.Plz.ToString());
-                    //MessageBox.Show(arrPlz[index].ToString());
-                    for(int i = 0; i<arrPlz.Count; i++)
-                    {
-                        //MessageBox.Show(arrPlz.Count.ToString());
-                        if(Convert.ToUInt32(arrPlz[i]) == Convert.ToUInt32(p.Plz))
-                        {
-                            //MessageBox.Show(arrPlz[i].ToString());
-                            arrPlz.RemoveAt(i);
-                            //comboBoxKontaktPostleitzahl.Items.Add(p.Plz.ToString());
-                        }
-                    }
-                    //for (int i = 0; i < comboBoxKontaktPostleitzahl.Items.Count; i++)
-                    //{
-                    //if (comboBoxKontaktPostleitzahl.Items.Contains(p.Plz.ToString()))
-                    //    {
-                    //        MessageBox.Show("er ist drinnen");
-                            
-                    //    }
-
-                    //}
-                }
-                for (int i = 0; i < arrPlz.Count; i++)
-                {
-                    comboBoxKontaktPostleitzahl.Items.Add(arrPlz[i].ToString());
-                }
-
-                }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -791,7 +745,101 @@ namespace Verrechnungsprogramm
 
         private void kontaktHinzufügen()
         {
+            var client = new RestClient("http://localhost:8888");
 
+            Kontakt kontakt = new Kontakt();
+            Titel titel = new Titel();
+            Postleitzahl postleitzahl = new Postleitzahl();
+            Altersgruppe altersgruppe = new Altersgruppe();
+            Sozialgruppe sozialgruppe = new Sozialgruppe();
+            Staatsbuergerschaft staatsbuergerschaft = new Staatsbuergerschaft();
+
+            var requestTitel = new RestRequest("titel", Method.GET);
+            requestTitel.AddHeader("Content-Type", "application/json");
+            var responseTitel = client.Execute<List<Titel>>(requestTitel);
+
+            var requestPostleitzahl = new RestRequest("postleitzahlen", Method.GET);
+            requestPostleitzahl.AddHeader("Content-Type", "application/json");
+            var responsePostleitzahl = client.Execute<List<Postleitzahl>>(requestPostleitzahl);
+
+            var requestAltersgruppe = new RestRequest("altersgruppen", Method.GET);
+            requestAltersgruppe.AddHeader("Content-Type", "application/json");
+            var responseAltersgruppe = client.Execute<List<Altersgruppe>>(requestAltersgruppe);
+
+            var requestSozialgruppe = new RestRequest("sozialgruppen", Method.GET);
+            requestSozialgruppe.AddHeader("Content-Type", "application/json");
+            var responseSozialgruppe = client.Execute<List<Sozialgruppe>>(requestSozialgruppe);
+
+            var requestStaatsbuergerschaft = new RestRequest("staatsbuergerschaften", Method.GET);
+            requestStaatsbuergerschaft.AddHeader("Content-Type", "application/json");
+            var responseStaatsbuergerschaft = client.Execute<List<Staatsbuergerschaft>>(requestStaatsbuergerschaft);
+
+            foreach (Titel t in responseTitel.Data)
+            {
+                if (t.Bezeichnung.ToString().Equals(comboBoxTitel.Text))
+                {
+                    titel.TitelID = t.TitelID;
+                    titel.Bezeichnung = t.Bezeichnung;
+                    titel.Vorgestellt = t.Vorgestellt;
+                }
+            }
+            kontakt.TitelID = titel;
+
+            kontakt.Vorname = textBoxVorname.Text;
+            kontakt.Nachname = textBoxNachname.Text;
+            kontakt.SVNr = textBoxSVNr.Text;
+            kontakt.Geschlecht = comboBoxGeschlecht.Text;
+            kontakt.Familienstand = comboBoxFamilienstand.Text;
+            kontakt.Email = textBoxEMail.Text;
+            kontakt.Telefonnummer = textBoxTelefonnummer.Text;
+
+            foreach (Postleitzahl p in responsePostleitzahl.Data)
+            {
+                if ((p.Plz.ToString().Equals(comboBoxKontaktPostleitzahl.Text)) && (p.Ort.ToString().Equals(comboBoxKontaktOrt.Text)))
+                {
+                    postleitzahl.PostleitzahlID = p.PostleitzahlID;
+                    postleitzahl.Plz = p.Plz;
+                    postleitzahl.Ort = p.Ort;
+                }
+            }
+            kontakt.PostleitzahlID = postleitzahl;
+
+            kontakt.Strasse = textBoxKontaktStrasse.Text;
+
+            foreach (Altersgruppe a in responseAltersgruppe.Data)
+            {
+                if (a.Bezeichnung.ToString().Equals(comboBoxAltersgruppe.Text))
+                {
+                    altersgruppe.AltersgruppeID = a.AltersgruppeID;
+                    altersgruppe.Bezeichnung = a.Bezeichnung;
+                }
+            }
+            kontakt.AltersgruppeID = altersgruppe;
+
+            foreach (Sozialgruppe s in responseSozialgruppe.Data)
+            {
+                if (s.Bezeichnung.ToString().Equals(comboBoxSozialgruppe.Text))
+                {
+                    sozialgruppe.SozialgruppeID = s.SozialgruppeID;
+                    sozialgruppe.Bezeichnung = s.Bezeichnung;
+                }
+            }
+            kontakt.SozialgruppeID = sozialgruppe;
+
+            foreach (Staatsbuergerschaft s in responseStaatsbuergerschaft.Data)
+            {
+                if (s.Staat.ToString().Equals(comboBoxStaatsbuergerschaft.Text))
+                {
+                    staatsbuergerschaft.StaatsbuergerschaftID = s.StaatsbuergerschaftID;
+                    staatsbuergerschaft.Staat = s.Staat;
+                }
+            }
+            kontakt.StaatsbuergerschaftID = staatsbuergerschaft;
+
+            var request = new RestRequest("kontakte", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kontakt);
+            var response = client.Execute(request);
         }
 
         private void kontaktBearbeiten()
@@ -840,7 +888,7 @@ namespace Verrechnungsprogramm
 
                     foreach (Titel t in responseTitel.Data)
                     {
-                        if (t.Bezeichnung.ToString().Equals(textBoxBezeichnungTitel.Text))
+                        if (t.Bezeichnung.ToString().Equals(comboBoxTitel.Text))
                         {
                             titel.TitelID = t.TitelID;
                             titel.Bezeichnung = t.Bezeichnung;
@@ -859,7 +907,7 @@ namespace Verrechnungsprogramm
 
                     foreach (Postleitzahl p in responsePostleitzahl.Data)
                     {
-                        if (p.Plz.ToString().Equals(comboBoxKontaktPostleitzahl.Text))
+                        if ((p.Plz.ToString().Equals(comboBoxKontaktPostleitzahl.Text)) && (p.Ort.ToString().Equals(comboBoxKontaktOrt.Text)))
                         {
                             postleitzahl.PostleitzahlID = p.PostleitzahlID;
                             postleitzahl.Plz = p.Plz;
@@ -868,7 +916,7 @@ namespace Verrechnungsprogramm
                     }
                     kontakt.PostleitzahlID = postleitzahl;
 
-                    kontakt.Strasse = k.Strasse;
+                    kontakt.Strasse = textBoxKontaktStrasse.Text;
 
                     foreach (Altersgruppe a in responseAltersgruppe.Data)
                     {

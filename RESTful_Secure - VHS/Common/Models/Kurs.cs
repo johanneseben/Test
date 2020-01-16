@@ -28,6 +28,7 @@ namespace Common.Models
         public virtual Kursort KursortID { get; set; }
         public virtual DateTime Anmeldeschluss { get; set; }
         public virtual string Anmerkung { get; set; }
+        public virtual bool Anzeigen { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<Kurskategorie> Kurskategorie1 { get; set; }

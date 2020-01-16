@@ -358,6 +358,8 @@
             // 
             // comboBoxStaatsbuergerschaft
             // 
+            this.comboBoxStaatsbuergerschaft.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxStaatsbuergerschaft.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxStaatsbuergerschaft.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxStaatsbuergerschaft.FormattingEnabled = true;
             this.comboBoxStaatsbuergerschaft.Items.AddRange(new object[] {
@@ -369,6 +371,7 @@
             // 
             // comboBoxSozialgruppe
             // 
+            this.comboBoxSozialgruppe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSozialgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSozialgruppe.FormattingEnabled = true;
             this.comboBoxSozialgruppe.Items.AddRange(new object[] {
@@ -380,6 +383,7 @@
             // 
             // comboBoxAltersgruppe
             // 
+            this.comboBoxAltersgruppe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAltersgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxAltersgruppe.FormattingEnabled = true;
             this.comboBoxAltersgruppe.Items.AddRange(new object[] {
@@ -407,8 +411,11 @@
             // 
             this.comboBoxTitel.AutoCompleteCustomSource.AddRange(new string[] {
             ""});
+            this.comboBoxTitel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTitel.FormattingEnabled = true;
+            this.comboBoxTitel.Items.AddRange(new object[] {
+            ""});
             this.comboBoxTitel.Location = new System.Drawing.Point(288, 15);
             this.comboBoxTitel.Name = "comboBoxTitel";
             this.comboBoxTitel.Size = new System.Drawing.Size(298, 39);
@@ -416,6 +423,7 @@
             // 
             // comboBoxGeschlecht
             // 
+            this.comboBoxGeschlecht.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGeschlecht.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxGeschlecht.FormattingEnabled = true;
             this.comboBoxGeschlecht.Items.AddRange(new object[] {
@@ -429,6 +437,7 @@
             // 
             // comboBoxFamilienstand
             // 
+            this.comboBoxFamilienstand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFamilienstand.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFamilienstand.FormattingEnabled = true;
             this.comboBoxFamilienstand.Items.AddRange(new object[] {
@@ -539,6 +548,7 @@
             // 
             // comboBoxKontaktOrt
             // 
+            this.comboBoxKontaktOrt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKontaktOrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKontaktOrt.FormattingEnabled = true;
             this.comboBoxKontaktOrt.Items.AddRange(new object[] {
