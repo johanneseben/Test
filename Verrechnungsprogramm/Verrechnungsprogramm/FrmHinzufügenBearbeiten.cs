@@ -1112,6 +1112,32 @@ namespace Verrechnungsprogramm
             panelKontaktSuche.Visible = true;
         }
 
+        private void einlesenKontaktinListView()
+        {
+            listViewKontakt.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+
+            var request = new RestRequest("kontakte", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kontakt>>(request);
+
+            foreach (Kontakt k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Vorname.ToString());
+                lvItem.SubItems.Add(k.Nachname.ToString());
+                lvItem.SubItems.Add(k.SVNr.ToString());
+                lvItem.SubItems.Add(k.Geschlecht.ToString());
+                lvItem.SubItems.Add(k.Familienstand.ToString());
+
+                listViewKontakt.Items.Add(lvItem);
+            }
+            panelPass.Visible = false;
+            panelKontaktSuche.Visible = true;
+        }
+
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -1207,6 +1233,8 @@ namespace Verrechnungsprogramm
             }
         }
 
+     
+
         private void buttonKontaktSuchen_Click(object sender, EventArgs e)
         {
             listViewKontakt.Items.Clear();
@@ -1224,10 +1252,24 @@ namespace Verrechnungsprogramm
             request.AddHeader("Content-Type", "application/json");
             var response = client.Execute<List<Kontakt>>(request);
 
+
+
             foreach (Kontakt k in response.Data)
             {
-                if ((k.Vorname.Substring(0,vornL).Equals(vorname)) && (k.Nachname.Substring(0,nachL).Equals(nachname)))
+                if ((k.Vorname.ToLower().Substring(0,vornL).Equals(vorname)) && (k.Nachname.ToLower().Substring(0,nachL).Equals(nachname)))
                 {
+                    ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                    lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.Vorname.ToString());
+                    lvItem.SubItems.Add(k.Nachname.ToString());
+                    lvItem.SubItems.Add(k.SVNr.ToString());
+                    lvItem.SubItems.Add(k.Geschlecht.ToString());
+                    lvItem.SubItems.Add(k.Familienstand.ToString());
+
+                    listViewKontakt.Items.Add(lvItem);
+                }
+                else if ((k.Vorname.Substring(0, vornL).Equals(vorname)) && (k.Nachname.Substring(0, nachL).Equals(nachname)))
+                    {
                     ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
                     lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
                     lvItem.SubItems.Add(k.Vorname.ToString());

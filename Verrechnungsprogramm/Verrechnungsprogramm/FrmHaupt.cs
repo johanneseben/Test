@@ -35,6 +35,7 @@ namespace Verrechnungsprogramm
             listViewGutschein.FullRowSelect = true;
             listViewMitgliedschaft.FullRowSelect = true;
             listViewSchluessel.FullRowSelect = true;
+            listViewKassabuchkonto.FullRowSelect = true;
 
 
             FormBorderStyle = FormBorderStyle.Sizable;
@@ -374,6 +375,8 @@ namespace Verrechnungsprogramm
             requestKurskategorie.AddHeader("Content-Type", "application/json");
             var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
 
+         
+
 
             if (labelÜberschrift.Text.Equals("Kontakt"))
             {
@@ -420,6 +423,7 @@ namespace Verrechnungsprogramm
             passEinlesen();
             gutscheinEinlesen();
             schluesselEinlesen();
+            KassabuchkontoEinlesen();
         }
 
         private void buttonAltersgruppe_Click(object sender, EventArgs e)
@@ -936,7 +940,28 @@ namespace Verrechnungsprogramm
             labelBtFinanz.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
-            //gutscheinEinlesen();
+            KassabuchkontoEinlesen();
+          
+        }
+
+        private void KassabuchkontoEinlesen()
+        {
+            listViewKassabuchkonto.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+
+            var request = new RestRequest("kassabuchkonten", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kassabuchkonto>>(request);
+
+            foreach (Kassabuchkonto k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KassabuchkontoID.ToString());
+                lvItem.SubItems.Add(k.Kontonummer.ToString());
+                lvItem.SubItems.Add(k.Kontobezeichnung.ToString());
+                lvItem.SubItems.Add(k.Kontostand.ToString());
+                listViewKassabuchkonto.Items.Add(lvItem);
+            }
         }
 
         private void buttonKassabuch_Click_1(object sender, EventArgs e)

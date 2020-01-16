@@ -1472,22 +1472,22 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "KassabuchkontoID";
-            this.columnHeader8.Width = 150;
+            this.columnHeader8.Width = 160;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Kontonummer";
-            this.columnHeader11.Width = 120;
+            this.columnHeader11.Width = 130;
             // 
             // columnHeader68
             // 
             this.columnHeader68.Text = "Kontobezeichnung";
-            this.columnHeader68.Width = 150;
+            this.columnHeader68.Width = 160;
             // 
             // columnHeader69
             // 
             this.columnHeader69.Text = "Kontostand";
-            this.columnHeader69.Width = 100;
+            this.columnHeader69.Width = 110;
             // 
             // FrmHaupt
             // 
@@ -1683,10 +1683,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader65;
         private System.Windows.Forms.ColumnHeader columnHeader66;
         private System.Windows.Forms.ColumnHeader columnHeader67;
-        private System.Windows.Forms.ListView listViewKassabuchkonto;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader68;
         private System.Windows.Forms.ColumnHeader columnHeader69;
+        internal System.Windows.Forms.ListView listViewKassabuchkonto;
     }
 }
