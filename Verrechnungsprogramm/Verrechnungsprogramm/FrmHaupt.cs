@@ -539,8 +539,9 @@ namespace Verrechnungsprogramm
         private void kontaktBearbeiten()
         {
             FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
-            if ((listViewKontakt.SelectedItems.Count == 0) && (listViewMitgliedschaft.SelectedItems.Count > 1))
+            if ((listViewKontakt.SelectedItems.Count == 0) || (listViewKontakt.SelectedItems.Count > 1))
                 return;
+            
 
             fHinzuBea.panelKontakt.Visible = true;
 
@@ -548,7 +549,7 @@ namespace Verrechnungsprogramm
             fHinzuBea.Text = buttonBearbeiten.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
             fHinzuBea.labelID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text;
-            fHinzuBea.comboBoxTitel.Text = listViewKontakt.SelectedItems[0].SubItems[1].Text;
+            fHinzuBea.comboBoxTitel.SelectedIndex = fHinzuBea.comboBoxTitel.FindStringExact(listViewKontakt.SelectedItems[0].SubItems[1].Text);
             fHinzuBea.textBoxVorname.Text = listViewKontakt.SelectedItems[0].SubItems[2].Text;
             fHinzuBea.textBoxNachname.Text = listViewKontakt.SelectedItems[0].SubItems[3].Text;
             fHinzuBea.textBoxSVNr.Text = listViewKontakt.SelectedItems[0].SubItems[4].Text;
@@ -652,7 +653,7 @@ namespace Verrechnungsprogramm
         private void mitgliedschaftBearbeiten()
         {
             FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
-            if ((listViewMitgliedschaft.SelectedItems.Count == 0) && (listViewMitgliedschaft.SelectedItems.Count > 1))
+            if ((listViewMitgliedschaft.SelectedItems.Count == 0) || (listViewMitgliedschaft.SelectedItems.Count > 1))
                 return;
             fHinzuBea.panelMitgliedschaft.Visible = true;
 
@@ -702,7 +703,6 @@ namespace Verrechnungsprogramm
             { 
                 foreach (Titel t in responseTitel.Data)
                 {
-                    MessageBox.Show(t.Bezeichnung);
                     fHinzuBea.comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
                 }
 

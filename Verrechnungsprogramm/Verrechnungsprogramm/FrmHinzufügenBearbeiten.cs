@@ -41,7 +41,7 @@ namespace Verrechnungsprogramm
             {
                 panelKontakt.Visible = true;
             }
-            if(labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kurskategorie"))
+            if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kurskategorie"))
             {
                 panelAltersgruppeSozialgruppeKurskategorie.Visible = true;
             }
@@ -86,12 +86,12 @@ namespace Verrechnungsprogramm
         {
             if (this.Text.Equals("anlegen"))
             {
-                if(labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Altersgruppe"))
+                if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Altersgruppe"))
                 {
                     altersgruppeHinzufügen();
                     this.Close();
                 }
-                if(labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kurskategorie"))
+                if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kurskategorie"))
                 {
                     kurskategorieHinzufügen();
                     this.Close();
@@ -101,9 +101,9 @@ namespace Verrechnungsprogramm
                     sozialgruppeHinzufügen();
                     this.Close();
                 }
-            }    
+            }
 
-            if(this.Text.Equals("bearbeiten"))
+            if (this.Text.Equals("bearbeiten"))
             {
                 if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Altersgruppe"))
                 {
@@ -332,7 +332,7 @@ namespace Verrechnungsprogramm
                             aktKontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
                         }
                     }
-                   
+
                     pass.KontaktID = aktKontakt;
                     pass.PassNr = textBoxPassNr.Text;
                     pass.PassBeginn = dateTimePickerPassBeginn.Value;
@@ -371,7 +371,7 @@ namespace Verrechnungsprogramm
             request1.AddHeader("Content-Type", "application/json");
             var response1 = client.Execute<List<Kontakt>>(request1);
 
-            
+
 
             foreach (Kontakt k in response1.Data)
             {
@@ -531,13 +531,13 @@ namespace Verrechnungsprogramm
 
         private void buttonSpeichernTitel_Click(object sender, EventArgs e)
         {
-            if(labelÜberschrift.Text.Equals("Titel bearbeiten"))
+            if (labelÜberschrift.Text.Equals("Titel bearbeiten"))
             {
                 titelBearbeiten();
                 this.Close();
             }
 
-            if(labelÜberschrift.Text.Equals("Titel anlegen"))
+            if (labelÜberschrift.Text.Equals("Titel anlegen"))
             {
                 titelHinzufügen();
                 this.Close();
@@ -551,12 +551,12 @@ namespace Verrechnungsprogramm
 
         private void comboBoxKontaktPostleitzahl_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboBoxKontaktPostleitzahl_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            
+
         }
 
         private void einlesenOrt()
@@ -587,7 +587,7 @@ namespace Verrechnungsprogramm
 
         private void comboBoxKontaktOrt_Leave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void buttonKursAbbrechen_Click(object sender, EventArgs e)
@@ -602,6 +602,91 @@ namespace Verrechnungsprogramm
 
         private void buttonKursSpeichern_Click(object sender, EventArgs e)
         {
+            if (labelÜberschrift.Text.Equals("Kurs bearbeiten"))
+            {
+                //kursBearbeiten();
+                this.Close();
+            }
+
+            if (labelÜberschrift.Text.Equals("Kurs anlegen"))
+            {
+                kursHinzufügen();
+                this.Close();
+            }
+
+        }
+
+        private void kursHinzufügen()
+        {
+            var client = new RestClient("http://localhost:8888");
+
+            Kurs kurs = new Kurs();
+            Kurskategorie kurskategorie = new Kurskategorie();
+            Kursort kursort = new Kursort();
+
+            var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
+            requestKurskategorie.AddHeader("Content-Type", "application/json");
+            var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
+
+            var requestKursort = new RestRequest("kursorte", Method.GET);
+            requestKursort.AddHeader("Content-Type", "application/json");
+            var responseKursort = client.Execute<List<Kursort>>(requestKursort);
+
+
+            kurs.Bezeichnung = textBoxKursBezeichnung.Text;
+            kurs.Preis = Convert.ToDouble(textBoxKursPreis.Text);
+            kurs.MinTeilnehmer = Convert.ToInt32(textBoxKursMinTeilnehmer.Text);
+            kurs.MaxTeilnehmer = Convert.ToInt32(textBoxMaxTeilnehmer.Text);
+            kurs.AnzEinheiten = Convert.ToInt32(textBoxKursAnzEinheit.Text);
+
+            if (comboBoxKursVerbindklichkeit.Text.Equals("ja"))
+                kurs.Verbindlichkeit = true;
+
+            else
+                kurs.Verbindlichkeit = false;
+
+            kurs.Foerderung = comboBoxKursFoerderung.Text;
+            kurs.Status = textBoxKursStatus.Text;
+            kurs.Beschreibung = textBoxKursBeschreibung.Text;
+            kurs.ZeitVon = dateTimePickerKursZeitVon.Value;
+            kurs.ZeitBis = dateTimePickerKursZeitBis.Value;
+            kurs.DatumVon = dateTimePickerKursDatumVon.Value;
+            kurs.DatumBis = dateTimePickerKursDatumBis.Value;
+            kurs.Seminarnummer = textBoxKursSeminarnummer.Text;
+
+            foreach (Kurskategorie k in responseKurskategorie.Data)
+            {
+                if (k.Bezeichnung.ToString().Equals(comboBoxKursKurskategorie.Text))
+                {
+                    kurskategorie.KurskategorieID = k.KurskategorieID;
+                    kurskategorie.Bezeichnung = k.Bezeichnung;
+                }
+            }
+            kurs.KurskategorieID = kurskategorie;
+
+            foreach (Kursort k in responseKursort.Data)
+            {
+                if (k.Bezeichnung.ToString().Equals(comboBoxKursKursort.Text))
+                {
+                    kursort.KursortID = k.KursortID;
+                    kursort.Bezeichnung = k.Bezeichnung;
+                }
+            }
+            kurs.KursortID = kursort;
+
+            kurs.Anmeldeschluss = dateTimePickerKursAnmeldeschluss.Value;
+            kurs.Anmerkung = textBoxKursAnmerkung.Text;
+
+            if (checkBoxKursAnzeigen.Checked == true)
+                kurs.Anzeigen = true;
+
+            else
+                kurs.Anzeigen = false;
+
+            var request = new RestRequest("kurse", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kurs);
+            var response = client.Execute(request);
 
         }
 
@@ -1106,7 +1191,7 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.SVNr.ToString());
                 lvItem.SubItems.Add(k.Geschlecht.ToString());
                 lvItem.SubItems.Add(k.Familienstand.ToString());
-                
+
                 listViewKontakt.Items.Add(lvItem);
             }
             panelBankverbindung.Visible = false;
@@ -1115,13 +1200,13 @@ namespace Verrechnungsprogramm
 
         private void listViewKontakt_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if ((labelÜberschrift.Text.Equals("Bankverbindung bearbeiten"))|| (labelÜberschrift.Text.Equals("Bankverbindung anlegen")))
+            if ((labelÜberschrift.Text.Equals("Bankverbindung bearbeiten")) || (labelÜberschrift.Text.Equals("Bankverbindung anlegen")))
             {
                 textBoxBankverbindungKontaktID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text;
                 panelBankverbindung.Visible = true;
                 panelKontaktSuche.Visible = false;
             }
-            if ((labelÜberschrift.Text.Equals("Pass bearbeiten"))|| (labelÜberschrift.Text.Equals("Pass anlegen")))
+            if ((labelÜberschrift.Text.Equals("Pass bearbeiten")) || (labelÜberschrift.Text.Equals("Pass anlegen")))
             {
                 textBoxPassKontaktID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text;
                 panelPass.Visible = true;
@@ -1243,17 +1328,7 @@ namespace Verrechnungsprogramm
 
         private void buttonKontaktSpeichern_Click(object sender, EventArgs e)
         {
-            if (labelÜberschrift.Text.Equals("Kontakt bearbeiten"))
-            {
-                kontaktBearbeiten();
-                this.Close();
-            }
-
-            if (labelÜberschrift.Text.Equals("Kontakt anlegen"))
-            {
-                kontaktHinzufügen();
-                this.Close();
-            }
+            
         }
 
         private void buttonGutscheinSpeichern_Click(object sender, EventArgs e)
@@ -1291,7 +1366,7 @@ namespace Verrechnungsprogramm
             }
         }
 
-     
+
 
         private void buttonKontaktSuchen_Click(object sender, EventArgs e)
         {
@@ -1314,7 +1389,7 @@ namespace Verrechnungsprogramm
 
             foreach (Kontakt k in response.Data)
             {
-                if ((k.Vorname.ToLower().Substring(0,vornL).Equals(vorname)) && (k.Nachname.ToLower().Substring(0,nachL).Equals(nachname)))
+                if ((k.Vorname.ToLower().Substring(0, vornL).Equals(vorname)) && (k.Nachname.ToLower().Substring(0, nachL).Equals(nachname)))
                 {
                     ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
                     lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
@@ -1327,7 +1402,7 @@ namespace Verrechnungsprogramm
                     listViewKontakt.Items.Add(lvItem);
                 }
                 else if ((k.Vorname.Substring(0, vornL).Equals(vorname)) && (k.Nachname.Substring(0, nachL).Equals(nachname)))
-                    {
+                {
                     ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
                     lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
                     lvItem.SubItems.Add(k.Vorname.ToString());
@@ -1339,6 +1414,36 @@ namespace Verrechnungsprogramm
                     listViewKontakt.Items.Add(lvItem);
                 }
             }
+        }
+
+        private void comboBoxKontaktPostleitzahl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            einlesenOrt();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (labelÜberschrift.Text.Equals("Kontakt bearbeiten"))
+            {
+                kontaktBearbeiten();
+                this.Close();
+            }
+
+            if (labelÜberschrift.Text.Equals("Kontakt anlegen"))
+            {
+                kontaktHinzufügen();
+                this.Close();
+            }
+        }
+
+        private void btnSpeichern_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
