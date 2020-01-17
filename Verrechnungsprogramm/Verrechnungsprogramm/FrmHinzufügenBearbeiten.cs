@@ -68,7 +68,6 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuchkonto"))
             {
                 panelKassabuchkonto.Visible = true;
-                textBoxKontonummer.Focus();
                 this.Height = 370;
                 this.Width = 520;
                 this.Location = new Point(200, 150);

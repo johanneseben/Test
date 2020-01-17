@@ -177,6 +177,13 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader68 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader69 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewKassabuch = new System.Windows.Forms.ListView();
+            this.columnHeader70 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader71 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader72 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader73 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader74 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader75 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanelÜberschrift.SuspendLayout();
             this.tableLayoutPanelStammdaten.SuspendLayout();
             this.contextMenuStripKontakt.SuspendLayout();
@@ -1463,7 +1470,7 @@
             this.listViewKassabuchkonto.HideSelection = false;
             this.listViewKassabuchkonto.Location = new System.Drawing.Point(186, 174);
             this.listViewKassabuchkonto.Name = "listViewKassabuchkonto";
-            this.listViewKassabuchkonto.Size = new System.Drawing.Size(802, 324);
+            this.listViewKassabuchkonto.Size = new System.Drawing.Size(883, 324);
             this.listViewKassabuchkonto.TabIndex = 18;
             this.listViewKassabuchkonto.UseCompatibleStateImageBehavior = false;
             this.listViewKassabuchkonto.View = System.Windows.Forms.View.Details;
@@ -1489,12 +1496,62 @@
             this.columnHeader69.Text = "Kontostand";
             this.columnHeader69.Width = 110;
             // 
+            // listViewKassabuch
+            // 
+            this.listViewKassabuch.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader70,
+            this.columnHeader71,
+            this.columnHeader72,
+            this.columnHeader73,
+            this.columnHeader74,
+            this.columnHeader75});
+            this.listViewKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewKassabuch.HideSelection = false;
+            this.listViewKassabuch.Location = new System.Drawing.Point(186, 174);
+            this.listViewKassabuch.Name = "listViewKassabuch";
+            this.listViewKassabuch.Size = new System.Drawing.Size(883, 324);
+            this.listViewKassabuch.TabIndex = 24;
+            this.listViewKassabuch.UseCompatibleStateImageBehavior = false;
+            this.listViewKassabuch.View = System.Windows.Forms.View.Details;
+            this.listViewKassabuch.Visible = false;
+            // 
+            // columnHeader70
+            // 
+            this.columnHeader70.Text = "KassabuchID";
+            this.columnHeader70.Width = 160;
+            // 
+            // columnHeader71
+            // 
+            this.columnHeader71.Text = "Datum";
+            this.columnHeader71.Width = 170;
+            // 
+            // columnHeader72
+            // 
+            this.columnHeader72.Text = "Buchungstext";
+            this.columnHeader72.Width = 180;
+            // 
+            // columnHeader73
+            // 
+            this.columnHeader73.Text = "Betrag";
+            this.columnHeader73.Width = 110;
+            // 
+            // columnHeader74
+            // 
+            this.columnHeader74.Text = "KontaktID";
+            this.columnHeader74.Width = 100;
+            // 
+            // columnHeader75
+            // 
+            this.columnHeader75.Text = "KassabuchkontoID";
+            this.columnHeader75.Width = 150;
+            // 
             // FrmHaupt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1443, 606);
+            this.Controls.Add(this.listViewKassabuch);
             this.Controls.Add(this.listViewKassabuchkonto);
             this.Controls.Add(this.tableLayoutPanelFinanz);
             this.Controls.Add(this.tableLayoutPanelKursTermin);
@@ -1688,5 +1745,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader68;
         private System.Windows.Forms.ColumnHeader columnHeader69;
         internal System.Windows.Forms.ListView listViewKassabuchkonto;
+        internal System.Windows.Forms.ListView listViewKassabuch;
+        private System.Windows.Forms.ColumnHeader columnHeader70;
+        private System.Windows.Forms.ColumnHeader columnHeader71;
+        private System.Windows.Forms.ColumnHeader columnHeader72;
+        private System.Windows.Forms.ColumnHeader columnHeader73;
+        private System.Windows.Forms.ColumnHeader columnHeader74;
+        private System.Windows.Forms.ColumnHeader columnHeader75;
     }
 }
