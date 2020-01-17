@@ -379,6 +379,10 @@ namespace Verrechnungsprogramm
             requestKurskategorie.AddHeader("Content-Type", "application/json");
             var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
 
+            //var requestKassabuchkonto = new RestRequest("kassabuchkonten", Method.GET);
+            //requestKassabuchkonto.AddHeader("Content-Type", "application/json");
+            //var responseKassabuchkonto = client.Execute<List<Kassabuchkonto>>(requestKassabuchkonto);
+
             if (labelÜberschrift.Text.Equals("Kontakt"))
             {
                 foreach (Titel t in responseTitel.Data)
@@ -1017,7 +1021,6 @@ namespace Verrechnungsprogramm
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
             KassabuchkontoEinlesen();
-          
         }
 
         private void KassabuchkontoEinlesen()
