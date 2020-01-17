@@ -73,6 +73,21 @@ namespace Verrechnungsprogramm
                 this.Location = new Point(200, 150);
 
             }
+            if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuch"))
+            {
+               panelKassabuch.Visible = true;
+                this.Height = 470;
+                this.Width = 520;
+                this.Location = new Point(200, 150);
+            }
+            if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Rechnung"))
+            {
+                panelRechnung.Visible = true;
+                this.Height = 450;
+                this.Width = 520;
+                this.Location = new Point(200, 150);
+            }
+
 
 
         }
@@ -1366,6 +1381,9 @@ namespace Verrechnungsprogramm
             }
         }
 
+        
+
+
 
 
         private void buttonKontaktSuchen_Click(object sender, EventArgs e)
@@ -1445,5 +1463,24 @@ namespace Verrechnungsprogramm
         {
 
         }
+
+       
+
+        private void btnKassabuchAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnKassabuchkontoAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRechnungAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
     }
 }

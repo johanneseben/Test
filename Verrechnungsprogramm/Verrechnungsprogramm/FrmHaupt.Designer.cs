@@ -184,6 +184,12 @@
             this.columnHeader73 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader74 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader75 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewRechnung = new System.Windows.Forms.ListView();
+            this.columnHeader76 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader77 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader78 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader79 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader80 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanelÜberschrift.SuspendLayout();
             this.tableLayoutPanelStammdaten.SuspendLayout();
             this.contextMenuStripKontakt.SuspendLayout();
@@ -1545,12 +1551,56 @@
             this.columnHeader75.Text = "KassabuchkontoID";
             this.columnHeader75.Width = 150;
             // 
+            // listViewRechnung
+            // 
+            this.listViewRechnung.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader76,
+            this.columnHeader77,
+            this.columnHeader78,
+            this.columnHeader79,
+            this.columnHeader80});
+            this.listViewRechnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewRechnung.HideSelection = false;
+            this.listViewRechnung.Location = new System.Drawing.Point(186, 174);
+            this.listViewRechnung.Name = "listViewRechnung";
+            this.listViewRechnung.Size = new System.Drawing.Size(883, 324);
+            this.listViewRechnung.TabIndex = 25;
+            this.listViewRechnung.UseCompatibleStateImageBehavior = false;
+            this.listViewRechnung.View = System.Windows.Forms.View.Details;
+            this.listViewRechnung.Visible = false;
+            // 
+            // columnHeader76
+            // 
+            this.columnHeader76.Text = "RechnungID";
+            this.columnHeader76.Width = 160;
+            // 
+            // columnHeader77
+            // 
+            this.columnHeader77.Text = "Rechnungsnummer";
+            this.columnHeader77.Width = 170;
+            // 
+            // columnHeader78
+            // 
+            this.columnHeader78.Text = "Rechnungsdatum";
+            this.columnHeader78.Width = 180;
+            // 
+            // columnHeader79
+            // 
+            this.columnHeader79.Text = "KontaktID";
+            this.columnHeader79.Width = 110;
+            // 
+            // columnHeader80
+            // 
+            this.columnHeader80.Text = "KursID";
+            this.columnHeader80.Width = 100;
+            // 
             // FrmHaupt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1443, 606);
+            this.Controls.Add(this.listViewRechnung);
             this.Controls.Add(this.listViewKassabuch);
             this.Controls.Add(this.listViewKassabuchkonto);
             this.Controls.Add(this.tableLayoutPanelFinanz);
@@ -1752,5 +1802,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader73;
         private System.Windows.Forms.ColumnHeader columnHeader74;
         private System.Windows.Forms.ColumnHeader columnHeader75;
+        internal System.Windows.Forms.ListView listViewRechnung;
+        private System.Windows.Forms.ColumnHeader columnHeader76;
+        private System.Windows.Forms.ColumnHeader columnHeader77;
+        private System.Windows.Forms.ColumnHeader columnHeader78;
+        private System.Windows.Forms.ColumnHeader columnHeader79;
+        private System.Windows.Forms.ColumnHeader columnHeader80;
     }
 }

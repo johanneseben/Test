@@ -37,6 +37,7 @@ namespace Verrechnungsprogramm
             listViewSchluessel.FullRowSelect = true;
             listViewKassabuchkonto.FullRowSelect = true;
             listViewKassabuch.FullRowSelect = true;
+            listViewRechnung.FullRowSelect = true;
 
 
             FormBorderStyle = FormBorderStyle.Sizable;
@@ -144,6 +145,7 @@ namespace Verrechnungsprogramm
             labelBtRechnung.Visible = false;
             listViewKassabuchkonto.Visible = false;
             listViewKassabuch.Visible = false;
+            listViewRechnung.Visible = false;
         }
 
         private void buttonKontakt_Click(object sender, EventArgs e)
@@ -435,6 +437,7 @@ namespace Verrechnungsprogramm
             schluesselEinlesen();
             KassabuchkontoEinlesen();
             KassabuchEinlesen();
+            RechnungEinlesen();
         }
 
 
@@ -781,7 +784,17 @@ namespace Verrechnungsprogramm
             {
                 kassabuchkontoBearbeiten();
             }
-            
+            if (labelÜberschrift.Text.Equals("Kassabuch"))
+            {
+                kassabuchBearbeiten();
+            }
+            if (labelÜberschrift.Text.Equals("Rechnung"))
+            {
+                rechnungBearbeiten();
+            }
+
+
+
         }
 
         private void contextMenuStripTitel_Opening(object sender, CancelEventArgs e)
@@ -1051,7 +1064,7 @@ namespace Verrechnungsprogramm
         private void kassabuchkontoBearbeiten()
         {
             FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
-            if (listViewKassabuchkonto.SelectedItems.Count == 0)
+            if ((listViewKassabuchkonto.SelectedItems.Count == 0) || (listViewKassabuchkonto.SelectedItems.Count > 1))
             {
                 MessageBox.Show("Bitte wählen Sie einen Datensatz aus");
                 return;
@@ -1110,17 +1123,90 @@ namespace Verrechnungsprogramm
             }
         }
 
+        private void kassabuchBearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            if ((listViewKassabuch.SelectedItems.Count == 0) || (listViewKassabuch.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Bitte wählen Sie einen Datensatz aus");
+                return;
+            }
+
+
+            fHinzuBea.panelKassabuch.Visible = true;
+
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
+            fHinzuBea.textBoxKassabuchID.Text = listViewKassabuch.SelectedItems[0].SubItems[0].Text;
+            fHinzuBea.textBoxDatum.Text = listViewKassabuch.SelectedItems[0].SubItems[1].Text;
+            fHinzuBea.textBoxBuchungstext.Text = listViewKassabuch.SelectedItems[0].SubItems[2].Text;
+            fHinzuBea.textBoxBetrag.Text = listViewKassabuch.SelectedItems[0].SubItems[3].Text;
+            fHinzuBea.textBoxKontaktID.Text = listViewKassabuch.SelectedItems[0].SubItems[4].Text;
+            fHinzuBea.txtKassabuchkontoID.Text = listViewKassabuch.SelectedItems[0].SubItems[5].Text;
+
+            fHinzuBea.ShowDialog();
+            KassabuchEinlesen();
+        }
+
         private void buttonRechnung_Click(object sender, EventArgs e)
         {
             allesVisibleFalseSetzen();
             labelÜberschrift.Text = "Rechnung";
-            //listViewGutschein.Visible = true;
+            listViewRechnung.Visible = true;
             tableLayoutPanelFinanz.Visible = true;
             labelBtRechnung.Visible = true;
             labelBtFinanz.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
-            //gutscheinEinlesen();
+            RechnungEinlesen();
+        }
+
+        private void RechnungEinlesen()
+        {
+            listViewRechnung.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+
+            var request = new RestRequest("rechnungen", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Rechnung>>(request);
+
+            foreach (Rechnung k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.RechnungID.ToString());
+                lvItem.SubItems.Add(k.Rechnungsnummer.ToString());
+                lvItem.SubItems.Add(k.Rechnungsdatum.ToString());
+                lvItem.SubItems.Add(k.KontaktID.KontaktID.ToString("c2"));
+                lvItem.SubItems.Add(k.KursID.KursID.ToString());
+                listViewRechnung.Items.Add(lvItem);
+            }
+        }
+
+        private void rechnungBearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            if ((listViewRechnung.SelectedItems.Count == 0) || (listViewRechnung.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Bitte wählen Sie einen Datensatz aus");
+                return;
+            }
+
+
+            fHinzuBea.panelRechnung.Visible = true;
+
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
+            fHinzuBea.textBoxRechnungID.Text = listViewRechnung.SelectedItems[0].SubItems[0].Text;
+            fHinzuBea.textBoxRechnungsnummer.Text = listViewRechnung.SelectedItems[0].SubItems[1].Text;
+            fHinzuBea.textBoxRechnungsdatum.Text = listViewRechnung.SelectedItems[0].SubItems[2].Text;
+            fHinzuBea.txtKontaktID.Text = listViewRechnung.SelectedItems[0].SubItems[3].Text;
+            fHinzuBea.textBoxKursID.Text = listViewRechnung.SelectedItems[0].SubItems[4].Text;
+     
+
+            fHinzuBea.ShowDialog();
+            RechnungEinlesen();
         }
     }
 }
