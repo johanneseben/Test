@@ -20,9 +20,97 @@ namespace Verrechnungsprogramm
         {
             InitializeComponent();
         }
+        public string titel, altersgruppe, sozialgruppe, ort;
 
         private void FrmHinzufügenBearbeiten_Load(object sender, EventArgs e)
         {
+            var client = new RestClient("http://localhost:8888");
+
+            var requestTitel = new RestRequest("titel", Method.GET);
+            requestTitel.AddHeader("Content-Type", "application/json");
+            var responseTitel = client.Execute<List<Titel>>(requestTitel);
+
+            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
+            requestPlz.AddHeader("Content-Type", "application/json");
+            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
+
+            var requestAltersgruppe = new RestRequest("altersgruppen", Method.GET);
+            requestAltersgruppe.AddHeader("Content-Type", "application/json");
+            var responseAltersgruppe = client.Execute<List<Altersgruppe>>(requestAltersgruppe);
+
+            var requestSozialgruppe = new RestRequest("sozialgruppen", Method.GET);
+            requestSozialgruppe.AddHeader("Content-Type", "application/json");
+            var responseSozialgruppe = client.Execute<List<Sozialgruppe>>(requestSozialgruppe);
+
+            var requestStaatsbuergerschaft = new RestRequest("staatsbuergerschaften", Method.GET);
+            requestStaatsbuergerschaft.AddHeader("Content-Type", "application/json");
+            var responseStaatsbuergerschaft = client.Execute<List<Staatsbuergerschaft>>(requestStaatsbuergerschaft);
+
+            var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
+            requestKurskategorie.AddHeader("Content-Type", "application/json");
+            var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
+
+
+            var requestKursort = new RestRequest("kursorte", Method.GET);
+            requestKursort.AddHeader("Content-Type", "application/json");
+            var responseKursort = client.Execute<List<Kursort>>(requestKursort);
+
+            foreach (Titel t in responseTitel.Data)
+            {
+                comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
+            }
+
+            foreach (Postleitzahl p in responsePlz.Data)
+            {
+                comboBoxKontaktPostleitzahl.Items.Add(p.Plz.ToString());
+                comboBoxKursortPlz.Items.Add(p.Plz.ToString());
+            }
+
+            foreach (Postleitzahl p in responsePlz.Data)
+            {
+                if(comboBoxKursortPlz.Text.Equals(p.Plz))
+                {
+                    comboBoxKursortOrt.Items.Add(p.Ort.ToString());
+                }
+
+                if (comboBoxKontaktPostleitzahl.Text.Equals(p.Plz))
+                {
+                    comboBoxKontaktOrt.Items.Add(p.Ort.ToString());
+                }
+            }
+
+            foreach (Altersgruppe a in responseAltersgruppe.Data)
+            {
+                comboBoxAltersgruppe.Items.Add(a.Bezeichnung.ToString());
+            }
+
+            foreach (Sozialgruppe s in responseSozialgruppe.Data)
+            {
+                comboBoxSozialgruppe.Items.Add(s.Bezeichnung.ToString());
+            }
+
+            foreach (Staatsbuergerschaft s in responseStaatsbuergerschaft.Data)
+            {
+                comboBoxStaatsbuergerschaft.Items.Add(s.Staat.ToString());
+            }
+
+            foreach (Kurskategorie kk in responseKurskategorie.Data)
+            {
+                comboBoxKursKurskategorie.Items.Add(kk.Bezeichnung.ToString());
+            }
+
+            foreach (Kursort k in responseKursort.Data)
+            {
+                comboBoxKursKursort.Items.Add(k.Bezeichnung.ToString());
+            }
+
+            comboBoxTitel.SelectedIndex = comboBoxTitel.FindStringExact(titel);
+            comboBoxKontaktOrt.SelectedIndex = comboBoxKontaktOrt.FindStringExact(ort);
+            comboBoxAltersgruppe.SelectedIndex = comboBoxAltersgruppe.FindStringExact(altersgruppe);
+            comboBoxSozialgruppe.SelectedIndex = comboBoxSozialgruppe.FindStringExact(sozialgruppe);
+
+            comboBoxKursortOrt.SelectedIndex = comboBoxKursortOrt.FindStringExact(ort);
+
             listViewKontakt.FullRowSelect = true;
 
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Altersgruppe"))
@@ -87,10 +175,19 @@ namespace Verrechnungsprogramm
                 this.Width = 520;
                 this.Location = new Point(200, 150);
             }
+            if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kursort"))
+            {
+                panelKursort.Visible = true;
+            }
 
 
 
         }
+
+        //private void comboboxenFüllen()
+        //{
+
+        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -577,15 +674,28 @@ namespace Verrechnungsprogramm
         private void einlesenOrt()
         {
             comboBoxKontaktOrt.Items.Clear();
+            comboBoxKursortOrt.Items.Clear();
             var client = new RestClient("http://localhost:8888");
 
             var requestPlz = new RestRequest("postleitzahlen", Method.GET);
             requestPlz.AddHeader("Content-Type", "application/json");
             var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
-            if (panelKontakt.Visible == true)
+
+            if(panelKursort.Visible ==true)
             {
                 foreach (Postleitzahl p in responsePlz.Data)
                 {
+                    if (comboBoxKursortPlz.Text.Equals(p.Plz))
+                    {
+                        comboBoxKursortOrt.Items.Add(p.Ort.ToString());
+                    }
+                }
+            }
+
+            if (panelKontakt.Visible == true)
+            {
+                foreach (Postleitzahl p in responsePlz.Data)
+                { 
                     if (comboBoxKontaktPostleitzahl.Text.Equals(p.Plz))
                     {
                         comboBoxKontaktOrt.Items.Add(p.Ort.ToString());
@@ -1464,7 +1574,125 @@ namespace Verrechnungsprogramm
 
         }
 
-       
+        private void buttonKursortAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonKursortSpeichern_Click(object sender, EventArgs e)
+        {
+            if (labelÜberschrift.Text.Equals("Kursort bearbeiten"))
+            {
+                kursortBearbeiten();
+                this.Close();
+            }
+
+            if (labelÜberschrift.Text.Equals("Kursort anlegen"))
+            {
+                kursortHinzufügen();
+                this.Close();
+            }
+        }
+
+        private void kursortBearbeiten()
+        {
+            var client = new RestClient("http://localhost:8888")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
+
+            Kursort kursort = new Kursort();
+            Postleitzahl postleitzahl = new Postleitzahl();
+
+            var requestKursort = new RestRequest("kursorte", Method.GET);
+            requestKursort.AddHeader("Content-Type", "application/json");
+            var responseKursort = client.Execute<List<Kursort>>(requestKursort);
+
+            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
+            requestPlz.AddHeader("Content-Type", "application/json");
+            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
+
+            foreach (Kursort k in responseKursort.Data)
+            {
+                if (k.KursortID == Convert.ToInt32(labelID.Text))
+                {
+                    kursort.KursortID = Convert.ToInt32(labelID.Text);
+                    kursort.Bezeichnung = textBoxKursortBezeichnung.Text;
+                    kursort.Beschreibung = textBoxKursortBeschreibung.Text;
+
+                    foreach (Postleitzahl p in responsePlz.Data)
+                    {
+                        if ((p.Plz.ToString().Equals(comboBoxKursortPlz.Text)) && (p.Ort.ToString().Equals(comboBoxKursortOrt.Text)))
+                        {
+                            postleitzahl.PostleitzahlID = p.PostleitzahlID;
+                            postleitzahl.Plz = p.Plz;
+                            postleitzahl.Ort = p.Ort;
+                        }
+                    }
+
+                    kursort.PostleitzahlID = postleitzahl;
+                    kursort.Strasse = textBoxKursortStrasse.Text;
+
+                    var request1 = new RestRequest("kursorte", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kursort);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+            }
+        }
+
+        private void kursortHinzufügen()
+        {
+            var client = new RestClient("http://localhost:8888");
+
+            Kursort kursort = new Kursort();
+            Postleitzahl postleitzahl = new Postleitzahl();
+
+            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
+            requestPlz.AddHeader("Content-Type", "application/json");
+            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
+
+            kursort.Bezeichnung = textBoxKursortBezeichnung.Text;
+            kursort.Beschreibung = textBoxKursortBeschreibung.Text;
+
+            foreach (Postleitzahl p in responsePlz.Data)
+            {
+                if ((p.Plz.ToString().Equals(comboBoxKursortPlz.Text)) && (p.Ort.ToString().Equals(comboBoxKursortOrt.Text)))
+                {
+                    postleitzahl.PostleitzahlID = p.PostleitzahlID;
+                    postleitzahl.Plz = p.Plz;
+                    postleitzahl.Ort = p.Ort;
+                }
+            }
+
+            kursort.PostleitzahlID = postleitzahl;
+            kursort.Strasse = textBoxKursortStrasse.Text;
+
+            var request = new RestRequest("kursorte", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kursort);
+            var response = client.Execute(request);
+
+        }
+
+        private void comboBoxKursortPlz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            einlesenOrt();
+        }
+
+        private void comboBoxKursortPlz_Leave(object sender, EventArgs e)
+        {
+            einlesenOrt();
+        }
 
         private void btnKassabuchAbbrechen_Click(object sender, EventArgs e)
         {

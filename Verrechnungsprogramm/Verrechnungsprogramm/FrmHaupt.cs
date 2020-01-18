@@ -38,6 +38,9 @@ namespace Verrechnungsprogramm
             listViewKassabuchkonto.FullRowSelect = true;
             listViewKassabuch.FullRowSelect = true;
             listViewRechnung.FullRowSelect = true;
+            listViewKursleiter.FullRowSelect = true;
+            listViewKursort.FullRowSelect = true;
+            
 
 
             FormBorderStyle = FormBorderStyle.Sizable;
@@ -74,9 +77,7 @@ namespace Verrechnungsprogramm
             var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("titel", Method.GET);
-
             request.AddHeader("Content-Type", "application/json");
-            //fHinzuBearb.lstTitel = client.Execute<List<Titel>>(request).Data;
             var response = client.Execute<List<Titel>>(request);
 
             foreach (Titel t in response.Data)
@@ -146,6 +147,17 @@ namespace Verrechnungsprogramm
             listViewKassabuchkonto.Visible = false;
             listViewKassabuch.Visible = false;
             listViewRechnung.Visible = false;
+            labelBtKursbuchung.Visible = false;
+            labelBtTeilnehmer.Visible = false;
+            labelBtKursleiter.Visible = false;
+            labelBtKursort.Visible = false;
+            labelBtOffeneRechnungen.Visible = false;
+            listViewTeilnehmer.Visible = false;
+            listViewKursleiter.Visible = false;
+            listViewOffeneRechnung.Visible = false;
+            listViewKursort.Visible = false;
+            comboBoxKursTeilnehmer.Visible = false;
+            labelKurs.Visible = false;
         }
 
         private void buttonKontakt_Click(object sender, EventArgs e)
@@ -201,10 +213,10 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.Foerderung.ToString());
                 lvItem.SubItems.Add(k.Status.ToString());
                 lvItem.SubItems.Add(k.Beschreibung.ToString());
-                lvItem.SubItems.Add(k.ZeitVon.ToString());
-                lvItem.SubItems.Add(k.ZeitBis.ToString());
-                lvItem.SubItems.Add(k.DatumVon.ToString());
-                lvItem.SubItems.Add(k.DatumBis.ToString());
+                lvItem.SubItems.Add(k.ZeitVon.ToShortTimeString());
+                lvItem.SubItems.Add(k.ZeitBis.ToShortTimeString());
+                lvItem.SubItems.Add(k.DatumVon.ToShortDateString());
+                lvItem.SubItems.Add(k.DatumBis.ToShortDateString());
                 lvItem.SubItems.Add(k.Seminarnummer.ToString());
                 lvItem.SubItems.Add(k.KurskategorieID.Bezeichnung.ToString());
                 lvItem.SubItems.Add(k.KursortID.KursortID.ToString());
@@ -280,39 +292,29 @@ namespace Verrechnungsprogramm
             var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kontakte", Method.GET);
-
             request.AddHeader("Content-Type", "application/json");
-
-           
             var response = client.Execute<List<Kontakt>>(request);
-
 
             foreach (Kontakt k in response.Data)
             {
-                        ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
-                        lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
-                        lvItem.SubItems.Add(k.Vorname.ToString());
-                        lvItem.SubItems.Add(k.Nachname.ToString());
-                        lvItem.SubItems.Add(k.SVNr.ToString());
-                        lvItem.SubItems.Add(k.Geschlecht.ToString());
-                        lvItem.SubItems.Add(k.Familienstand.ToString());
-                        lvItem.SubItems.Add(k.Email.ToString());
-                        lvItem.SubItems.Add(k.Telefonnummer.ToString());
-                        lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
-                        lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
-                        lvItem.SubItems.Add(k.Strasse.ToString());
-                        lvItem.SubItems.Add(k.AltersgruppeID.Bezeichnung.ToString());
-                        lvItem.SubItems.Add(k.SozialgruppeID.Bezeichnung.ToString());
-                        lvItem.SubItems.Add(k.StaatsbuergerschaftID.Staat.ToString());
+                ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Vorname.ToString());
+                lvItem.SubItems.Add(k.Nachname.ToString());
+                lvItem.SubItems.Add(k.SVNr.ToString());
+                lvItem.SubItems.Add(k.Geschlecht.ToString());
+                lvItem.SubItems.Add(k.Familienstand.ToString());
+                lvItem.SubItems.Add(k.Email.ToString());
+                lvItem.SubItems.Add(k.Telefonnummer.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                lvItem.SubItems.Add(k.Strasse.ToString());
+                lvItem.SubItems.Add(k.AltersgruppeID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.SozialgruppeID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.StaatsbuergerschaftID.Staat.ToString());
 
-                        listViewKontakt.Items.Add(lvItem);
-                    }
-                   
-                
-
-            
-
-
+                listViewKontakt.Items.Add(lvItem);
+            }
         }
 
         private void buttonStammdaten_Click(object sender, EventArgs e)
@@ -357,71 +359,6 @@ namespace Verrechnungsprogramm
             fHinzuBea.Text = buttonHinzufügen.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonHinzufügen.Text;
 
-            var client = new RestClient("http://localhost:8888");
-
-            var requestTitel = new RestRequest("titel", Method.GET);
-            requestTitel.AddHeader("Content-Type", "application/json");
-            var responseTitel = client.Execute<List<Titel>>(requestTitel);
-
-            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
-            requestPlz.AddHeader("Content-Type", "application/json");
-            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
-
-            var requestAltersgruppe = new RestRequest("altersgruppen", Method.GET);
-            requestAltersgruppe.AddHeader("Content-Type", "application/json");
-            var responseAltersgruppe = client.Execute<List<Altersgruppe>>(requestAltersgruppe);
-
-            var requestSozialgruppe = new RestRequest("sozialgruppen", Method.GET);
-            requestSozialgruppe.AddHeader("Content-Type", "application/json");
-            var responseSozialgruppe = client.Execute<List<Sozialgruppe>>(requestSozialgruppe);
-
-            var requestStaatsbuergerschaft = new RestRequest("staatsbuergerschaften", Method.GET);
-            requestStaatsbuergerschaft.AddHeader("Content-Type", "application/json");
-            var responseStaatsbuergerschaft = client.Execute<List<Staatsbuergerschaft>>(requestStaatsbuergerschaft);
-
-            var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
-            requestKurskategorie.AddHeader("Content-Type", "application/json");
-            var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
-
-    
-
-            if (labelÜberschrift.Text.Equals("Kontakt"))
-            {
-                foreach (Titel t in responseTitel.Data)
-                {
-                    fHinzuBea.comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
-                }
-
-                foreach(Postleitzahl p in responsePlz.Data)
-                {
-                    fHinzuBea.comboBoxKontaktPostleitzahl.Items.Add(p.Plz.ToString());
-                }
-
-                foreach (Altersgruppe a in responseAltersgruppe.Data)
-                {
-                    fHinzuBea.comboBoxAltersgruppe.Items.Add(a.Bezeichnung.ToString());
-                }
-
-                foreach (Sozialgruppe s in responseSozialgruppe.Data)
-                {
-                    fHinzuBea.comboBoxSozialgruppe.Items.Add(s.Bezeichnung.ToString());
-                }
-
-                foreach (Staatsbuergerschaft s in responseStaatsbuergerschaft.Data)
-                {
-                    fHinzuBea.comboBoxStaatsbuergerschaft.Items.Add(s.Staat.ToString());
-                }
-
-            }
-
-            if (labelÜberschrift.Text.Equals("Kurs"))
-            {
-                foreach (Kurskategorie kk in responseKurskategorie.Data)
-                {
-                    fHinzuBea.comboBoxKursKurskategorie.Items.Add(kk.Bezeichnung.ToString());
-                }
-            }
-
             fHinzuBea.ShowDialog();
 
             sozialgruppeEinlesen();
@@ -430,7 +367,6 @@ namespace Verrechnungsprogramm
             kurseEinlesen();
             kontakteEinlesen();
             kurskategorieEinlesen();
-            kurseEinlesen();
             bankverbindungEinlesen();
             passEinlesen();
             gutscheinEinlesen();
@@ -438,6 +374,8 @@ namespace Verrechnungsprogramm
             KassabuchkontoEinlesen();
             KassabuchEinlesen();
             RechnungEinlesen();
+            kursortEinlesen();
+            kursleiterEinlesen();
         }
 
 
@@ -552,7 +490,7 @@ namespace Verrechnungsprogramm
             fHinzuBea.Text = buttonBearbeiten.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
             fHinzuBea.labelID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text;
-            fHinzuBea.comboBoxTitel.SelectedIndex = fHinzuBea.comboBoxTitel.FindStringExact(listViewKontakt.SelectedItems[0].SubItems[1].Text);
+            fHinzuBea.titel = listViewKontakt.SelectedItems[0].SubItems[1].Text;
             fHinzuBea.textBoxVorname.Text = listViewKontakt.SelectedItems[0].SubItems[2].Text;
             fHinzuBea.textBoxNachname.Text = listViewKontakt.SelectedItems[0].SubItems[3].Text;
             fHinzuBea.textBoxSVNr.Text = listViewKontakt.SelectedItems[0].SubItems[4].Text;
@@ -561,13 +499,34 @@ namespace Verrechnungsprogramm
             fHinzuBea.textBoxEMail.Text = listViewKontakt.SelectedItems[0].SubItems[7].Text;
             fHinzuBea.textBoxTelefonnummer.Text = listViewKontakt.SelectedItems[0].SubItems[8].Text;
             fHinzuBea.comboBoxKontaktPostleitzahl.Text = listViewKontakt.SelectedItems[0].SubItems[9].Text;
-            fHinzuBea.comboBoxKontaktOrt.Text = listViewKontakt.SelectedItems[0].SubItems[10].Text;
+            fHinzuBea.ort = listViewKontakt.SelectedItems[0].SubItems[10].Text;
             fHinzuBea.textBoxKontaktStrasse.Text = listViewKontakt.SelectedItems[0].SubItems[11].Text;
-            fHinzuBea.comboBoxAltersgruppe.Text = listViewKontakt.SelectedItems[0].SubItems[12].Text;
-            fHinzuBea.comboBoxSozialgruppe.Text = listViewKontakt.SelectedItems[0].SubItems[13].Text;
+            fHinzuBea.altersgruppe = listViewKontakt.SelectedItems[0].SubItems[12].Text;
+            fHinzuBea.sozialgruppe = listViewKontakt.SelectedItems[0].SubItems[13].Text;
             fHinzuBea.comboBoxStaatsbuergerschaft.Text = listViewKontakt.SelectedItems[0].SubItems[14].Text;
             fHinzuBea.ShowDialog();
             kontakteEinlesen();
+        }
+
+        private void kursortBearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            if ((listViewKursort.SelectedItems.Count == 0) || (listViewKursort.SelectedItems.Count > 1))
+                return;
+
+            fHinzuBea.panelKursort.Visible = true;
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
+            fHinzuBea.labelID.Text = listViewKursort.SelectedItems[0].SubItems[0].Text;
+            fHinzuBea.textBoxKursortBezeichnung.Text = listViewKursort.SelectedItems[0].SubItems[1].Text;
+            fHinzuBea.textBoxKursortBeschreibung.Text = listViewKursort.SelectedItems[0].SubItems[2].Text;
+            fHinzuBea.comboBoxKursortPlz.Text = listViewKursort.SelectedItems[0].SubItems[3].Text;
+            fHinzuBea.ort = listViewKursort.SelectedItems[0].SubItems[4].Text;
+            fHinzuBea.textBoxKursortStrasse.Text = listViewKursort.SelectedItems[0].SubItems[5].Text;
+
+            fHinzuBea.ShowDialog();
+            kursortEinlesen();
         }
 
         private void passBearbeiten()
@@ -673,73 +632,6 @@ namespace Verrechnungsprogramm
 
         private void buttonBearbeiten_Click(object sender, EventArgs e)
         {
-            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
-
-            var client = new RestClient("http://localhost:8888");
-
-            var requestTitel = new RestRequest("titel", Method.GET);
-            requestTitel.AddHeader("Content-Type", "application/json");
-            var responseTitel = client.Execute<List<Titel>>(requestTitel);
-
-            var requestPlz = new RestRequest("postleitzahlen", Method.GET);
-            requestPlz.AddHeader("Content-Type", "application/json");
-            var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
-
-            var requestAltersgruppe = new RestRequest("altersgruppen", Method.GET);
-            requestAltersgruppe.AddHeader("Content-Type", "application/json");
-            var responseAltersgruppe = client.Execute<List<Altersgruppe>>(requestAltersgruppe);
-
-            var requestSozialgruppe = new RestRequest("sozialgruppen", Method.GET);
-            requestSozialgruppe.AddHeader("Content-Type", "application/json");
-            var responseSozialgruppe = client.Execute<List<Sozialgruppe>>(requestSozialgruppe);
-
-            var requestStaatsbuergerschaft = new RestRequest("staatsbuergerschaften", Method.GET);
-            requestStaatsbuergerschaft.AddHeader("Content-Type", "application/json");
-            var responseStaatsbuergerschaft = client.Execute<List<Staatsbuergerschaft>>(requestStaatsbuergerschaft);
-
-            var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
-            requestKurskategorie.AddHeader("Content-Type", "application/json");
-            var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
-
-            
-            if (labelÜberschrift.Text.Equals("Kontakt"))
-            { 
-                foreach (Titel t in responseTitel.Data)
-                {
-                    fHinzuBea.comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
-                }
-
-                foreach(Postleitzahl p in responsePlz.Data)
-                {
-                    fHinzuBea.comboBoxKontaktPostleitzahl.Items.Add(p.Plz.ToString());
-                }
-
-                foreach (Altersgruppe a in responseAltersgruppe.Data)
-                {
-                    fHinzuBea.comboBoxAltersgruppe.Items.Add(a.Bezeichnung.ToString());
-                }
-
-                foreach (Sozialgruppe s in responseSozialgruppe.Data)
-                {
-                    fHinzuBea.comboBoxSozialgruppe.Items.Add(s.Bezeichnung.ToString());
-                }
-
-                foreach (Staatsbuergerschaft s in responseStaatsbuergerschaft.Data)
-                {
-                    fHinzuBea.comboBoxStaatsbuergerschaft.Items.Add(s.Staat.ToString());
-                }
-
-            }
-
-            if (labelÜberschrift.Text.Equals("Kurs"))
-            {
-                foreach (Kurskategorie kk in responseKurskategorie.Data)
-                {
-                    fHinzuBea.comboBoxKursKurskategorie.Items.Add(kk.Bezeichnung.ToString());
-                }
-            }
-
-
             if (labelÜberschrift.Text.Equals("Titel"))
             {
                 titelBearbeiten();
@@ -792,8 +684,10 @@ namespace Verrechnungsprogramm
             {
                 rechnungBearbeiten();
             }
-
-
+            if (labelÜberschrift.Text.Equals("Kursort"))
+            {
+                kursortBearbeiten();
+            }
 
         }
 
@@ -1207,6 +1101,154 @@ namespace Verrechnungsprogramm
 
             fHinzuBea.ShowDialog();
             RechnungEinlesen();
+        }
+
+        private void buttonKursort_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Kursort";
+            listViewKursort.Visible = true;
+            tableLayoutPanelKursTermin.Visible = true;
+            labelBtKursort.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonBearbeiten.Visible = true;
+            kursortEinlesen();
+        }
+
+        private void listViewKursort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonKursleiter_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Kursleiter";
+            listViewKursleiter.Visible = true;
+            tableLayoutPanelKursTermin.Visible = true;
+            labelBtKursleiter.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonBearbeiten.Visible = true;
+            kursleiterEinlesen();
+        }
+
+        private void kursleiterEinlesen()
+        {
+            listViewKursleiter.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+
+            var request = new RestRequest("kursleiter", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kursleiter>>(request);
+
+            foreach (Kursleiter k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KursleiterID.ToString());
+                lvItem.SubItems.Add(k.KontaktID.Vorname.ToString());
+                lvItem.SubItems.Add(k.KontaktID.Nachname.ToString());
+                listViewKursleiter.Items.Add(lvItem);
+            }
+        }
+
+        private void kursortEinlesen()
+        {
+            listViewKursort.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+
+            var request = new RestRequest("kursorte", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kursort>>(request);
+
+            foreach (Kursort k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KursortID.ToString());
+                lvItem.SubItems.Add(k.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Beschreibung.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                lvItem.SubItems.Add(k.Strasse.ToString());
+                listViewKursort.Items.Add(lvItem);
+            }
+        }
+
+        private void buttonTeilnehmer_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Teilnehmer";
+            listViewTeilnehmer.Visible = true;
+            tableLayoutPanelKursTermin.Visible = true;
+            labelBtTeilnehmer.Visible = true;
+            labelKurs.Visible = true;
+            comboBoxKursTeilnehmer.Visible = true;
+
+            comboBoxKursTeilnehmer.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+            var request = new RestRequest("kurse", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kurs>>(request);
+
+            foreach (Kurs k in response.Data)
+            {
+                comboBoxKursTeilnehmer.Items.Add(k.Bezeichnung.ToString());
+            }
+            
+        }
+
+        private void comboBoxKursTeilnehmer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listViewTeilnehmer.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+
+            var request = new RestRequest("kontaktKurse", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<KontaktKurs>>(request);
+
+            foreach (KontaktKurs kk in response.Data)
+            {
+                if(comboBoxKursTeilnehmer.Text.Equals(kk.KursID.Bezeichnung))
+                {
+                ListViewItem lvItem = new ListViewItem(kk.KontakID.Vorname.ToString());
+                lvItem.SubItems.Add(kk.KontakID.Nachname.ToString());
+                listViewTeilnehmer.Items.Add(lvItem);
+                }
+            }
+        }
+
+        private void buttonOffenePosten_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Offene Rechnungen";
+            listViewOffeneRechnung.Visible = true;
+            tableLayoutPanelKursTermin.Visible = true;
+            labelBtOffeneRechnungen.Visible = true;
+            offenePostenEinlesen();
+        }
+
+        private void offenePostenEinlesen()
+        {
+            listViewOffeneRechnung.Items.Clear();
+            var client = new RestClient("http://localhost:8888");
+
+            var request = new RestRequest("kontaktKurse", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<KontaktKurs>>(request);
+
+            foreach (KontaktKurs kk in response.Data)
+            {
+                if (kk.Bezahlt == true)
+                {
+                    ListViewItem lvItem = new ListViewItem(kk.KontakID.Vorname.ToString());
+                    lvItem.SubItems.Add(kk.KontakID.Nachname.ToString());
+                    lvItem.SubItems.Add("nein");
+                    lvItem.SubItems.Add(kk.KursID.Bezeichnung.ToString());
+                    listViewOffeneRechnung.Items.Add(lvItem);
+                }
+            }
+
         }
     }
 }

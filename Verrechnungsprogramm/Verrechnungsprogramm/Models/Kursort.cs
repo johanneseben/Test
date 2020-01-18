@@ -12,7 +12,7 @@ namespace Common.Models
         public virtual int KursortID { get; set; }
         public virtual string Bezeichnung { get; set; }
         public virtual string Beschreibung { get; set; }
-        public virtual string Straße { get; set; }
+        public virtual string Strasse { get; set; }
         public virtual Postleitzahl PostleitzahlID { get; set; }
 
         [JsonIgnore]
