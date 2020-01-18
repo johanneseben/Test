@@ -20,6 +20,9 @@ namespace Verrechnungsprogramm
         {
             InitializeComponent();
         }
+
+     
+
         public string titel, altersgruppe, sozialgruppe, ort;
 
         private void FrmHinzufügenBearbeiten_Load(object sender, EventArgs e)
@@ -49,6 +52,18 @@ namespace Verrechnungsprogramm
             var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
             requestKurskategorie.AddHeader("Content-Type", "application/json");
             var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
+
+            var requestKassabuchkonto = new RestRequest("kassabuchkonten", Method.GET);
+            requestKassabuchkonto.AddHeader("Content-Type", "application/json");
+            var responseKassabuchkonto = client.Execute<List<Kassabuchkonto>>(requestKassabuchkonto);
+
+            var requestKassabuch = new RestRequest("kassabuecher", Method.GET);
+            requestKassabuch.AddHeader("Content-Type", "application/json");
+            var responseKassabuch = client.Execute<List<Kassabuch>>(requestKassabuch);
+
+            var requestRechnung = new RestRequest("rechnungen", Method.GET);
+            requestRechnung.AddHeader("Content-Type", "application/json");
+            var responseRechnung = client.Execute<List<Rechnung>>(requestRechnung);
 
 
             var requestKursort = new RestRequest("kursorte", Method.GET);
@@ -155,7 +170,13 @@ namespace Verrechnungsprogramm
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuchkonto"))
             {
+               
                 panelKassabuchkonto.Visible = true;
+                int labelplus1;
+                labelplus1 = Convert.ToInt32(labelID.Text); 
+                labelplus1++;
+                textBoxKassabuchkontoID.Text = labelplus1.ToString();
+                
                 this.Height = 370;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -164,6 +185,10 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuch"))
             {
                panelKassabuch.Visible = true;
+                int labelplus1;
+                labelplus1 = Convert.ToInt32(labelID.Text);
+                labelplus1++;
+                textBoxKassabuchID.Text = labelplus1.ToString();
                 this.Height = 470;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -171,6 +196,10 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Rechnung"))
             {
                 panelRechnung.Visible = true;
+                int labelplus1;
+                labelplus1 = Convert.ToInt32(labelID.Text);
+                labelplus1++;
+                textBoxRechnungID.Text = labelplus1.ToString();
                 this.Height = 450;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -213,6 +242,7 @@ namespace Verrechnungsprogramm
                     sozialgruppeHinzufügen();
                     this.Close();
                 }
+                
             }
 
             if (this.Text.Equals("bearbeiten"))
@@ -562,6 +592,8 @@ namespace Verrechnungsprogramm
         {
             this.Close();
         }
+
+        
 
         private void titelHinzufügen()
         {
@@ -1569,10 +1601,7 @@ namespace Verrechnungsprogramm
             }
         }
 
-        private void btnSpeichern_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void buttonKursortAbbrechen_Click(object sender, EventArgs e)
         {
@@ -1694,6 +1723,8 @@ namespace Verrechnungsprogramm
             einlesenOrt();
         }
 
+       
+
         private void btnKassabuchAbbrechen_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -1709,6 +1740,30 @@ namespace Verrechnungsprogramm
             this.Close();
         }
 
-       
+        private void kassabuchkontoHinzufügen()
+        {
+            var client = new RestClient("http://localhost:8888");
+
+            Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
+            kassabuchkonto.KassabuchkontoID = Convert.ToInt32(textBoxKassabuchkontoID.Text);
+            kassabuchkonto.Kontonummer = textBoxKontonummer.Text;
+            kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
+            kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text);
+
+            var request = new RestRequest("kassabuchkonten", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kassabuchkonto);
+            var response = client.Execute(request);
+
+            MessageBox.Show("Das Kassabuchkonto wurde erfolgreich hinzugefügt");
+        }
+
+        private void btnKassabuchkontoSpeichern_Click(object sender, EventArgs e)
+        {
+
+            kassabuchkontoHinzufügen();
+            this.Close();
+        }
+
     }
 }

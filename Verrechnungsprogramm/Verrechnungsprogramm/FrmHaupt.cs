@@ -19,6 +19,7 @@ namespace Verrechnungsprogramm
 
         public FrmHaupt()
         {
+           
             InitializeComponent();
         }
 
@@ -358,6 +359,20 @@ namespace Verrechnungsprogramm
             fHinzuBea.BackColor = this.BackColor;
             fHinzuBea.Text = buttonHinzufügen.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonHinzufügen.Text;
+
+            if (labelÜberschrift.Text.Equals("Kassabuchkonto"))
+            {
+                fHinzuBea.labelID.Text = listViewKassabuchkonto.Items[0].SubItems[0].Text;
+            }
+
+            if (labelÜberschrift.Text.Equals("Kassabuch"))
+            {
+                fHinzuBea.labelID.Text = listViewKassabuch.Items[0].SubItems[0].Text;
+            }
+            if (labelÜberschrift.Text.Equals("Rechnung"))
+            {
+                fHinzuBea.labelID.Text = listViewRechnung.Items[0].SubItems[0].Text;
+            }
 
             fHinzuBea.ShowDialog();
 
@@ -953,6 +968,8 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.Kontostand.ToString("c2"));
                 listViewKassabuchkonto.Items.Add(lvItem);
             }
+
+            
         }
 
         private void kassabuchkontoBearbeiten()
