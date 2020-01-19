@@ -183,10 +183,8 @@
             this.textBoxEMail = new System.Windows.Forms.TextBox();
             this.textBoxNachname = new System.Windows.Forms.TextBox();
             this.panelKassabuchkonto = new System.Windows.Forms.Panel();
-            this.textBoxKassabuchkontoID = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnKassabuchkontoSpeichern = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.btnKassabuchkontoAbbrechen = new System.Windows.Forms.Button();
             this.textBoxKontostand = new System.Windows.Forms.TextBox();
@@ -198,23 +196,18 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtKassabuchkontoID = new System.Windows.Forms.TextBox();
             this.textBoxKontaktID = new System.Windows.Forms.TextBox();
-            this.textBoxKassabuchID = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.buttonKassabuchSpeichern = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnKassabuchAbbrechen = new System.Windows.Forms.Button();
             this.textBoxBetrag = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBoxDatum = new System.Windows.Forms.TextBox();
             this.textBoxBuchungstext = new System.Windows.Forms.TextBox();
             this.panelRechnung = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.textBoxKursID = new System.Windows.Forms.TextBox();
-            this.textBoxRechnungID = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.btnRechnungAbbrechen = new System.Windows.Forms.Button();
             this.txtKontaktID = new System.Windows.Forms.TextBox();
@@ -234,6 +227,7 @@
             this.labelKursortBeschreibung = new System.Windows.Forms.Label();
             this.textBoxKursortBezeichnung = new System.Windows.Forms.TextBox();
             this.labelKursortBezeichnung = new System.Windows.Forms.Label();
+            this.dateTimePickerKassabuch = new System.Windows.Forms.DateTimePicker();
             this.panelAltersgruppeSozialgruppeKurskategorie.SuspendLayout();
             this.panelTitel.SuspendLayout();
             this.panelKurs.SuspendLayout();
@@ -1007,7 +1001,7 @@
             this.columnHeader6,
             this.columnHeader7});
             this.listViewKontakt.HideSelection = false;
-            this.listViewKontakt.Location = new System.Drawing.Point(27, 65);
+            this.listViewKontakt.Location = new System.Drawing.Point(46, 61);
             this.listViewKontakt.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKontakt.Name = "listViewKontakt";
             this.listViewKontakt.Size = new System.Drawing.Size(710, 277);
@@ -1983,38 +1977,26 @@
             // 
             // panelKassabuchkonto
             // 
-            this.panelKassabuchkonto.Controls.Add(this.textBoxKassabuchkontoID);
             this.panelKassabuchkonto.Controls.Add(this.label17);
             this.panelKassabuchkonto.Controls.Add(this.btnKassabuchkontoSpeichern);
-            this.panelKassabuchkonto.Controls.Add(this.label18);
             this.panelKassabuchkonto.Controls.Add(this.label19);
             this.panelKassabuchkonto.Controls.Add(this.btnKassabuchkontoAbbrechen);
             this.panelKassabuchkonto.Controls.Add(this.textBoxKontostand);
             this.panelKassabuchkonto.Controls.Add(this.label25);
             this.panelKassabuchkonto.Controls.Add(this.textBoxKontonummer);
             this.panelKassabuchkonto.Controls.Add(this.textBoxKontobezeichnung);
-            this.panelKassabuchkonto.Location = new System.Drawing.Point(5, 64);
+            this.panelKassabuchkonto.Location = new System.Drawing.Point(3, 66);
             this.panelKassabuchkonto.Margin = new System.Windows.Forms.Padding(2);
             this.panelKassabuchkonto.Name = "panelKassabuchkonto";
             this.panelKassabuchkonto.Size = new System.Drawing.Size(475, 283);
             this.panelKassabuchkonto.TabIndex = 45;
             this.panelKassabuchkonto.Visible = false;
             // 
-            // textBoxKassabuchkontoID
-            // 
-            this.textBoxKassabuchkontoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKassabuchkontoID.Location = new System.Drawing.Point(221, 11);
-            this.textBoxKassabuchkontoID.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxKassabuchkontoID.Name = "textBoxKassabuchkontoID";
-            this.textBoxKassabuchkontoID.ReadOnly = true;
-            this.textBoxKassabuchkontoID.Size = new System.Drawing.Size(224, 32);
-            this.textBoxKassabuchkontoID.TabIndex = 30;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(12, 53);
+            this.label17.Location = new System.Drawing.Point(12, 28);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(156, 26);
@@ -2024,7 +2006,7 @@
             // btnKassabuchkontoSpeichern
             // 
             this.btnKassabuchkontoSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKassabuchkontoSpeichern.Location = new System.Drawing.Point(224, 203);
+            this.btnKassabuchkontoSpeichern.Location = new System.Drawing.Point(224, 173);
             this.btnKassabuchkontoSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.btnKassabuchkontoSpeichern.Name = "btnKassabuchkontoSpeichern";
             this.btnKassabuchkontoSpeichern.Size = new System.Drawing.Size(179, 54);
@@ -2033,22 +2015,11 @@
             this.btnKassabuchkontoSpeichern.UseVisualStyleBackColor = true;
             this.btnKassabuchkontoSpeichern.Click += new System.EventHandler(this.btnKassabuchkontoSpeichern_Click);
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(12, 15);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(201, 26);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "KassabuchkontoID:";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 91);
+            this.label19.Location = new System.Drawing.Point(12, 66);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(198, 26);
@@ -2058,7 +2029,7 @@
             // btnKassabuchkontoAbbrechen
             // 
             this.btnKassabuchkontoAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKassabuchkontoAbbrechen.Location = new System.Drawing.Point(15, 203);
+            this.btnKassabuchkontoAbbrechen.Location = new System.Drawing.Point(15, 173);
             this.btnKassabuchkontoAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.btnKassabuchkontoAbbrechen.Name = "btnKassabuchkontoAbbrechen";
             this.btnKassabuchkontoAbbrechen.Size = new System.Drawing.Size(179, 54);
@@ -2070,7 +2041,7 @@
             // textBoxKontostand
             // 
             this.textBoxKontostand.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKontostand.Location = new System.Drawing.Point(221, 125);
+            this.textBoxKontostand.Location = new System.Drawing.Point(221, 100);
             this.textBoxKontostand.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontostand.Name = "textBoxKontostand";
             this.textBoxKontostand.Size = new System.Drawing.Size(224, 32);
@@ -2080,7 +2051,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(12, 129);
+            this.label25.Location = new System.Drawing.Point(12, 104);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(128, 26);
@@ -2090,7 +2061,7 @@
             // textBoxKontonummer
             // 
             this.textBoxKontonummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKontonummer.Location = new System.Drawing.Point(221, 49);
+            this.textBoxKontonummer.Location = new System.Drawing.Point(221, 24);
             this.textBoxKontonummer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontonummer.Name = "textBoxKontonummer";
             this.textBoxKontonummer.Size = new System.Drawing.Size(224, 32);
@@ -2099,7 +2070,7 @@
             // textBoxKontobezeichnung
             // 
             this.textBoxKontobezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKontobezeichnung.Location = new System.Drawing.Point(221, 87);
+            this.textBoxKontobezeichnung.Location = new System.Drawing.Point(221, 62);
             this.textBoxKontobezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontobezeichnung.Name = "textBoxKontobezeichnung";
             this.textBoxKontobezeichnung.Size = new System.Drawing.Size(224, 32);
@@ -2107,24 +2078,22 @@
             // 
             // panelKassabuch
             // 
+            this.panelKassabuch.Controls.Add(this.dateTimePickerKassabuch);
             this.panelKassabuch.Controls.Add(this.label23);
             this.panelKassabuch.Controls.Add(this.label22);
             this.panelKassabuch.Controls.Add(this.txtKassabuchkontoID);
             this.panelKassabuch.Controls.Add(this.textBoxKontaktID);
-            this.panelKassabuch.Controls.Add(this.textBoxKassabuchID);
             this.panelKassabuch.Controls.Add(this.label15);
             this.panelKassabuch.Controls.Add(this.buttonKassabuchSpeichern);
-            this.panelKassabuch.Controls.Add(this.label16);
             this.panelKassabuch.Controls.Add(this.label20);
             this.panelKassabuch.Controls.Add(this.btnKassabuchAbbrechen);
             this.panelKassabuch.Controls.Add(this.textBoxBetrag);
             this.panelKassabuch.Controls.Add(this.label21);
-            this.panelKassabuch.Controls.Add(this.textBoxDatum);
             this.panelKassabuch.Controls.Add(this.textBoxBuchungstext);
-            this.panelKassabuch.Location = new System.Drawing.Point(8, 67);
+            this.panelKassabuch.Location = new System.Drawing.Point(3, 66);
             this.panelKassabuch.Margin = new System.Windows.Forms.Padding(2);
             this.panelKassabuch.Name = "panelKassabuch";
-            this.panelKassabuch.Size = new System.Drawing.Size(475, 375);
+            this.panelKassabuch.Size = new System.Drawing.Size(518, 375);
             this.panelKassabuch.TabIndex = 46;
             this.panelKassabuch.Visible = false;
             // 
@@ -2132,7 +2101,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(12, 220);
+            this.label23.Location = new System.Drawing.Point(12, 192);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(195, 26);
@@ -2143,7 +2112,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(14, 179);
+            this.label22.Location = new System.Drawing.Point(14, 151);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(108, 26);
@@ -2153,36 +2122,26 @@
             // txtKassabuchkontoID
             // 
             this.txtKassabuchkontoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKassabuchkontoID.Location = new System.Drawing.Point(221, 217);
+            this.txtKassabuchkontoID.Location = new System.Drawing.Point(221, 189);
             this.txtKassabuchkontoID.Margin = new System.Windows.Forms.Padding(2);
             this.txtKassabuchkontoID.Name = "txtKassabuchkontoID";
-            this.txtKassabuchkontoID.Size = new System.Drawing.Size(224, 32);
+            this.txtKassabuchkontoID.Size = new System.Drawing.Size(269, 32);
             this.txtKassabuchkontoID.TabIndex = 19;
             // 
             // textBoxKontaktID
             // 
             this.textBoxKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKontaktID.Location = new System.Drawing.Point(221, 176);
+            this.textBoxKontaktID.Location = new System.Drawing.Point(221, 148);
             this.textBoxKontaktID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontaktID.Name = "textBoxKontaktID";
-            this.textBoxKontaktID.Size = new System.Drawing.Size(224, 32);
+            this.textBoxKontaktID.Size = new System.Drawing.Size(269, 32);
             this.textBoxKontaktID.TabIndex = 18;
-            // 
-            // textBoxKassabuchID
-            // 
-            this.textBoxKassabuchID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKassabuchID.Location = new System.Drawing.Point(220, 12);
-            this.textBoxKassabuchID.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxKassabuchID.Name = "textBoxKassabuchID";
-            this.textBoxKassabuchID.ReadOnly = true;
-            this.textBoxKassabuchID.Size = new System.Drawing.Size(224, 32);
-            this.textBoxKassabuchID.TabIndex = 30;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(12, 56);
+            this.label15.Location = new System.Drawing.Point(12, 28);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(83, 26);
@@ -2192,30 +2151,20 @@
             // buttonKassabuchSpeichern
             // 
             this.buttonKassabuchSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKassabuchSpeichern.Location = new System.Drawing.Point(227, 278);
+            this.buttonKassabuchSpeichern.Location = new System.Drawing.Point(224, 255);
             this.buttonKassabuchSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKassabuchSpeichern.Name = "buttonKassabuchSpeichern";
             this.buttonKassabuchSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonKassabuchSpeichern.TabIndex = 29;
             this.buttonKassabuchSpeichern.Text = "Speichern";
             this.buttonKassabuchSpeichern.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(12, 15);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(142, 26);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "KassabuchID";
+            this.buttonKassabuchSpeichern.Click += new System.EventHandler(this.buttonKassabuchSpeichern_Click);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(12, 97);
+            this.label20.Location = new System.Drawing.Point(12, 69);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(150, 26);
@@ -2225,7 +2174,7 @@
             // btnKassabuchAbbrechen
             // 
             this.btnKassabuchAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKassabuchAbbrechen.Location = new System.Drawing.Point(18, 278);
+            this.btnKassabuchAbbrechen.Location = new System.Drawing.Point(15, 255);
             this.btnKassabuchAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.btnKassabuchAbbrechen.Name = "btnKassabuchAbbrechen";
             this.btnKassabuchAbbrechen.Size = new System.Drawing.Size(179, 54);
@@ -2237,56 +2186,45 @@
             // textBoxBetrag
             // 
             this.textBoxBetrag.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBetrag.Location = new System.Drawing.Point(221, 135);
+            this.textBoxBetrag.Location = new System.Drawing.Point(221, 107);
             this.textBoxBetrag.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBetrag.Name = "textBoxBetrag";
-            this.textBoxBetrag.Size = new System.Drawing.Size(224, 32);
+            this.textBoxBetrag.Size = new System.Drawing.Size(269, 32);
             this.textBoxBetrag.TabIndex = 17;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(13, 138);
+            this.label21.Location = new System.Drawing.Point(13, 110);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(82, 26);
             this.label21.TabIndex = 10;
             this.label21.Text = "Betrag:";
             // 
-            // textBoxDatum
-            // 
-            this.textBoxDatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDatum.Location = new System.Drawing.Point(221, 53);
-            this.textBoxDatum.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxDatum.Name = "textBoxDatum";
-            this.textBoxDatum.Size = new System.Drawing.Size(224, 32);
-            this.textBoxDatum.TabIndex = 15;
-            // 
             // textBoxBuchungstext
             // 
             this.textBoxBuchungstext.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBuchungstext.Location = new System.Drawing.Point(221, 94);
+            this.textBoxBuchungstext.Location = new System.Drawing.Point(221, 66);
             this.textBoxBuchungstext.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBuchungstext.Name = "textBoxBuchungstext";
-            this.textBoxBuchungstext.Size = new System.Drawing.Size(224, 32);
+            this.textBoxBuchungstext.Size = new System.Drawing.Size(269, 32);
             this.textBoxBuchungstext.TabIndex = 16;
             // 
             // panelRechnung
             // 
             this.panelRechnung.Controls.Add(this.label26);
             this.panelRechnung.Controls.Add(this.textBoxKursID);
-            this.panelRechnung.Controls.Add(this.textBoxRechnungID);
             this.panelRechnung.Controls.Add(this.label27);
             this.panelRechnung.Controls.Add(this.button5);
-            this.panelRechnung.Controls.Add(this.label28);
             this.panelRechnung.Controls.Add(this.label29);
             this.panelRechnung.Controls.Add(this.btnRechnungAbbrechen);
             this.panelRechnung.Controls.Add(this.txtKontaktID);
             this.panelRechnung.Controls.Add(this.label30);
             this.panelRechnung.Controls.Add(this.textBoxRechnungsnummer);
             this.panelRechnung.Controls.Add(this.textBoxRechnungsdatum);
-            this.panelRechnung.Location = new System.Drawing.Point(3, 65);
+            this.panelRechnung.Location = new System.Drawing.Point(3, 69);
             this.panelRechnung.Margin = new System.Windows.Forms.Padding(2);
             this.panelRechnung.Name = "panelRechnung";
             this.panelRechnung.Size = new System.Drawing.Size(475, 335);
@@ -2297,7 +2235,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(14, 179);
+            this.label26.Location = new System.Drawing.Point(14, 152);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(79, 26);
@@ -2307,27 +2245,17 @@
             // textBoxKursID
             // 
             this.textBoxKursID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursID.Location = new System.Drawing.Point(221, 176);
+            this.textBoxKursID.Location = new System.Drawing.Point(221, 149);
             this.textBoxKursID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursID.Name = "textBoxKursID";
             this.textBoxKursID.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursID.TabIndex = 18;
             // 
-            // textBoxRechnungID
-            // 
-            this.textBoxRechnungID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRechnungID.Location = new System.Drawing.Point(220, 12);
-            this.textBoxRechnungID.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxRechnungID.Name = "textBoxRechnungID";
-            this.textBoxRechnungID.ReadOnly = true;
-            this.textBoxRechnungID.Size = new System.Drawing.Size(224, 32);
-            this.textBoxRechnungID.TabIndex = 30;
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(12, 56);
+            this.label27.Location = new System.Drawing.Point(12, 29);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(209, 26);
@@ -2337,7 +2265,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(227, 241);
+            this.button5.Location = new System.Drawing.Point(227, 211);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(179, 54);
@@ -2345,22 +2273,11 @@
             this.button5.Text = "Speichern";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(12, 15);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(133, 26);
-            this.label28.TabIndex = 1;
-            this.label28.Text = "RechnungID";
-            // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(12, 97);
+            this.label29.Location = new System.Drawing.Point(12, 70);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(189, 26);
@@ -2370,7 +2287,7 @@
             // btnRechnungAbbrechen
             // 
             this.btnRechnungAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRechnungAbbrechen.Location = new System.Drawing.Point(18, 241);
+            this.btnRechnungAbbrechen.Location = new System.Drawing.Point(18, 211);
             this.btnRechnungAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.btnRechnungAbbrechen.Name = "btnRechnungAbbrechen";
             this.btnRechnungAbbrechen.Size = new System.Drawing.Size(179, 54);
@@ -2382,7 +2299,7 @@
             // txtKontaktID
             // 
             this.txtKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKontaktID.Location = new System.Drawing.Point(221, 135);
+            this.txtKontaktID.Location = new System.Drawing.Point(221, 108);
             this.txtKontaktID.Margin = new System.Windows.Forms.Padding(2);
             this.txtKontaktID.Name = "txtKontaktID";
             this.txtKontaktID.Size = new System.Drawing.Size(224, 32);
@@ -2392,7 +2309,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(13, 138);
+            this.label30.Location = new System.Drawing.Point(13, 111);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(114, 26);
@@ -2402,7 +2319,7 @@
             // textBoxRechnungsnummer
             // 
             this.textBoxRechnungsnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRechnungsnummer.Location = new System.Drawing.Point(221, 53);
+            this.textBoxRechnungsnummer.Location = new System.Drawing.Point(221, 26);
             this.textBoxRechnungsnummer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRechnungsnummer.Name = "textBoxRechnungsnummer";
             this.textBoxRechnungsnummer.Size = new System.Drawing.Size(224, 32);
@@ -2411,7 +2328,7 @@
             // textBoxRechnungsdatum
             // 
             this.textBoxRechnungsdatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRechnungsdatum.Location = new System.Drawing.Point(221, 94);
+            this.textBoxRechnungsdatum.Location = new System.Drawing.Point(221, 67);
             this.textBoxRechnungsdatum.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRechnungsdatum.Name = "textBoxRechnungsdatum";
             this.textBoxRechnungsdatum.Size = new System.Drawing.Size(224, 32);
@@ -2569,14 +2486,22 @@
             this.labelKursortBezeichnung.TabIndex = 52;
             this.labelKursortBezeichnung.Text = "Bezeichnung:";
             // 
+            // dateTimePickerKassabuch
+            // 
+            this.dateTimePickerKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKassabuch.Location = new System.Drawing.Point(221, 27);
+            this.dateTimePickerKassabuch.Name = "dateTimePickerKassabuch";
+            this.dateTimePickerKassabuch.Size = new System.Drawing.Size(269, 26);
+            this.dateTimePickerKassabuch.TabIndex = 47;
+            // 
             // FrmHinzufügenBearbeiten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 857);
-            this.Controls.Add(this.panelRechnung);
-            this.Controls.Add(this.panelKassabuchkonto);
             this.Controls.Add(this.panelKassabuch);
+            this.Controls.Add(this.panelKassabuchkonto);
+            this.Controls.Add(this.panelRechnung);
             this.Controls.Add(this.panelKontaktSuche);
             this.Controls.Add(this.panelSchluessel);
             this.Controls.Add(this.panelMitgliedschaft);
@@ -2785,26 +2710,21 @@
         public System.Windows.Forms.Panel panelKassabuchkonto;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnKassabuchkontoSpeichern;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnKassabuchkontoAbbrechen;
         internal System.Windows.Forms.TextBox textBoxKontostand;
         private System.Windows.Forms.Label label25;
         internal System.Windows.Forms.TextBox textBoxKontonummer;
         internal System.Windows.Forms.TextBox textBoxKontobezeichnung;
-        internal System.Windows.Forms.TextBox textBoxKassabuchkontoID;
         private System.Windows.Forms.CheckBox checkBoxKursAnzeigen;
         private System.Windows.Forms.Label labelKursAnzeigen;
         public System.Windows.Forms.Panel panelKassabuch;
-        internal System.Windows.Forms.TextBox textBoxKassabuchID;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonKassabuchSpeichern;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnKassabuchAbbrechen;
         internal System.Windows.Forms.TextBox textBoxBetrag;
         private System.Windows.Forms.Label label21;
-        internal System.Windows.Forms.TextBox textBoxDatum;
         internal System.Windows.Forms.TextBox textBoxBuchungstext;
         internal System.Windows.Forms.TextBox txtKassabuchkontoID;
         internal System.Windows.Forms.TextBox textBoxKontaktID;
@@ -2813,10 +2733,8 @@
         public System.Windows.Forms.Panel panelRechnung;
         private System.Windows.Forms.Label label26;
         internal System.Windows.Forms.TextBox textBoxKursID;
-        internal System.Windows.Forms.TextBox textBoxRechnungID;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btnRechnungAbbrechen;
         internal System.Windows.Forms.TextBox txtKontaktID;
@@ -2836,5 +2754,6 @@
         public System.Windows.Forms.TextBox textBoxKursortBezeichnung;
         private System.Windows.Forms.Label labelKursortBezeichnung;
         public System.Windows.Forms.Panel panelKursort;
+        internal System.Windows.Forms.DateTimePicker dateTimePickerKassabuch;
     }
 }

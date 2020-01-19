@@ -171,12 +171,7 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuchkonto"))
             {
                
-                panelKassabuchkonto.Visible = true;
-                int labelplus1;
-                labelplus1 = Convert.ToInt32(labelID.Text); 
-                labelplus1++;
-                textBoxKassabuchkontoID.Text = labelplus1.ToString();
-                
+                    panelKassabuchkonto.Visible = true;
                 this.Height = 370;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -185,10 +180,7 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuch"))
             {
                panelKassabuch.Visible = true;
-                int labelplus1;
-                labelplus1 = Convert.ToInt32(labelID.Text);
-                labelplus1++;
-                textBoxKassabuchID.Text = labelplus1.ToString();
+               
                 this.Height = 470;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -196,10 +188,7 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Rechnung"))
             {
                 panelRechnung.Visible = true;
-                int labelplus1;
-                labelplus1 = Convert.ToInt32(labelID.Text);
-                labelplus1++;
-                textBoxRechnungID.Text = labelplus1.ToString();
+               
                 this.Height = 450;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -1740,17 +1729,21 @@ namespace Verrechnungsprogramm
             this.Close();
         }
 
+      
+
         private void kassabuchkontoHinzufügen()
         {
             var client = new RestClient("http://localhost:8888");
 
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
-            kassabuchkonto.KassabuchkontoID = Convert.ToInt32(textBoxKassabuchkontoID.Text);
+            
             kassabuchkonto.Kontonummer = textBoxKontonummer.Text;
             kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
             kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text);
 
-            var request = new RestRequest("kassabuchkonten", Method.POST);
+            
+
+                var request = new RestRequest("kassabuchkonten", Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(kassabuchkonto);
             var response = client.Execute(request);
@@ -1758,11 +1751,102 @@ namespace Verrechnungsprogramm
             MessageBox.Show("Das Kassabuchkonto wurde erfolgreich hinzugefügt");
         }
 
+        private void kassabuchkontoBearbeiten()
+        {
+            var client = new RestClient("http://localhost:8888")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
+
+            Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
+
+            var request = new RestRequest("kassabuchkonten", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kassabuchkonto>>(request);
+
+            foreach (Kassabuchkonto k in response.Data)
+            {
+                if (k.KassabuchkontoID == Convert.ToInt32(labelID.Text))
+                {
+                    kassabuchkonto.KassabuchkontoID = Convert.ToInt32(labelID.Text);
+                    kassabuchkonto.Kontonummer = textBoxKontonummer.Text;
+                    kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
+                    kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text.Substring(2, 6));
+
+                    
+
+                    var request1 = new RestRequest("kassabuchkonten", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kassabuchkonto);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+            }
+        }
+
+      
+
         private void btnKassabuchkontoSpeichern_Click(object sender, EventArgs e)
         {
+            if (labelÜberschrift.Text.Equals("Kassabuchkonto bearbeiten"))
+            {
+                kassabuchkontoBearbeiten();
+                this.Close();
+            }
+            else
+            {
+                kassabuchkontoHinzufügen();
+                this.Close();
+            }
 
-            kassabuchkontoHinzufügen();
-            this.Close();
+          
+        }
+
+        private void kassabuchHinzufügen()
+        {
+            var client = new RestClient("http://localhost:8888");
+
+            Kassabuch kassabuch = new Kassabuch();
+
+            kassabuch.Datum = Convert.ToDateTime(dateTimePickerKassabuch.Text);
+            kassabuch.Buchungstext = textBoxBuchungstext.Text;
+            kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text);
+            kassabuch.KontaktID.KontaktID = Convert.ToInt32(textBoxKontaktID.Text);
+            kassabuch.KassabuchkontoID.KassabuchkontoID = Convert.ToInt32(txtKassabuchkontoID.Text);
+
+
+
+
+            var request = new RestRequest("kassabuecher", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kassabuch);
+            var response = client.Execute(request);
+
+            MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
+        }
+
+
+        private void buttonKassabuchSpeichern_Click(object sender, EventArgs e)
+        {
+            if (labelÜberschrift.Text.Equals("Kassabuch bearbeiten"))
+            {
+                //();
+                this.Close();
+            }
+            else
+            {
+                kassabuchHinzufügen();
+                this.Close();
+            }
         }
 
     }

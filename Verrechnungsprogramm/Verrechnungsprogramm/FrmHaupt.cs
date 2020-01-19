@@ -360,19 +360,7 @@ namespace Verrechnungsprogramm
             fHinzuBea.Text = buttonHinzufügen.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonHinzufügen.Text;
 
-            if (labelÜberschrift.Text.Equals("Kassabuchkonto"))
-            {
-                fHinzuBea.labelID.Text = listViewKassabuchkonto.Items[0].SubItems[0].Text;
-            }
-
-            if (labelÜberschrift.Text.Equals("Kassabuch"))
-            {
-                fHinzuBea.labelID.Text = listViewKassabuch.Items[0].SubItems[0].Text;
-            }
-            if (labelÜberschrift.Text.Equals("Rechnung"))
-            {
-                fHinzuBea.labelID.Text = listViewRechnung.Items[0].SubItems[0].Text;
-            }
+           
 
             fHinzuBea.ShowDialog();
 
@@ -987,7 +975,7 @@ namespace Verrechnungsprogramm
             fHinzuBea.BackColor = this.BackColor;
             fHinzuBea.Text = buttonBearbeiten.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
-            fHinzuBea.textBoxKassabuchkontoID.Text = listViewKassabuchkonto.SelectedItems[0].SubItems[0].Text;
+            fHinzuBea.labelID.Text = listViewKassabuchkonto.SelectedItems[0].SubItems[0].Text;
             fHinzuBea.textBoxKontonummer.Text = listViewKassabuchkonto.SelectedItems[0].SubItems[1].Text;
             fHinzuBea.textBoxKontobezeichnung.Text = listViewKassabuchkonto.SelectedItems[0].SubItems[2].Text;
             fHinzuBea.textBoxKontostand.Text = listViewKassabuchkonto.SelectedItems[0].SubItems[3].Text;
@@ -1049,8 +1037,9 @@ namespace Verrechnungsprogramm
             fHinzuBea.BackColor = this.BackColor;
             fHinzuBea.Text = buttonBearbeiten.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
-            fHinzuBea.textBoxKassabuchID.Text = listViewKassabuch.SelectedItems[0].SubItems[0].Text;
-            fHinzuBea.textBoxDatum.Text = listViewKassabuch.SelectedItems[0].SubItems[1].Text;
+
+            fHinzuBea.labelID.Text = listViewKassabuch.SelectedItems[0].SubItems[0].Text;
+            fHinzuBea.dateTimePickerKassabuch.Text = listViewKassabuch.SelectedItems[0].SubItems[1].Text;
             fHinzuBea.textBoxBuchungstext.Text = listViewKassabuch.SelectedItems[0].SubItems[2].Text;
             fHinzuBea.textBoxBetrag.Text = listViewKassabuch.SelectedItems[0].SubItems[3].Text;
             fHinzuBea.textBoxKontaktID.Text = listViewKassabuch.SelectedItems[0].SubItems[4].Text;
@@ -1109,7 +1098,7 @@ namespace Verrechnungsprogramm
             fHinzuBea.BackColor = this.BackColor;
             fHinzuBea.Text = buttonBearbeiten.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
-            fHinzuBea.textBoxRechnungID.Text = listViewRechnung.SelectedItems[0].SubItems[0].Text;
+            
             fHinzuBea.textBoxRechnungsnummer.Text = listViewRechnung.SelectedItems[0].SubItems[1].Text;
             fHinzuBea.textBoxRechnungsdatum.Text = listViewRechnung.SelectedItems[0].SubItems[2].Text;
             fHinzuBea.txtKontaktID.Text = listViewRechnung.SelectedItems[0].SubItems[3].Text;
