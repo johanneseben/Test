@@ -65,6 +65,10 @@ namespace Verrechnungsprogramm
             requestRechnung.AddHeader("Content-Type", "application/json");
             var responseRechnung = client.Execute<List<Rechnung>>(requestRechnung);
 
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
 
             var requestKursort = new RestRequest("kursorte", Method.GET);
             requestKursort.AddHeader("Content-Type", "application/json");
@@ -73,6 +77,16 @@ namespace Verrechnungsprogramm
             foreach (Titel t in responseTitel.Data)
             {
                 comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
+            }
+
+            foreach (Kassabuchkonto k in responseKassabuchkonto.Data)
+            {
+                comboBoxKassabuchkontoID.Items.Add(k.KassabuchkontoID.ToString() + " " + k.Kontobezeichnung.ToString());
+            }
+
+            foreach (Kontakt kk in responseKontakt.Data)
+            {
+                comboBoxKontaktID.Items.Add(kk.KontaktID.ToString() + " " + kk.Nachname.ToString());
             }
 
             foreach (Postleitzahl p in responsePlz.Data)
@@ -1736,7 +1750,7 @@ namespace Verrechnungsprogramm
             var client = new RestClient("http://localhost:8888");
 
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
-            
+
             kassabuchkonto.Kontonummer = textBoxKontonummer.Text;
             kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
             kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text);
@@ -1795,6 +1809,7 @@ namespace Verrechnungsprogramm
 
       
 
+
         private void btnKassabuchkontoSpeichern_Click(object sender, EventArgs e)
         {
             if (labelÜberschrift.Text.Equals("Kassabuchkonto bearbeiten"))
@@ -1816,20 +1831,75 @@ namespace Verrechnungsprogramm
             var client = new RestClient("http://localhost:8888");
 
             Kassabuch kassabuch = new Kassabuch();
+            Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
 
+            var request1 = new RestRequest("kontakte", Method.GET);
+            request1.AddHeader("Content-Type", "application/json");
+            var response1 = client.Execute<List<Kontakt>>(request1);
+
+
+
+
+            Kontakt kontakt = new Kontakt();
+
+            foreach (Kontakt k in response1.Data)
+            {
+                if (k.KontaktID.ToString().Equals(comboBoxKontaktID.Text))
+                {
+                    kontakt.KontaktID = k.KontaktID;
+                    kontakt.TitelID = k.TitelID;
+                    kontakt.Vorname = k.Vorname;
+                    kontakt.Nachname = k.Nachname;
+                    kontakt.SVNr = k.SVNr;
+                    kontakt.Geschlecht = k.Geschlecht;
+                    kontakt.Familienstand = k.Familienstand;
+                    kontakt.Email = k.Email;
+                    kontakt.Telefonnummer = k.Telefonnummer;
+                    kontakt.Strasse = k.Strasse;
+                    kontakt.PostleitzahlID = k.PostleitzahlID;
+                    kontakt.AltersgruppeID = k.AltersgruppeID;
+                    kontakt.SozialgruppeID = k.SozialgruppeID;
+                    kontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+                }
+            }
+
+            kassabuch.KontaktID = kontakt;
+
+
+            var requestKassabuchkonto = new RestRequest("kassabuchkonten", Method.GET);
+            requestKassabuchkonto.AddHeader("Content-Type", "application/json");
+            var responseKassabuchkonto = client.Execute<List<Kassabuchkonto>>(requestKassabuchkonto);
+
+            
+
+            foreach (Kassabuchkonto k in responseKassabuchkonto.Data)
+            {
+                if (k.KassabuchkontoID.ToString().Equals(comboBoxKassabuchkontoID.Text))
+                {
+                    kassabuchkonto.KassabuchkontoID = k.KassabuchkontoID;
+                    kassabuchkonto.Kontonummer = k.Kontonummer;
+                    kassabuchkonto.Kontobezeichnung = k.Kontobezeichnung;
+                    kassabuchkonto.Kontostand = k.Kontostand;
+
+                }
+            }
+
+            kassabuch.KassabuchkontoID = kassabuchkonto;
+
+            
             kassabuch.Datum = Convert.ToDateTime(dateTimePickerKassabuch.Text);
             kassabuch.Buchungstext = textBoxBuchungstext.Text;
             kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text);
-            kassabuch.KontaktID.KontaktID = Convert.ToInt32(textBoxKontaktID.Text);
-            kassabuch.KassabuchkontoID.KassabuchkontoID = Convert.ToInt32(txtKassabuchkontoID.Text);
-
-
+            kassabuch.KontaktID.KontaktID = Convert.ToInt32(comboBoxKontaktID.Text);   
+            kassabuch.KassabuchkontoID.KassabuchkontoID = Convert.ToInt32(comboBoxKassabuchkontoID.Text); 
 
 
             var request = new RestRequest("kassabuecher", Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(kassabuch);
             var response = client.Execute(request);
+
+
 
             MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
         }
@@ -1847,6 +1917,26 @@ namespace Verrechnungsprogramm
                 kassabuchHinzufügen();
                 this.Close();
             }
+        }
+
+        private void rechnungHinzufügen()
+        {
+            var client = new RestClient("http://localhost:8888");
+
+            //Rechnung rechnung = new Rechnung();
+
+            //kassabuchkonto.Kontonummer = textBoxKontonummer.Text;
+            //kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
+            //kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text);
+
+
+
+            //var request = new RestRequest("kassabuchkonten", Method.POST);
+            //request.AddHeader("Content-Type", "application/json");
+            //request.AddJsonBody(kassabuchkonto);
+            //var response = client.Execute(request);
+
+            //MessageBox.Show("Das Kassabuchkonto wurde erfolgreich hinzugefügt");
         }
 
     }

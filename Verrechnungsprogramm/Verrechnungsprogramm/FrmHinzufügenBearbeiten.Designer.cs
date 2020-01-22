@@ -192,10 +192,10 @@
             this.textBoxKontonummer = new System.Windows.Forms.TextBox();
             this.textBoxKontobezeichnung = new System.Windows.Forms.TextBox();
             this.panelKassabuch = new System.Windows.Forms.Panel();
+            this.comboBoxKassabuchkontoID = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerKassabuch = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtKassabuchkontoID = new System.Windows.Forms.TextBox();
-            this.textBoxKontaktID = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.buttonKassabuchSpeichern = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -227,7 +227,7 @@
             this.labelKursortBeschreibung = new System.Windows.Forms.Label();
             this.textBoxKursortBezeichnung = new System.Windows.Forms.TextBox();
             this.labelKursortBezeichnung = new System.Windows.Forms.Label();
-            this.dateTimePickerKassabuch = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxKontaktID = new System.Windows.Forms.ComboBox();
             this.panelAltersgruppeSozialgruppeKurskategorie.SuspendLayout();
             this.panelTitel.SuspendLayout();
             this.panelKurs.SuspendLayout();
@@ -2078,11 +2078,11 @@
             // 
             // panelKassabuch
             // 
+            this.panelKassabuch.Controls.Add(this.comboBoxKontaktID);
+            this.panelKassabuch.Controls.Add(this.comboBoxKassabuchkontoID);
             this.panelKassabuch.Controls.Add(this.dateTimePickerKassabuch);
             this.panelKassabuch.Controls.Add(this.label23);
             this.panelKassabuch.Controls.Add(this.label22);
-            this.panelKassabuch.Controls.Add(this.txtKassabuchkontoID);
-            this.panelKassabuch.Controls.Add(this.textBoxKontaktID);
             this.panelKassabuch.Controls.Add(this.label15);
             this.panelKassabuch.Controls.Add(this.buttonKassabuchSpeichern);
             this.panelKassabuch.Controls.Add(this.label20);
@@ -2096,6 +2096,23 @@
             this.panelKassabuch.Size = new System.Drawing.Size(518, 375);
             this.panelKassabuch.TabIndex = 46;
             this.panelKassabuch.Visible = false;
+            // 
+            // comboBoxKassabuchkontoID
+            // 
+            this.comboBoxKassabuchkontoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxKassabuchkontoID.FormattingEnabled = true;
+            this.comboBoxKassabuchkontoID.Location = new System.Drawing.Point(219, 193);
+            this.comboBoxKassabuchkontoID.Name = "comboBoxKassabuchkontoID";
+            this.comboBoxKassabuchkontoID.Size = new System.Drawing.Size(270, 33);
+            this.comboBoxKassabuchkontoID.TabIndex = 48;
+            // 
+            // dateTimePickerKassabuch
+            // 
+            this.dateTimePickerKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKassabuch.Location = new System.Drawing.Point(221, 23);
+            this.dateTimePickerKassabuch.Name = "dateTimePickerKassabuch";
+            this.dateTimePickerKassabuch.Size = new System.Drawing.Size(269, 31);
+            this.dateTimePickerKassabuch.TabIndex = 47;
             // 
             // label23
             // 
@@ -2118,24 +2135,6 @@
             this.label22.Size = new System.Drawing.Size(108, 26);
             this.label22.TabIndex = 33;
             this.label22.Text = "KontaktID";
-            // 
-            // txtKassabuchkontoID
-            // 
-            this.txtKassabuchkontoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKassabuchkontoID.Location = new System.Drawing.Point(221, 189);
-            this.txtKassabuchkontoID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtKassabuchkontoID.Name = "txtKassabuchkontoID";
-            this.txtKassabuchkontoID.Size = new System.Drawing.Size(269, 32);
-            this.txtKassabuchkontoID.TabIndex = 19;
-            // 
-            // textBoxKontaktID
-            // 
-            this.textBoxKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKontaktID.Location = new System.Drawing.Point(221, 148);
-            this.textBoxKontaktID.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxKontaktID.Name = "textBoxKontaktID";
-            this.textBoxKontaktID.Size = new System.Drawing.Size(269, 32);
-            this.textBoxKontaktID.TabIndex = 18;
             // 
             // label15
             // 
@@ -2486,13 +2485,14 @@
             this.labelKursortBezeichnung.TabIndex = 52;
             this.labelKursortBezeichnung.Text = "Bezeichnung:";
             // 
-            // dateTimePickerKassabuch
+            // comboBoxKontaktID
             // 
-            this.dateTimePickerKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerKassabuch.Location = new System.Drawing.Point(221, 27);
-            this.dateTimePickerKassabuch.Name = "dateTimePickerKassabuch";
-            this.dateTimePickerKassabuch.Size = new System.Drawing.Size(269, 26);
-            this.dateTimePickerKassabuch.TabIndex = 47;
+            this.comboBoxKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxKontaktID.FormattingEnabled = true;
+            this.comboBoxKontaktID.Location = new System.Drawing.Point(220, 147);
+            this.comboBoxKontaktID.Name = "comboBoxKontaktID";
+            this.comboBoxKontaktID.Size = new System.Drawing.Size(270, 33);
+            this.comboBoxKontaktID.TabIndex = 49;
             // 
             // FrmHinzufügenBearbeiten
             // 
@@ -2726,8 +2726,6 @@
         internal System.Windows.Forms.TextBox textBoxBetrag;
         private System.Windows.Forms.Label label21;
         internal System.Windows.Forms.TextBox textBoxBuchungstext;
-        internal System.Windows.Forms.TextBox txtKassabuchkontoID;
-        internal System.Windows.Forms.TextBox textBoxKontaktID;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         public System.Windows.Forms.Panel panelRechnung;
@@ -2755,5 +2753,7 @@
         private System.Windows.Forms.Label labelKursortBezeichnung;
         public System.Windows.Forms.Panel panelKursort;
         internal System.Windows.Forms.DateTimePicker dateTimePickerKassabuch;
+        internal System.Windows.Forms.ComboBox comboBoxKassabuchkontoID;
+        internal System.Windows.Forms.ComboBox comboBoxKontaktID;
     }
 }

@@ -1042,8 +1042,8 @@ namespace Verrechnungsprogramm
             fHinzuBea.dateTimePickerKassabuch.Text = listViewKassabuch.SelectedItems[0].SubItems[1].Text;
             fHinzuBea.textBoxBuchungstext.Text = listViewKassabuch.SelectedItems[0].SubItems[2].Text;
             fHinzuBea.textBoxBetrag.Text = listViewKassabuch.SelectedItems[0].SubItems[3].Text;
-            fHinzuBea.textBoxKontaktID.Text = listViewKassabuch.SelectedItems[0].SubItems[4].Text;
-            fHinzuBea.txtKassabuchkontoID.Text = listViewKassabuch.SelectedItems[0].SubItems[5].Text;
+            fHinzuBea.comboBoxKontaktID.Text = listViewKassabuch.SelectedItems[0].SubItems[4].Text;
+            fHinzuBea.comboBoxKassabuchkontoID.Text = listViewKassabuch.SelectedItems[0].SubItems[5].Text;
 
             fHinzuBea.ShowDialog();
             KassabuchEinlesen();
