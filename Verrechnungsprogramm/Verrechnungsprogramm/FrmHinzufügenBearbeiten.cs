@@ -1890,8 +1890,16 @@ namespace Verrechnungsprogramm
             kassabuch.Datum = Convert.ToDateTime(dateTimePickerKassabuch.Text);
             kassabuch.Buchungstext = textBoxBuchungstext.Text;
             kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text);
-            kassabuch.KontaktID.KontaktID = Convert.ToInt32(comboBoxKontaktID.Text);   
-            kassabuch.KassabuchkontoID.KassabuchkontoID = Convert.ToInt32(comboBoxKassabuchkontoID.Text); 
+
+            int inde = comboBoxKontaktID.Text.IndexOf(" ");
+            int id = Convert.ToInt32(comboBoxKontaktID.Text.Substring(0, inde));
+
+            kassabuch.KontaktID.KontaktID = id;
+
+            int inde2 = comboBoxKassabuchkontoID.Text.IndexOf(" ");
+            int id2 = Convert.ToInt32(comboBoxKassabuchkontoID.Text.Substring(0, inde2));
+
+            kassabuch.KassabuchkontoID.KassabuchkontoID = id2; 
 
 
             var request = new RestRequest("kassabuecher", Method.POST);
