@@ -1013,7 +1013,7 @@ namespace Verrechnungsprogramm
             foreach (Kassabuch k in response.Data)
             {
                 ListViewItem lvItem = new ListViewItem(k.KassabuchID.ToString());
-                lvItem.SubItems.Add(k.Datum.ToString());
+                lvItem.SubItems.Add(k.Datum.ToString("dd.MM.yyyy"));
                 lvItem.SubItems.Add(k.Buchungstext.ToString());
                 lvItem.SubItems.Add(k.Betrag.ToString("c2"));
                 lvItem.SubItems.Add(k.KontaktID.KontaktID.ToString());

@@ -21,7 +21,7 @@ namespace Verrechnungsprogramm
             InitializeComponent();
         }
 
-     
+
 
         public string titel, altersgruppe, sozialgruppe, ort;
 
@@ -97,7 +97,7 @@ namespace Verrechnungsprogramm
 
             foreach (Postleitzahl p in responsePlz.Data)
             {
-                if(comboBoxKursortPlz.Text.Equals(p.Plz))
+                if (comboBoxKursortPlz.Text.Equals(p.Plz))
                 {
                     comboBoxKursortOrt.Items.Add(p.Ort.ToString());
                 }
@@ -184,8 +184,8 @@ namespace Verrechnungsprogramm
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuchkonto"))
             {
-               
-                    panelKassabuchkonto.Visible = true;
+
+                panelKassabuchkonto.Visible = true;
                 this.Height = 370;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -193,8 +193,8 @@ namespace Verrechnungsprogramm
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuch"))
             {
-               panelKassabuch.Visible = true;
-               
+                panelKassabuch.Visible = true;
+
                 this.Height = 470;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -202,7 +202,7 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Rechnung"))
             {
                 panelRechnung.Visible = true;
-               
+
                 this.Height = 450;
                 this.Width = 520;
                 this.Location = new Point(200, 150);
@@ -245,7 +245,7 @@ namespace Verrechnungsprogramm
                     sozialgruppeHinzufügen();
                     this.Close();
                 }
-                
+
             }
 
             if (this.Text.Equals("bearbeiten"))
@@ -596,7 +596,7 @@ namespace Verrechnungsprogramm
             this.Close();
         }
 
-        
+
 
         private void titelHinzufügen()
         {
@@ -716,7 +716,7 @@ namespace Verrechnungsprogramm
             requestPlz.AddHeader("Content-Type", "application/json");
             var responsePlz = client.Execute<List<Postleitzahl>>(requestPlz);
 
-            if(panelKursort.Visible ==true)
+            if (panelKursort.Visible == true)
             {
                 foreach (Postleitzahl p in responsePlz.Data)
                 {
@@ -730,7 +730,7 @@ namespace Verrechnungsprogramm
             if (panelKontakt.Visible == true)
             {
                 foreach (Postleitzahl p in responsePlz.Data)
-                { 
+                {
                     if (comboBoxKontaktPostleitzahl.Text.Equals(p.Plz))
                     {
                         comboBoxKontaktOrt.Items.Add(p.Ort.ToString());
@@ -1488,7 +1488,7 @@ namespace Verrechnungsprogramm
 
         private void buttonKontaktSpeichern_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void buttonGutscheinSpeichern_Click(object sender, EventArgs e)
@@ -1526,7 +1526,7 @@ namespace Verrechnungsprogramm
             }
         }
 
-        
+
 
 
 
@@ -1604,7 +1604,7 @@ namespace Verrechnungsprogramm
             }
         }
 
-      
+
 
         private void buttonKursortAbbrechen_Click(object sender, EventArgs e)
         {
@@ -1726,7 +1726,7 @@ namespace Verrechnungsprogramm
             einlesenOrt();
         }
 
-       
+
 
         private void btnKassabuchAbbrechen_Click(object sender, EventArgs e)
         {
@@ -1743,7 +1743,7 @@ namespace Verrechnungsprogramm
             this.Close();
         }
 
-      
+
 
         private void kassabuchkontoHinzufügen()
         {
@@ -1755,9 +1755,9 @@ namespace Verrechnungsprogramm
             kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
             kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text);
 
-            
 
-                var request = new RestRequest("kassabuchkonten", Method.POST);
+
+            var request = new RestRequest("kassabuchkonten", Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(kassabuchkonto);
             var response = client.Execute(request);
@@ -1788,7 +1788,7 @@ namespace Verrechnungsprogramm
                     kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
                     kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text.Substring(2, 6));
 
-                    
+
 
                     var request1 = new RestRequest("kassabuchkonten", Method.PUT);
                     request1.AddHeader("Content-Type", "application/json");
@@ -1807,7 +1807,7 @@ namespace Verrechnungsprogramm
             }
         }
 
-      
+
 
 
         private void btnKassabuchkontoSpeichern_Click(object sender, EventArgs e)
@@ -1823,7 +1823,7 @@ namespace Verrechnungsprogramm
                 this.Close();
             }
 
-          
+
         }
 
         private void kassabuchHinzufügen()
@@ -1870,7 +1870,7 @@ namespace Verrechnungsprogramm
             requestKassabuchkonto.AddHeader("Content-Type", "application/json");
             var responseKassabuchkonto = client.Execute<List<Kassabuchkonto>>(requestKassabuchkonto);
 
-            
+
 
             foreach (Kassabuchkonto k in responseKassabuchkonto.Data)
             {
@@ -1886,8 +1886,8 @@ namespace Verrechnungsprogramm
 
             kassabuch.KassabuchkontoID = kassabuchkonto;
 
-            
-            kassabuch.Datum = Convert.ToDateTime(dateTimePickerKassabuch.Text);
+
+            kassabuch.Datum = dateTimePickerKassabuch.Value;
             kassabuch.Buchungstext = textBoxBuchungstext.Text;
             kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text);
 
@@ -1899,7 +1899,7 @@ namespace Verrechnungsprogramm
             int inde2 = comboBoxKassabuchkontoID.Text.IndexOf(" ");
             int id2 = Convert.ToInt32(comboBoxKassabuchkontoID.Text.Substring(0, inde2));
 
-            kassabuch.KassabuchkontoID.KassabuchkontoID = id2; 
+            kassabuch.KassabuchkontoID.KassabuchkontoID = id2;
 
 
             var request = new RestRequest("kassabuecher", Method.POST);
@@ -1912,12 +1912,139 @@ namespace Verrechnungsprogramm
             MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
         }
 
+        private void kassabuchBearbeiten()
+        {
+            var client = new RestClient("http://localhost:8888")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
+
+            Kassabuch kassabuch = new Kassabuch();
+            Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
+            Kontakt kontakt = new Kontakt();
+
+            var requestKassabuch = new RestRequest("kassabuecher", Method.GET);
+            requestKassabuch.AddHeader("Content-Type", "application/json");
+            var responseKassabuch = client.Execute<List<Kassabuch>>(requestKassabuch);
+
+            
+
+            var requestKassabuchkonto = new RestRequest("kassabuchkonten", Method.GET);
+            requestKassabuchkonto.AddHeader("Content-Type", "application/json");
+            var responseKassabuchkonto = client.Execute<List<Kassabuchkonto>>(requestKassabuchkonto);
+
+           
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+            
+
+            foreach (Kassabuch k in responseKassabuch.Data)
+            {
+               
+
+                if (k.KassabuchID == Convert.ToInt32(labelID.Text))
+                {
+                    kassabuch.KassabuchID = Convert.ToInt32(labelID.Text);
+                    kassabuch.Datum = dateTimePickerKassabuch.Value;
+                    kassabuch.Buchungstext = textBoxBuchungstext.Text;
+                    kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text.Substring(2, 5)); //das noch ändern
+
+
+
+
+
+                    int inde = comboBoxKontaktID.Text.IndexOf(" ");
+
+
+                    foreach (Kontakt kk in responseKontakt.Data)
+                    {
+
+
+
+                        if (kk.KontaktID.ToString().Equals(Convert.ToInt32(comboBoxKontaktID.Text.Substring(0, inde))))
+                        {
+                            kontakt.KontaktID = kk.KontaktID;
+                            kontakt.TitelID = kk.TitelID;
+                            kontakt.Vorname = kk.Vorname;
+                            kontakt.Nachname = kk.Nachname;
+                            kontakt.SVNr = kk.SVNr;
+                            kontakt.Geschlecht = kk.Geschlecht;
+                            kontakt.Familienstand = kk.Familienstand;
+                            kontakt.Email = kk.Email;
+                            kontakt.Telefonnummer = kk.Telefonnummer;
+                            kontakt.Strasse = kk.Strasse;
+                            kontakt.PostleitzahlID = kk.PostleitzahlID;
+                            kontakt.AltersgruppeID = kk.AltersgruppeID;
+                            kontakt.SozialgruppeID = kk.SozialgruppeID;
+                            kontakt.StaatsbuergerschaftID = kk.StaatsbuergerschaftID;
+                        }
+                    }
+
+                    kassabuch.KontaktID = kontakt;
+
+                    int inde2 = comboBoxKontaktID.Text.IndexOf(" ");
+
+                    foreach (Kassabuchkonto kkk in responseKassabuchkonto.Data)
+                    {
+                        if (kkk.KassabuchkontoID.ToString().Equals(Convert.ToInt32(comboBoxKassabuchkontoID.Text.Substring(0, inde2))))
+                        {
+                            kassabuchkonto.KassabuchkontoID = kkk.KassabuchkontoID;
+                            kassabuchkonto.Kontonummer = kkk.Kontonummer;
+                            kassabuchkonto.Kontobezeichnung = kkk.Kontobezeichnung;
+                            kassabuchkonto.Kontostand = kkk.Kontostand;
+
+                        }
+                    }
+
+                    kassabuch.KassabuchkontoID = kassabuchkonto;
+
+
+
+
+                    int inde3 = comboBoxKontaktID.Text.IndexOf(" ");
+                    int id = Convert.ToInt32(comboBoxKontaktID.Text.Substring(0, inde3));
+
+                    kassabuch.KontaktID.KontaktID = id;
+
+
+
+                    int inde4 = comboBoxKassabuchkontoID.Text.IndexOf(" ");
+                    int id2 = Convert.ToInt32(comboBoxKassabuchkontoID.Text.Substring(0, inde4));
+
+                    kassabuch.KassabuchkontoID.KassabuchkontoID = id2;
+
+
+
+
+                    var request1 = new RestRequest("kassabuecher", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kassabuch);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+
+
+                }
+            }
+        }
+    
+
 
         private void buttonKassabuchSpeichern_Click(object sender, EventArgs e)
         {
             if (labelÜberschrift.Text.Equals("Kassabuch bearbeiten"))
             {
-                //();
+                kassabuchBearbeiten();
                 this.Close();
             }
             else
