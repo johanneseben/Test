@@ -764,7 +764,7 @@ namespace Verrechnungsprogramm
         {
             if (labelÜberschrift.Text.Equals("Kurs bearbeiten"))
             {
-                //kursBearbeiten();
+                kursBearbeiten();
                 this.Close();
             }
 
@@ -774,6 +774,102 @@ namespace Verrechnungsprogramm
                 this.Close();
             }
 
+        }
+
+        public void kursBearbeiten()
+        {
+            var client = new RestClient("http://localhost:8888")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
+
+            Kurs kurs = new Kurs();
+            Kurskategorie kurskategorie = new Kurskategorie();
+            Kursort kursort = new Kursort();
+
+            var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
+            requestKurskategorie.AddHeader("Content-Type", "application/json");
+            var responseKurskategorie = client.Execute<List<Kurskategorie>>(requestKurskategorie);
+
+            var requestKursort = new RestRequest("kursorte", Method.GET);
+            requestKursort.AddHeader("Content-Type", "application/json");
+            var responseKursort = client.Execute<List<Kursort>>(requestKursort);
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            foreach (Kurs k in responseKurs.Data)
+            {
+                if (k.KursID == Convert.ToInt32(labelID.Text))
+                {
+                    kurs.KursID = Convert.ToInt32(labelID.Text);
+                    kurs.Bezeichnung = textBoxKursBezeichnung.Text;
+                    kurs.Preis = Convert.ToDouble(textBoxKursPreis.Text);
+                    kurs.MinTeilnehmer = Convert.ToInt32(textBoxKursMinTeilnehmer.Text);
+                    kurs.MaxTeilnehmer = Convert.ToInt32(textBoxMaxTeilnehmer.Text);
+                    kurs.AnzEinheiten = Convert.ToInt32(textBoxKursAnzEinheit.Text);
+
+                    if (comboBoxKursVerbindklichkeit.Text.Equals("ja"))
+                        kurs.Verbindlichkeit = true;
+
+                    else
+                        kurs.Verbindlichkeit = false;
+
+                    kurs.Foerderung = comboBoxKursFoerderung.Text;
+                    kurs.Status = textBoxKursStatus.Text;
+                    kurs.Beschreibung = textBoxKursBeschreibung.Text;
+                    kurs.ZeitVon = dateTimePickerKursZeitVon.Value;
+                    kurs.ZeitBis = dateTimePickerKursZeitBis.Value;
+                    kurs.DatumVon = dateTimePickerKursDatumVon.Value;
+                    kurs.DatumBis = dateTimePickerKursDatumBis.Value;
+                    kurs.Seminarnummer = textBoxKursSeminarnummer.Text;
+
+                    foreach (Kurskategorie kk in responseKurskategorie.Data)
+                    {
+                        if (kk.Bezeichnung.ToString().Equals(comboBoxKursKurskategorie.Text))
+                        {
+                            kurskategorie.KurskategorieID = kk.KurskategorieID;
+                            kurskategorie.Bezeichnung = kk.Bezeichnung;
+                        }
+                    }
+                    kurs.KurskategorieID = kurskategorie;
+
+                    foreach (Kursort ko in responseKursort.Data)
+                    {
+                        if (ko.Bezeichnung.ToString().Equals(comboBoxKursKursort.Text))
+                        {
+                            kursort.KursortID = ko.KursortID;
+                            kursort.Bezeichnung = ko.Bezeichnung;
+                        }
+                    }
+                    kurs.KursortID = kursort;
+
+                    kurs.Anmeldeschluss = dateTimePickerKursAnmeldeschluss.Value;
+                    kurs.Anmerkung = textBoxKursAnmerkung.Text;
+
+                    if (comboBoxKursAnzeigen.Text.Equals("ja"))
+                        kurs.Anzeigen = true;
+
+                    else
+                        kurs.Anzeigen = false;
+
+                    var request1 = new RestRequest("kurse", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kurs);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+            }
         }
 
         private void kursHinzufügen()
@@ -837,7 +933,7 @@ namespace Verrechnungsprogramm
             kurs.Anmeldeschluss = dateTimePickerKursAnmeldeschluss.Value;
             kurs.Anmerkung = textBoxKursAnmerkung.Text;
 
-            if (checkBoxKursAnzeigen.Checked == true)
+            if (comboBoxKursAnzeigen.Text.Equals("ja"))
                 kurs.Anzeigen = true;
 
             else

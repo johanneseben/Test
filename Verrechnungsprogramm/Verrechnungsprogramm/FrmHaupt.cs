@@ -41,8 +41,9 @@ namespace Verrechnungsprogramm
             listViewRechnung.FullRowSelect = true;
             listViewKursleiter.FullRowSelect = true;
             listViewKursort.FullRowSelect = true;
-            
 
+            listViewKurs.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            
 
             FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Maximized;
@@ -194,6 +195,7 @@ namespace Verrechnungsprogramm
 
         private void kurseEinlesen()
         {
+            string neinja;
             listViewKurs.Items.Clear();
             var client = new RestClient("http://localhost:8888");
 
@@ -210,7 +212,13 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.MinTeilnehmer.ToString());
                 lvItem.SubItems.Add(k.MaxTeilnehmer.ToString());
                 lvItem.SubItems.Add(k.AnzEinheiten.ToString());
-                lvItem.SubItems.Add(k.Verbindlichkeit.ToString());
+                if (k.Verbindlichkeit == true)
+                    neinja = "ja";
+
+                else
+                    neinja = "nein";
+
+                lvItem.SubItems.Add(neinja.ToString());
                 lvItem.SubItems.Add(k.Foerderung.ToString());
                 lvItem.SubItems.Add(k.Status.ToString());
                 lvItem.SubItems.Add(k.Beschreibung.ToString());
@@ -220,9 +228,15 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.DatumBis.ToShortDateString());
                 lvItem.SubItems.Add(k.Seminarnummer.ToString());
                 lvItem.SubItems.Add(k.KurskategorieID.Bezeichnung.ToString());
-                lvItem.SubItems.Add(k.KursortID.KursortID.ToString());
-                lvItem.SubItems.Add(k.Anmeldeschluss.ToString());
+                lvItem.SubItems.Add(k.KursortID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Anmeldeschluss.ToShortDateString());
                 lvItem.SubItems.Add(k.Anmerkung.ToString());
+                if (k.Anzeigen == true)
+                    neinja = "ja";
+
+                else
+                    neinja = "nein";
+                lvItem.SubItems.Add(neinja.ToString());
 
                 listViewKurs.Items.Add(lvItem);
             }
@@ -691,6 +705,10 @@ namespace Verrechnungsprogramm
             {
                 kursortBearbeiten();
             }
+            if(labelÜberschrift.Text.Equals("Kurs"))
+            {
+                kursBearbeiten();
+            }
 
         }
 
@@ -958,6 +976,41 @@ namespace Verrechnungsprogramm
             }
 
             
+        }
+
+        private void kursBearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            if (listViewKurs.SelectedItems.Count == 0)
+                return;
+            fHinzuBea.panelKurs.Visible = true;
+
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
+            fHinzuBea.labelID.Text = listViewKurs.SelectedItems[0].SubItems[0].Text;
+            fHinzuBea.textBoxKursBezeichnung.Text = listViewKurs.SelectedItems[0].SubItems[1].Text;
+            fHinzuBea.textBoxKursPreis.Text = listViewKurs.SelectedItems[0].SubItems[2].Text;
+            fHinzuBea.textBoxKursMinTeilnehmer.Text = listViewKurs.SelectedItems[0].SubItems[3].Text;
+            fHinzuBea.textBoxMaxTeilnehmer.Text = listViewKurs.SelectedItems[0].SubItems[4].Text;
+            fHinzuBea.textBoxKursAnzEinheit.Text = listViewKurs.SelectedItems[0].SubItems[5].Text;
+            fHinzuBea.comboBoxKursVerbindklichkeit.Text = listViewKurs.SelectedItems[0].SubItems[6].Text;
+            fHinzuBea.comboBoxKursFoerderung.Text = listViewKurs.SelectedItems[0].SubItems[7].Text;
+            fHinzuBea.textBoxKursStatus.Text = listViewKurs.SelectedItems[0].SubItems[8].Text;
+            fHinzuBea.textBoxKursBeschreibung.Text = listViewKurs.SelectedItems[0].SubItems[9].Text;
+            fHinzuBea.dateTimePickerKursZeitVon.Value = Convert.ToDateTime(listViewKurs.SelectedItems[0].SubItems[10].Text);
+            fHinzuBea.dateTimePickerKursZeitBis.Value = Convert.ToDateTime(listViewKurs.SelectedItems[0].SubItems[11].Text);
+            fHinzuBea.dateTimePickerKursDatumVon.Value = Convert.ToDateTime(listViewKurs.SelectedItems[0].SubItems[12].Text);
+            fHinzuBea.dateTimePickerKursDatumBis.Value = Convert.ToDateTime(listViewKurs.SelectedItems[0].SubItems[13].Text);
+            fHinzuBea.textBoxKursSeminarnummer.Text = listViewKurs.SelectedItems[0].SubItems[14].Text;
+            fHinzuBea.comboBoxKursKurskategorie.Text = listViewKurs.SelectedItems[0].SubItems[15].Text;
+            fHinzuBea.comboBoxKursKursort.Text = listViewKurs.SelectedItems[0].SubItems[16].Text;
+            fHinzuBea.dateTimePickerKursAnmeldeschluss.Value = Convert.ToDateTime(listViewKurs.SelectedItems[0].SubItems[17].Text);
+            fHinzuBea.textBoxKursAnmerkung.Text = listViewKurs.SelectedItems[0].SubItems[18].Text;
+            fHinzuBea.comboBoxKursAnzeigen.Text = listViewKurs.SelectedItems[0].SubItems[19].Text;
+
+            fHinzuBea.ShowDialog();
+            kurseEinlesen();
         }
 
         private void kassabuchkontoBearbeiten()
