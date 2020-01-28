@@ -1010,6 +1010,8 @@ namespace Verrechnungsprogramm
             request.AddHeader("Content-Type", "application/json");
             var response = client.Execute<List<Kassabuch>>(request);
 
+           
+
             foreach (Kassabuch k in response.Data)
             {
                 ListViewItem lvItem = new ListViewItem(k.KassabuchID.ToString());
@@ -1020,6 +1022,10 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.KassabuchkontoID.KassabuchkontoID.ToString());
                 listViewKassabuch.Items.Add(lvItem);
             }
+
+           
+
+
         }
 
         private void kassabuchBearbeiten()
@@ -1039,7 +1045,8 @@ namespace Verrechnungsprogramm
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
 
             fHinzuBea.labelID.Text = listViewKassabuch.SelectedItems[0].SubItems[0].Text;
-            fHinzuBea.dateTimePickerKassabuch.Text = listViewKassabuch.SelectedItems[0].SubItems[1].Text;
+            
+
             fHinzuBea.textBoxBuchungstext.Text = listViewKassabuch.SelectedItems[0].SubItems[2].Text;
             fHinzuBea.textBoxBetrag.Text = listViewKassabuch.SelectedItems[0].SubItems[3].Text;
             fHinzuBea.comboBoxKontaktID.Text = listViewKassabuch.SelectedItems[0].SubItems[4].Text;
@@ -1047,6 +1054,9 @@ namespace Verrechnungsprogramm
 
             fHinzuBea.ShowDialog();
             KassabuchEinlesen();
+
+            
+            
         }
 
         private void buttonRechnung_Click(object sender, EventArgs e)
@@ -1098,9 +1108,11 @@ namespace Verrechnungsprogramm
             fHinzuBea.BackColor = this.BackColor;
             fHinzuBea.Text = buttonBearbeiten.Text;
             fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
-            
+
+            fHinzuBea.labelID.Text = listViewRechnung.SelectedItems[0].SubItems[0].Text;
+
             fHinzuBea.textBoxRechnungsnummer.Text = listViewRechnung.SelectedItems[0].SubItems[1].Text;
-            fHinzuBea.textBoxRechnungsdatum.Text = listViewRechnung.SelectedItems[0].SubItems[2].Text;
+            
             fHinzuBea.txtKontaktID.Text = listViewRechnung.SelectedItems[0].SubItems[3].Text;
             fHinzuBea.textBoxKursID.Text = listViewRechnung.SelectedItems[0].SubItems[4].Text;
      

@@ -192,6 +192,7 @@
             this.textBoxKontonummer = new System.Windows.Forms.TextBox();
             this.textBoxKontobezeichnung = new System.Windows.Forms.TextBox();
             this.panelKassabuch = new System.Windows.Forms.Panel();
+            this.dateTimePickerKassabuch = new System.Windows.Forms.DateTimePicker();
             this.comboBoxKontaktID = new System.Windows.Forms.ComboBox();
             this.comboBoxKassabuchkontoID = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -213,7 +214,6 @@
             this.txtKontaktID = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.textBoxRechnungsnummer = new System.Windows.Forms.TextBox();
-            this.textBoxRechnungsdatum = new System.Windows.Forms.TextBox();
             this.panelKursort = new System.Windows.Forms.Panel();
             this.buttonKursortSpeichern = new System.Windows.Forms.Button();
             this.buttonKursortAbbrechen = new System.Windows.Forms.Button();
@@ -227,7 +227,7 @@
             this.labelKursortBeschreibung = new System.Windows.Forms.Label();
             this.textBoxKursortBezeichnung = new System.Windows.Forms.TextBox();
             this.labelKursortBezeichnung = new System.Windows.Forms.Label();
-            this.dateTimePickerKassabuch = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerRechnungsdatum = new System.Windows.Forms.DateTimePicker();
             this.panelAltersgruppeSozialgruppeKurskategorie.SuspendLayout();
             this.panelTitel.SuspendLayout();
             this.panelKurs.SuspendLayout();
@@ -1985,7 +1985,7 @@
             this.panelKassabuchkonto.Controls.Add(this.label25);
             this.panelKassabuchkonto.Controls.Add(this.textBoxKontonummer);
             this.panelKassabuchkonto.Controls.Add(this.textBoxKontobezeichnung);
-            this.panelKassabuchkonto.Location = new System.Drawing.Point(3, 66);
+            this.panelKassabuchkonto.Location = new System.Drawing.Point(1, 67);
             this.panelKassabuchkonto.Margin = new System.Windows.Forms.Padding(2);
             this.panelKassabuchkonto.Name = "panelKassabuchkonto";
             this.panelKassabuchkonto.Size = new System.Drawing.Size(475, 283);
@@ -2090,12 +2090,23 @@
             this.panelKassabuch.Controls.Add(this.textBoxBetrag);
             this.panelKassabuch.Controls.Add(this.label21);
             this.panelKassabuch.Controls.Add(this.textBoxBuchungstext);
-            this.panelKassabuch.Location = new System.Drawing.Point(3, 66);
+            this.panelKassabuch.Location = new System.Drawing.Point(1, 68);
             this.panelKassabuch.Margin = new System.Windows.Forms.Padding(2);
             this.panelKassabuch.Name = "panelKassabuch";
             this.panelKassabuch.Size = new System.Drawing.Size(518, 375);
             this.panelKassabuch.TabIndex = 46;
             this.panelKassabuch.Visible = false;
+            // 
+            // dateTimePickerKassabuch
+            // 
+            this.dateTimePickerKassabuch.CustomFormat = "";
+            this.dateTimePickerKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKassabuch.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerKassabuch.Location = new System.Drawing.Point(221, 25);
+            this.dateTimePickerKassabuch.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePickerKassabuch.Name = "dateTimePickerKassabuch";
+            this.dateTimePickerKassabuch.Size = new System.Drawing.Size(269, 28);
+            this.dateTimePickerKassabuch.TabIndex = 51;
             // 
             // comboBoxKontaktID
             // 
@@ -2214,6 +2225,7 @@
             // 
             // panelRechnung
             // 
+            this.panelRechnung.Controls.Add(this.dateTimePickerRechnungsdatum);
             this.panelRechnung.Controls.Add(this.label26);
             this.panelRechnung.Controls.Add(this.textBoxKursID);
             this.panelRechnung.Controls.Add(this.label27);
@@ -2223,8 +2235,7 @@
             this.panelRechnung.Controls.Add(this.txtKontaktID);
             this.panelRechnung.Controls.Add(this.label30);
             this.panelRechnung.Controls.Add(this.textBoxRechnungsnummer);
-            this.panelRechnung.Controls.Add(this.textBoxRechnungsdatum);
-            this.panelRechnung.Location = new System.Drawing.Point(3, 69);
+            this.panelRechnung.Location = new System.Drawing.Point(3, 62);
             this.panelRechnung.Margin = new System.Windows.Forms.Padding(2);
             this.panelRechnung.Name = "panelRechnung";
             this.panelRechnung.Size = new System.Drawing.Size(475, 335);
@@ -2324,15 +2335,6 @@
             this.textBoxRechnungsnummer.Name = "textBoxRechnungsnummer";
             this.textBoxRechnungsnummer.Size = new System.Drawing.Size(224, 32);
             this.textBoxRechnungsnummer.TabIndex = 15;
-            // 
-            // textBoxRechnungsdatum
-            // 
-            this.textBoxRechnungsdatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRechnungsdatum.Location = new System.Drawing.Point(221, 67);
-            this.textBoxRechnungsdatum.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxRechnungsdatum.Name = "textBoxRechnungsdatum";
-            this.textBoxRechnungsdatum.Size = new System.Drawing.Size(224, 32);
-            this.textBoxRechnungsdatum.TabIndex = 16;
             // 
             // panelKursort
             // 
@@ -2486,24 +2488,25 @@
             this.labelKursortBezeichnung.TabIndex = 52;
             this.labelKursortBezeichnung.Text = "Bezeichnung:";
             // 
-            // dateTimePickerKassabuch
+            // dateTimePickerRechnungsdatum
             // 
-            this.dateTimePickerKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerKassabuch.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerKassabuch.Location = new System.Drawing.Point(221, 25);
-            this.dateTimePickerKassabuch.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePickerKassabuch.Name = "dateTimePickerKassabuch";
-            this.dateTimePickerKassabuch.Size = new System.Drawing.Size(269, 28);
-            this.dateTimePickerKassabuch.TabIndex = 51;
+            this.dateTimePickerRechnungsdatum.CustomFormat = "";
+            this.dateTimePickerRechnungsdatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerRechnungsdatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerRechnungsdatum.Location = new System.Drawing.Point(219, 69);
+            this.dateTimePickerRechnungsdatum.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePickerRechnungsdatum.Name = "dateTimePickerRechnungsdatum";
+            this.dateTimePickerRechnungsdatum.Size = new System.Drawing.Size(226, 28);
+            this.dateTimePickerRechnungsdatum.TabIndex = 52;
             // 
             // FrmHinzufügenBearbeiten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 857);
-            this.Controls.Add(this.panelKassabuch);
-            this.Controls.Add(this.panelKassabuchkonto);
             this.Controls.Add(this.panelRechnung);
+            this.Controls.Add(this.panelKassabuchkonto);
+            this.Controls.Add(this.panelKassabuch);
             this.Controls.Add(this.panelKontaktSuche);
             this.Controls.Add(this.panelSchluessel);
             this.Controls.Add(this.panelMitgliedschaft);
@@ -2740,7 +2743,6 @@
         internal System.Windows.Forms.TextBox txtKontaktID;
         private System.Windows.Forms.Label label30;
         internal System.Windows.Forms.TextBox textBoxRechnungsnummer;
-        internal System.Windows.Forms.TextBox textBoxRechnungsdatum;
         private System.Windows.Forms.Button buttonKursortSpeichern;
         private System.Windows.Forms.Button buttonKursortAbbrechen;
         public System.Windows.Forms.ComboBox comboBoxKursortOrt;
@@ -2757,5 +2759,6 @@
         internal System.Windows.Forms.ComboBox comboBoxKassabuchkontoID;
         internal System.Windows.Forms.ComboBox comboBoxKontaktID;
         public System.Windows.Forms.DateTimePicker dateTimePickerKassabuch;
+        public System.Windows.Forms.DateTimePicker dateTimePickerRechnungsdatum;
     }
 }

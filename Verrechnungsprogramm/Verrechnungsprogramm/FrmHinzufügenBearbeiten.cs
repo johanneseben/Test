@@ -1888,6 +1888,9 @@ namespace Verrechnungsprogramm
 
 
             kassabuch.Datum = dateTimePickerKassabuch.Value;
+            
+          
+            
             kassabuch.Buchungstext = textBoxBuchungstext.Text;
             kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text);
 
@@ -1948,9 +1951,10 @@ namespace Verrechnungsprogramm
                 if (k.KassabuchID == Convert.ToInt32(labelID.Text))
                 {
                     kassabuch.KassabuchID = Convert.ToInt32(labelID.Text);
-                    kassabuch.Datum = dateTimePickerKassabuch.Value;
+                    
                     kassabuch.Buchungstext = textBoxBuchungstext.Text;
-                    kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text.Substring(2, 5)); //das noch ändern
+                    kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text.Substring(2, 5)); 
+                   
 
 
 
@@ -1983,6 +1987,10 @@ namespace Verrechnungsprogramm
                         }
                     }
 
+
+
+                    
+
                     kassabuch.KontaktID = kontakt;
 
                     int inde2 = comboBoxKontaktID.Text.IndexOf(" ");
@@ -2001,7 +2009,7 @@ namespace Verrechnungsprogramm
 
                     kassabuch.KassabuchkontoID = kassabuchkonto;
 
-
+                   
 
 
                     int inde3 = comboBoxKontaktID.Text.IndexOf(" ");
@@ -2018,11 +2026,19 @@ namespace Verrechnungsprogramm
 
 
 
+                    kassabuch.Datum = dateTimePickerKassabuch.Value;
+
+
+
+                  
+
 
                     var request1 = new RestRequest("kassabuecher", Method.PUT);
                     request1.AddHeader("Content-Type", "application/json");
                     request1.AddJsonBody(kassabuch);
                     var response1 = client.Execute(request1);
+
+                    
 
                     if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {

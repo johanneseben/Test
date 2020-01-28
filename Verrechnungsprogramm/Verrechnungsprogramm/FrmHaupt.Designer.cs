@@ -245,7 +245,7 @@
             this.tableLayoutPanelÜberschrift.Controls.Add(this.labelÜberschrift, 0, 0);
             this.tableLayoutPanelÜberschrift.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanelÜberschrift.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelÜberschrift.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanelÜberschrift.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelÜberschrift.Name = "tableLayoutPanelÜberschrift";
             this.tableLayoutPanelÜberschrift.RowCount = 1;
             this.tableLayoutPanelÜberschrift.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -550,7 +550,7 @@
             this.listViewKontakt.ContextMenuStrip = this.contextMenuStripKontakt;
             this.listViewKontakt.HideSelection = false;
             this.listViewKontakt.Location = new System.Drawing.Point(186, 181);
-            this.listViewKontakt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewKontakt.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKontakt.Name = "listViewKontakt";
             this.listViewKontakt.Size = new System.Drawing.Size(1208, 337);
             this.listViewKontakt.TabIndex = 3;
@@ -651,7 +651,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1270, 548);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -672,7 +672,7 @@
             this.tableLayoutPanelOberKategorien.Controls.Add(this.buttonKursTermin, 1, 0);
             this.tableLayoutPanelOberKategorien.Controls.Add(this.labelBtStammdaten, 0, 1);
             this.tableLayoutPanelOberKategorien.Location = new System.Drawing.Point(182, 96);
-            this.tableLayoutPanelOberKategorien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanelOberKategorien.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelOberKategorien.Name = "tableLayoutPanelOberKategorien";
             this.tableLayoutPanelOberKategorien.RowCount = 2;
             this.tableLayoutPanelOberKategorien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -750,7 +750,7 @@
             // 
             this.buttonHinzufügen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHinzufügen.Location = new System.Drawing.Point(185, 532);
-            this.buttonHinzufügen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonHinzufügen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonHinzufügen.Name = "buttonHinzufügen";
             this.buttonHinzufügen.Size = new System.Drawing.Size(202, 51);
             this.buttonHinzufügen.TabIndex = 5;
@@ -763,7 +763,7 @@
             // 
             this.buttonBearbeiten.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBearbeiten.Location = new System.Drawing.Point(392, 532);
-            this.buttonBearbeiten.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBearbeiten.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBearbeiten.Name = "buttonBearbeiten";
             this.buttonBearbeiten.Size = new System.Drawing.Size(202, 51);
             this.buttonBearbeiten.TabIndex = 6;
@@ -780,7 +780,7 @@
             this.listViewAltersgruppe.ContextMenuStrip = this.contextMenuStripAltersgruppe;
             this.listViewAltersgruppe.HideSelection = false;
             this.listViewAltersgruppe.Location = new System.Drawing.Point(185, 181);
-            this.listViewAltersgruppe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewAltersgruppe.Margin = new System.Windows.Forms.Padding(2);
             this.listViewAltersgruppe.Name = "listViewAltersgruppe";
             this.listViewAltersgruppe.Size = new System.Drawing.Size(445, 258);
             this.listViewAltersgruppe.TabIndex = 7;
@@ -822,7 +822,7 @@
             this.listViewTitel.ContextMenuStrip = this.contextMenuStripTitel;
             this.listViewTitel.HideSelection = false;
             this.listViewTitel.Location = new System.Drawing.Point(185, 181);
-            this.listViewTitel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewTitel.Margin = new System.Windows.Forms.Padding(2);
             this.listViewTitel.Name = "listViewTitel";
             this.listViewTitel.Size = new System.Drawing.Size(214, 137);
             this.listViewTitel.TabIndex = 8;
@@ -868,7 +868,7 @@
             this.listViewSozialgruppe.ContextMenuStrip = this.contextMenuStripSozialgruppe;
             this.listViewSozialgruppe.HideSelection = false;
             this.listViewSozialgruppe.Location = new System.Drawing.Point(185, 181);
-            this.listViewSozialgruppe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewSozialgruppe.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSozialgruppe.Name = "listViewSozialgruppe";
             this.listViewSozialgruppe.Size = new System.Drawing.Size(445, 137);
             this.listViewSozialgruppe.TabIndex = 9;
@@ -1136,7 +1136,7 @@
             this.columnHeader40});
             this.listViewKurs.HideSelection = false;
             this.listViewKurs.Location = new System.Drawing.Point(186, 181);
-            this.listViewKurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewKurs.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKurs.Name = "listViewKurs";
             this.listViewKurs.Size = new System.Drawing.Size(1147, 228);
             this.listViewKurs.TabIndex = 11;
@@ -1228,7 +1228,7 @@
             this.listViewKurskategorie.ContextMenuStrip = this.contextMenuStripKurskategorie;
             this.listViewKurskategorie.HideSelection = false;
             this.listViewKurskategorie.Location = new System.Drawing.Point(185, 181);
-            this.listViewKurskategorie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewKurskategorie.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKurskategorie.Name = "listViewKurskategorie";
             this.listViewKurskategorie.Size = new System.Drawing.Size(325, 201);
             this.listViewKurskategorie.TabIndex = 12;
@@ -1271,7 +1271,7 @@
             this.listViewBankverbindung.ContextMenuStrip = this.contextMenuStripBankverbindung;
             this.listViewBankverbindung.HideSelection = false;
             this.listViewBankverbindung.Location = new System.Drawing.Point(185, 181);
-            this.listViewBankverbindung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewBankverbindung.Margin = new System.Windows.Forms.Padding(2);
             this.listViewBankverbindung.Name = "listViewBankverbindung";
             this.listViewBankverbindung.Size = new System.Drawing.Size(533, 177);
             this.listViewBankverbindung.TabIndex = 14;
@@ -1322,7 +1322,7 @@
             this.listViewPass.ContextMenuStrip = this.contextMenuStripPass;
             this.listViewPass.HideSelection = false;
             this.listViewPass.Location = new System.Drawing.Point(185, 181);
-            this.listViewPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewPass.Margin = new System.Windows.Forms.Padding(2);
             this.listViewPass.Name = "listViewPass";
             this.listViewPass.Size = new System.Drawing.Size(533, 161);
             this.listViewPass.TabIndex = 16;
@@ -1381,7 +1381,7 @@
             this.listViewSchluessel.ContextMenuStrip = this.contextMenuStripGutschein;
             this.listViewSchluessel.HideSelection = false;
             this.listViewSchluessel.Location = new System.Drawing.Point(186, 181);
-            this.listViewSchluessel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewSchluessel.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSchluessel.Name = "listViewSchluessel";
             this.listViewSchluessel.Size = new System.Drawing.Size(512, 258);
             this.listViewSchluessel.TabIndex = 17;
@@ -1437,7 +1437,7 @@
             this.listViewGutschein.ContextMenuStrip = this.contextMenuStripGutschein;
             this.listViewGutschein.HideSelection = false;
             this.listViewGutschein.Location = new System.Drawing.Point(186, 184);
-            this.listViewGutschein.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewGutschein.Margin = new System.Windows.Forms.Padding(2);
             this.listViewGutschein.Name = "listViewGutschein";
             this.listViewGutschein.Size = new System.Drawing.Size(223, 200);
             this.listViewGutschein.TabIndex = 18;
@@ -1467,7 +1467,7 @@
             this.listViewMitgliedschaft.ContextMenuStrip = this.contextMenuStripMitgliedschaft;
             this.listViewMitgliedschaft.HideSelection = false;
             this.listViewMitgliedschaft.Location = new System.Drawing.Point(185, 184);
-            this.listViewMitgliedschaft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewMitgliedschaft.Margin = new System.Windows.Forms.Padding(2);
             this.listViewMitgliedschaft.Name = "listViewMitgliedschaft";
             this.listViewMitgliedschaft.Size = new System.Drawing.Size(491, 224);
             this.listViewMitgliedschaft.TabIndex = 19;
@@ -1537,7 +1537,7 @@
             this.tableLayoutPanelFinanz.Controls.Add(this.buttonKassabuch, 1, 1);
             this.tableLayoutPanelFinanz.Controls.Add(this.buttonRechnung, 1, 2);
             this.tableLayoutPanelFinanz.Location = new System.Drawing.Point(7, 172);
-            this.tableLayoutPanelFinanz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanelFinanz.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelFinanz.Name = "tableLayoutPanelFinanz";
             this.tableLayoutPanelFinanz.RowCount = 6;
             this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -1651,6 +1651,7 @@
             // columnHeader69
             // 
             this.columnHeader69.Text = "Kontostand";
+            this.columnHeader69.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader69.Width = 110;
             // 
             // listViewKassabuch
@@ -1681,16 +1682,17 @@
             // 
             this.columnHeader71.Text = "Datum";
             this.columnHeader71.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader71.Width = 120;
+            this.columnHeader71.Width = 110;
             // 
             // columnHeader72
             // 
             this.columnHeader72.Text = "Buchungstext";
-            this.columnHeader72.Width = 180;
+            this.columnHeader72.Width = 200;
             // 
             // columnHeader73
             // 
             this.columnHeader73.Text = "Betrag";
+            this.columnHeader73.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader73.Width = 110;
             // 
             // columnHeader74
@@ -1753,7 +1755,7 @@
             this.columnHeader82});
             this.listViewTeilnehmer.HideSelection = false;
             this.listViewTeilnehmer.Location = new System.Drawing.Point(185, 223);
-            this.listViewTeilnehmer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewTeilnehmer.Margin = new System.Windows.Forms.Padding(2);
             this.listViewTeilnehmer.Name = "listViewTeilnehmer";
             this.listViewTeilnehmer.Size = new System.Drawing.Size(385, 283);
             this.listViewTeilnehmer.TabIndex = 16;
@@ -1782,7 +1784,7 @@
             this.columnHeader87});
             this.listViewKursort.HideSelection = false;
             this.listViewKursort.Location = new System.Drawing.Point(185, 172);
-            this.listViewKursort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewKursort.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKursort.Name = "listViewKursort";
             this.listViewKursort.Size = new System.Drawing.Size(732, 287);
             this.listViewKursort.TabIndex = 26;
@@ -1828,7 +1830,7 @@
             this.columnHeader90});
             this.listViewKursleiter.HideSelection = false;
             this.listViewKursleiter.Location = new System.Drawing.Point(185, 172);
-            this.listViewKursleiter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewKursleiter.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKursleiter.Name = "listViewKursleiter";
             this.listViewKursleiter.Size = new System.Drawing.Size(384, 271);
             this.listViewKursleiter.TabIndex = 27;
@@ -1859,7 +1861,7 @@
             this.columnHeader95});
             this.listViewOffeneRechnung.HideSelection = false;
             this.listViewOffeneRechnung.Location = new System.Drawing.Point(186, 173);
-            this.listViewOffeneRechnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewOffeneRechnung.Margin = new System.Windows.Forms.Padding(2);
             this.listViewOffeneRechnung.Name = "listViewOffeneRechnung";
             this.listViewOffeneRechnung.Size = new System.Drawing.Size(308, 255);
             this.listViewOffeneRechnung.TabIndex = 29;
@@ -1892,7 +1894,7 @@
             this.comboBoxKursTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursTeilnehmer.FormattingEnabled = true;
             this.comboBoxKursTeilnehmer.Location = new System.Drawing.Point(303, 178);
-            this.comboBoxKursTeilnehmer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursTeilnehmer.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursTeilnehmer.Name = "comboBoxKursTeilnehmer";
             this.comboBoxKursTeilnehmer.Size = new System.Drawing.Size(239, 30);
             this.comboBoxKursTeilnehmer.TabIndex = 30;
@@ -1945,7 +1947,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanelOberKategorien);
             this.Controls.Add(this.tableLayoutPanelÜberschrift);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmHaupt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Anwendungsprogramm";
