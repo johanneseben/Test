@@ -225,6 +225,10 @@ namespace Verrechnungsprogramm
             {
                 panelKursort.Visible = true;
             }
+            if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Mitgliedschaft"))
+            {
+                panelMitgliedschaft.Visible = true;
+            }
 
 
 

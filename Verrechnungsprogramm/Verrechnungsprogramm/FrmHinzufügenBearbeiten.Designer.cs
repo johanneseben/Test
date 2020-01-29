@@ -205,6 +205,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxBuchungstext = new System.Windows.Forms.TextBox();
             this.panelRechnung = new System.Windows.Forms.Panel();
+            this.comboBoxRechnungKursID = new System.Windows.Forms.ComboBox();
+            this.comboBoxRechnungKontaktID = new System.Windows.Forms.ComboBox();
             this.dateTimePickerRechnungsdatum = new System.Windows.Forms.DateTimePicker();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -226,8 +228,6 @@
             this.labelKursortBeschreibung = new System.Windows.Forms.Label();
             this.textBoxKursortBezeichnung = new System.Windows.Forms.TextBox();
             this.labelKursortBezeichnung = new System.Windows.Forms.Label();
-            this.comboBoxRechnungKontaktID = new System.Windows.Forms.ComboBox();
-            this.comboBoxRechnungKursID = new System.Windows.Forms.ComboBox();
             this.panelAltersgruppeSozialgruppeKurskategorie.SuspendLayout();
             this.panelTitel.SuspendLayout();
             this.panelKurs.SuspendLayout();
@@ -264,7 +264,7 @@
             this.panelAltersgruppeSozialgruppeKurskategorie.Controls.Add(this.labelAltersgruppeKurskategorieBezeichnung);
             this.panelAltersgruppeSozialgruppeKurskategorie.Controls.Add(this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung);
             this.panelAltersgruppeSozialgruppeKurskategorie.Location = new System.Drawing.Point(34, 72);
-            this.panelAltersgruppeSozialgruppeKurskategorie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelAltersgruppeSozialgruppeKurskategorie.Margin = new System.Windows.Forms.Padding(2);
             this.panelAltersgruppeSozialgruppeKurskategorie.Name = "panelAltersgruppeSozialgruppeKurskategorie";
             this.panelAltersgruppeSozialgruppeKurskategorie.Size = new System.Drawing.Size(499, 143);
             this.panelAltersgruppeSozialgruppeKurskategorie.TabIndex = 33;
@@ -274,7 +274,7 @@
             // 
             this.buttonAltersgruppeSozialgruppeKurskategorieSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAltersgruppeSozialgruppeKurskategorieSpeichern.Location = new System.Drawing.Point(265, 76);
-            this.buttonAltersgruppeSozialgruppeKurskategorieSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAltersgruppeSozialgruppeKurskategorieSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAltersgruppeSozialgruppeKurskategorieSpeichern.Name = "buttonAltersgruppeSozialgruppeKurskategorieSpeichern";
             this.buttonAltersgruppeSozialgruppeKurskategorieSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonAltersgruppeSozialgruppeKurskategorieSpeichern.TabIndex = 31;
@@ -286,7 +286,7 @@
             // 
             this.buttonAltersgruppeSozialgruppeKurskategorieAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAltersgruppeSozialgruppeKurskategorieAbbrechen.Location = new System.Drawing.Point(56, 76);
-            this.buttonAltersgruppeSozialgruppeKurskategorieAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAltersgruppeSozialgruppeKurskategorieAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAltersgruppeSozialgruppeKurskategorieAbbrechen.Name = "buttonAltersgruppeSozialgruppeKurskategorieAbbrechen";
             this.buttonAltersgruppeSozialgruppeKurskategorieAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonAltersgruppeSozialgruppeKurskategorieAbbrechen.TabIndex = 30;
@@ -309,7 +309,7 @@
             // 
             this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Location = new System.Drawing.Point(216, 26);
-            this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Name = "textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung";
             this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Size = new System.Drawing.Size(224, 32);
             this.textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.TabIndex = 17;
@@ -323,7 +323,7 @@
             this.panelTitel.Controls.Add(this.labelBezeichnungTitel);
             this.panelTitel.Controls.Add(this.textBoxBezeichnungTitel);
             this.panelTitel.Location = new System.Drawing.Point(34, 72);
-            this.panelTitel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTitel.Margin = new System.Windows.Forms.Padding(2);
             this.panelTitel.Name = "panelTitel";
             this.panelTitel.Size = new System.Drawing.Size(533, 249);
             this.panelTitel.TabIndex = 34;
@@ -333,7 +333,7 @@
             // 
             this.checkBoxVorgestellt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxVorgestellt.Location = new System.Drawing.Point(240, 91);
-            this.checkBoxVorgestellt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxVorgestellt.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxVorgestellt.Name = "checkBoxVorgestellt";
             this.checkBoxVorgestellt.Size = new System.Drawing.Size(49, 26);
             this.checkBoxVorgestellt.TabIndex = 37;
@@ -354,7 +354,7 @@
             // 
             this.buttonSpeichernTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSpeichernTitel.Location = new System.Drawing.Point(286, 149);
-            this.buttonSpeichernTitel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSpeichernTitel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSpeichernTitel.Name = "buttonSpeichernTitel";
             this.buttonSpeichernTitel.Size = new System.Drawing.Size(179, 54);
             this.buttonSpeichernTitel.TabIndex = 35;
@@ -366,7 +366,7 @@
             // 
             this.buttonAbbrechenTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAbbrechenTitel.Location = new System.Drawing.Point(77, 149);
-            this.buttonAbbrechenTitel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAbbrechenTitel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAbbrechenTitel.Name = "buttonAbbrechenTitel";
             this.buttonAbbrechenTitel.Size = new System.Drawing.Size(179, 54);
             this.buttonAbbrechenTitel.TabIndex = 34;
@@ -389,7 +389,7 @@
             // 
             this.textBoxBezeichnungTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBezeichnungTitel.Location = new System.Drawing.Point(237, 38);
-            this.textBoxBezeichnungTitel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBezeichnungTitel.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBezeichnungTitel.Name = "textBoxBezeichnungTitel";
             this.textBoxBezeichnungTitel.Size = new System.Drawing.Size(224, 32);
             this.textBoxBezeichnungTitel.TabIndex = 33;
@@ -448,7 +448,7 @@
             this.panelKurs.Controls.Add(this.labelKursPreis);
             this.panelKurs.Controls.Add(this.labelKursBezeichnung);
             this.panelKurs.Location = new System.Drawing.Point(1, 57);
-            this.panelKurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelKurs.Margin = new System.Windows.Forms.Padding(2);
             this.panelKurs.Name = "panelKurs";
             this.panelKurs.Size = new System.Drawing.Size(966, 466);
             this.panelKurs.TabIndex = 36;
@@ -461,7 +461,7 @@
             this.textBoxKursBeschreibung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursBeschreibung.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBoxKursBeschreibung.Location = new System.Drawing.Point(243, 301);
-            this.textBoxKursBeschreibung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursBeschreibung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursBeschreibung.Name = "textBoxKursBeschreibung";
             this.textBoxKursBeschreibung.Size = new System.Drawing.Size(224, 78);
             this.textBoxKursBeschreibung.TabIndex = 58;
@@ -475,7 +475,7 @@
             "ja",
             "nein"});
             this.comboBoxKursAnzeigen.Location = new System.Drawing.Point(737, 339);
-            this.comboBoxKursAnzeigen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursAnzeigen.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursAnzeigen.Name = "comboBoxKursAnzeigen";
             this.comboBoxKursAnzeigen.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKursAnzeigen.TabIndex = 57;
@@ -495,7 +495,7 @@
             // 
             this.textBoxKursAnmerkung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursAnmerkung.Location = new System.Drawing.Point(737, 297);
-            this.textBoxKursAnmerkung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursAnmerkung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursAnmerkung.Name = "textBoxKursAnmerkung";
             this.textBoxKursAnmerkung.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursAnmerkung.TabIndex = 55;
@@ -505,7 +505,7 @@
             this.dateTimePickerKursAnmeldeschluss.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursAnmeldeschluss.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerKursAnmeldeschluss.Location = new System.Drawing.Point(737, 265);
-            this.dateTimePickerKursAnmeldeschluss.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerKursAnmeldeschluss.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKursAnmeldeschluss.Name = "dateTimePickerKursAnmeldeschluss";
             this.dateTimePickerKursAnmeldeschluss.Size = new System.Drawing.Size(224, 28);
             this.dateTimePickerKursAnmeldeschluss.TabIndex = 54;
@@ -515,7 +515,7 @@
             this.comboBoxKursKursort.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursKursort.FormattingEnabled = true;
             this.comboBoxKursKursort.Location = new System.Drawing.Point(737, 227);
-            this.comboBoxKursKursort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursKursort.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursKursort.Name = "comboBoxKursKursort";
             this.comboBoxKursKursort.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKursKursort.TabIndex = 53;
@@ -525,7 +525,7 @@
             this.comboBoxKursKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursKurskategorie.FormattingEnabled = true;
             this.comboBoxKursKurskategorie.Location = new System.Drawing.Point(737, 189);
-            this.comboBoxKursKurskategorie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursKurskategorie.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursKurskategorie.Name = "comboBoxKursKurskategorie";
             this.comboBoxKursKurskategorie.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKursKurskategorie.TabIndex = 52;
@@ -534,7 +534,7 @@
             // 
             this.textBoxKursSeminarnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursSeminarnummer.Location = new System.Drawing.Point(737, 153);
-            this.textBoxKursSeminarnummer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursSeminarnummer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursSeminarnummer.Name = "textBoxKursSeminarnummer";
             this.textBoxKursSeminarnummer.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursSeminarnummer.TabIndex = 51;
@@ -544,7 +544,7 @@
             this.dateTimePickerKursDatumBis.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursDatumBis.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerKursDatumBis.Location = new System.Drawing.Point(737, 119);
-            this.dateTimePickerKursDatumBis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerKursDatumBis.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKursDatumBis.Name = "dateTimePickerKursDatumBis";
             this.dateTimePickerKursDatumBis.Size = new System.Drawing.Size(224, 28);
             this.dateTimePickerKursDatumBis.TabIndex = 50;
@@ -554,7 +554,7 @@
             this.dateTimePickerKursDatumVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursDatumVon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerKursDatumVon.Location = new System.Drawing.Point(737, 86);
-            this.dateTimePickerKursDatumVon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerKursDatumVon.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKursDatumVon.Name = "dateTimePickerKursDatumVon";
             this.dateTimePickerKursDatumVon.Size = new System.Drawing.Size(224, 28);
             this.dateTimePickerKursDatumVon.TabIndex = 49;
@@ -564,7 +564,7 @@
             this.dateTimePickerKursZeitBis.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursZeitBis.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerKursZeitBis.Location = new System.Drawing.Point(737, 53);
-            this.dateTimePickerKursZeitBis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerKursZeitBis.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKursZeitBis.Name = "dateTimePickerKursZeitBis";
             this.dateTimePickerKursZeitBis.Size = new System.Drawing.Size(224, 28);
             this.dateTimePickerKursZeitBis.TabIndex = 48;
@@ -574,7 +574,7 @@
             this.dateTimePickerKursZeitVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursZeitVon.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerKursZeitVon.Location = new System.Drawing.Point(737, 12);
-            this.dateTimePickerKursZeitVon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerKursZeitVon.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKursZeitVon.Name = "dateTimePickerKursZeitVon";
             this.dateTimePickerKursZeitVon.Size = new System.Drawing.Size(224, 28);
             this.dateTimePickerKursZeitVon.TabIndex = 47;
@@ -586,7 +586,7 @@
             this.comboBoxKursFoerderung.Items.AddRange(new object[] {
             "NÖ-Bildungsförderung"});
             this.comboBoxKursFoerderung.Location = new System.Drawing.Point(243, 228);
-            this.comboBoxKursFoerderung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursFoerderung.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursFoerderung.Name = "comboBoxKursFoerderung";
             this.comboBoxKursFoerderung.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKursFoerderung.TabIndex = 45;
@@ -599,7 +599,7 @@
             "ja",
             "nein"});
             this.comboBoxKursVerbindklichkeit.Location = new System.Drawing.Point(243, 190);
-            this.comboBoxKursVerbindklichkeit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursVerbindklichkeit.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursVerbindklichkeit.Name = "comboBoxKursVerbindklichkeit";
             this.comboBoxKursVerbindklichkeit.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKursVerbindklichkeit.TabIndex = 44;
@@ -608,7 +608,7 @@
             // 
             this.textBoxKursStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursStatus.Location = new System.Drawing.Point(243, 265);
-            this.textBoxKursStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursStatus.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursStatus.Name = "textBoxKursStatus";
             this.textBoxKursStatus.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursStatus.TabIndex = 43;
@@ -617,7 +617,7 @@
             // 
             this.textBoxKursAnzEinheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursAnzEinheit.Location = new System.Drawing.Point(243, 154);
-            this.textBoxKursAnzEinheit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursAnzEinheit.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursAnzEinheit.Name = "textBoxKursAnzEinheit";
             this.textBoxKursAnzEinheit.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursAnzEinheit.TabIndex = 42;
@@ -626,7 +626,7 @@
             // 
             this.textBoxMaxTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMaxTeilnehmer.Location = new System.Drawing.Point(243, 117);
-            this.textBoxMaxTeilnehmer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMaxTeilnehmer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMaxTeilnehmer.Name = "textBoxMaxTeilnehmer";
             this.textBoxMaxTeilnehmer.Size = new System.Drawing.Size(224, 32);
             this.textBoxMaxTeilnehmer.TabIndex = 41;
@@ -635,7 +635,7 @@
             // 
             this.textBoxKursMinTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursMinTeilnehmer.Location = new System.Drawing.Point(243, 80);
-            this.textBoxKursMinTeilnehmer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursMinTeilnehmer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursMinTeilnehmer.Name = "textBoxKursMinTeilnehmer";
             this.textBoxKursMinTeilnehmer.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursMinTeilnehmer.TabIndex = 40;
@@ -644,7 +644,7 @@
             // 
             this.textBoxKursPreis.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursPreis.Location = new System.Drawing.Point(243, 44);
-            this.textBoxKursPreis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursPreis.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursPreis.Name = "textBoxKursPreis";
             this.textBoxKursPreis.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursPreis.TabIndex = 39;
@@ -653,7 +653,7 @@
             // 
             this.textBoxKursBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursBezeichnung.Location = new System.Drawing.Point(243, 7);
-            this.textBoxKursBezeichnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursBezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursBezeichnung.Name = "textBoxKursBezeichnung";
             this.textBoxKursBezeichnung.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursBezeichnung.TabIndex = 38;
@@ -662,7 +662,7 @@
             // 
             this.buttonKursSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKursSpeichern.Location = new System.Drawing.Point(505, 388);
-            this.buttonKursSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKursSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKursSpeichern.Name = "buttonKursSpeichern";
             this.buttonKursSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonKursSpeichern.TabIndex = 37;
@@ -674,7 +674,7 @@
             // 
             this.buttonKursAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKursAbbrechen.Location = new System.Drawing.Point(297, 388);
-            this.buttonKursAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKursAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKursAbbrechen.Name = "buttonKursAbbrechen";
             this.buttonKursAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonKursAbbrechen.TabIndex = 36;
@@ -892,7 +892,7 @@
             this.panelBankverbindung.Controls.Add(this.labelBankverbindungKontoinhaber);
             this.panelBankverbindung.Controls.Add(this.labelBankverbindungIBAN);
             this.panelBankverbindung.Location = new System.Drawing.Point(38, 72);
-            this.panelBankverbindung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBankverbindung.Margin = new System.Windows.Forms.Padding(2);
             this.panelBankverbindung.Name = "panelBankverbindung";
             this.panelBankverbindung.Size = new System.Drawing.Size(460, 197);
             this.panelBankverbindung.TabIndex = 37;
@@ -903,7 +903,7 @@
             // 
             this.textBoxBankverbindungKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBankverbindungKontaktID.Location = new System.Drawing.Point(209, 79);
-            this.textBoxBankverbindungKontaktID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBankverbindungKontaktID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBankverbindungKontaktID.Name = "textBoxBankverbindungKontaktID";
             this.textBoxBankverbindungKontaktID.ReadOnly = true;
             this.textBoxBankverbindungKontaktID.Size = new System.Drawing.Size(38, 32);
@@ -926,7 +926,7 @@
             // 
             this.buttonBankverbindungSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBankverbindungSpeichern.Location = new System.Drawing.Point(238, 130);
-            this.buttonBankverbindungSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBankverbindungSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBankverbindungSpeichern.Name = "buttonBankverbindungSpeichern";
             this.buttonBankverbindungSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonBankverbindungSpeichern.TabIndex = 48;
@@ -938,7 +938,7 @@
             // 
             this.buttonBankverbindungAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBankverbindungAbbrechen.Location = new System.Drawing.Point(30, 130);
-            this.buttonBankverbindungAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBankverbindungAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBankverbindungAbbrechen.Name = "buttonBankverbindungAbbrechen";
             this.buttonBankverbindungAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonBankverbindungAbbrechen.TabIndex = 47;
@@ -950,7 +950,7 @@
             // 
             this.textBoxBankverbindungKontoinhaber.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBankverbindungKontoinhaber.Location = new System.Drawing.Point(208, 43);
-            this.textBoxBankverbindungKontoinhaber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBankverbindungKontoinhaber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBankverbindungKontoinhaber.Name = "textBoxBankverbindungKontoinhaber";
             this.textBoxBankverbindungKontoinhaber.Size = new System.Drawing.Size(224, 32);
             this.textBoxBankverbindungKontoinhaber.TabIndex = 45;
@@ -959,7 +959,7 @@
             // 
             this.textBoxBankverbindungIBAN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBankverbindungIBAN.Location = new System.Drawing.Point(208, 6);
-            this.textBoxBankverbindungIBAN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBankverbindungIBAN.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBankverbindungIBAN.Name = "textBoxBankverbindungIBAN";
             this.textBoxBankverbindungIBAN.Size = new System.Drawing.Size(224, 32);
             this.textBoxBankverbindungIBAN.TabIndex = 44;
@@ -1012,7 +1012,7 @@
             this.columnHeader7});
             this.listViewKontakt.HideSelection = false;
             this.listViewKontakt.Location = new System.Drawing.Point(46, 61);
-            this.listViewKontakt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewKontakt.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKontakt.Name = "listViewKontakt";
             this.listViewKontakt.Size = new System.Drawing.Size(710, 277);
             this.listViewKontakt.TabIndex = 38;
@@ -1081,7 +1081,7 @@
             this.panelPass.Controls.Add(this.textBoxPassNr);
             this.panelPass.Controls.Add(this.labelPassNr);
             this.panelPass.Location = new System.Drawing.Point(34, 72);
-            this.panelPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPass.Margin = new System.Windows.Forms.Padding(2);
             this.panelPass.Name = "panelPass";
             this.panelPass.Size = new System.Drawing.Size(460, 256);
             this.panelPass.TabIndex = 39;
@@ -1105,7 +1105,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(244, 167);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 54);
             this.button1.TabIndex = 56;
@@ -1117,7 +1117,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(36, 167);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 54);
             this.button2.TabIndex = 55;
@@ -1130,7 +1130,7 @@
             this.dateTimePickerPassEnde.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerPassEnde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerPassEnde.Location = new System.Drawing.Point(175, 119);
-            this.dateTimePickerPassEnde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerPassEnde.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerPassEnde.Name = "dateTimePickerPassEnde";
             this.dateTimePickerPassEnde.Size = new System.Drawing.Size(224, 28);
             this.dateTimePickerPassEnde.TabIndex = 54;
@@ -1150,7 +1150,7 @@
             // 
             this.textBoxPassKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassKontaktID.Location = new System.Drawing.Point(175, 11);
-            this.textBoxPassKontaktID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassKontaktID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPassKontaktID.Name = "textBoxPassKontaktID";
             this.textBoxPassKontaktID.ReadOnly = true;
             this.textBoxPassKontaktID.Size = new System.Drawing.Size(45, 32);
@@ -1172,7 +1172,7 @@
             this.dateTimePickerPassBeginn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerPassBeginn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerPassBeginn.Location = new System.Drawing.Point(175, 85);
-            this.dateTimePickerPassBeginn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerPassBeginn.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerPassBeginn.Name = "dateTimePickerPassBeginn";
             this.dateTimePickerPassBeginn.Size = new System.Drawing.Size(224, 28);
             this.dateTimePickerPassBeginn.TabIndex = 50;
@@ -1192,7 +1192,7 @@
             // 
             this.textBoxPassNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassNr.Location = new System.Drawing.Point(175, 48);
-            this.textBoxPassNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassNr.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPassNr.Name = "textBoxPassNr";
             this.textBoxPassNr.Size = new System.Drawing.Size(224, 32);
             this.textBoxPassNr.TabIndex = 48;
@@ -1223,7 +1223,7 @@
             this.panelSchluessel.Controls.Add(this.labelSchluesselCode);
             this.panelSchluessel.Controls.Add(this.textBoxSchluesselCode);
             this.panelSchluessel.Location = new System.Drawing.Point(34, 72);
-            this.panelSchluessel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSchluessel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSchluessel.Name = "panelSchluessel";
             this.panelSchluessel.Size = new System.Drawing.Size(472, 293);
             this.panelSchluessel.TabIndex = 40;
@@ -1234,7 +1234,7 @@
             this.checkBoxSchluesselAktiv.AutoSize = true;
             this.checkBoxSchluesselAktiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxSchluesselAktiv.Location = new System.Drawing.Point(235, 191);
-            this.checkBoxSchluesselAktiv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxSchluesselAktiv.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxSchluesselAktiv.Name = "checkBoxSchluesselAktiv";
             this.checkBoxSchluesselAktiv.Size = new System.Drawing.Size(15, 14);
             this.checkBoxSchluesselAktiv.TabIndex = 32;
@@ -1244,7 +1244,7 @@
             // 
             this.buttonSchluesselSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSchluesselSpeichern.Location = new System.Drawing.Point(248, 223);
-            this.buttonSchluesselSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSchluesselSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSchluesselSpeichern.Name = "buttonSchluesselSpeichern";
             this.buttonSchluesselSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonSchluesselSpeichern.TabIndex = 31;
@@ -1256,7 +1256,7 @@
             // 
             this.buttonSchluesselAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSchluesselAbbrechen.Location = new System.Drawing.Point(40, 223);
-            this.buttonSchluesselAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSchluesselAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSchluesselAbbrechen.Name = "buttonSchluesselAbbrechen";
             this.buttonSchluesselAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonSchluesselAbbrechen.TabIndex = 30;
@@ -1279,7 +1279,7 @@
             // 
             this.textBoxSchluesselBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSchluesselBezeichnung.Location = new System.Drawing.Point(235, 24);
-            this.textBoxSchluesselBezeichnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSchluesselBezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSchluesselBezeichnung.Name = "textBoxSchluesselBezeichnung";
             this.textBoxSchluesselBezeichnung.Size = new System.Drawing.Size(224, 32);
             this.textBoxSchluesselBezeichnung.TabIndex = 29;
@@ -1310,7 +1310,7 @@
             // 
             this.textBoxSchluesselAnmerkung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSchluesselAnmerkung.Location = new System.Drawing.Point(235, 143);
-            this.textBoxSchluesselAnmerkung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSchluesselAnmerkung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSchluesselAnmerkung.Name = "textBoxSchluesselAnmerkung";
             this.textBoxSchluesselAnmerkung.Size = new System.Drawing.Size(224, 32);
             this.textBoxSchluesselAnmerkung.TabIndex = 25;
@@ -1330,7 +1330,7 @@
             // 
             this.textBoxSchluesselPlatz.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSchluesselPlatz.Location = new System.Drawing.Point(235, 103);
-            this.textBoxSchluesselPlatz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSchluesselPlatz.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSchluesselPlatz.Name = "textBoxSchluesselPlatz";
             this.textBoxSchluesselPlatz.Size = new System.Drawing.Size(224, 32);
             this.textBoxSchluesselPlatz.TabIndex = 23;
@@ -1350,7 +1350,7 @@
             // 
             this.textBoxSchluesselCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSchluesselCode.Location = new System.Drawing.Point(235, 63);
-            this.textBoxSchluesselCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSchluesselCode.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSchluesselCode.Name = "textBoxSchluesselCode";
             this.textBoxSchluesselCode.Size = new System.Drawing.Size(224, 32);
             this.textBoxSchluesselCode.TabIndex = 21;
@@ -1364,7 +1364,7 @@
             this.panelGutschein.Controls.Add(this.labelGutscheinBezeichnung);
             this.panelGutschein.Controls.Add(this.textBoxGutscheinBezeichnung);
             this.panelGutschein.Location = new System.Drawing.Point(34, 72);
-            this.panelGutschein.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelGutschein.Margin = new System.Windows.Forms.Padding(2);
             this.panelGutschein.Name = "panelGutschein";
             this.panelGutschein.Size = new System.Drawing.Size(470, 174);
             this.panelGutschein.TabIndex = 41;
@@ -1374,7 +1374,7 @@
             // 
             this.buttonGutscheinSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGutscheinSpeichern.Location = new System.Drawing.Point(238, 105);
-            this.buttonGutscheinSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonGutscheinSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGutscheinSpeichern.Name = "buttonGutscheinSpeichern";
             this.buttonGutscheinSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonGutscheinSpeichern.TabIndex = 33;
@@ -1386,7 +1386,7 @@
             // 
             this.buttonGutscheinAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGutscheinAbbrechen.Location = new System.Drawing.Point(29, 105);
-            this.buttonGutscheinAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonGutscheinAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGutscheinAbbrechen.Name = "buttonGutscheinAbbrechen";
             this.buttonGutscheinAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonGutscheinAbbrechen.TabIndex = 32;
@@ -1409,7 +1409,7 @@
             // 
             this.textBoxGutscheinBetrag.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxGutscheinBetrag.Location = new System.Drawing.Point(201, 58);
-            this.textBoxGutscheinBetrag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxGutscheinBetrag.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxGutscheinBetrag.Name = "textBoxGutscheinBetrag";
             this.textBoxGutscheinBetrag.Size = new System.Drawing.Size(224, 32);
             this.textBoxGutscheinBetrag.TabIndex = 22;
@@ -1429,7 +1429,7 @@
             // 
             this.textBoxGutscheinBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxGutscheinBezeichnung.Location = new System.Drawing.Point(201, 21);
-            this.textBoxGutscheinBezeichnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxGutscheinBezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxGutscheinBezeichnung.Name = "textBoxGutscheinBezeichnung";
             this.textBoxGutscheinBezeichnung.Size = new System.Drawing.Size(224, 32);
             this.textBoxGutscheinBezeichnung.TabIndex = 20;
@@ -1444,10 +1444,10 @@
             this.panelMitgliedschaft.Controls.Add(this.textBoxMitgliedschaftBezeichnung);
             this.panelMitgliedschaft.Controls.Add(this.buttonMitgliedschaftSpeichern);
             this.panelMitgliedschaft.Controls.Add(this.buttonMitgliedschaftAbbrechen);
-            this.panelMitgliedschaft.Location = new System.Drawing.Point(33, 72);
-            this.panelMitgliedschaft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMitgliedschaft.Location = new System.Drawing.Point(1, 66);
+            this.panelMitgliedschaft.Margin = new System.Windows.Forms.Padding(2);
             this.panelMitgliedschaft.Name = "panelMitgliedschaft";
-            this.panelMitgliedschaft.Size = new System.Drawing.Size(535, 239);
+            this.panelMitgliedschaft.Size = new System.Drawing.Size(535, 243);
             this.panelMitgliedschaft.TabIndex = 42;
             this.panelMitgliedschaft.Visible = false;
             // 
@@ -1466,7 +1466,7 @@
             // 
             this.textBoxMitgliedschaftErmaessigung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMitgliedschaftErmaessigung.Location = new System.Drawing.Point(241, 109);
-            this.textBoxMitgliedschaftErmaessigung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMitgliedschaftErmaessigung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMitgliedschaftErmaessigung.Name = "textBoxMitgliedschaftErmaessigung";
             this.textBoxMitgliedschaftErmaessigung.Size = new System.Drawing.Size(224, 32);
             this.textBoxMitgliedschaftErmaessigung.TabIndex = 39;
@@ -1486,7 +1486,7 @@
             // 
             this.textBoxMitgliedschaftMitgliedsbeitrag.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMitgliedschaftMitgliedsbeitrag.Location = new System.Drawing.Point(241, 72);
-            this.textBoxMitgliedschaftMitgliedsbeitrag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMitgliedschaftMitgliedsbeitrag.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMitgliedschaftMitgliedsbeitrag.Name = "textBoxMitgliedschaftMitgliedsbeitrag";
             this.textBoxMitgliedschaftMitgliedsbeitrag.Size = new System.Drawing.Size(224, 32);
             this.textBoxMitgliedschaftMitgliedsbeitrag.TabIndex = 37;
@@ -1506,7 +1506,7 @@
             // 
             this.textBoxMitgliedschaftBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMitgliedschaftBezeichnung.Location = new System.Drawing.Point(241, 34);
-            this.textBoxMitgliedschaftBezeichnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMitgliedschaftBezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMitgliedschaftBezeichnung.Name = "textBoxMitgliedschaftBezeichnung";
             this.textBoxMitgliedschaftBezeichnung.Size = new System.Drawing.Size(224, 32);
             this.textBoxMitgliedschaftBezeichnung.TabIndex = 35;
@@ -1515,7 +1515,7 @@
             // 
             this.buttonMitgliedschaftSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMitgliedschaftSpeichern.Location = new System.Drawing.Point(249, 167);
-            this.buttonMitgliedschaftSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMitgliedschaftSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMitgliedschaftSpeichern.Name = "buttonMitgliedschaftSpeichern";
             this.buttonMitgliedschaftSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonMitgliedschaftSpeichern.TabIndex = 33;
@@ -1527,7 +1527,7 @@
             // 
             this.buttonMitgliedschaftAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMitgliedschaftAbbrechen.Location = new System.Drawing.Point(40, 167);
-            this.buttonMitgliedschaftAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMitgliedschaftAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMitgliedschaftAbbrechen.Name = "buttonMitgliedschaftAbbrechen";
             this.buttonMitgliedschaftAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonMitgliedschaftAbbrechen.TabIndex = 32;
@@ -1544,9 +1544,9 @@
             this.panelKontaktSuche.Controls.Add(this.buttonKontaktSuchen);
             this.panelKontaktSuche.Controls.Add(this.listViewKontakt);
             this.panelKontaktSuche.Location = new System.Drawing.Point(5, 66);
-            this.panelKontaktSuche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelKontaktSuche.Margin = new System.Windows.Forms.Padding(2);
             this.panelKontaktSuche.Name = "panelKontaktSuche";
-            this.panelKontaktSuche.Size = new System.Drawing.Size(754, 353);
+            this.panelKontaktSuche.Size = new System.Drawing.Size(770, 353);
             this.panelKontaktSuche.TabIndex = 43;
             this.panelKontaktSuche.Visible = false;
             // 
@@ -1554,7 +1554,7 @@
             // 
             this.textBoxKontaktSucheNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKontaktSucheNachname.Location = new System.Drawing.Point(424, 21);
-            this.textBoxKontaktSucheNachname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKontaktSucheNachname.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontaktSucheNachname.Name = "textBoxKontaktSucheNachname";
             this.textBoxKontaktSucheNachname.Size = new System.Drawing.Size(160, 28);
             this.textBoxKontaktSucheNachname.TabIndex = 43;
@@ -1563,7 +1563,7 @@
             // 
             this.textBoxKontaktSucheVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKontaktSucheVorname.Location = new System.Drawing.Point(115, 21);
-            this.textBoxKontaktSucheVorname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKontaktSucheVorname.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontaktSucheVorname.Name = "textBoxKontaktSucheVorname";
             this.textBoxKontaktSucheVorname.Size = new System.Drawing.Size(160, 28);
             this.textBoxKontaktSucheVorname.TabIndex = 42;
@@ -1594,7 +1594,7 @@
             // 
             this.buttonKontaktSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKontaktSuchen.Location = new System.Drawing.Point(618, 20);
-            this.buttonKontaktSuchen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKontaktSuchen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKontaktSuchen.Name = "buttonKontaktSuchen";
             this.buttonKontaktSuchen.Size = new System.Drawing.Size(118, 30);
             this.buttonKontaktSuchen.TabIndex = 39;
@@ -1635,7 +1635,7 @@
             this.panelKontakt.Controls.Add(this.textBoxEMail);
             this.panelKontakt.Controls.Add(this.textBoxNachname);
             this.panelKontakt.Location = new System.Drawing.Point(6, 57);
-            this.panelKontakt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelKontakt.Margin = new System.Windows.Forms.Padding(2);
             this.panelKontakt.Name = "panelKontakt";
             this.panelKontakt.Size = new System.Drawing.Size(452, 622);
             this.panelKontakt.TabIndex = 44;
@@ -1645,7 +1645,7 @@
             // 
             this.textBoxKontaktStrasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKontaktStrasse.Location = new System.Drawing.Point(216, 392);
-            this.textBoxKontaktStrasse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKontaktStrasse.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontaktStrasse.Name = "textBoxKontaktStrasse";
             this.textBoxKontaktStrasse.Size = new System.Drawing.Size(224, 32);
             this.textBoxKontaktStrasse.TabIndex = 37;
@@ -1680,7 +1680,7 @@
             this.comboBoxKontaktOrt.Items.AddRange(new object[] {
             ""});
             this.comboBoxKontaktOrt.Location = new System.Drawing.Point(216, 353);
-            this.comboBoxKontaktOrt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKontaktOrt.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKontaktOrt.Name = "comboBoxKontaktOrt";
             this.comboBoxKontaktOrt.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKontaktOrt.TabIndex = 36;
@@ -1700,7 +1700,7 @@
             // 
             this.buttonKontaktSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKontaktSpeichern.Location = new System.Drawing.Point(238, 558);
-            this.buttonKontaktSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKontaktSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKontaktSpeichern.Name = "buttonKontaktSpeichern";
             this.buttonKontaktSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonKontaktSpeichern.TabIndex = 29;
@@ -1745,7 +1745,7 @@
             // 
             this.buttonKontaktAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKontaktAbbrechen.Location = new System.Drawing.Point(29, 558);
-            this.buttonKontaktAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKontaktAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKontaktAbbrechen.Name = "buttonKontaktAbbrechen";
             this.buttonKontaktAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonKontaktAbbrechen.TabIndex = 28;
@@ -1757,7 +1757,7 @@
             // 
             this.textBoxSVNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSVNr.Location = new System.Drawing.Point(216, 125);
-            this.textBoxSVNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSVNr.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSVNr.Name = "textBoxSVNr";
             this.textBoxSVNr.Size = new System.Drawing.Size(224, 32);
             this.textBoxSVNr.TabIndex = 27;
@@ -1784,7 +1784,7 @@
             "verheiratet",
             "geschieden"});
             this.comboBoxFamilienstand.Location = new System.Drawing.Point(216, 201);
-            this.comboBoxFamilienstand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxFamilienstand.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxFamilienstand.Name = "comboBoxFamilienstand";
             this.comboBoxFamilienstand.Size = new System.Drawing.Size(224, 34);
             this.comboBoxFamilienstand.TabIndex = 26;
@@ -1810,7 +1810,7 @@
             "männlich",
             "weiblich"});
             this.comboBoxGeschlecht.Location = new System.Drawing.Point(216, 162);
-            this.comboBoxGeschlecht.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxGeschlecht.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxGeschlecht.Name = "comboBoxGeschlecht";
             this.comboBoxGeschlecht.Size = new System.Drawing.Size(224, 34);
             this.comboBoxGeschlecht.TabIndex = 25;
@@ -1836,7 +1836,7 @@
             this.comboBoxTitel.Items.AddRange(new object[] {
             ""});
             this.comboBoxTitel.Location = new System.Drawing.Point(216, 12);
-            this.comboBoxTitel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxTitel.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTitel.Name = "comboBoxTitel";
             this.comboBoxTitel.Size = new System.Drawing.Size(224, 34);
             this.comboBoxTitel.TabIndex = 24;
@@ -1859,7 +1859,7 @@
             this.comboBoxKontaktPostleitzahl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKontaktPostleitzahl.FormattingEnabled = true;
             this.comboBoxKontaktPostleitzahl.Location = new System.Drawing.Point(216, 314);
-            this.comboBoxKontaktPostleitzahl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKontaktPostleitzahl.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKontaktPostleitzahl.Name = "comboBoxKontaktPostleitzahl";
             this.comboBoxKontaktPostleitzahl.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKontaktPostleitzahl.TabIndex = 23;
@@ -1884,7 +1884,7 @@
             this.comboBoxAltersgruppe.Items.AddRange(new object[] {
             ""});
             this.comboBoxAltersgruppe.Location = new System.Drawing.Point(216, 432);
-            this.comboBoxAltersgruppe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxAltersgruppe.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxAltersgruppe.Name = "comboBoxAltersgruppe";
             this.comboBoxAltersgruppe.Size = new System.Drawing.Size(224, 34);
             this.comboBoxAltersgruppe.TabIndex = 22;
@@ -1908,7 +1908,7 @@
             this.comboBoxSozialgruppe.Items.AddRange(new object[] {
             ""});
             this.comboBoxSozialgruppe.Location = new System.Drawing.Point(216, 470);
-            this.comboBoxSozialgruppe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxSozialgruppe.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSozialgruppe.Name = "comboBoxSozialgruppe";
             this.comboBoxSozialgruppe.Size = new System.Drawing.Size(224, 34);
             this.comboBoxSozialgruppe.TabIndex = 21;
@@ -1933,7 +1933,7 @@
             this.comboBoxStaatsbuergerschaft.Items.AddRange(new object[] {
             ""});
             this.comboBoxStaatsbuergerschaft.Location = new System.Drawing.Point(216, 509);
-            this.comboBoxStaatsbuergerschaft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxStaatsbuergerschaft.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxStaatsbuergerschaft.Name = "comboBoxStaatsbuergerschaft";
             this.comboBoxStaatsbuergerschaft.Size = new System.Drawing.Size(224, 34);
             this.comboBoxStaatsbuergerschaft.TabIndex = 20;
@@ -1953,7 +1953,7 @@
             // 
             this.textBoxTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTelefonnummer.Location = new System.Drawing.Point(216, 277);
-            this.textBoxTelefonnummer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTelefonnummer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTelefonnummer.Name = "textBoxTelefonnummer";
             this.textBoxTelefonnummer.Size = new System.Drawing.Size(224, 32);
             this.textBoxTelefonnummer.TabIndex = 19;
@@ -1962,7 +1962,7 @@
             // 
             this.textBoxVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxVorname.Location = new System.Drawing.Point(216, 50);
-            this.textBoxVorname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVorname.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVorname.Name = "textBoxVorname";
             this.textBoxVorname.Size = new System.Drawing.Size(224, 32);
             this.textBoxVorname.TabIndex = 15;
@@ -1971,7 +1971,7 @@
             // 
             this.textBoxEMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEMail.Location = new System.Drawing.Point(216, 240);
-            this.textBoxEMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEMail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEMail.Name = "textBoxEMail";
             this.textBoxEMail.Size = new System.Drawing.Size(224, 32);
             this.textBoxEMail.TabIndex = 18;
@@ -1980,7 +1980,7 @@
             // 
             this.textBoxNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNachname.Location = new System.Drawing.Point(216, 88);
-            this.textBoxNachname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNachname.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNachname.Name = "textBoxNachname";
             this.textBoxNachname.Size = new System.Drawing.Size(224, 32);
             this.textBoxNachname.TabIndex = 16;
@@ -1996,7 +1996,7 @@
             this.panelKassabuchkonto.Controls.Add(this.textBoxKontonummer);
             this.panelKassabuchkonto.Controls.Add(this.textBoxKontobezeichnung);
             this.panelKassabuchkonto.Location = new System.Drawing.Point(1, 63);
-            this.panelKassabuchkonto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelKassabuchkonto.Margin = new System.Windows.Forms.Padding(2);
             this.panelKassabuchkonto.Name = "panelKassabuchkonto";
             this.panelKassabuchkonto.Size = new System.Drawing.Size(475, 283);
             this.panelKassabuchkonto.TabIndex = 45;
@@ -2017,7 +2017,7 @@
             // 
             this.btnKassabuchkontoSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKassabuchkontoSpeichern.Location = new System.Drawing.Point(224, 173);
-            this.btnKassabuchkontoSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKassabuchkontoSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.btnKassabuchkontoSpeichern.Name = "btnKassabuchkontoSpeichern";
             this.btnKassabuchkontoSpeichern.Size = new System.Drawing.Size(179, 54);
             this.btnKassabuchkontoSpeichern.TabIndex = 29;
@@ -2040,7 +2040,7 @@
             // 
             this.btnKassabuchkontoAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKassabuchkontoAbbrechen.Location = new System.Drawing.Point(15, 173);
-            this.btnKassabuchkontoAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKassabuchkontoAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.btnKassabuchkontoAbbrechen.Name = "btnKassabuchkontoAbbrechen";
             this.btnKassabuchkontoAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.btnKassabuchkontoAbbrechen.TabIndex = 28;
@@ -2052,7 +2052,7 @@
             // 
             this.textBoxKontostand.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKontostand.Location = new System.Drawing.Point(221, 100);
-            this.textBoxKontostand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKontostand.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontostand.Name = "textBoxKontostand";
             this.textBoxKontostand.Size = new System.Drawing.Size(224, 32);
             this.textBoxKontostand.TabIndex = 27;
@@ -2072,7 +2072,7 @@
             // 
             this.textBoxKontonummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKontonummer.Location = new System.Drawing.Point(221, 24);
-            this.textBoxKontonummer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKontonummer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontonummer.Name = "textBoxKontonummer";
             this.textBoxKontonummer.Size = new System.Drawing.Size(224, 32);
             this.textBoxKontonummer.TabIndex = 15;
@@ -2081,7 +2081,7 @@
             // 
             this.textBoxKontobezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKontobezeichnung.Location = new System.Drawing.Point(221, 62);
-            this.textBoxKontobezeichnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKontobezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKontobezeichnung.Name = "textBoxKontobezeichnung";
             this.textBoxKontobezeichnung.Size = new System.Drawing.Size(224, 32);
             this.textBoxKontobezeichnung.TabIndex = 16;
@@ -2101,7 +2101,7 @@
             this.panelKassabuch.Controls.Add(this.label21);
             this.panelKassabuch.Controls.Add(this.textBoxBuchungstext);
             this.panelKassabuch.Location = new System.Drawing.Point(3, 66);
-            this.panelKassabuch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelKassabuch.Margin = new System.Windows.Forms.Padding(2);
             this.panelKassabuch.Name = "panelKassabuch";
             this.panelKassabuch.Size = new System.Drawing.Size(518, 375);
             this.panelKassabuch.TabIndex = 46;
@@ -2113,7 +2113,7 @@
             this.dateTimePickerKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKassabuch.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerKassabuch.Location = new System.Drawing.Point(221, 25);
-            this.dateTimePickerKassabuch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerKassabuch.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKassabuch.Name = "dateTimePickerKassabuch";
             this.dateTimePickerKassabuch.Size = new System.Drawing.Size(269, 31);
             this.dateTimePickerKassabuch.TabIndex = 51;
@@ -2173,7 +2173,7 @@
             // 
             this.buttonKassabuchSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKassabuchSpeichern.Location = new System.Drawing.Point(224, 255);
-            this.buttonKassabuchSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKassabuchSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKassabuchSpeichern.Name = "buttonKassabuchSpeichern";
             this.buttonKassabuchSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonKassabuchSpeichern.TabIndex = 29;
@@ -2196,7 +2196,7 @@
             // 
             this.btnKassabuchAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKassabuchAbbrechen.Location = new System.Drawing.Point(15, 255);
-            this.btnKassabuchAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKassabuchAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.btnKassabuchAbbrechen.Name = "btnKassabuchAbbrechen";
             this.btnKassabuchAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.btnKassabuchAbbrechen.TabIndex = 28;
@@ -2208,7 +2208,7 @@
             // 
             this.textBoxBetrag.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBetrag.Location = new System.Drawing.Point(221, 107);
-            this.textBoxBetrag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBetrag.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBetrag.Name = "textBoxBetrag";
             this.textBoxBetrag.Size = new System.Drawing.Size(269, 32);
             this.textBoxBetrag.TabIndex = 17;
@@ -2228,7 +2228,7 @@
             // 
             this.textBoxBuchungstext.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBuchungstext.Location = new System.Drawing.Point(221, 66);
-            this.textBoxBuchungstext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBuchungstext.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBuchungstext.Name = "textBoxBuchungstext";
             this.textBoxBuchungstext.Size = new System.Drawing.Size(269, 32);
             this.textBoxBuchungstext.TabIndex = 16;
@@ -2246,11 +2246,29 @@
             this.panelRechnung.Controls.Add(this.label30);
             this.panelRechnung.Controls.Add(this.textBoxRechnungsnummer);
             this.panelRechnung.Location = new System.Drawing.Point(3, 66);
-            this.panelRechnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRechnung.Margin = new System.Windows.Forms.Padding(2);
             this.panelRechnung.Name = "panelRechnung";
             this.panelRechnung.Size = new System.Drawing.Size(475, 335);
             this.panelRechnung.TabIndex = 47;
             this.panelRechnung.Visible = false;
+            // 
+            // comboBoxRechnungKursID
+            // 
+            this.comboBoxRechnungKursID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRechnungKursID.FormattingEnabled = true;
+            this.comboBoxRechnungKursID.Location = new System.Drawing.Point(219, 149);
+            this.comboBoxRechnungKursID.Name = "comboBoxRechnungKursID";
+            this.comboBoxRechnungKursID.Size = new System.Drawing.Size(227, 33);
+            this.comboBoxRechnungKursID.TabIndex = 54;
+            // 
+            // comboBoxRechnungKontaktID
+            // 
+            this.comboBoxRechnungKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRechnungKontaktID.FormattingEnabled = true;
+            this.comboBoxRechnungKontaktID.Location = new System.Drawing.Point(219, 107);
+            this.comboBoxRechnungKontaktID.Name = "comboBoxRechnungKontaktID";
+            this.comboBoxRechnungKontaktID.Size = new System.Drawing.Size(226, 33);
+            this.comboBoxRechnungKontaktID.TabIndex = 53;
             // 
             // dateTimePickerRechnungsdatum
             // 
@@ -2258,7 +2276,7 @@
             this.dateTimePickerRechnungsdatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerRechnungsdatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerRechnungsdatum.Location = new System.Drawing.Point(219, 67);
-            this.dateTimePickerRechnungsdatum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerRechnungsdatum.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerRechnungsdatum.Name = "dateTimePickerRechnungsdatum";
             this.dateTimePickerRechnungsdatum.Size = new System.Drawing.Size(226, 31);
             this.dateTimePickerRechnungsdatum.TabIndex = 52;
@@ -2289,7 +2307,7 @@
             // 
             this.btnRechnungSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRechnungSpeichern.Location = new System.Drawing.Point(227, 211);
-            this.btnRechnungSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRechnungSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.btnRechnungSpeichern.Name = "btnRechnungSpeichern";
             this.btnRechnungSpeichern.Size = new System.Drawing.Size(179, 54);
             this.btnRechnungSpeichern.TabIndex = 29;
@@ -2312,7 +2330,7 @@
             // 
             this.btnRechnungAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRechnungAbbrechen.Location = new System.Drawing.Point(18, 211);
-            this.btnRechnungAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRechnungAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.btnRechnungAbbrechen.Name = "btnRechnungAbbrechen";
             this.btnRechnungAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.btnRechnungAbbrechen.TabIndex = 28;
@@ -2335,7 +2353,7 @@
             // 
             this.textBoxRechnungsnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRechnungsnummer.Location = new System.Drawing.Point(221, 26);
-            this.textBoxRechnungsnummer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRechnungsnummer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRechnungsnummer.Name = "textBoxRechnungsnummer";
             this.textBoxRechnungsnummer.Size = new System.Drawing.Size(224, 32);
             this.textBoxRechnungsnummer.TabIndex = 15;
@@ -2355,7 +2373,7 @@
             this.panelKursort.Controls.Add(this.textBoxKursortBezeichnung);
             this.panelKursort.Controls.Add(this.labelKursortBezeichnung);
             this.panelKursort.Location = new System.Drawing.Point(10, 53);
-            this.panelKursort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelKursort.Margin = new System.Windows.Forms.Padding(2);
             this.panelKursort.Name = "panelKursort";
             this.panelKursort.Size = new System.Drawing.Size(522, 310);
             this.panelKursort.TabIndex = 48;
@@ -2365,7 +2383,7 @@
             // 
             this.buttonKursortSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKursortSpeichern.Location = new System.Drawing.Point(260, 246);
-            this.buttonKursortSpeichern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKursortSpeichern.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKursortSpeichern.Name = "buttonKursortSpeichern";
             this.buttonKursortSpeichern.Size = new System.Drawing.Size(179, 54);
             this.buttonKursortSpeichern.TabIndex = 63;
@@ -2377,7 +2395,7 @@
             // 
             this.buttonKursortAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKursortAbbrechen.Location = new System.Drawing.Point(52, 246);
-            this.buttonKursortAbbrechen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKursortAbbrechen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKursortAbbrechen.Name = "buttonKursortAbbrechen";
             this.buttonKursortAbbrechen.Size = new System.Drawing.Size(179, 54);
             this.buttonKursortAbbrechen.TabIndex = 62;
@@ -2391,7 +2409,7 @@
             this.comboBoxKursortOrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursortOrt.FormattingEnabled = true;
             this.comboBoxKursortOrt.Location = new System.Drawing.Point(254, 163);
-            this.comboBoxKursortOrt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursortOrt.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursortOrt.Name = "comboBoxKursortOrt";
             this.comboBoxKursortOrt.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKursortOrt.TabIndex = 61;
@@ -2403,7 +2421,7 @@
             this.comboBoxKursortPlz.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursortPlz.FormattingEnabled = true;
             this.comboBoxKursortPlz.Location = new System.Drawing.Point(254, 119);
-            this.comboBoxKursortPlz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxKursortPlz.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursortPlz.Name = "comboBoxKursortPlz";
             this.comboBoxKursortPlz.Size = new System.Drawing.Size(224, 34);
             this.comboBoxKursortPlz.TabIndex = 60;
@@ -2436,7 +2454,7 @@
             // 
             this.textBoxKursortStrasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursortStrasse.Location = new System.Drawing.Point(254, 200);
-            this.textBoxKursortStrasse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursortStrasse.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursortStrasse.Name = "textBoxKursortStrasse";
             this.textBoxKursortStrasse.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursortStrasse.TabIndex = 57;
@@ -2456,7 +2474,7 @@
             // 
             this.textBoxKursortBeschreibung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursortBeschreibung.Location = new System.Drawing.Point(251, 76);
-            this.textBoxKursortBeschreibung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursortBeschreibung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursortBeschreibung.Name = "textBoxKursortBeschreibung";
             this.textBoxKursortBeschreibung.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursortBeschreibung.TabIndex = 55;
@@ -2476,7 +2494,7 @@
             // 
             this.textBoxKursortBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKursortBezeichnung.Location = new System.Drawing.Point(251, 33);
-            this.textBoxKursortBezeichnung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKursortBezeichnung.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursortBezeichnung.Name = "textBoxKursortBezeichnung";
             this.textBoxKursortBezeichnung.Size = new System.Drawing.Size(224, 32);
             this.textBoxKursortBezeichnung.TabIndex = 53;
@@ -2492,36 +2510,17 @@
             this.labelKursortBezeichnung.TabIndex = 52;
             this.labelKursortBezeichnung.Text = "Bezeichnung:";
             // 
-            // comboBoxRechnungKontaktID
-            // 
-            this.comboBoxRechnungKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxRechnungKontaktID.FormattingEnabled = true;
-            this.comboBoxRechnungKontaktID.Location = new System.Drawing.Point(219, 107);
-            this.comboBoxRechnungKontaktID.Name = "comboBoxRechnungKontaktID";
-            this.comboBoxRechnungKontaktID.Size = new System.Drawing.Size(226, 33);
-            this.comboBoxRechnungKontaktID.TabIndex = 53;
-            // 
-            // comboBoxRechnungKursID
-            // 
-            this.comboBoxRechnungKursID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxRechnungKursID.FormattingEnabled = true;
-            this.comboBoxRechnungKursID.Location = new System.Drawing.Point(219, 149);
-            this.comboBoxRechnungKursID.Name = "comboBoxRechnungKursID";
-            this.comboBoxRechnungKursID.Size = new System.Drawing.Size(227, 33);
-            this.comboBoxRechnungKursID.TabIndex = 54;
-            // 
             // FrmHinzufügenBearbeiten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 857);
-            this.Controls.Add(this.panelKurs);
+            this.Controls.Add(this.panelMitgliedschaft);
             this.Controls.Add(this.panelKassabuch);
             this.Controls.Add(this.panelRechnung);
             this.Controls.Add(this.panelKontaktSuche);
             this.Controls.Add(this.panelSchluessel);
             this.Controls.Add(this.panelKassabuchkonto);
-            this.Controls.Add(this.panelMitgliedschaft);
             this.Controls.Add(this.panelPass);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.panelTitel);
@@ -2531,8 +2530,9 @@
             this.Controls.Add(this.panelGutschein);
             this.Controls.Add(this.panelKontakt);
             this.Controls.Add(this.panelKursort);
+            this.Controls.Add(this.panelKurs);
             this.Location = new System.Drawing.Point(250, 20);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmHinzufügenBearbeiten";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHinzufügenBearbeiten";
