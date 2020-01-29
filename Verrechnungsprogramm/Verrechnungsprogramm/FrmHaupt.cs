@@ -1139,8 +1139,8 @@ namespace Verrechnungsprogramm
             {
                 ListViewItem lvItem = new ListViewItem(k.RechnungID.ToString());
                 lvItem.SubItems.Add(k.Rechnungsnummer.ToString());
-                lvItem.SubItems.Add(k.Rechnungsdatum.ToString());
-                lvItem.SubItems.Add(k.KontaktID.KontaktID.ToString("c2"));
+                lvItem.SubItems.Add(k.Rechnungsdatum.ToString("dd.MM.yyyy"));
+                lvItem.SubItems.Add(k.KontaktID.KontaktID.ToString());
                 lvItem.SubItems.Add(k.KursID.KursID.ToString());
                 listViewRechnung.Items.Add(lvItem);
             }
@@ -1166,8 +1166,8 @@ namespace Verrechnungsprogramm
 
             fHinzuBea.textBoxRechnungsnummer.Text = listViewRechnung.SelectedItems[0].SubItems[1].Text;
             
-            fHinzuBea.txtKontaktID.Text = listViewRechnung.SelectedItems[0].SubItems[3].Text;
-            fHinzuBea.textBoxKursID.Text = listViewRechnung.SelectedItems[0].SubItems[4].Text;
+            fHinzuBea.comboBoxRechnungKontaktID.Text = listViewRechnung.SelectedItems[0].SubItems[3].Text;
+            fHinzuBea.comboBoxRechnungKursID.Text = listViewRechnung.SelectedItems[0].SubItems[4].Text;
      
 
             fHinzuBea.ShowDialog();

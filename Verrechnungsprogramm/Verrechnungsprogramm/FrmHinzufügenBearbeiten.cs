@@ -41,6 +41,10 @@ namespace Verrechnungsprogramm
             requestAltersgruppe.AddHeader("Content-Type", "application/json");
             var responseAltersgruppe = client.Execute<List<Altersgruppe>>(requestAltersgruppe);
 
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
             var requestSozialgruppe = new RestRequest("sozialgruppen", Method.GET);
             requestSozialgruppe.AddHeader("Content-Type", "application/json");
             var responseSozialgruppe = client.Execute<List<Sozialgruppe>>(requestSozialgruppe);
@@ -87,6 +91,16 @@ namespace Verrechnungsprogramm
             foreach (Kontakt kk in responseKontakt.Data)
             {
                 comboBoxKontaktID.Items.Add(kk.KontaktID.ToString() + " " + kk.Nachname.ToString());
+            }
+
+            foreach (Kontakt rk in responseKontakt.Data)
+            {
+                comboBoxRechnungKontaktID.Items.Add(rk.KontaktID.ToString() + " " + rk.Nachname.ToString());
+            }
+
+            foreach (Kurs rkk in responseKurs.Data)
+            {
+                comboBoxRechnungKursID.Items.Add(rkk.KursID.ToString() + " " + rkk.Bezeichnung.ToString());
             }
 
             foreach (Postleitzahl p in responsePlz.Data)
@@ -1922,6 +1936,8 @@ namespace Verrechnungsprogramm
 
         }
 
+      
+
         private void kassabuchHinzufügen()
         {
             var client = new RestClient("http://localhost:8888");
@@ -1976,11 +1992,12 @@ namespace Verrechnungsprogramm
                     kassabuchkonto.Kontonummer = k.Kontonummer;
                     kassabuchkonto.Kontobezeichnung = k.Kontobezeichnung;
                     kassabuchkonto.Kontostand = k.Kontostand;
-
                 }
             }
 
             kassabuch.KassabuchkontoID = kassabuchkonto;
+
+            
 
 
             kassabuch.Datum = dateTimePickerKassabuch.Value;
@@ -2149,8 +2166,6 @@ namespace Verrechnungsprogramm
                 }
             }
         }
-    
-
 
         private void buttonKassabuchSpeichern_Click(object sender, EventArgs e)
         {
@@ -2166,24 +2181,243 @@ namespace Verrechnungsprogramm
             }
         }
 
+       
+
         private void rechnungHinzufügen()
         {
             var client = new RestClient("http://localhost:8888");
 
-            //Rechnung rechnung = new Rechnung();
+            Rechnung rechnung = new Rechnung();
+            Kurs kurs = new Kurs();
 
-            //kassabuchkonto.Kontonummer = textBoxKontonummer.Text;
-            //kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
-            //kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text);
+            var request1 = new RestRequest("kontakte", Method.GET);
+            request1.AddHeader("Content-Type", "application/json");
+            var response1 = client.Execute<List<Kontakt>>(request1);
 
 
 
-            //var request = new RestRequest("kassabuchkonten", Method.POST);
-            //request.AddHeader("Content-Type", "application/json");
-            //request.AddJsonBody(kassabuchkonto);
-            //var response = client.Execute(request);
 
-            //MessageBox.Show("Das Kassabuchkonto wurde erfolgreich hinzugefügt");
+            Kontakt kontakt = new Kontakt();
+
+            foreach (Kontakt k in response1.Data)
+            {
+                if (k.KontaktID.ToString().Equals(comboBoxRechnungKontaktID.Text))
+                {
+                    kontakt.KontaktID = k.KontaktID;
+                    kontakt.TitelID = k.TitelID;
+                    kontakt.Vorname = k.Vorname;
+                    kontakt.Nachname = k.Nachname;
+                    kontakt.SVNr = k.SVNr;
+                    kontakt.Geschlecht = k.Geschlecht;
+                    kontakt.Familienstand = k.Familienstand;
+                    kontakt.Email = k.Email;
+                    kontakt.Telefonnummer = k.Telefonnummer;
+                    kontakt.Strasse = k.Strasse;
+                    kontakt.PostleitzahlID = k.PostleitzahlID;
+                    kontakt.AltersgruppeID = k.AltersgruppeID;
+                    kontakt.SozialgruppeID = k.SozialgruppeID;
+                    kontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+                }
+            }
+
+            rechnung.KontaktID = kontakt;
+
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+
+
+            foreach (Kurs rk in responseKurs.Data)
+            {
+                if (rk.KursID.ToString().Equals(comboBoxRechnungKursID.Text))
+                {
+                    kurs.KursID = rk.KursID;
+                    
+
+                }
+            }
+
+            rechnung.KursID = kurs;
+
+
+            rechnung.Rechnungsdatum = dateTimePickerRechnungsdatum.Value;
+
+
+
+            rechnung.Rechnungsnummer = textBoxRechnungsnummer.Text;
+            
+
+            int inde = comboBoxRechnungKontaktID.Text.IndexOf(" ");
+            int id = Convert.ToInt32(comboBoxRechnungKontaktID.Text.Substring(0, inde));
+
+            rechnung.KontaktID.KontaktID = id;
+
+            int inde2 = comboBoxRechnungKursID.Text.IndexOf(" ");
+            int id2 = Convert.ToInt32(comboBoxRechnungKursID.Text.Substring(0, inde2));
+
+            rechnung.KursID.KursID = id2;
+
+
+            var request = new RestRequest("rechnungen", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(rechnung);
+            var response = client.Execute(request);
+
+
+
+            MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
+        }
+
+        private void rechnungBearbeiten()
+        {
+            var client = new RestClient("http://localhost:8888")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
+
+            Rechnung rechnung = new Rechnung();
+            Kurs kurs = new Kurs();
+            Kontakt kontakt = new Kontakt();
+
+            var requestRechnung = new RestRequest("rechnungen", Method.GET);
+            requestRechnung.AddHeader("Content-Type", "application/json");
+            var responseRechnung = client.Execute<List<Rechnung>>(requestRechnung);
+
+
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+
+
+            foreach (Rechnung r in responseRechnung.Data)
+            {
+
+
+                if (r.RechnungID == Convert.ToInt32(labelID.Text))
+                {
+                    rechnung.RechnungID = Convert.ToInt32(labelID.Text);
+
+                    rechnung.Rechnungsnummer = textBoxRechnungsnummer.Text;
+                    
+
+
+
+
+
+
+                    int inde = comboBoxRechnungKontaktID.Text.IndexOf(" ");
+
+
+                    foreach (Kontakt kk in responseKontakt.Data)
+                    {
+
+
+
+                        if (kk.KontaktID.ToString().Equals(Convert.ToInt32(comboBoxRechnungKontaktID.Text.Substring(0, inde))))
+                        {
+                            kontakt.KontaktID = kk.KontaktID;
+                            kontakt.TitelID = kk.TitelID;
+                            kontakt.Vorname = kk.Vorname;
+                            kontakt.Nachname = kk.Nachname;
+                            kontakt.SVNr = kk.SVNr;
+                            kontakt.Geschlecht = kk.Geschlecht;
+                            kontakt.Familienstand = kk.Familienstand;
+                            kontakt.Email = kk.Email;
+                            kontakt.Telefonnummer = kk.Telefonnummer;
+                            kontakt.Strasse = kk.Strasse;
+                            kontakt.PostleitzahlID = kk.PostleitzahlID;
+                            kontakt.AltersgruppeID = kk.AltersgruppeID;
+                            kontakt.SozialgruppeID = kk.SozialgruppeID;
+                            kontakt.StaatsbuergerschaftID = kk.StaatsbuergerschaftID;
+                        }
+                    }
+
+
+
+
+
+                    rechnung.KontaktID = kontakt;
+
+                    int inde2 = comboBoxRechnungKursID.Text.IndexOf(" ");
+
+                    foreach (Kurs rk in responseKurs.Data)
+                    {
+                        if (rk.KursID.ToString().Equals(Convert.ToInt32(comboBoxRechnungKursID.Text.Substring(0, inde2))))
+                        {
+                            kurs.KursID = rk.KursID;
+
+                        }
+                    }
+
+                    rechnung.KursID = kurs;
+
+
+
+
+                    int inde3 = comboBoxRechnungKontaktID.Text.IndexOf(" ");
+                    int id = Convert.ToInt32(comboBoxRechnungKontaktID.Text.Substring(0, inde3));
+
+                    rechnung.KontaktID.KontaktID = id;
+
+
+
+                    int inde4 = comboBoxRechnungKursID.Text.IndexOf(" ");
+                    int id2 = Convert.ToInt32(comboBoxRechnungKursID.Text.Substring(0, inde4));
+
+                    rechnung.KursID.KursID = id2;
+
+
+
+                    rechnung.Rechnungsdatum = dateTimePickerRechnungsdatum.Value;
+
+
+
+
+
+
+                    var request1 = new RestRequest("rechnungen", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(rechnung);
+                    var response1 = client.Execute(request1);
+
+
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+
+
+                }
+            }
+        }
+
+        private void btnRechnungSpeichern_Click(object sender, EventArgs e)
+        {
+            if (labelÜberschrift.Text.Equals("Rechnung bearbeiten"))
+            {
+                rechnungBearbeiten();
+                this.Close();
+            }
+            else
+            {
+                rechnungHinzufügen();
+                this.Close();
+            }
         }
 
     }
