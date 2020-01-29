@@ -229,7 +229,10 @@ namespace Verrechnungsprogramm
             {
                 panelMitgliedschaft.Visible = true;
             }
-
+            if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kursleiter"))
+            {
+                panelKontaktSuche.Visible = true;
+            }
 
 
         }
@@ -1486,6 +1489,123 @@ namespace Verrechnungsprogramm
                 panelPass.Visible = true;
                 panelKontaktSuche.Visible = false;
             }
+            if (labelÜberschrift.Text.Equals("Kursleiter bearbeiten"))
+            {
+                //kursleiterBearbeiten();
+                this.Close();
+            }
+            if(labelÜberschrift.Text.Equals("Kursleiter anlegen"))
+            {
+                kursleiterHinzufügen();
+                this.Close();
+            }
+
+        }
+
+        //private void kursleiterBearbeiten()
+        //{
+        //    var client = new RestClient("http://localhost:8888")
+        //    {
+        //        Authenticator = new HttpBasicAuthenticator("demo", "demo")
+        //    };
+
+        //    Kursleiter kursleiter = new Kursleiter();
+        //    Kontakt aktKontakt = new Kontakt();
+
+        //    var requestKursleiter = new RestRequest("kursleiter", Method.GET);
+        //    requestKursleiter.AddHeader("Content-Type", "application/json");
+        //    var responseKursleiter = client.Execute<List<Kursleiter>>(requestKursleiter);
+
+        //    var requestKontakt = new RestRequest("kontakte", Method.GET);
+        //    requestKontakt.AddHeader("Content-Type", "application/json");
+        //    var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+        //    foreach (Kursleiter kl in responseKursleiter.Data)
+        //    {
+        //        if (kl.KursleiterID == Convert.ToInt32(labelID.Text))
+        //        {
+        //            kursleiter.KursleiterID = listViewKontakt.SelectedItems[0].SubItems[0].Text;
+        //            foreach (Kontakt k in responseKontakt.Data)
+        //            {
+        //                if (k.KontaktID.ToString().Equals(textBoxBankverbindungKontaktID.Text))
+        //                {
+        //                    aktKontakt.KontaktID = k.KontaktID;
+        //                    aktKontakt.TitelID = k.TitelID;
+        //                    aktKontakt.Vorname = k.Vorname;
+        //                    aktKontakt.Nachname = k.Nachname;
+        //                    aktKontakt.SVNr = k.SVNr;
+        //                    aktKontakt.Geschlecht = k.Geschlecht;
+        //                    aktKontakt.Familienstand = k.Familienstand;
+        //                    aktKontakt.Email = k.Email;
+        //                    aktKontakt.Telefonnummer = k.Telefonnummer;
+        //                    aktKontakt.Strasse = k.Strasse;
+        //                    aktKontakt.PostleitzahlID = k.PostleitzahlID;
+        //                    aktKontakt.AltersgruppeID = k.AltersgruppeID;
+        //                    aktKontakt.SozialgruppeID = k.SozialgruppeID;
+        //                    aktKontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+        //                }
+        //            }
+        //            kursleiter.KontaktID = aktKontakt;
+
+        //            var request1 = new RestRequest("kursleiter", Method.PUT);
+        //            request1.AddHeader("Content-Type", "application/json");
+        //            request1.AddJsonBody(kursleiter);
+        //            var response1 = client.Execute(request1);
+
+        //            if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+        //            {
+        //                MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Erfolgreich geändert!");
+        //            }
+        //        }
+        //    }
+        //}
+
+        private void kursleiterHinzufügen()
+        {
+            var client = new RestClient("http://localhost:8888");
+
+            Kursleiter kursleiter = new Kursleiter();
+            Kontakt aktKontakt = new Kontakt();
+
+            var requestKursleiter = new RestRequest("kursleiter", Method.GET);
+            requestKursleiter.AddHeader("Content-Type", "application/json");
+            var responseKursleiter = client.Execute<List<Kursleiter>>(requestKursleiter);
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+            kursleiter.KursleiterID = Convert.ToInt32(listViewKontakt.SelectedItems[0].SubItems[0].Text);
+            foreach (Kontakt k in responseKontakt.Data)
+            {
+                if (k.KontaktID.ToString().Equals(textBoxBankverbindungKontaktID.Text))
+                {
+                    aktKontakt.KontaktID = k.KontaktID;
+                    aktKontakt.TitelID = k.TitelID;
+                    aktKontakt.Vorname = k.Vorname;
+                    aktKontakt.Nachname = k.Nachname;
+                    aktKontakt.SVNr = k.SVNr;
+                    aktKontakt.Geschlecht = k.Geschlecht;
+                    aktKontakt.Familienstand = k.Familienstand;
+                    aktKontakt.Email = k.Email;
+                    aktKontakt.Telefonnummer = k.Telefonnummer;
+                    aktKontakt.Strasse = k.Strasse;
+                    aktKontakt.PostleitzahlID = k.PostleitzahlID;
+                    aktKontakt.AltersgruppeID = k.AltersgruppeID;
+                    aktKontakt.SozialgruppeID = k.SozialgruppeID;
+                    aktKontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+                }
+            }
+            kursleiter.KontaktID = aktKontakt;
+
+            var request = new RestRequest("kursleiter", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kursleiter);
+            var response = client.Execute(request);
         }
 
         private void panelKurs_Paint(object sender, PaintEventArgs e)
