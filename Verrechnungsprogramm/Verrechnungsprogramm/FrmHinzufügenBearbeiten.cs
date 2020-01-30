@@ -16,9 +16,15 @@ namespace Verrechnungsprogramm
 {
     public partial class FrmHinzufügenBearbeiten : Form
     {
+        RestClient client;
+        HttpBasicAuthenticator Authenticator;
         public FrmHinzufügenBearbeiten()
         {
             InitializeComponent();
+            client = new RestClient("http://vhs-mistelbach.projects.hakmistelbach.ac.at:20218")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
         }
 
 
@@ -27,7 +33,6 @@ namespace Verrechnungsprogramm
 
         private void FrmHinzufügenBearbeiten_Load(object sender, EventArgs e)
         {
-            var client = new RestClient("http://localhost:8888");
 
             var requestTitel = new RestRequest("titel", Method.GET);
             requestTitel.AddHeader("Content-Type", "application/json");
@@ -237,11 +242,6 @@ namespace Verrechnungsprogramm
 
         }
 
-        //private void comboboxenFüllen()
-        //{
-
-        //}
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -293,10 +293,6 @@ namespace Verrechnungsprogramm
 
         private void titelBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Titel titel = new Titel();
 
@@ -342,11 +338,6 @@ namespace Verrechnungsprogramm
 
         private void sozialgruppeBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
-
             Sozialgruppe sozialgruppe = new Sozialgruppe();
 
             var request = new RestRequest("sozialgruppen", Method.GET);
@@ -380,10 +371,6 @@ namespace Verrechnungsprogramm
 
         private void kurskategorieBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Kurskategorie kurskategorie = new Kurskategorie();
 
@@ -418,10 +405,6 @@ namespace Verrechnungsprogramm
 
         private void altersgruppeBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Altersgruppe altersgruppe = new Altersgruppe();
 
@@ -456,10 +439,6 @@ namespace Verrechnungsprogramm
 
         private void passBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Pass pass = new Pass();
             Kontakt aktKontakt = new Kontakt();
@@ -523,7 +502,6 @@ namespace Verrechnungsprogramm
 
         private void passHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Kontakt kontakt = new Kontakt();
             Pass pass = new Pass();
@@ -570,7 +548,6 @@ namespace Verrechnungsprogramm
 
         private void sozialgruppeHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Sozialgruppe sozialgruppe = new Sozialgruppe();
             sozialgruppe.Bezeichnung = textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Text;
@@ -583,7 +560,6 @@ namespace Verrechnungsprogramm
 
         private void kurskategorieHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Kurskategorie kurskategorie = new Kurskategorie();
             kurskategorie.Bezeichnung = textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Text;
@@ -596,7 +572,6 @@ namespace Verrechnungsprogramm
 
         private void altersgruppeHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Altersgruppe altersgruppe = new Altersgruppe();
             altersgruppe.Bezeichnung = textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Text;
@@ -621,7 +596,6 @@ namespace Verrechnungsprogramm
 
         private void titelHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Titel titel = new Titel();
             titel.Bezeichnung = textBoxBezeichnungTitel.Text;
@@ -644,8 +618,6 @@ namespace Verrechnungsprogramm
 
         private void schluesselHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
-
             Schluessel schluessel = new Schluessel();
             schluessel.Bezeichnung = textBoxSchluesselBezeichnung.Text;
             schluessel.Code = textBoxSchluesselCode.Text;
@@ -670,7 +642,6 @@ namespace Verrechnungsprogramm
 
         private void gutscheinHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Gutschein gutschein = new Gutschein();
             gutschein.Bezeichnung = textBoxGutscheinBezeichnung.Text;
@@ -684,7 +655,6 @@ namespace Verrechnungsprogramm
 
         private void mitgliedschaftHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Mitgliedschaft mitgliedschaft = new Mitgliedschaft();
             mitgliedschaft.Bezeichnung = textBoxMitgliedschaftBezeichnung.Text;
@@ -731,7 +701,6 @@ namespace Verrechnungsprogramm
         {
             comboBoxKontaktOrt.Items.Clear();
             comboBoxKursortOrt.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var requestPlz = new RestRequest("postleitzahlen", Method.GET);
             requestPlz.AddHeader("Content-Type", "application/json");
@@ -799,10 +768,6 @@ namespace Verrechnungsprogramm
 
         public void kursBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Kurs kurs = new Kurs();
             Kurskategorie kurskategorie = new Kurskategorie();
@@ -895,7 +860,6 @@ namespace Verrechnungsprogramm
 
         private void kursHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Kurs kurs = new Kurs();
             Kurskategorie kurskategorie = new Kurskategorie();
@@ -984,10 +948,6 @@ namespace Verrechnungsprogramm
 
         private void gutscheinBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Gutschein gutschein = new Gutschein();
 
@@ -1024,10 +984,6 @@ namespace Verrechnungsprogramm
 
         private void schluesselBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Schluessel schluessel = new Schluessel();
 
@@ -1076,10 +1032,6 @@ namespace Verrechnungsprogramm
 
         private void mitgliedschaftBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Mitgliedschaft mitgliedschaft = new Mitgliedschaft();
 
@@ -1117,7 +1069,6 @@ namespace Verrechnungsprogramm
 
         private void kontaktHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Kontakt kontakt = new Kontakt();
             Titel titel = new Titel();
@@ -1216,10 +1167,6 @@ namespace Verrechnungsprogramm
 
         private void kontaktBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Kontakt kontakt = new Kontakt();
             Titel titel = new Titel();
@@ -1339,11 +1286,6 @@ namespace Verrechnungsprogramm
 
         private void bankverbindungBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
-
             Bankverbindung bankverbindung = new Bankverbindung();
             Kontakt aktKontakt = new Kontakt();
 
@@ -1404,7 +1346,6 @@ namespace Verrechnungsprogramm
 
         private void bankverbindungHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Bankverbindung bankverbindung = new Bankverbindung();
             bankverbindung.IBAN = textBoxBankverbindungIBAN.Text;
@@ -1449,7 +1390,6 @@ namespace Verrechnungsprogramm
         private void linkLabelKontakteAnzeigen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             listViewKontakt.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kontakte", Method.GET);
 
@@ -1491,83 +1431,21 @@ namespace Verrechnungsprogramm
             }
             if (labelÜberschrift.Text.Equals("Kursleiter bearbeiten"))
             {
-                //kursleiterBearbeiten();
+                kursleiterBearbeiten();
                 this.Close();
             }
             if(labelÜberschrift.Text.Equals("Kursleiter anlegen"))
             {
                 kursleiterHinzufügen();
+                FrmHaupt fHaupt = new FrmHaupt();
+                fHaupt.kursleiterEinlesen();
                 this.Close();
             }
 
         }
 
-        //private void kursleiterBearbeiten()
-        //{
-        //    var client = new RestClient("http://localhost:8888")
-        //    {
-        //        Authenticator = new HttpBasicAuthenticator("demo", "demo")
-        //    };
-
-        //    Kursleiter kursleiter = new Kursleiter();
-        //    Kontakt aktKontakt = new Kontakt();
-
-        //    var requestKursleiter = new RestRequest("kursleiter", Method.GET);
-        //    requestKursleiter.AddHeader("Content-Type", "application/json");
-        //    var responseKursleiter = client.Execute<List<Kursleiter>>(requestKursleiter);
-
-        //    var requestKontakt = new RestRequest("kontakte", Method.GET);
-        //    requestKontakt.AddHeader("Content-Type", "application/json");
-        //    var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
-
-        //    foreach (Kursleiter kl in responseKursleiter.Data)
-        //    {
-        //        if (kl.KursleiterID == Convert.ToInt32(labelID.Text))
-        //        {
-        //            kursleiter.KursleiterID = listViewKontakt.SelectedItems[0].SubItems[0].Text;
-        //            foreach (Kontakt k in responseKontakt.Data)
-        //            {
-        //                if (k.KontaktID.ToString().Equals(textBoxBankverbindungKontaktID.Text))
-        //                {
-        //                    aktKontakt.KontaktID = k.KontaktID;
-        //                    aktKontakt.TitelID = k.TitelID;
-        //                    aktKontakt.Vorname = k.Vorname;
-        //                    aktKontakt.Nachname = k.Nachname;
-        //                    aktKontakt.SVNr = k.SVNr;
-        //                    aktKontakt.Geschlecht = k.Geschlecht;
-        //                    aktKontakt.Familienstand = k.Familienstand;
-        //                    aktKontakt.Email = k.Email;
-        //                    aktKontakt.Telefonnummer = k.Telefonnummer;
-        //                    aktKontakt.Strasse = k.Strasse;
-        //                    aktKontakt.PostleitzahlID = k.PostleitzahlID;
-        //                    aktKontakt.AltersgruppeID = k.AltersgruppeID;
-        //                    aktKontakt.SozialgruppeID = k.SozialgruppeID;
-        //                    aktKontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
-        //                }
-        //            }
-        //            kursleiter.KontaktID = aktKontakt;
-
-        //            var request1 = new RestRequest("kursleiter", Method.PUT);
-        //            request1.AddHeader("Content-Type", "application/json");
-        //            request1.AddJsonBody(kursleiter);
-        //            var response1 = client.Execute(request1);
-
-        //            if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
-        //            {
-        //                MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show("Erfolgreich geändert!");
-        //            }
-        //        }
-        //    }
-        //}
-
-        private void kursleiterHinzufügen()
+        private void kursleiterBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888");
-
             Kursleiter kursleiter = new Kursleiter();
             Kontakt aktKontakt = new Kontakt();
 
@@ -1579,10 +1457,66 @@ namespace Verrechnungsprogramm
             requestKontakt.AddHeader("Content-Type", "application/json");
             var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
 
-            kursleiter.KursleiterID = Convert.ToInt32(listViewKontakt.SelectedItems[0].SubItems[0].Text);
+            foreach (Kursleiter kl in responseKursleiter.Data)
+            {
+                if (kl.KursleiterID == Convert.ToInt32(labelID.Text))
+                {
+                    kursleiter.KursleiterID = Convert.ToInt32(labelID.Text);
+                    foreach (Kontakt k in responseKontakt.Data)
+                    {
+                        if (k.KontaktID.ToString().Equals(listViewKontakt.SelectedItems[0].SubItems[0].Text))
+                        {
+                            aktKontakt.KontaktID = k.KontaktID;
+                            aktKontakt.TitelID = k.TitelID;
+                            aktKontakt.Vorname = k.Vorname;
+                            aktKontakt.Nachname = k.Nachname;
+                            aktKontakt.SVNr = k.SVNr;
+                            aktKontakt.Geschlecht = k.Geschlecht;
+                            aktKontakt.Familienstand = k.Familienstand;
+                            aktKontakt.Email = k.Email;
+                            aktKontakt.Telefonnummer = k.Telefonnummer;
+                            aktKontakt.Strasse = k.Strasse;
+                            aktKontakt.PostleitzahlID = k.PostleitzahlID;
+                            aktKontakt.AltersgruppeID = k.AltersgruppeID;
+                            aktKontakt.SozialgruppeID = k.SozialgruppeID;
+                            aktKontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+                        }
+                    }
+                    kursleiter.KontaktID = aktKontakt;
+
+                    var request1 = new RestRequest("kursleiter", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kursleiter);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+            }
+        }
+
+        private void kursleiterHinzufügen()
+        {
+            Kursleiter kursleiter = new Kursleiter();
+            Kontakt aktKontakt = new Kontakt();
+
+            var requestKursleiter = new RestRequest("kursleiter", Method.GET);
+            requestKursleiter.AddHeader("Content-Type", "application/json");
+            var responseKursleiter = client.Execute<List<Kursleiter>>(requestKursleiter);
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
             foreach (Kontakt k in responseKontakt.Data)
             {
-                if (k.KontaktID.ToString().Equals(textBoxBankverbindungKontaktID.Text))
+                if (k.KontaktID.ToString().Equals(listViewKontakt.SelectedItems[0].SubItems[0].Text))
                 {
                     aktKontakt.KontaktID = k.KontaktID;
                     aktKontakt.TitelID = k.TitelID;
@@ -1626,8 +1560,6 @@ namespace Verrechnungsprogramm
         private void linkLabelKontaktAnzeigen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             listViewKontakt.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
-
             var request = new RestRequest("kontakte", Method.GET);
 
             request.AddHeader("Content-Type", "application/json");
@@ -1652,7 +1584,6 @@ namespace Verrechnungsprogramm
         private void einlesenKontaktinListView()
         {
             listViewKontakt.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kontakte", Method.GET);
 
@@ -1775,7 +1706,6 @@ namespace Verrechnungsprogramm
             int vornL = textBoxKontaktSucheVorname.Text.Length;
             int nachL = textBoxKontaktSucheNachname.Text.Length;
 
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kontakte", Method.GET);
 
@@ -1862,10 +1792,6 @@ namespace Verrechnungsprogramm
 
         private void kursortBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Kursort kursort = new Kursort();
             Postleitzahl postleitzahl = new Postleitzahl();
@@ -1918,7 +1844,6 @@ namespace Verrechnungsprogramm
 
         private void kursortHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Kursort kursort = new Kursort();
             Postleitzahl postleitzahl = new Postleitzahl();
@@ -1981,7 +1906,6 @@ namespace Verrechnungsprogramm
 
         private void kassabuchkontoHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
 
@@ -2001,10 +1925,6 @@ namespace Verrechnungsprogramm
 
         private void kassabuchkontoBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
 
@@ -2064,7 +1984,6 @@ namespace Verrechnungsprogramm
 
         private void kassabuchHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Kassabuch kassabuch = new Kassabuch();
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
@@ -2154,10 +2073,6 @@ namespace Verrechnungsprogramm
 
         private void kassabuchBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Kassabuch kassabuch = new Kassabuch();
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
@@ -2309,7 +2224,6 @@ namespace Verrechnungsprogramm
 
         private void rechnungHinzufügen()
         {
-            var client = new RestClient("http://localhost:8888");
 
             Rechnung rechnung = new Rechnung();
             Kurs kurs = new Kurs();
@@ -2396,10 +2310,6 @@ namespace Verrechnungsprogramm
 
         private void rechnungBearbeiten()
         {
-            var client = new RestClient("http://localhost:8888")
-            {
-                Authenticator = new HttpBasicAuthenticator("demo", "demo")
-            };
 
             Rechnung rechnung = new Rechnung();
             Kurs kurs = new Kurs();
@@ -2465,7 +2375,6 @@ namespace Verrechnungsprogramm
                             kontakt.StaatsbuergerschaftID = kk.StaatsbuergerschaftID;
                         }
                     }
-
 
 
 

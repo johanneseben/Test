@@ -16,11 +16,16 @@ namespace Verrechnungsprogramm
 {
     public partial class FrmHaupt : Form
     {
+        RestClient client;
+        HttpBasicAuthenticator Authenticator;
 
         public FrmHaupt()
         {
-           
             InitializeComponent();
+            client = new RestClient("http://vhs-mistelbach.projects.hakmistelbach.ac.at:20218")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
         }
 
         private void frmHaupt_Load(object sender, EventArgs e)
@@ -76,7 +81,6 @@ namespace Verrechnungsprogramm
         {
             FrmHinzufügenBearbeiten fHinzuBearb = new FrmHinzufügenBearbeiten();
             listViewTitel.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("titel", Method.GET);
             request.AddHeader("Content-Type", "application/json");
@@ -94,7 +98,6 @@ namespace Verrechnungsprogramm
         private void sozialgruppeEinlesen()
         {
             listViewSozialgruppe.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("sozialgruppen", Method.GET);
 
@@ -177,7 +180,6 @@ namespace Verrechnungsprogramm
         private void kurskategorieEinlesen()
         {
             listViewKurskategorie.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kurskategorien", Method.GET);
 
@@ -197,7 +199,6 @@ namespace Verrechnungsprogramm
         {
             string neinja;
             listViewKurs.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kurse", Method.GET);
 
@@ -245,7 +246,6 @@ namespace Verrechnungsprogramm
         public void altersgruppenEinlesen()
         {
             listViewAltersgruppe.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("altersgruppen", Method.GET);
 
@@ -263,7 +263,6 @@ namespace Verrechnungsprogramm
         private void passEinlesen()
         {
             listViewPass.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("paesse", Method.GET);
 
@@ -284,7 +283,6 @@ namespace Verrechnungsprogramm
         private void bankverbindungEinlesen()
         {
             listViewBankverbindung.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("bankverbindungen", Method.GET);
 
@@ -304,7 +302,6 @@ namespace Verrechnungsprogramm
         private void kontakteEinlesen()
         {
             listViewKontakt.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kontakte", Method.GET);
             request.AddHeader("Content-Type", "application/json");
@@ -709,6 +706,10 @@ namespace Verrechnungsprogramm
             {
                 kursBearbeiten();
             }
+            if (labelÜberschrift.Text.Equals("Kursleiter"))
+            {
+                kursleiterBearbeiten();
+            }
 
         }
 
@@ -854,7 +855,6 @@ namespace Verrechnungsprogramm
         {
             FrmHinzufügenBearbeiten fHinzuBearb = new FrmHinzufügenBearbeiten();
             listViewSchluessel.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("schluessel", Method.GET);
             request.AddHeader("Content-Type", "application/json");
@@ -876,7 +876,6 @@ namespace Verrechnungsprogramm
         {
             FrmHinzufügenBearbeiten fHinzuBearb = new FrmHinzufügenBearbeiten();
             listViewGutschein.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("gutscheine", Method.GET);
             request.AddHeader("Content-Type", "application/json");
@@ -895,7 +894,6 @@ namespace Verrechnungsprogramm
         {
             FrmHinzufügenBearbeiten fHinzuBearb = new FrmHinzufügenBearbeiten();
             listViewMitgliedschaft.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("mitgliedschaften", Method.GET);
             request.AddHeader("Content-Type", "application/json");
@@ -959,7 +957,6 @@ namespace Verrechnungsprogramm
         private void KassabuchkontoEinlesen()
         {
             listViewKassabuchkonto.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kassabuchkonten", Method.GET);
 
@@ -976,6 +973,22 @@ namespace Verrechnungsprogramm
             }
 
             
+        }
+
+        private void kursleiterBearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            if (listViewKursleiter.SelectedItems.Count == 0)
+                return;
+            fHinzuBea.panelKontaktSuche.Visible = true;
+
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonBearbeiten.Text;
+            fHinzuBea.labelID.Text = listViewKursleiter.SelectedItems[0].SubItems[0].Text;
+
+            fHinzuBea.ShowDialog();
+            kursleiterEinlesen();
         }
 
         private void kursBearbeiten()
@@ -1056,7 +1069,6 @@ namespace Verrechnungsprogramm
         private void KassabuchEinlesen()
         {
             listViewKassabuch.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kassabuecher", Method.GET);
 
@@ -1128,7 +1140,6 @@ namespace Verrechnungsprogramm
         private void RechnungEinlesen()
         {
             listViewRechnung.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("rechnungen", Method.GET);
 
@@ -1203,10 +1214,9 @@ namespace Verrechnungsprogramm
             kursleiterEinlesen();
         }
 
-        private void kursleiterEinlesen()
+        public void kursleiterEinlesen()
         {
             listViewKursleiter.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kursleiter", Method.GET);
 
@@ -1225,7 +1235,6 @@ namespace Verrechnungsprogramm
         private void kursortEinlesen()
         {
             listViewKursort.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kursorte", Method.GET);
 
@@ -1255,7 +1264,6 @@ namespace Verrechnungsprogramm
             comboBoxKursTeilnehmer.Visible = true;
 
             comboBoxKursTeilnehmer.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
             var request = new RestRequest("kurse", Method.GET);
             request.AddHeader("Content-Type", "application/json");
             var response = client.Execute<List<Kurs>>(request);
@@ -1270,7 +1278,6 @@ namespace Verrechnungsprogramm
         private void comboBoxKursTeilnehmer_SelectedIndexChanged(object sender, EventArgs e)
         {
             listViewTeilnehmer.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kontaktKurse", Method.GET);
 
@@ -1301,7 +1308,6 @@ namespace Verrechnungsprogramm
         private void offenePostenEinlesen()
         {
             listViewOffeneRechnung.Items.Clear();
-            var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("kontaktKurse", Method.GET);
 
@@ -1319,6 +1325,91 @@ namespace Verrechnungsprogramm
                     listViewOffeneRechnung.Items.Add(lvItem);
                 }
             }
+
+        }
+
+        private void listViewTeilnehmer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelKurs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewOffeneRechnung_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKursleiter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewRechnung_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKassabuch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKassabuchkonto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewGutschein_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewSchluessel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewPass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewBankverbindung_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKurskategorie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewSozialgruppe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewTitel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewAltersgruppe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKurs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKontakt_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
