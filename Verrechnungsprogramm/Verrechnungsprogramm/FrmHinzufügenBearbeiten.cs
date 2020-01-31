@@ -2061,16 +2061,54 @@ namespace Verrechnungsprogramm
             kassabuch.KassabuchkontoID.KassabuchkontoID = id2;
 
 
+            geldeinzahlen();
+
             var request = new RestRequest("kassabuecher", Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(kassabuch);
             var response = client.Execute(request);
 
-
+          
 
             MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
         }
 
+        private void geldeinzahlen()
+        {
+            Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
+
+            var request = new RestRequest("kassabuchkonten", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kassabuchkonto>>(request);
+
+            foreach (Kassabuchkonto k in response.Data)
+            {
+                if (k.KassabuchkontoID == 198)
+                {
+                    kassabuchkonto.KassabuchkontoID = k.KassabuchkontoID;
+                    kassabuchkonto.Kontonummer = k.Kontonummer;
+                    kassabuchkonto.Kontobezeichnung = k.Kontobezeichnung;
+                    kassabuchkonto.Kontostand = k.Kontostand + Convert.ToDouble(textBoxBetrag.Text);
+
+
+
+                    var request1 = new RestRequest("kassabuchkonten", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kassabuchkonto);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+            }
+        }
         private void kassabuchBearbeiten()
         {
 
@@ -2162,7 +2200,7 @@ namespace Verrechnungsprogramm
                     kassabuch.KassabuchkontoID = kassabuchkonto;
 
                    
-
+                    
 
                     int inde3 = comboBoxKontaktID.Text.IndexOf(" ");
                     int id = Convert.ToInt32(comboBoxKontaktID.Text.Substring(0, inde3));
