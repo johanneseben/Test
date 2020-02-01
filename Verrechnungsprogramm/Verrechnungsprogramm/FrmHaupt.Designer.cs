@@ -222,6 +222,23 @@
             this.columnHeader95 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.comboBoxKursTeilnehmer = new System.Windows.Forms.ComboBox();
             this.labelKurs = new System.Windows.Forms.Label();
+            this.labelKursleiter = new System.Windows.Forms.Label();
+            this.textBoxKursleiter = new System.Windows.Forms.TextBox();
+            this.labelKursbuchungBis = new System.Windows.Forms.Label();
+            this.labelKursbuchungVon = new System.Windows.Forms.Label();
+            this.dateTimePickerKursbuchungVon = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerKursbuchungBis = new System.Windows.Forms.DateTimePicker();
+            this.listViewKursbuchung = new System.Windows.Forms.ListView();
+            this.columnHeader97 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader98 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader99 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader100 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader101 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader102 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader104 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonKursbuchungSuchen = new System.Windows.Forms.Button();
+            this.buttonNeueKursbuchung = new System.Windows.Forms.Button();
+            this.buttonKursbuchungBearbeiten = new System.Windows.Forms.Button();
             this.tableLayoutPanelÜberschrift.SuspendLayout();
             this.tableLayoutPanelStammdaten.SuspendLayout();
             this.contextMenuStripKontakt.SuspendLayout();
@@ -255,7 +272,7 @@
             // 
             // labelÜberschrift
             // 
-            this.labelÜberschrift.BackColor = System.Drawing.Color.DarkRed;
+            this.labelÜberschrift.BackColor = System.Drawing.Color.CornflowerBlue;
             this.labelÜberschrift.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelÜberschrift.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelÜberschrift.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -270,7 +287,7 @@
             // 
             this.tableLayoutPanelStammdaten.ColumnCount = 2;
             this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
+            this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
             this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtSchluesselverwaltung, 0, 7);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSchluesselVerwaltung, 1, 7);
             this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtMitgliedschaft, 0, 8);
@@ -305,7 +322,7 @@
             this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanelStammdaten.Size = new System.Drawing.Size(221, 341);
+            this.tableLayoutPanelStammdaten.Size = new System.Drawing.Size(234, 501);
             this.tableLayoutPanelStammdaten.TabIndex = 2;
             this.tableLayoutPanelStammdaten.Visible = false;
             this.tableLayoutPanelStammdaten.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelStammdaten_Paint);
@@ -313,20 +330,20 @@
             // labelBtSchluesselverwaltung
             // 
             this.labelBtSchluesselverwaltung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSchluesselverwaltung.Location = new System.Drawing.Point(0, 239);
+            this.labelBtSchluesselverwaltung.Location = new System.Drawing.Point(0, 351);
             this.labelBtSchluesselverwaltung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSchluesselverwaltung.Name = "labelBtSchluesselverwaltung";
-            this.labelBtSchluesselverwaltung.Size = new System.Drawing.Size(10, 31);
+            this.labelBtSchluesselverwaltung.Size = new System.Drawing.Size(11, 48);
             this.labelBtSchluesselverwaltung.TabIndex = 23;
             this.labelBtSchluesselverwaltung.Visible = false;
             // 
             // buttonSchluesselVerwaltung
             // 
             this.buttonSchluesselVerwaltung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSchluesselVerwaltung.Location = new System.Drawing.Point(10, 238);
+            this.buttonSchluesselVerwaltung.Location = new System.Drawing.Point(11, 350);
             this.buttonSchluesselVerwaltung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSchluesselVerwaltung.Name = "buttonSchluesselVerwaltung";
-            this.buttonSchluesselVerwaltung.Size = new System.Drawing.Size(211, 33);
+            this.buttonSchluesselVerwaltung.Size = new System.Drawing.Size(223, 50);
             this.buttonSchluesselVerwaltung.TabIndex = 19;
             this.buttonSchluesselVerwaltung.Text = "Schlüsselverwaltung";
             this.buttonSchluesselVerwaltung.UseVisualStyleBackColor = true;
@@ -334,50 +351,50 @@
             // labelBtMitgliedschaft
             // 
             this.labelBtMitgliedschaft.BackColor = System.Drawing.Color.Lime;
-            this.labelBtMitgliedschaft.Location = new System.Drawing.Point(0, 273);
+            this.labelBtMitgliedschaft.Location = new System.Drawing.Point(0, 401);
             this.labelBtMitgliedschaft.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtMitgliedschaft.Name = "labelBtMitgliedschaft";
-            this.labelBtMitgliedschaft.Size = new System.Drawing.Size(10, 31);
+            this.labelBtMitgliedschaft.Size = new System.Drawing.Size(11, 48);
             this.labelBtMitgliedschaft.TabIndex = 18;
             this.labelBtMitgliedschaft.Visible = false;
             // 
             // labelBtPass
             // 
             this.labelBtPass.BackColor = System.Drawing.Color.Lime;
-            this.labelBtPass.Location = new System.Drawing.Point(0, 171);
+            this.labelBtPass.Location = new System.Drawing.Point(0, 251);
             this.labelBtPass.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtPass.Name = "labelBtPass";
-            this.labelBtPass.Size = new System.Drawing.Size(10, 31);
+            this.labelBtPass.Size = new System.Drawing.Size(11, 48);
             this.labelBtPass.TabIndex = 11;
             this.labelBtPass.Visible = false;
             // 
             // labelBtBankverbindung
             // 
             this.labelBtBankverbindung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtBankverbindung.Location = new System.Drawing.Point(0, 137);
+            this.labelBtBankverbindung.Location = new System.Drawing.Point(0, 201);
             this.labelBtBankverbindung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtBankverbindung.Name = "labelBtBankverbindung";
-            this.labelBtBankverbindung.Size = new System.Drawing.Size(10, 31);
+            this.labelBtBankverbindung.Size = new System.Drawing.Size(11, 48);
             this.labelBtBankverbindung.TabIndex = 9;
             this.labelBtBankverbindung.Visible = false;
             // 
             // labelBtAltersgruppe
             // 
             this.labelBtAltersgruppe.BackColor = System.Drawing.Color.Lime;
-            this.labelBtAltersgruppe.Location = new System.Drawing.Point(0, 69);
+            this.labelBtAltersgruppe.Location = new System.Drawing.Point(0, 101);
             this.labelBtAltersgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtAltersgruppe.Name = "labelBtAltersgruppe";
-            this.labelBtAltersgruppe.Size = new System.Drawing.Size(10, 31);
+            this.labelBtAltersgruppe.Size = new System.Drawing.Size(11, 48);
             this.labelBtAltersgruppe.TabIndex = 5;
             this.labelBtAltersgruppe.Visible = false;
             // 
             // buttonAltersgruppe
             // 
             this.buttonAltersgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAltersgruppe.Location = new System.Drawing.Point(10, 68);
+            this.buttonAltersgruppe.Location = new System.Drawing.Point(11, 100);
             this.buttonAltersgruppe.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAltersgruppe.Name = "buttonAltersgruppe";
-            this.buttonAltersgruppe.Size = new System.Drawing.Size(211, 33);
+            this.buttonAltersgruppe.Size = new System.Drawing.Size(223, 50);
             this.buttonAltersgruppe.TabIndex = 2;
             this.buttonAltersgruppe.Text = "Altersgruppe";
             this.buttonAltersgruppe.UseVisualStyleBackColor = true;
@@ -386,10 +403,10 @@
             // buttonTitel
             // 
             this.buttonTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTitel.Location = new System.Drawing.Point(10, 34);
+            this.buttonTitel.Location = new System.Drawing.Point(11, 50);
             this.buttonTitel.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitel.Name = "buttonTitel";
-            this.buttonTitel.Size = new System.Drawing.Size(211, 33);
+            this.buttonTitel.Size = new System.Drawing.Size(223, 50);
             this.buttonTitel.TabIndex = 0;
             this.buttonTitel.Text = "Titel";
             this.buttonTitel.UseVisualStyleBackColor = true;
@@ -398,10 +415,10 @@
             // labelBtTitel
             // 
             this.labelBtTitel.BackColor = System.Drawing.Color.Lime;
-            this.labelBtTitel.Location = new System.Drawing.Point(0, 35);
+            this.labelBtTitel.Location = new System.Drawing.Point(0, 51);
             this.labelBtTitel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtTitel.Name = "labelBtTitel";
-            this.labelBtTitel.Size = new System.Drawing.Size(10, 31);
+            this.labelBtTitel.Size = new System.Drawing.Size(11, 48);
             this.labelBtTitel.TabIndex = 3;
             this.labelBtTitel.Visible = false;
             // 
@@ -411,17 +428,17 @@
             this.labelBtKontakt.Location = new System.Drawing.Point(0, 1);
             this.labelBtKontakt.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKontakt.Name = "labelBtKontakt";
-            this.labelBtKontakt.Size = new System.Drawing.Size(10, 31);
+            this.labelBtKontakt.Size = new System.Drawing.Size(11, 48);
             this.labelBtKontakt.TabIndex = 4;
             this.labelBtKontakt.Visible = false;
             // 
             // buttonKontakt
             // 
             this.buttonKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKontakt.Location = new System.Drawing.Point(10, 0);
+            this.buttonKontakt.Location = new System.Drawing.Point(11, 0);
             this.buttonKontakt.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKontakt.Name = "buttonKontakt";
-            this.buttonKontakt.Size = new System.Drawing.Size(211, 33);
+            this.buttonKontakt.Size = new System.Drawing.Size(223, 50);
             this.buttonKontakt.TabIndex = 1;
             this.buttonKontakt.Text = "Kontakt";
             this.buttonKontakt.UseVisualStyleBackColor = true;
@@ -430,10 +447,10 @@
             // buttonSozialgruppe
             // 
             this.buttonSozialgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSozialgruppe.Location = new System.Drawing.Point(10, 102);
+            this.buttonSozialgruppe.Location = new System.Drawing.Point(11, 150);
             this.buttonSozialgruppe.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSozialgruppe.Name = "buttonSozialgruppe";
-            this.buttonSozialgruppe.Size = new System.Drawing.Size(211, 33);
+            this.buttonSozialgruppe.Size = new System.Drawing.Size(223, 50);
             this.buttonSozialgruppe.TabIndex = 6;
             this.buttonSozialgruppe.Text = "Sozialgruppe";
             this.buttonSozialgruppe.UseVisualStyleBackColor = true;
@@ -442,20 +459,20 @@
             // labelBtSozialgruppe
             // 
             this.labelBtSozialgruppe.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSozialgruppe.Location = new System.Drawing.Point(0, 103);
+            this.labelBtSozialgruppe.Location = new System.Drawing.Point(0, 151);
             this.labelBtSozialgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSozialgruppe.Name = "labelBtSozialgruppe";
-            this.labelBtSozialgruppe.Size = new System.Drawing.Size(10, 31);
+            this.labelBtSozialgruppe.Size = new System.Drawing.Size(11, 48);
             this.labelBtSozialgruppe.TabIndex = 7;
             this.labelBtSozialgruppe.Visible = false;
             // 
             // buttonBankverbindung
             // 
             this.buttonBankverbindung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBankverbindung.Location = new System.Drawing.Point(10, 136);
+            this.buttonBankverbindung.Location = new System.Drawing.Point(11, 200);
             this.buttonBankverbindung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBankverbindung.Name = "buttonBankverbindung";
-            this.buttonBankverbindung.Size = new System.Drawing.Size(211, 33);
+            this.buttonBankverbindung.Size = new System.Drawing.Size(223, 50);
             this.buttonBankverbindung.TabIndex = 8;
             this.buttonBankverbindung.Text = "Bankverbindung";
             this.buttonBankverbindung.UseVisualStyleBackColor = true;
@@ -464,10 +481,10 @@
             // buttonPass
             // 
             this.buttonPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPass.Location = new System.Drawing.Point(10, 170);
+            this.buttonPass.Location = new System.Drawing.Point(11, 250);
             this.buttonPass.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPass.Name = "buttonPass";
-            this.buttonPass.Size = new System.Drawing.Size(211, 33);
+            this.buttonPass.Size = new System.Drawing.Size(223, 50);
             this.buttonPass.TabIndex = 10;
             this.buttonPass.Text = "Pass";
             this.buttonPass.UseVisualStyleBackColor = true;
@@ -476,20 +493,20 @@
             // labelBtSchluessel
             // 
             this.labelBtSchluessel.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSchluessel.Location = new System.Drawing.Point(0, 205);
+            this.labelBtSchluessel.Location = new System.Drawing.Point(0, 301);
             this.labelBtSchluessel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSchluessel.Name = "labelBtSchluessel";
-            this.labelBtSchluessel.Size = new System.Drawing.Size(10, 31);
+            this.labelBtSchluessel.Size = new System.Drawing.Size(11, 48);
             this.labelBtSchluessel.TabIndex = 13;
             this.labelBtSchluessel.Visible = false;
             // 
             // buttonSchluessel
             // 
             this.buttonSchluessel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSchluessel.Location = new System.Drawing.Point(10, 204);
+            this.buttonSchluessel.Location = new System.Drawing.Point(11, 300);
             this.buttonSchluessel.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSchluessel.Name = "buttonSchluessel";
-            this.buttonSchluessel.Size = new System.Drawing.Size(211, 33);
+            this.buttonSchluessel.Size = new System.Drawing.Size(223, 50);
             this.buttonSchluessel.TabIndex = 15;
             this.buttonSchluessel.Text = "Schlüssel";
             this.buttonSchluessel.UseVisualStyleBackColor = true;
@@ -498,10 +515,10 @@
             // buttonMitgliedschaft
             // 
             this.buttonMitgliedschaft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMitgliedschaft.Location = new System.Drawing.Point(10, 272);
+            this.buttonMitgliedschaft.Location = new System.Drawing.Point(11, 400);
             this.buttonMitgliedschaft.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMitgliedschaft.Name = "buttonMitgliedschaft";
-            this.buttonMitgliedschaft.Size = new System.Drawing.Size(211, 33);
+            this.buttonMitgliedschaft.Size = new System.Drawing.Size(223, 50);
             this.buttonMitgliedschaft.TabIndex = 17;
             this.buttonMitgliedschaft.Text = "Mitgliedschaft";
             this.buttonMitgliedschaft.UseVisualStyleBackColor = true;
@@ -510,20 +527,20 @@
             // labelBtGutschein
             // 
             this.labelBtGutschein.BackColor = System.Drawing.Color.Lime;
-            this.labelBtGutschein.Location = new System.Drawing.Point(0, 307);
+            this.labelBtGutschein.Location = new System.Drawing.Point(0, 451);
             this.labelBtGutschein.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtGutschein.Name = "labelBtGutschein";
-            this.labelBtGutschein.Size = new System.Drawing.Size(10, 32);
+            this.labelBtGutschein.Size = new System.Drawing.Size(11, 49);
             this.labelBtGutschein.TabIndex = 12;
             this.labelBtGutschein.Visible = false;
             // 
             // buttonGutschein
             // 
             this.buttonGutschein.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGutschein.Location = new System.Drawing.Point(10, 306);
+            this.buttonGutschein.Location = new System.Drawing.Point(11, 450);
             this.buttonGutschein.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGutschein.Name = "buttonGutschein";
-            this.buttonGutschein.Size = new System.Drawing.Size(211, 34);
+            this.buttonGutschein.Size = new System.Drawing.Size(223, 51);
             this.buttonGutschein.TabIndex = 16;
             this.buttonGutschein.Text = "Gutschein";
             this.buttonGutschein.UseVisualStyleBackColor = true;
@@ -752,7 +769,7 @@
             // buttonHinzufügen
             // 
             this.buttonHinzufügen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHinzufügen.Location = new System.Drawing.Point(247, 810);
+            this.buttonHinzufügen.Location = new System.Drawing.Point(247, 894);
             this.buttonHinzufügen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonHinzufügen.Name = "buttonHinzufügen";
             this.buttonHinzufügen.Size = new System.Drawing.Size(269, 63);
@@ -765,7 +782,7 @@
             // buttonBearbeiten
             // 
             this.buttonBearbeiten.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBearbeiten.Location = new System.Drawing.Point(523, 810);
+            this.buttonBearbeiten.Location = new System.Drawing.Point(523, 894);
             this.buttonBearbeiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBearbeiten.Name = "buttonBearbeiten";
             this.buttonBearbeiten.Size = new System.Drawing.Size(269, 63);
@@ -914,7 +931,7 @@
             // 
             this.tableLayoutPanelKursTermin.ColumnCount = 2;
             this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
+            this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
             this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtOffeneRechnungen, 0, 7);
             this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtKursbuchung, 0, 6);
             this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtTeilnehmer, 0, 5);
@@ -931,7 +948,7 @@
             this.tableLayoutPanelKursTermin.Controls.Add(this.buttonTeilnehmer, 1, 5);
             this.tableLayoutPanelKursTermin.Controls.Add(this.buttonKursbuchung, 1, 6);
             this.tableLayoutPanelKursTermin.Controls.Add(this.buttonOffenePosten, 1, 7);
-            this.tableLayoutPanelKursTermin.Location = new System.Drawing.Point(9, 191);
+            this.tableLayoutPanelKursTermin.Location = new System.Drawing.Point(9, 199);
             this.tableLayoutPanelKursTermin.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelKursTermin.Name = "tableLayoutPanelKursTermin";
             this.tableLayoutPanelKursTermin.RowCount = 8;
@@ -943,57 +960,57 @@
             this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanelKursTermin.Size = new System.Drawing.Size(221, 356);
+            this.tableLayoutPanelKursTermin.Size = new System.Drawing.Size(234, 501);
             this.tableLayoutPanelKursTermin.TabIndex = 10;
             this.tableLayoutPanelKursTermin.Visible = false;
             // 
             // labelBtOffeneRechnungen
             // 
             this.labelBtOffeneRechnungen.BackColor = System.Drawing.Color.Lime;
-            this.labelBtOffeneRechnungen.Location = new System.Drawing.Point(0, 309);
+            this.labelBtOffeneRechnungen.Location = new System.Drawing.Point(0, 435);
             this.labelBtOffeneRechnungen.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtOffeneRechnungen.Name = "labelBtOffeneRechnungen";
-            this.labelBtOffeneRechnungen.Size = new System.Drawing.Size(10, 43);
+            this.labelBtOffeneRechnungen.Size = new System.Drawing.Size(11, 65);
             this.labelBtOffeneRechnungen.TabIndex = 15;
             this.labelBtOffeneRechnungen.Visible = false;
             // 
             // labelBtKursbuchung
             // 
             this.labelBtKursbuchung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursbuchung.Location = new System.Drawing.Point(0, 265);
+            this.labelBtKursbuchung.Location = new System.Drawing.Point(0, 373);
             this.labelBtKursbuchung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKursbuchung.Name = "labelBtKursbuchung";
-            this.labelBtKursbuchung.Size = new System.Drawing.Size(10, 42);
+            this.labelBtKursbuchung.Size = new System.Drawing.Size(11, 60);
             this.labelBtKursbuchung.TabIndex = 12;
             this.labelBtKursbuchung.Visible = false;
             // 
             // labelBtTeilnehmer
             // 
             this.labelBtTeilnehmer.BackColor = System.Drawing.Color.Lime;
-            this.labelBtTeilnehmer.Location = new System.Drawing.Point(0, 221);
+            this.labelBtTeilnehmer.Location = new System.Drawing.Point(0, 311);
             this.labelBtTeilnehmer.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtTeilnehmer.Name = "labelBtTeilnehmer";
-            this.labelBtTeilnehmer.Size = new System.Drawing.Size(10, 42);
+            this.labelBtTeilnehmer.Size = new System.Drawing.Size(11, 60);
             this.labelBtTeilnehmer.TabIndex = 11;
             this.labelBtTeilnehmer.Visible = false;
             // 
             // labelBtTermin
             // 
             this.labelBtTermin.BackColor = System.Drawing.Color.Lime;
-            this.labelBtTermin.Location = new System.Drawing.Point(0, 89);
+            this.labelBtTermin.Location = new System.Drawing.Point(0, 125);
             this.labelBtTermin.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtTermin.Name = "labelBtTermin";
-            this.labelBtTermin.Size = new System.Drawing.Size(10, 42);
+            this.labelBtTermin.Size = new System.Drawing.Size(11, 60);
             this.labelBtTermin.TabIndex = 5;
             this.labelBtTermin.Visible = false;
             // 
             // buttonTermine
             // 
             this.buttonTermine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTermine.Location = new System.Drawing.Point(10, 88);
+            this.buttonTermine.Location = new System.Drawing.Point(11, 124);
             this.buttonTermine.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTermine.Name = "buttonTermine";
-            this.buttonTermine.Size = new System.Drawing.Size(211, 44);
+            this.buttonTermine.Size = new System.Drawing.Size(223, 62);
             this.buttonTermine.TabIndex = 2;
             this.buttonTermine.Text = "Termine";
             this.buttonTermine.UseVisualStyleBackColor = true;
@@ -1001,10 +1018,10 @@
             // buttonKurskategorie
             // 
             this.buttonKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKurskategorie.Location = new System.Drawing.Point(10, 44);
+            this.buttonKurskategorie.Location = new System.Drawing.Point(11, 62);
             this.buttonKurskategorie.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKurskategorie.Name = "buttonKurskategorie";
-            this.buttonKurskategorie.Size = new System.Drawing.Size(211, 44);
+            this.buttonKurskategorie.Size = new System.Drawing.Size(223, 62);
             this.buttonKurskategorie.TabIndex = 0;
             this.buttonKurskategorie.Text = "Kurskategorie";
             this.buttonKurskategorie.UseVisualStyleBackColor = true;
@@ -1013,10 +1030,10 @@
             // labelBtKurskategorie
             // 
             this.labelBtKurskategorie.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKurskategorie.Location = new System.Drawing.Point(0, 45);
+            this.labelBtKurskategorie.Location = new System.Drawing.Point(0, 63);
             this.labelBtKurskategorie.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKurskategorie.Name = "labelBtKurskategorie";
-            this.labelBtKurskategorie.Size = new System.Drawing.Size(10, 42);
+            this.labelBtKurskategorie.Size = new System.Drawing.Size(11, 60);
             this.labelBtKurskategorie.TabIndex = 3;
             this.labelBtKurskategorie.Visible = false;
             // 
@@ -1026,17 +1043,17 @@
             this.labelBtKurs.Location = new System.Drawing.Point(0, 1);
             this.labelBtKurs.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKurs.Name = "labelBtKurs";
-            this.labelBtKurs.Size = new System.Drawing.Size(10, 42);
+            this.labelBtKurs.Size = new System.Drawing.Size(11, 60);
             this.labelBtKurs.TabIndex = 4;
             this.labelBtKurs.Visible = false;
             // 
             // buttonKurs
             // 
             this.buttonKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKurs.Location = new System.Drawing.Point(10, 0);
+            this.buttonKurs.Location = new System.Drawing.Point(11, 0);
             this.buttonKurs.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKurs.Name = "buttonKurs";
-            this.buttonKurs.Size = new System.Drawing.Size(211, 44);
+            this.buttonKurs.Size = new System.Drawing.Size(223, 62);
             this.buttonKurs.TabIndex = 1;
             this.buttonKurs.Text = "Kurs";
             this.buttonKurs.UseVisualStyleBackColor = true;
@@ -1045,10 +1062,10 @@
             // buttonKursleiter
             // 
             this.buttonKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursleiter.Location = new System.Drawing.Point(10, 132);
+            this.buttonKursleiter.Location = new System.Drawing.Point(11, 186);
             this.buttonKursleiter.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursleiter.Name = "buttonKursleiter";
-            this.buttonKursleiter.Size = new System.Drawing.Size(211, 44);
+            this.buttonKursleiter.Size = new System.Drawing.Size(223, 62);
             this.buttonKursleiter.TabIndex = 6;
             this.buttonKursleiter.Text = "Kursleiter";
             this.buttonKursleiter.UseVisualStyleBackColor = true;
@@ -1057,10 +1074,10 @@
             // buttonKursort
             // 
             this.buttonKursort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursort.Location = new System.Drawing.Point(10, 176);
+            this.buttonKursort.Location = new System.Drawing.Point(11, 248);
             this.buttonKursort.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursort.Name = "buttonKursort";
-            this.buttonKursort.Size = new System.Drawing.Size(211, 44);
+            this.buttonKursort.Size = new System.Drawing.Size(223, 62);
             this.buttonKursort.TabIndex = 7;
             this.buttonKursort.Text = "Kursort";
             this.buttonKursort.UseVisualStyleBackColor = true;
@@ -1069,30 +1086,30 @@
             // labelBtKursleiter
             // 
             this.labelBtKursleiter.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursleiter.Location = new System.Drawing.Point(0, 133);
+            this.labelBtKursleiter.Location = new System.Drawing.Point(0, 187);
             this.labelBtKursleiter.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKursleiter.Name = "labelBtKursleiter";
-            this.labelBtKursleiter.Size = new System.Drawing.Size(10, 42);
+            this.labelBtKursleiter.Size = new System.Drawing.Size(11, 60);
             this.labelBtKursleiter.TabIndex = 9;
             this.labelBtKursleiter.Visible = false;
             // 
             // labelBtKursort
             // 
             this.labelBtKursort.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursort.Location = new System.Drawing.Point(0, 177);
+            this.labelBtKursort.Location = new System.Drawing.Point(0, 249);
             this.labelBtKursort.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKursort.Name = "labelBtKursort";
-            this.labelBtKursort.Size = new System.Drawing.Size(10, 42);
+            this.labelBtKursort.Size = new System.Drawing.Size(11, 60);
             this.labelBtKursort.TabIndex = 8;
             this.labelBtKursort.Visible = false;
             // 
             // buttonTeilnehmer
             // 
             this.buttonTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTeilnehmer.Location = new System.Drawing.Point(10, 220);
+            this.buttonTeilnehmer.Location = new System.Drawing.Point(11, 310);
             this.buttonTeilnehmer.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTeilnehmer.Name = "buttonTeilnehmer";
-            this.buttonTeilnehmer.Size = new System.Drawing.Size(211, 44);
+            this.buttonTeilnehmer.Size = new System.Drawing.Size(223, 62);
             this.buttonTeilnehmer.TabIndex = 10;
             this.buttonTeilnehmer.Text = "Teilnehmer";
             this.buttonTeilnehmer.UseVisualStyleBackColor = true;
@@ -1101,21 +1118,22 @@
             // buttonKursbuchung
             // 
             this.buttonKursbuchung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursbuchung.Location = new System.Drawing.Point(10, 264);
+            this.buttonKursbuchung.Location = new System.Drawing.Point(11, 372);
             this.buttonKursbuchung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursbuchung.Name = "buttonKursbuchung";
-            this.buttonKursbuchung.Size = new System.Drawing.Size(211, 44);
+            this.buttonKursbuchung.Size = new System.Drawing.Size(223, 62);
             this.buttonKursbuchung.TabIndex = 13;
             this.buttonKursbuchung.Text = "Kursbuchung";
             this.buttonKursbuchung.UseVisualStyleBackColor = true;
+            this.buttonKursbuchung.Click += new System.EventHandler(this.buttonKursbuchung_Click);
             // 
             // buttonOffenePosten
             // 
             this.buttonOffenePosten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffenePosten.Location = new System.Drawing.Point(10, 308);
+            this.buttonOffenePosten.Location = new System.Drawing.Point(11, 434);
             this.buttonOffenePosten.Margin = new System.Windows.Forms.Padding(0);
             this.buttonOffenePosten.Name = "buttonOffenePosten";
-            this.buttonOffenePosten.Size = new System.Drawing.Size(211, 46);
+            this.buttonOffenePosten.Size = new System.Drawing.Size(223, 67);
             this.buttonOffenePosten.TabIndex = 14;
             this.buttonOffenePosten.Text = "Offene Rechnungen";
             this.buttonOffenePosten.UseVisualStyleBackColor = true;
@@ -1653,7 +1671,7 @@
             this.listViewKassabuchkonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKassabuchkonto.HideSelection = false;
             this.listViewKassabuchkonto.Location = new System.Drawing.Point(300, 260);
-            this.listViewKassabuchkonto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewKassabuchkonto.Margin = new System.Windows.Forms.Padding(4);
             this.listViewKassabuchkonto.Name = "listViewKassabuchkonto";
             this.listViewKassabuchkonto.Size = new System.Drawing.Size(1610, 440);
             this.listViewKassabuchkonto.TabIndex = 18;
@@ -1695,7 +1713,7 @@
             this.listViewKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKassabuch.HideSelection = false;
             this.listViewKassabuch.Location = new System.Drawing.Point(300, 260);
-            this.listViewKassabuch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewKassabuch.Margin = new System.Windows.Forms.Padding(4);
             this.listViewKassabuch.Name = "listViewKassabuch";
             this.listViewKassabuch.Size = new System.Drawing.Size(1610, 440);
             this.listViewKassabuch.TabIndex = 24;
@@ -1747,7 +1765,7 @@
             this.listViewRechnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewRechnung.HideSelection = false;
             this.listViewRechnung.Location = new System.Drawing.Point(300, 260);
-            this.listViewRechnung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewRechnung.Margin = new System.Windows.Forms.Padding(4);
             this.listViewRechnung.Name = "listViewRechnung";
             this.listViewRechnung.Size = new System.Drawing.Size(1610, 440);
             this.listViewRechnung.TabIndex = 25;
@@ -1930,7 +1948,8 @@
             // 
             // comboBoxKursTeilnehmer
             // 
-            this.comboBoxKursTeilnehmer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxKursTeilnehmer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxKursTeilnehmer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxKursTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursTeilnehmer.FormattingEnabled = true;
             this.comboBoxKursTeilnehmer.Location = new System.Drawing.Point(404, 219);
@@ -1953,20 +1972,191 @@
             this.labelKurs.Visible = false;
             this.labelKurs.Click += new System.EventHandler(this.labelKurs_Click);
             // 
+            // labelKursleiter
+            // 
+            this.labelKursleiter.AutoSize = true;
+            this.labelKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursleiter.Location = new System.Drawing.Point(791, 221);
+            this.labelKursleiter.Name = "labelKursleiter";
+            this.labelKursleiter.Size = new System.Drawing.Size(122, 29);
+            this.labelKursleiter.TabIndex = 32;
+            this.labelKursleiter.Text = "Kursleiter:";
+            this.labelKursleiter.Visible = false;
+            // 
+            // textBoxKursleiter
+            // 
+            this.textBoxKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursleiter.Location = new System.Drawing.Point(920, 219);
+            this.textBoxKursleiter.Name = "textBoxKursleiter";
+            this.textBoxKursleiter.ReadOnly = true;
+            this.textBoxKursleiter.Size = new System.Drawing.Size(188, 34);
+            this.textBoxKursleiter.TabIndex = 33;
+            this.textBoxKursleiter.Visible = false;
+            // 
+            // labelKursbuchungBis
+            // 
+            this.labelKursbuchungBis.AutoSize = true;
+            this.labelKursbuchungBis.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursbuchungBis.Location = new System.Drawing.Point(791, 221);
+            this.labelKursbuchungBis.Name = "labelKursbuchungBis";
+            this.labelKursbuchungBis.Size = new System.Drawing.Size(53, 29);
+            this.labelKursbuchungBis.TabIndex = 34;
+            this.labelKursbuchungBis.Text = "Bis:";
+            this.labelKursbuchungBis.Visible = false;
+            // 
+            // labelKursbuchungVon
+            // 
+            this.labelKursbuchungVon.AutoSize = true;
+            this.labelKursbuchungVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursbuchungVon.Location = new System.Drawing.Point(308, 222);
+            this.labelKursbuchungVon.Name = "labelKursbuchungVon";
+            this.labelKursbuchungVon.Size = new System.Drawing.Size(61, 29);
+            this.labelKursbuchungVon.TabIndex = 35;
+            this.labelKursbuchungVon.Text = "Von:";
+            this.labelKursbuchungVon.Visible = false;
+            // 
+            // dateTimePickerKursbuchungVon
+            // 
+            this.dateTimePickerKursbuchungVon.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKursbuchungVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKursbuchungVon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerKursbuchungVon.Location = new System.Drawing.Point(404, 219);
+            this.dateTimePickerKursbuchungVon.Name = "dateTimePickerKursbuchungVon";
+            this.dateTimePickerKursbuchungVon.Size = new System.Drawing.Size(251, 34);
+            this.dateTimePickerKursbuchungVon.TabIndex = 36;
+            this.dateTimePickerKursbuchungVon.Visible = false;
+            this.dateTimePickerKursbuchungVon.ValueChanged += new System.EventHandler(this.dateTimePickerKursbuchungVon_ValueChanged);
+            // 
+            // dateTimePickerKursbuchungBis
+            // 
+            this.dateTimePickerKursbuchungBis.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKursbuchungBis.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKursbuchungBis.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerKursbuchungBis.Location = new System.Drawing.Point(841, 219);
+            this.dateTimePickerKursbuchungBis.MaxDate = new System.DateTime(9998, 2, 1, 0, 0, 0, 0);
+            this.dateTimePickerKursbuchungBis.Name = "dateTimePickerKursbuchungBis";
+            this.dateTimePickerKursbuchungBis.Size = new System.Drawing.Size(251, 34);
+            this.dateTimePickerKursbuchungBis.TabIndex = 37;
+            this.dateTimePickerKursbuchungBis.Value = new System.DateTime(2020, 2, 1, 0, 0, 0, 0);
+            this.dateTimePickerKursbuchungBis.Visible = false;
+            this.dateTimePickerKursbuchungBis.ValueChanged += new System.EventHandler(this.dateTimePickerKursbuchungBis_ValueChanged);
+            // 
+            // listViewKursbuchung
+            // 
+            this.listViewKursbuchung.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader99,
+            this.columnHeader97,
+            this.columnHeader98,
+            this.columnHeader100,
+            this.columnHeader101,
+            this.columnHeader102,
+            this.columnHeader104});
+            this.listViewKursbuchung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewKursbuchung.HideSelection = false;
+            this.listViewKursbuchung.Location = new System.Drawing.Point(301, 261);
+            this.listViewKursbuchung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewKursbuchung.Name = "listViewKursbuchung";
+            this.listViewKursbuchung.Size = new System.Drawing.Size(1610, 440);
+            this.listViewKursbuchung.TabIndex = 38;
+            this.listViewKursbuchung.UseCompatibleStateImageBehavior = false;
+            this.listViewKursbuchung.View = System.Windows.Forms.View.Details;
+            this.listViewKursbuchung.Visible = false;
+            // 
+            // columnHeader97
+            // 
+            this.columnHeader97.Text = "Vorname";
+            this.columnHeader97.Width = 262;
+            // 
+            // columnHeader98
+            // 
+            this.columnHeader98.Text = "Nachname";
+            this.columnHeader98.Width = 249;
+            // 
+            // columnHeader99
+            // 
+            this.columnHeader99.Text = "ID";
+            // 
+            // columnHeader100
+            // 
+            this.columnHeader100.Text = "Kursbezeichnung";
+            this.columnHeader100.Width = 255;
+            // 
+            // columnHeader101
+            // 
+            this.columnHeader101.Text = "Seminarnummer";
+            this.columnHeader101.Width = 235;
+            // 
+            // columnHeader102
+            // 
+            this.columnHeader102.Text = "Buchungsdatum";
+            this.columnHeader102.Width = 319;
+            // 
+            // columnHeader104
+            // 
+            this.columnHeader104.Text = "Bezahlt";
+            this.columnHeader104.Width = 177;
+            // 
+            // buttonKursbuchungSuchen
+            // 
+            this.buttonKursbuchungSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKursbuchungSuchen.Location = new System.Drawing.Point(1145, 216);
+            this.buttonKursbuchungSuchen.Name = "buttonKursbuchungSuchen";
+            this.buttonKursbuchungSuchen.Size = new System.Drawing.Size(151, 37);
+            this.buttonKursbuchungSuchen.TabIndex = 39;
+            this.buttonKursbuchungSuchen.Text = "Suchen";
+            this.buttonKursbuchungSuchen.UseVisualStyleBackColor = true;
+            this.buttonKursbuchungSuchen.Visible = false;
+            this.buttonKursbuchungSuchen.Click += new System.EventHandler(this.buttonKursbuchungSuchen_Click);
+            // 
+            // buttonNeueKursbuchung
+            // 
+            this.buttonNeueKursbuchung.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNeueKursbuchung.Location = new System.Drawing.Point(248, 826);
+            this.buttonNeueKursbuchung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonNeueKursbuchung.Name = "buttonNeueKursbuchung";
+            this.buttonNeueKursbuchung.Size = new System.Drawing.Size(269, 63);
+            this.buttonNeueKursbuchung.TabIndex = 40;
+            this.buttonNeueKursbuchung.Text = "neue Kursbuchung";
+            this.buttonNeueKursbuchung.UseVisualStyleBackColor = true;
+            this.buttonNeueKursbuchung.Visible = false;
+            this.buttonNeueKursbuchung.Click += new System.EventHandler(this.buttonNeueKursbuchung_Click);
+            // 
+            // buttonKursbuchungBearbeiten
+            // 
+            this.buttonKursbuchungBearbeiten.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKursbuchungBearbeiten.Location = new System.Drawing.Point(531, 826);
+            this.buttonKursbuchungBearbeiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKursbuchungBearbeiten.Name = "buttonKursbuchungBearbeiten";
+            this.buttonKursbuchungBearbeiten.Size = new System.Drawing.Size(324, 63);
+            this.buttonKursbuchungBearbeiten.TabIndex = 41;
+            this.buttonKursbuchungBearbeiten.Text = "Kursbuchung bearbeiten";
+            this.buttonKursbuchungBearbeiten.UseVisualStyleBackColor = true;
+            this.buttonKursbuchungBearbeiten.Visible = false;
+            // 
             // FrmHaupt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Maroon;
-            this.ClientSize = new System.Drawing.Size(1924, 895);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.buttonKursbuchungBearbeiten);
+            this.Controls.Add(this.buttonNeueKursbuchung);
+            this.Controls.Add(this.tableLayoutPanelKursTermin);
+            this.Controls.Add(this.tableLayoutPanelStammdaten);
+            this.Controls.Add(this.buttonKursbuchungSuchen);
+            this.Controls.Add(this.listViewKursbuchung);
+            this.Controls.Add(this.dateTimePickerKursbuchungBis);
+            this.Controls.Add(this.dateTimePickerKursbuchungVon);
+            this.Controls.Add(this.labelKursbuchungVon);
+            this.Controls.Add(this.labelKursbuchungBis);
+            this.Controls.Add(this.textBoxKursleiter);
+            this.Controls.Add(this.labelKursleiter);
             this.Controls.Add(this.labelKurs);
             this.Controls.Add(this.comboBoxKursTeilnehmer);
             this.Controls.Add(this.listViewTeilnehmer);
             this.Controls.Add(this.listViewKursort);
             this.Controls.Add(this.listViewOffeneRechnung);
             this.Controls.Add(this.listViewKursleiter);
-            this.Controls.Add(this.tableLayoutPanelKursTermin);
-            this.Controls.Add(this.tableLayoutPanelStammdaten);
             this.Controls.Add(this.listViewRechnung);
             this.Controls.Add(this.listViewKassabuch);
             this.Controls.Add(this.listViewKassabuchkonto);
@@ -2206,5 +2396,22 @@
         private System.Windows.Forms.Label labelKurs;
         private System.Windows.Forms.ColumnHeader columnHeader95;
         private System.Windows.Forms.ColumnHeader columnHeader96;
+        private System.Windows.Forms.Label labelKursleiter;
+        private System.Windows.Forms.TextBox textBoxKursleiter;
+        private System.Windows.Forms.Label labelKursbuchungBis;
+        private System.Windows.Forms.Label labelKursbuchungVon;
+        private System.Windows.Forms.DateTimePicker dateTimePickerKursbuchungVon;
+        private System.Windows.Forms.DateTimePicker dateTimePickerKursbuchungBis;
+        private System.Windows.Forms.ListView listViewKursbuchung;
+        private System.Windows.Forms.ColumnHeader columnHeader99;
+        private System.Windows.Forms.ColumnHeader columnHeader97;
+        private System.Windows.Forms.ColumnHeader columnHeader98;
+        private System.Windows.Forms.ColumnHeader columnHeader100;
+        private System.Windows.Forms.ColumnHeader columnHeader101;
+        private System.Windows.Forms.ColumnHeader columnHeader102;
+        private System.Windows.Forms.ColumnHeader columnHeader104;
+        private System.Windows.Forms.Button buttonKursbuchungSuchen;
+        private System.Windows.Forms.Button buttonNeueKursbuchung;
+        private System.Windows.Forms.Button buttonKursbuchungBearbeiten;
     }
 }

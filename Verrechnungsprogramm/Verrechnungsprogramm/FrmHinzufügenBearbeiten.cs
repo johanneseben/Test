@@ -21,6 +21,7 @@ namespace Verrechnungsprogramm
         public FrmHinzufügenBearbeiten()
         {
             InitializeComponent();
+            //client = new RestClient("http://localhost:8888")
             client = new RestClient("http://vhs-mistelbach.projects.hakmistelbach.ac.at:20218")
             {
                 Authenticator = new HttpBasicAuthenticator("demo", "demo")
@@ -160,6 +161,8 @@ namespace Verrechnungsprogramm
             comboBoxKursortOrt.SelectedIndex = comboBoxKursortOrt.FindStringExact(ort);
 
             listViewKontakt.FullRowSelect = true;
+            listViewKurs.FullRowSelect = true;
+            listViewKursleiter.FullRowSelect = true;
 
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Altersgruppe"))
             {
@@ -1442,6 +1445,7 @@ namespace Verrechnungsprogramm
                 this.Close();
             }
 
+
         }
 
         private void kursleiterBearbeiten()
@@ -2258,7 +2262,139 @@ namespace Verrechnungsprogramm
             }
         }
 
-       
+        private void buttonKursSuchen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonKursleiterSuchen_Click(object sender, EventArgs e)
+        {
+            listViewKursleiter.Items.Clear();
+            string vorname = textBoxKursleiterSucheVorname.Text;
+            string nachname = textBoxKursleiterSucheNachname.Text;
+
+            int vornL = textBoxKursleiterSucheVorname.Text.Length;
+            int nachL = textBoxKursleiterSucheNachname.Text.Length;
+
+            var request = new RestRequest("kursleiter", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kursleiter>>(request);
+
+
+
+            foreach (Kursleiter k in response.Data)
+            {
+                if ((k.KontaktID.Vorname.ToLower().Substring(0, vornL).Equals(vorname)) && (k.KontaktID.Nachname.ToLower().Substring(0, nachL).Equals(nachname)))
+                {
+                    ListViewItem lvItem = new ListViewItem(k.KursleiterID.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.Vorname.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.Nachname.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.PostleitzahlID.Plz.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.PostleitzahlID.Ort.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.Strasse.ToString());
+                    listViewKursleiter.Items.Add(lvItem);
+                }
+                else if ((k.KontaktID.Vorname.Substring(0, vornL).Equals(vorname)) && (k.KontaktID.Nachname.Substring(0, nachL).Equals(nachname)))
+                {
+                    ListViewItem lvItem = new ListViewItem(k.KursleiterID.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.Vorname.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.Nachname.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.PostleitzahlID.Plz.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.PostleitzahlID.Ort.ToString());
+                    lvItem.SubItems.Add(k.KontaktID.Strasse.ToString());
+                    listViewKursleiter.Items.Add(lvItem);
+                }
+            }
+        }
+
+        private void linkLabelKursleiterAuswaehlen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panelKursleiterSuche.Visible = true;
+            panelKurs.Visible = false;
+
+            listViewKursleiter.Items.Clear();
+
+            var request = new RestRequest("kursleiter", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kursleiter>>(request);
+
+            foreach (Kursleiter k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KursleiterID.ToString());
+                lvItem.SubItems.Add(k.KontaktID.Vorname.ToString());
+                lvItem.SubItems.Add(k.KontaktID.Nachname.ToString());
+                lvItem.SubItems.Add(k.KontaktID.PostleitzahlID.Plz.ToString());
+                lvItem.SubItems.Add(k.KontaktID.PostleitzahlID.Ort.ToString());
+                lvItem.SubItems.Add(k.KontaktID.Strasse.ToString());
+                listViewKursleiter.Items.Add(lvItem);
+            }
+        }
+
+        private void linkLabelKontaktAuswaehlen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panelKontaktSuche.Visible = true;
+            panelKursbuchung.Visible = false;
+
+            listViewKontakt.Items.Clear();
+
+            var request = new RestRequest("kontakte", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kontakt>>(request);
+
+            foreach (Kontakt k in response.Data)
+            {
+
+                ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Vorname.ToString());
+                lvItem.SubItems.Add(k.Nachname.ToString());
+                lvItem.SubItems.Add(k.SVNr.ToString());
+                lvItem.SubItems.Add(k.Geschlecht.ToString());
+                lvItem.SubItems.Add(k.Familienstand.ToString());
+
+                listViewKontakt.Items.Add(lvItem);
+
+            }
+        }
+
+        private void linkLabelKursAuswaehlen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panelKursSuche.Visible = false;
+            panelKursbuchung.Visible = false;
+
+            listViewKurs.Items.Clear();
+
+            var request = new RestRequest("kurse", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kurs>>(request);
+
+            foreach (Kurs k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KursID.ToString());
+                lvItem.SubItems.Add(k.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.KurskategorieID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Seminarnummer.ToString());
+                listViewKurs.Items.Add(lvItem);
+            }
+        }
+
+        private void listViewKursleiter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKursleiter_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            textBoxKursleiterName.Text = listViewKursleiter.SelectedItems[0].SubItems[1].Text.ToString() + " " + listViewKursleiter.SelectedItems[0].SubItems[2].Text.ToString();
+            labelKursleiterID.Text = listViewKursleiter.SelectedItems[0].SubItems[0].Text.ToString();
+            panelKursleiterSuche.Visible = false;
+            panelKurs.Visible = true;
+        }
+
+        private void listViewKurs_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
 
         private void rechnungHinzufügen()
         {

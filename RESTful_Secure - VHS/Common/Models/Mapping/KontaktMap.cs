@@ -12,14 +12,14 @@ namespace Common.Models.Mapping
         public KontaktMap()
         {
             Id(x => x.KontaktID).GeneratedBy.HiLo("10");
-            References(x => x.TitelID).Column("TitelID").Not.LazyLoad();
+            References(x => x.TitelID).Column("TitelID").Nullable().Not.LazyLoad();
             Map(x => x.Vorname).Not.Nullable();
             Map(x => x.Nachname).Not.Nullable();
             Map(x => x.SVNr);
             Map(x => x.Geschlecht);
             Map(x => x.Familienstand);
             Map(x => x.Email);
-            Map(x => x.Telefonnummer).Not.Nullable();
+            Map(x => x.Telefonnummer);
             Map(x => x.Strasse).Not.Nullable();
             References(x => x.PostleitzahlID).Column("PostleitzahlID").Not.Nullable().Not.LazyLoad();
             References(x => x.AltersgruppeID).Column("AltersgruppeID").Not.Nullable().Not.LazyLoad();

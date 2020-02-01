@@ -22,6 +22,7 @@ namespace Verrechnungsprogramm
         public FrmHaupt()
         {
             InitializeComponent();
+            //client = new RestClient("http://localhost:8888")
             client = new RestClient("http://vhs-mistelbach.projects.hakmistelbach.ac.at:20218")
             {
                 Authenticator = new HttpBasicAuthenticator("demo", "demo")
@@ -163,6 +164,16 @@ namespace Verrechnungsprogramm
             listViewKursort.Visible = false;
             comboBoxKursTeilnehmer.Visible = false;
             labelKurs.Visible = false;
+            labelKursleiter.Visible = false;
+            textBoxKursleiter.Visible = false;
+            labelKursbuchungVon.Visible = false;
+            labelKursbuchungBis.Visible = false;
+            dateTimePickerKursbuchungBis.Visible = false;
+            dateTimePickerKursbuchungVon.Visible = false;
+            buttonKursbuchungSuchen.Visible = false;
+            listViewKursbuchung.Visible = false;
+            buttonNeueKursbuchung.Visible = false;
+            buttonKursbuchungBearbeiten.Visible = false;
         }
 
         private void buttonKontakt_Click(object sender, EventArgs e)
@@ -1262,6 +1273,8 @@ namespace Verrechnungsprogramm
             labelBtTeilnehmer.Visible = true;
             labelKurs.Visible = true;
             comboBoxKursTeilnehmer.Visible = true;
+            labelKursleiter.Visible = true;
+            textBoxKursleiter.Visible = true;
 
             comboBoxKursTeilnehmer.Items.Clear();
             var request = new RestRequest("kurse", Method.GET);
@@ -1279,20 +1292,38 @@ namespace Verrechnungsprogramm
         {
             listViewTeilnehmer.Items.Clear();
 
-            var request = new RestRequest("kontaktKurse", Method.GET);
+            var requestKontaktKurs = new RestRequest("kontaktKurse", Method.GET);
+            requestKontaktKurs.AddHeader("Content-Type", "application/json");
+            var responseKontaktKurs = client.Execute<List<KontaktKurs>>(requestKontaktKurs);
 
-            request.AddHeader("Content-Type", "application/json");
-            var response = client.Execute<List<KontaktKurs>>(request);
+            var requestKursleiterKurs = new RestRequest("kursleiterKurse", Method.GET);
+            requestKursleiterKurs.AddHeader("Content-Type", "application/json");
+            var responseKursleiterKurs = client.Execute<List<KursleiterKurs>>(requestKursleiterKurs);
 
-            foreach (KontaktKurs kk in response.Data)
+
+            foreach (KontaktKurs kk in responseKontaktKurs.Data)
             {
                 if(comboBoxKursTeilnehmer.Text.Equals(kk.KursID.Bezeichnung))
                 {
+                    foreach(KursleiterKurs klk in responseKursleiterKurs.Data)
+                    {
+                        if(kk.KursID.KursID.ToString().Equals(klk.KursID.KursID.ToString()))
+                        {
+                            textBoxKursleiter.Text = klk.KursleiterID.KontaktID.Vorname.ToString() + " " + klk.KursleiterID.KontaktID.Nachname.ToString();
+                        }
+                    }
                 ListViewItem lvItem = new ListViewItem(kk.KontakID.Vorname.ToString());
                 lvItem.SubItems.Add(kk.KontakID.Nachname.ToString());
                 listViewTeilnehmer.Items.Add(lvItem);
                 }
+                else
+                {
+                    textBoxKursleiter.Text = "";
+                }
+
             }
+
+            
         }
 
         private void buttonOffenePosten_Click(object sender, EventArgs e)
@@ -1411,6 +1442,95 @@ namespace Verrechnungsprogramm
         private void listViewKontakt_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonKursbuchung_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Kursbuchungen";
+            listViewKursbuchung.Visible = true;
+            tableLayoutPanelKursTermin.Visible = true;
+            labelBtKursbuchung.Visible = true;
+            labelKursbuchungVon.Visible = true;
+            labelKursbuchungBis.Visible = true;
+            dateTimePickerKursbuchungBis.Visible = true;
+            dateTimePickerKursbuchungVon.Visible = true;
+            buttonKursbuchungSuchen.Visible = true;
+            buttonNeueKursbuchung.Visible = true;
+            buttonKursbuchungBearbeiten.Visible = true;
+            kursbuchungEinlesen();
+        }
+
+        private void kursbuchungEinlesen()
+        {
+            listViewKursbuchung.Items.Clear();
+
+            var requestKontaktKurs = new RestRequest("kontaktKurse", Method.GET);
+            requestKontaktKurs.AddHeader("Content-Type", "application/json");
+            var responseKontaktKurs = client.Execute<List<KontaktKurs>>(requestKontaktKurs);
+
+            foreach (KontaktKurs kk in responseKontaktKurs.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(kk.KontaktKursID.ToString());
+                lvItem.SubItems.Add(kk.KontakID.Vorname.ToString());
+                lvItem.SubItems.Add(kk.KontakID.Nachname.ToString());
+                lvItem.SubItems.Add(kk.KursID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(kk.KursID.Seminarnummer.ToString());
+                lvItem.SubItems.Add(kk.Buchungsdatum.ToShortDateString());
+                lvItem.SubItems.Add(kk.Bezahlt.ToString());
+                listViewKursbuchung.Items.Add(lvItem);
+            }
+        }
+
+        private void buttonKursbuchungSuchen_Click(object sender, EventArgs e)
+        {
+            listViewKursbuchung.Items.Clear();
+
+            var requestKontaktKurs = new RestRequest("kontaktKurse", Method.GET);
+            requestKontaktKurs.AddHeader("Content-Type", "application/json");
+            var responseKontaktKurs = client.Execute<List<KontaktKurs>>(requestKontaktKurs);
+
+            foreach (KontaktKurs kk in responseKontaktKurs.Data)
+            {
+                if (dateTimePickerKursbuchungVon.Value <= kk.Buchungsdatum && dateTimePickerKursbuchungBis.Value >= kk.Buchungsdatum)
+                {
+                    ListViewItem lvItem = new ListViewItem(kk.KontaktKursID.ToString());
+                    lvItem.SubItems.Add(kk.KontakID.Vorname.ToString());
+                    lvItem.SubItems.Add(kk.KontakID.Nachname.ToString());
+                    lvItem.SubItems.Add(kk.KursID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(kk.KursID.Seminarnummer.ToString());
+                    lvItem.SubItems.Add(kk.Buchungsdatum.ToShortDateString());
+                    lvItem.SubItems.Add(kk.Bezahlt.ToString());
+                    listViewKursbuchung.Items.Add(lvItem);
+                }
+            }
+        }
+
+        private void dateTimePickerKursbuchungBis_ValueChanged(object sender, EventArgs e)
+        {
+            if(dateTimePickerKursbuchungBis.Value < dateTimePickerKursbuchungVon.Value)
+            {
+                MessageBox.Show("Das Datum muss größer als " + dateTimePickerKursbuchungVon.Value.ToShortDateString() + " sein.");
+            }
+        }
+
+        private void dateTimePickerKursbuchungVon_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePickerKursbuchungBis.Value < dateTimePickerKursbuchungVon.Value)
+            {
+                MessageBox.Show("Das Datum muss kleiner als " + dateTimePickerKursbuchungBis.Value.ToShortDateString() + " sein.");
+            }
+        }
+
+        private void buttonNeueKursbuchung_Click(object sender, EventArgs e)
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonHinzufügen.Text;
+            fHinzuBea.labelÜberschrift.Text = buttonKursbuchungBearbeiten.Text;
+            fHinzuBea.ShowDialog();
+
+            kursbuchungEinlesen();
         }
     }
 }
