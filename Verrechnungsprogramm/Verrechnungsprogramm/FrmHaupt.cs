@@ -1532,5 +1532,7 @@ namespace Verrechnungsprogramm
 
             kursbuchungEinlesen();
         }
+
+       
     }
 }

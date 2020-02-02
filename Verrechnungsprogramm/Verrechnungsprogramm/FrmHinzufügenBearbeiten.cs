@@ -2082,13 +2082,21 @@ namespace Verrechnungsprogramm
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
 
             var request = new RestRequest("kassabuchkonten", Method.GET);
-
             request.AddHeader("Content-Type", "application/json");
             var response = client.Execute<List<Kassabuchkonto>>(request);
 
+            Kassabuch kassabuch = new Kassabuch();
+
+            var requestkassabuch = new RestRequest("kassabuecher", Method.GET);
+            requestkassabuch.AddHeader("Content-Type", "application/json");
+            var responsekassabuch = client.Execute<List<Kassabuch>>(requestkassabuch);
+
+            int inde = comboBoxKassabuchkontoID.Text.IndexOf(" ");
+           
+
             foreach (Kassabuchkonto k in response.Data)
             {
-                if (k.KassabuchkontoID == 198)
+                if (k.KassabuchkontoID == Convert.ToInt32(comboBoxKassabuchkontoID.Text.Substring(0, inde)))
                 {
                     kassabuchkonto.KassabuchkontoID = k.KassabuchkontoID;
                     kassabuchkonto.Kontonummer = k.Kontonummer;
@@ -2106,10 +2114,7 @@ namespace Verrechnungsprogramm
                     {
                         MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                    {
-                        MessageBox.Show("Erfolgreich geändert!");
-                    }
+                    
                 }
             }
         }
