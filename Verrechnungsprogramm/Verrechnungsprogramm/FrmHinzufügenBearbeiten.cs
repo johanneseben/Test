@@ -146,6 +146,7 @@ namespace Verrechnungsprogramm
             foreach (Kurskategorie kk in responseKurskategorie.Data)
             {
                 comboBoxKursKurskategorie.Items.Add(kk.Bezeichnung.ToString());
+                comboBoxKursSucheKurskategorie.Items.Add(kk.Bezeichnung.ToString());
             }
 
             foreach (Kursort k in responseKursort.Data)
@@ -167,42 +168,82 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Altersgruppe"))
             {
                 panelAltersgruppeSozialgruppeKurskategorie.Visible = true;
+                this.Height = 290;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelAltersgruppeSozialgruppeKurskategorie.Location = new Point(10, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Titel"))
             {
                 panelTitel.Visible = true;
+                this.Height = 300;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelTitel.Location = new Point(0, 45);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Sozialgruppe"))
             {
                 panelAltersgruppeSozialgruppeKurskategorie.Visible = true;
+                this.Height = 290;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelAltersgruppeSozialgruppeKurskategorie.Location = new Point(10, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kontakt"))
             {
                 panelKontakt.Visible = true;
+                this.Height = 750;
+                this.Width = 500;
+                this.Location = new Point(400, 50);
+                panelKontakt.Location = new Point(10, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kurskategorie"))
             {
                 panelAltersgruppeSozialgruppeKurskategorie.Visible = true;
+                this.Height = 290;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelAltersgruppeSozialgruppeKurskategorie.Location = new Point(10, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kurs"))
             {
                 panelKurs.Visible = true;
+                this.Height = 565;
+                this.Width = 1420;
+                this.Location = new Point(70, 120);
+                panelKurs.Location = new Point(0, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Bankverbindung"))
             {
                 panelBankverbindung.Visible = true;
+                this.Height = 320;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelBankverbindung.Location = new Point(5, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Pass"))
             {
                 panelPass.Visible = true;
+                this.Height = 340;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelPass.Location = new Point(5, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Schlüssel"))
             {
                 panelSchluessel.Visible = true;
+                this.Height = 400;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelSchluessel.Location = new Point(0, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Gutschein"))
             {
                 panelGutschein.Visible = true;
+                this.Height = 300;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelGutschein.Location = new Point(5, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kassabuchkonto"))
             {
@@ -232,15 +273,36 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kursort"))
             {
                 panelKursort.Visible = true;
+                this.Height = 410;
+                this.Width = 460;
+                this.Location = new Point(200, 150);
+                panelKursort.Location = new Point(0,50);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Mitgliedschaft"))
             {
                 panelMitgliedschaft.Visible = true;
+                this.Height = 325;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelMitgliedschaft.Location = new Point(0, 50);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kursleiter"))
             {
                 panelKontaktSuche.Visible = true;
+                this.Height = 450;
+                this.Width = 800;
+                this.Location = new Point(200, 150);
+                panelKontaktSuche.Location = new Point(0, 60);
             }
+            if (labelÜberschrift.Text.Equals("neue Kursbuchung"))
+            {
+                panelKursbuchung.Visible = true;
+                this.Height = 450;
+                this.Width = 630;
+                this.Location = new Point(200, 150);
+                panelKursbuchung.Location = new Point(-15, 60);
+            }
+
 
 
         }
@@ -1416,6 +1478,10 @@ namespace Verrechnungsprogramm
             }
             panelBankverbindung.Visible = false;
             panelKontaktSuche.Visible = true;
+            this.Height = 450;
+            this.Width = 800;
+            this.Location = new Point(200, 150);
+            panelKontaktSuche.Location = new Point(0, 60);
         }
 
         private void listViewKontakt_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -1425,12 +1491,20 @@ namespace Verrechnungsprogramm
                 textBoxBankverbindungKontaktID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text;
                 panelBankverbindung.Visible = true;
                 panelKontaktSuche.Visible = false;
+                this.Height = 320;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelBankverbindung.Location = new Point(5, 70);
             }
             if ((labelÜberschrift.Text.Equals("Pass bearbeiten")) || (labelÜberschrift.Text.Equals("Pass anlegen")))
             {
                 textBoxPassKontaktID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text;
                 panelPass.Visible = true;
                 panelKontaktSuche.Visible = false;
+                this.Height = 340;
+                this.Width = 500;
+                this.Location = new Point(200, 150);
+                panelPass.Location = new Point(5, 70);
             }
             if (labelÜberschrift.Text.Equals("Kursleiter bearbeiten"))
             {
@@ -1444,7 +1518,17 @@ namespace Verrechnungsprogramm
                 fHaupt.kursleiterEinlesen();
                 this.Close();
             }
-
+            if(labelÜberschrift.Text.Equals("neue Kursbuchung"))
+            {
+                labelKursbuchungKontaktID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text + "";
+                textBoxKursbuchungKontakt.Text = listViewKontakt.SelectedItems[0].SubItems[2].Text + " " + listViewKontakt.SelectedItems[0].SubItems[3].Text;
+                panelKursbuchung.Visible = true;
+                panelKontaktSuche.Visible = false;
+                this.Height = 450;
+                this.Width = 630;
+                this.Location = new Point(200, 150);
+                panelKursbuchung.Location = new Point(-15, 60);
+            }
 
         }
 
@@ -1575,6 +1659,9 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
                 lvItem.SubItems.Add(k.Vorname.ToString());
                 lvItem.SubItems.Add(k.Nachname.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                lvItem.SubItems.Add(k.Strasse.ToString());
                 lvItem.SubItems.Add(k.SVNr.ToString());
                 lvItem.SubItems.Add(k.Geschlecht.ToString());
                 lvItem.SubItems.Add(k.Familienstand.ToString());
@@ -1583,6 +1670,10 @@ namespace Verrechnungsprogramm
             }
             panelPass.Visible = false;
             panelKontaktSuche.Visible = true;
+            this.Height = 450;
+            this.Width = 800;
+            this.Location = new Point(200, 150);
+            panelKontaktSuche.Location = new Point(0, 60);
         }
 
         private void einlesenKontaktinListView()
@@ -1600,6 +1691,9 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
                 lvItem.SubItems.Add(k.Vorname.ToString());
                 lvItem.SubItems.Add(k.Nachname.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                lvItem.SubItems.Add(k.Strasse.ToString());
                 lvItem.SubItems.Add(k.SVNr.ToString());
                 lvItem.SubItems.Add(k.Geschlecht.ToString());
                 lvItem.SubItems.Add(k.Familienstand.ToString());
@@ -1726,6 +1820,9 @@ namespace Verrechnungsprogramm
                     lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
                     lvItem.SubItems.Add(k.Vorname.ToString());
                     lvItem.SubItems.Add(k.Nachname.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                    lvItem.SubItems.Add(k.Strasse.ToString());
                     lvItem.SubItems.Add(k.SVNr.ToString());
                     lvItem.SubItems.Add(k.Geschlecht.ToString());
                     lvItem.SubItems.Add(k.Familienstand.ToString());
@@ -1738,6 +1835,9 @@ namespace Verrechnungsprogramm
                     lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
                     lvItem.SubItems.Add(k.Vorname.ToString());
                     lvItem.SubItems.Add(k.Nachname.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                    lvItem.SubItems.Add(k.Strasse.ToString());
                     lvItem.SubItems.Add(k.SVNr.ToString());
                     lvItem.SubItems.Add(k.Geschlecht.ToString());
                     lvItem.SubItems.Add(k.Familienstand.ToString());
@@ -2269,7 +2369,36 @@ namespace Verrechnungsprogramm
 
         private void buttonKursSuchen_Click(object sender, EventArgs e)
         {
+            listViewKurs.Items.Clear();
 
+            string bezeichnung = textBoxKursSucheBezeichnung.Text;
+            string kurskategorie = comboBoxKursSucheKurskategorie.Text;
+            int bezL = textBoxKursSucheBezeichnung.Text.Length;
+            int kurskatL = comboBoxKursSucheKurskategorie.Text.Length;
+
+            var request = new RestRequest("kurse", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kurs>>(request);
+
+            foreach (Kurs k in response.Data)
+            {
+                if ((k.Bezeichnung.ToLower().Substring(0, bezL).Equals(bezeichnung)) && (k.KurskategorieID.Bezeichnung.ToLower().Substring(0, kurskatL).Equals(kurskategorie)))
+                {
+                    ListViewItem lvItem = new ListViewItem(k.KursID.ToString());
+                    lvItem.SubItems.Add(k.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.KurskategorieID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.Seminarnummer.ToString());
+                    listViewKurs.Items.Add(lvItem);
+                }
+                else if ((k.Bezeichnung.Substring(0, bezL).Equals(bezeichnung)) && (k.KurskategorieID.Bezeichnung.Substring(0, kurskatL).Equals(kurskategorie)))
+                {
+                    ListViewItem lvItem = new ListViewItem(k.KursID.ToString());
+                    lvItem.SubItems.Add(k.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.KurskategorieID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.Seminarnummer.ToString());
+                    listViewKurs.Items.Add(lvItem);
+                }
+            }
         }
 
         private void buttonKursleiterSuchen_Click(object sender, EventArgs e)
@@ -2353,6 +2482,9 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
                 lvItem.SubItems.Add(k.Vorname.ToString());
                 lvItem.SubItems.Add(k.Nachname.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                lvItem.SubItems.Add(k.Strasse.ToString());
                 lvItem.SubItems.Add(k.SVNr.ToString());
                 lvItem.SubItems.Add(k.Geschlecht.ToString());
                 lvItem.SubItems.Add(k.Familienstand.ToString());
@@ -2360,6 +2492,13 @@ namespace Verrechnungsprogramm
                 listViewKontakt.Items.Add(lvItem);
 
             }
+
+                panelKontaktSuche.Visible = true;
+                this.Height = 450;
+                this.Width = 800;
+                this.Location = new Point(200, 150);
+                panelKontaktSuche.Location = new Point(0, 60);
+            
         }
 
         private void linkLabelKursAuswaehlen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -2381,6 +2520,12 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.Seminarnummer.ToString());
                 listViewKurs.Items.Add(lvItem);
             }
+
+            panelKursSuche.Visible = true;
+            this.Height = 450;
+            this.Width = 950;
+            this.Location = new Point(200, 150);
+            panelKursSuche.Location = new Point(0, 60);
         }
 
         private void listViewKursleiter_SelectedIndexChanged(object sender, EventArgs e)
@@ -2398,7 +2543,80 @@ namespace Verrechnungsprogramm
 
         private void listViewKurs_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            labelKursbuchungKursID.Text = listViewKurs.SelectedItems[0].SubItems[0].Text;
+            textBoxKursbuchungKurs.Text = listViewKurs.SelectedItems[0].SubItems[1].Text;
+            panelKursbuchung.Visible = true;
+            panelKursSuche.Visible = false;
+            this.Height = 450;
+            this.Width = 630;
+            this.Location = new Point(200, 150);
+            panelKursbuchung.Location = new Point(-15, 60);
+        }
 
+        private void textBoxKursbuchungKontakt_TextChanged(object sender, EventArgs e)
+        {
+            MitgliedschaftKontakt mitgliedschaftKontakt = new MitgliedschaftKontakt();
+
+            var request1 = new RestRequest("mitgliedschaftKontakte", Method.GET);
+            request1.AddHeader("Content-Type", "application/json");
+            var response1 = client.Execute<List<MitgliedschaftKontakt>>(request1);
+
+            foreach (MitgliedschaftKontakt mk in response1.Data)
+            {
+                if(labelKursbuchungKontaktID.Text.Equals(mk.KontaktID.KontaktID.ToString()))
+                {
+                    labelKursbuchungProzent.Text = mk.MitgliedschaftID.Ermaessigung.ToString();
+                    textBoxKursbuchungMitglied.Text = "ja";
+                }
+                else
+                {
+                    textBoxKursbuchungMitglied.Text = "nein";
+                }
+            }
+
+            if(textBoxKursbuchungMitglied.Text.Equals("ja"))
+            {
+                comboBoxKursbuchungBonus.Visible = true;
+            }
+            else
+            {
+                comboBoxKursbuchungBonus.Visible = false;
+            }
+        }
+
+        private void textBoxKursbuchungKurs_TextChanged(object sender, EventArgs e)
+        {
+            Kurs kurs = new Kurs();
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            foreach(Kurs k in responseKurs.Data)
+            {
+                if(k.KursID.ToString().Equals(labelKursbuchungKursID.Text))
+                {
+                    textBoxKursbuchungPreis.Text = k.Preis.ToString();
+                    labelKursbuchungPreisOhneAbzug.Text = k.Preis.ToString();
+                }
+            }
+        }
+
+        private void comboBoxKursbuchungBonus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKursbuchungBonus.Text.Equals("ja"))
+            {
+                textBoxKursbuchungPreis.Text = (Convert.ToDouble(labelKursbuchungPreisOhneAbzug.Text)/ 100 * (100 - Convert.ToDouble(labelKursbuchungProzent.Text))).ToString();
+            }
+            else
+            {
+                textBoxKursbuchungPreis.Text = labelKursbuchungPreisOhneAbzug.Text;
+            }
+        }
+
+        private void buttonKursbuchungAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void rechnungHinzufügen()

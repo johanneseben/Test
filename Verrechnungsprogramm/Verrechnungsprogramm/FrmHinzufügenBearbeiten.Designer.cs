@@ -43,6 +43,15 @@
             this.textBoxBezeichnungTitel = new System.Windows.Forms.TextBox();
             this.labelID = new System.Windows.Forms.Label();
             this.panelKurs = new System.Windows.Forms.Panel();
+            this.groupBoxKursleiterDaten = new System.Windows.Forms.GroupBox();
+            this.labelKursleiterID = new System.Windows.Forms.Label();
+            this.linkLabelKursleiterAuswaehlen = new System.Windows.Forms.LinkLabel();
+            this.textBoxKursleiterName = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBoxKursleiterHonorar = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBoxKursleiterZulage = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.textBoxKursBeschreibung = new System.Windows.Forms.RichTextBox();
             this.comboBoxKursAnzeigen = new System.Windows.Forms.ComboBox();
             this.labelKursAnzeigen = new System.Windows.Forms.Label();
@@ -229,58 +238,54 @@
             this.textBoxKursortBezeichnung = new System.Windows.Forms.TextBox();
             this.labelKursortBezeichnung = new System.Windows.Forms.Label();
             this.panelKursbuchung = new System.Windows.Forms.Panel();
-            this.buttonKursbuchungSpeichern = new System.Windows.Forms.Button();
-            this.buttonKursbuchungAbbrechen = new System.Windows.Forms.Button();
+            this.linkLabelKursAuswaehlen = new System.Windows.Forms.LinkLabel();
+            this.linkLabelKontaktAuswaehlen = new System.Windows.Forms.LinkLabel();
+            this.textBoxKursbuchungPreis = new System.Windows.Forms.TextBox();
+            this.textBoxKursbuchungMitglied = new System.Windows.Forms.TextBox();
+            this.textBoxKursbuchungKurs = new System.Windows.Forms.TextBox();
+            this.textBoxKursbuchungKontakt = new System.Windows.Forms.TextBox();
+            this.labelKursbuchungKontakt = new System.Windows.Forms.Label();
+            this.labelKursbuchungBonus = new System.Windows.Forms.Label();
+            this.labelKursbuchungMitglied = new System.Windows.Forms.Label();
+            this.labelKursbuchungKurs = new System.Windows.Forms.Label();
+            this.dateTimePickerKursbuchungDatum = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
             this.labelKursbuchungPreis = new System.Windows.Forms.Label();
             this.comboBoxKursbuchungBonus = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.dateTimePickerKursbuchungDatum = new System.Windows.Forms.DateTimePicker();
-            this.labelKursbuchungKurs = new System.Windows.Forms.Label();
-            this.labelKursbuchungMitglied = new System.Windows.Forms.Label();
-            this.labelKursbuchungBonus = new System.Windows.Forms.Label();
-            this.labelKursbuchungKontakt = new System.Windows.Forms.Label();
-            this.textBoxKursbuchungKontakt = new System.Windows.Forms.TextBox();
-            this.textBoxKursbuchungKurs = new System.Windows.Forms.TextBox();
-            this.textBoxKursbuchungMitglied = new System.Windows.Forms.TextBox();
-            this.textBoxKursbuchungPreis = new System.Windows.Forms.TextBox();
-            this.linkLabelKontaktAuswaehlen = new System.Windows.Forms.LinkLabel();
-            this.linkLabelKursAuswaehlen = new System.Windows.Forms.LinkLabel();
-            this.groupBoxKursleiterDaten = new System.Windows.Forms.GroupBox();
-            this.textBoxKursleiterZulage = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxKursleiterHonorar = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBoxKursleiterName = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.linkLabelKursleiterAuswaehlen = new System.Windows.Forms.LinkLabel();
+            this.buttonKursbuchungSpeichern = new System.Windows.Forms.Button();
+            this.buttonKursbuchungAbbrechen = new System.Windows.Forms.Button();
             this.panelKursleiterSuche = new System.Windows.Forms.Panel();
-            this.panelKursSuche = new System.Windows.Forms.Panel();
-            this.listViewKursleiter = new System.Windows.Forms.ListView();
-            this.textBoxKursleiterSucheVorname = new System.Windows.Forms.TextBox();
-            this.textBoxKursleiterSucheNachname = new System.Windows.Forms.TextBox();
-            this.labelSucheKursleiterNachname = new System.Windows.Forms.Label();
+            this.buttonKursleiterSuchen = new System.Windows.Forms.Button();
             this.labelSucheKursleiterVorname = new System.Windows.Forms.Label();
+            this.labelSucheKursleiterNachname = new System.Windows.Forms.Label();
+            this.textBoxKursleiterSucheNachname = new System.Windows.Forms.TextBox();
+            this.textBoxKursleiterSucheVorname = new System.Windows.Forms.TextBox();
+            this.listViewKursleiter = new System.Windows.Forms.ListView();
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonKursleiterSuchen = new System.Windows.Forms.Button();
-            this.labelSucheKurskategorie = new System.Windows.Forms.Label();
-            this.labelSucheKursbezeichnung = new System.Windows.Forms.Label();
-            this.comboBoxKursSucheKurskategorie = new System.Windows.Forms.ComboBox();
-            this.buttonKursSuchen = new System.Windows.Forms.Button();
-            this.textBoxKursSucheBezeichnung = new System.Windows.Forms.TextBox();
+            this.panelKursSuche = new System.Windows.Forms.Panel();
             this.listViewKurs = new System.Windows.Forms.ListView();
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.labelKursleiterID = new System.Windows.Forms.Label();
+            this.textBoxKursSucheBezeichnung = new System.Windows.Forms.TextBox();
+            this.buttonKursSuchen = new System.Windows.Forms.Button();
+            this.labelSucheKurskategorie = new System.Windows.Forms.Label();
+            this.labelSucheKursbezeichnung = new System.Windows.Forms.Label();
+            this.comboBoxKursSucheKurskategorie = new System.Windows.Forms.ComboBox();
+            this.labelKursbuchungKontaktID = new System.Windows.Forms.Label();
+            this.labelKursbuchungKursID = new System.Windows.Forms.Label();
+            this.labelKursbuchungProzent = new System.Windows.Forms.Label();
+            this.labelKursbuchungPreisOhneAbzug = new System.Windows.Forms.Label();
             this.panelAltersgruppeSozialgruppeKurskategorie.SuspendLayout();
             this.panelTitel.SuspendLayout();
             this.panelKurs.SuspendLayout();
+            this.groupBoxKursleiterDaten.SuspendLayout();
             this.panelBankverbindung.SuspendLayout();
             this.panelPass.SuspendLayout();
             this.panelSchluessel.SuspendLayout();
@@ -293,19 +298,17 @@
             this.panelRechnung.SuspendLayout();
             this.panelKursort.SuspendLayout();
             this.panelKursbuchung.SuspendLayout();
-            this.groupBoxKursleiterDaten.SuspendLayout();
             this.panelKursleiterSuche.SuspendLayout();
             this.panelKursSuche.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelÜberschrift
             // 
-            this.labelÜberschrift.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelÜberschrift.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelÜberschrift.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelÜberschrift.Location = new System.Drawing.Point(3, -4);
+            this.labelÜberschrift.Location = new System.Drawing.Point(0, 0);
             this.labelÜberschrift.Name = "labelÜberschrift";
-            this.labelÜberschrift.Size = new System.Drawing.Size(1846, 90);
+            this.labelÜberschrift.Size = new System.Drawing.Size(1861, 90);
             this.labelÜberschrift.TabIndex = 14;
             this.labelÜberschrift.Text = "label1";
             this.labelÜberschrift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -504,6 +507,104 @@
             this.panelKurs.TabIndex = 36;
             this.panelKurs.Visible = false;
             this.panelKurs.Paint += new System.Windows.Forms.PaintEventHandler(this.panelKurs_Paint);
+            // 
+            // groupBoxKursleiterDaten
+            // 
+            this.groupBoxKursleiterDaten.Controls.Add(this.labelKursleiterID);
+            this.groupBoxKursleiterDaten.Controls.Add(this.linkLabelKursleiterAuswaehlen);
+            this.groupBoxKursleiterDaten.Controls.Add(this.textBoxKursleiterName);
+            this.groupBoxKursleiterDaten.Controls.Add(this.label28);
+            this.groupBoxKursleiterDaten.Controls.Add(this.textBoxKursleiterHonorar);
+            this.groupBoxKursleiterDaten.Controls.Add(this.label24);
+            this.groupBoxKursleiterDaten.Controls.Add(this.textBoxKursleiterZulage);
+            this.groupBoxKursleiterDaten.Controls.Add(this.label16);
+            this.groupBoxKursleiterDaten.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxKursleiterDaten.Location = new System.Drawing.Point(1329, 18);
+            this.groupBoxKursleiterDaten.Name = "groupBoxKursleiterDaten";
+            this.groupBoxKursleiterDaten.Size = new System.Drawing.Size(487, 300);
+            this.groupBoxKursleiterDaten.TabIndex = 60;
+            this.groupBoxKursleiterDaten.TabStop = false;
+            this.groupBoxKursleiterDaten.Text = "Kursleiter";
+            // 
+            // labelKursleiterID
+            // 
+            this.labelKursleiterID.AutoSize = true;
+            this.labelKursleiterID.Location = new System.Drawing.Point(145, 95);
+            this.labelKursleiterID.Name = "labelKursleiterID";
+            this.labelKursleiterID.Size = new System.Drawing.Size(109, 32);
+            this.labelKursleiterID.TabIndex = 57;
+            this.labelKursleiterID.Text = "label31";
+            this.labelKursleiterID.Visible = false;
+            // 
+            // linkLabelKursleiterAuswaehlen
+            // 
+            this.linkLabelKursleiterAuswaehlen.AutoSize = true;
+            this.linkLabelKursleiterAuswaehlen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelKursleiterAuswaehlen.Location = new System.Drawing.Point(317, 89);
+            this.linkLabelKursleiterAuswaehlen.Name = "linkLabelKursleiterAuswaehlen";
+            this.linkLabelKursleiterAuswaehlen.Size = new System.Drawing.Size(128, 29);
+            this.linkLabelKursleiterAuswaehlen.TabIndex = 58;
+            this.linkLabelKursleiterAuswaehlen.TabStop = true;
+            this.linkLabelKursleiterAuswaehlen.Text = "auswählen";
+            this.linkLabelKursleiterAuswaehlen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelKursleiterAuswaehlen_LinkClicked);
+            // 
+            // textBoxKursleiterName
+            // 
+            this.textBoxKursleiterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursleiterName.Location = new System.Drawing.Point(148, 49);
+            this.textBoxKursleiterName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursleiterName.Name = "textBoxKursleiterName";
+            this.textBoxKursleiterName.ReadOnly = true;
+            this.textBoxKursleiterName.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursleiterName.TabIndex = 57;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(14, 52);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(98, 32);
+            this.label28.TabIndex = 56;
+            this.label28.Text = "Name:";
+            // 
+            // textBoxKursleiterHonorar
+            // 
+            this.textBoxKursleiterHonorar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursleiterHonorar.Location = new System.Drawing.Point(148, 146);
+            this.textBoxKursleiterHonorar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursleiterHonorar.Name = "textBoxKursleiterHonorar";
+            this.textBoxKursleiterHonorar.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursleiterHonorar.TabIndex = 55;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(14, 149);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(125, 32);
+            this.label24.TabIndex = 54;
+            this.label24.Text = "Honorar:";
+            // 
+            // textBoxKursleiterZulage
+            // 
+            this.textBoxKursleiterZulage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursleiterZulage.Location = new System.Drawing.Point(148, 195);
+            this.textBoxKursleiterZulage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursleiterZulage.Name = "textBoxKursleiterZulage";
+            this.textBoxKursleiterZulage.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursleiterZulage.TabIndex = 53;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(14, 198);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(111, 32);
+            this.label16.TabIndex = 52;
+            this.label16.Text = "Zulage:";
             // 
             // textBoxKursBeschreibung
             // 
@@ -938,18 +1039,18 @@
             // textBoxBankverbindungKontaktID
             // 
             this.textBoxBankverbindungKontaktID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBankverbindungKontaktID.Location = new System.Drawing.Point(279, 97);
+            this.textBoxBankverbindungKontaktID.Location = new System.Drawing.Point(219, 97);
             this.textBoxBankverbindungKontaktID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxBankverbindungKontaktID.Name = "textBoxBankverbindungKontaktID";
             this.textBoxBankverbindungKontaktID.ReadOnly = true;
-            this.textBoxBankverbindungKontaktID.Size = new System.Drawing.Size(49, 38);
+            this.textBoxBankverbindungKontaktID.Size = new System.Drawing.Size(102, 38);
             this.textBoxBankverbindungKontaktID.TabIndex = 50;
             // 
             // linkLabelKontakteAnzeigen
             // 
             this.linkLabelKontakteAnzeigen.AutoSize = true;
             this.linkLabelKontakteAnzeigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelKontakteAnzeigen.Location = new System.Drawing.Point(340, 100);
+            this.linkLabelKontakteAnzeigen.Location = new System.Drawing.Point(329, 100);
             this.linkLabelKontakteAnzeigen.Name = "linkLabelKontakteAnzeigen";
             this.linkLabelKontakteAnzeigen.Size = new System.Drawing.Size(252, 32);
             this.linkLabelKontakteAnzeigen.TabIndex = 49;
@@ -984,19 +1085,19 @@
             // textBoxBankverbindungKontoinhaber
             // 
             this.textBoxBankverbindungKontoinhaber.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBankverbindungKontoinhaber.Location = new System.Drawing.Point(277, 53);
+            this.textBoxBankverbindungKontoinhaber.Location = new System.Drawing.Point(219, 53);
             this.textBoxBankverbindungKontoinhaber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxBankverbindungKontoinhaber.Name = "textBoxBankverbindungKontoinhaber";
-            this.textBoxBankverbindungKontoinhaber.Size = new System.Drawing.Size(297, 38);
+            this.textBoxBankverbindungKontoinhaber.Size = new System.Drawing.Size(355, 38);
             this.textBoxBankverbindungKontoinhaber.TabIndex = 45;
             // 
             // textBoxBankverbindungIBAN
             // 
             this.textBoxBankverbindungIBAN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBankverbindungIBAN.Location = new System.Drawing.Point(277, 7);
+            this.textBoxBankverbindungIBAN.Location = new System.Drawing.Point(219, 7);
             this.textBoxBankverbindungIBAN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxBankverbindungIBAN.Name = "textBoxBankverbindungIBAN";
-            this.textBoxBankverbindungIBAN.Size = new System.Drawing.Size(297, 38);
+            this.textBoxBankverbindungIBAN.Size = new System.Drawing.Size(355, 38);
             this.textBoxBankverbindungIBAN.TabIndex = 44;
             // 
             // labelBankverbindungKontakt
@@ -1044,7 +1145,7 @@
             this.columnHeader7});
             this.listViewKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKontakt.HideSelection = false;
-            this.listViewKontakt.Location = new System.Drawing.Point(61, 75);
+            this.listViewKontakt.Location = new System.Drawing.Point(37, 75);
             this.listViewKontakt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewKontakt.Name = "listViewKontakt";
             this.listViewKontakt.Size = new System.Drawing.Size(945, 340);
@@ -1125,7 +1226,7 @@
             // 
             this.linkLabelKontakteAnzeigen1.AutoSize = true;
             this.linkLabelKontakteAnzeigen1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelKontakteAnzeigen1.Location = new System.Drawing.Point(299, 18);
+            this.linkLabelKontakteAnzeigen1.Location = new System.Drawing.Point(322, 18);
             this.linkLabelKontakteAnzeigen1.Name = "linkLabelKontakteAnzeigen1";
             this.linkLabelKontakteAnzeigen1.Size = new System.Drawing.Size(252, 32);
             this.linkLabelKontakteAnzeigen1.TabIndex = 57;
@@ -1184,7 +1285,7 @@
             this.textBoxPassKontaktID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPassKontaktID.Name = "textBoxPassKontaktID";
             this.textBoxPassKontaktID.ReadOnly = true;
-            this.textBoxPassKontaktID.Size = new System.Drawing.Size(59, 38);
+            this.textBoxPassKontaktID.Size = new System.Drawing.Size(83, 38);
             this.textBoxPassKontaktID.TabIndex = 52;
             // 
             // labelPassKontaktID
@@ -2369,14 +2470,14 @@
             this.panelKursort.Location = new System.Drawing.Point(13, 65);
             this.panelKursort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelKursort.Name = "panelKursort";
-            this.panelKursort.Size = new System.Drawing.Size(696, 382);
+            this.panelKursort.Size = new System.Drawing.Size(602, 382);
             this.panelKursort.TabIndex = 48;
             this.panelKursort.Visible = false;
             // 
             // buttonKursortSpeichern
             // 
             this.buttonKursortSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursortSpeichern.Location = new System.Drawing.Point(347, 303);
+            this.buttonKursortSpeichern.Location = new System.Drawing.Point(319, 298);
             this.buttonKursortSpeichern.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKursortSpeichern.Name = "buttonKursortSpeichern";
             this.buttonKursortSpeichern.Size = new System.Drawing.Size(239, 66);
@@ -2388,7 +2489,7 @@
             // buttonKursortAbbrechen
             // 
             this.buttonKursortAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursortAbbrechen.Location = new System.Drawing.Point(69, 303);
+            this.buttonKursortAbbrechen.Location = new System.Drawing.Point(41, 298);
             this.buttonKursortAbbrechen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKursortAbbrechen.Name = "buttonKursortAbbrechen";
             this.buttonKursortAbbrechen.Size = new System.Drawing.Size(239, 66);
@@ -2402,7 +2503,7 @@
             this.comboBoxKursortOrt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKursortOrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursortOrt.FormattingEnabled = true;
-            this.comboBoxKursortOrt.Location = new System.Drawing.Point(339, 201);
+            this.comboBoxKursortOrt.Location = new System.Drawing.Point(261, 189);
             this.comboBoxKursortOrt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxKursortOrt.Name = "comboBoxKursortOrt";
             this.comboBoxKursortOrt.Size = new System.Drawing.Size(297, 39);
@@ -2414,7 +2515,7 @@
             this.comboBoxKursortPlz.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxKursortPlz.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursortPlz.FormattingEnabled = true;
-            this.comboBoxKursortPlz.Location = new System.Drawing.Point(339, 146);
+            this.comboBoxKursortPlz.Location = new System.Drawing.Point(261, 140);
             this.comboBoxKursortPlz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxKursortPlz.Name = "comboBoxKursortPlz";
             this.comboBoxKursortPlz.Size = new System.Drawing.Size(297, 39);
@@ -2426,7 +2527,7 @@
             // 
             this.labelKursortOrt.AutoSize = true;
             this.labelKursortOrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursortOrt.Location = new System.Drawing.Point(19, 207);
+            this.labelKursortOrt.Location = new System.Drawing.Point(32, 197);
             this.labelKursortOrt.Name = "labelKursortOrt";
             this.labelKursortOrt.Size = new System.Drawing.Size(62, 32);
             this.labelKursortOrt.TabIndex = 59;
@@ -2436,7 +2537,7 @@
             // 
             this.labelKursortPlz.AutoSize = true;
             this.labelKursortPlz.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursortPlz.Location = new System.Drawing.Point(16, 159);
+            this.labelKursortPlz.Location = new System.Drawing.Point(32, 146);
             this.labelKursortPlz.Name = "labelKursortPlz";
             this.labelKursortPlz.Size = new System.Drawing.Size(63, 32);
             this.labelKursortPlz.TabIndex = 58;
@@ -2445,7 +2546,7 @@
             // textBoxKursortStrasse
             // 
             this.textBoxKursortStrasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursortStrasse.Location = new System.Drawing.Point(339, 246);
+            this.textBoxKursortStrasse.Location = new System.Drawing.Point(261, 238);
             this.textBoxKursortStrasse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxKursortStrasse.Name = "textBoxKursortStrasse";
             this.textBoxKursortStrasse.Size = new System.Drawing.Size(297, 38);
@@ -2455,7 +2556,7 @@
             // 
             this.labelKursortStrasse.AutoSize = true;
             this.labelKursortStrasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursortStrasse.Location = new System.Drawing.Point(21, 249);
+            this.labelKursortStrasse.Location = new System.Drawing.Point(32, 248);
             this.labelKursortStrasse.Name = "labelKursortStrasse";
             this.labelKursortStrasse.Size = new System.Drawing.Size(108, 32);
             this.labelKursortStrasse.TabIndex = 56;
@@ -2464,7 +2565,7 @@
             // textBoxKursortBeschreibung
             // 
             this.textBoxKursortBeschreibung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursortBeschreibung.Location = new System.Drawing.Point(335, 94);
+            this.textBoxKursortBeschreibung.Location = new System.Drawing.Point(261, 92);
             this.textBoxKursortBeschreibung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxKursortBeschreibung.Name = "textBoxKursortBeschreibung";
             this.textBoxKursortBeschreibung.Size = new System.Drawing.Size(297, 38);
@@ -2474,7 +2575,7 @@
             // 
             this.labelKursortBeschreibung.AutoSize = true;
             this.labelKursortBeschreibung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursortBeschreibung.Location = new System.Drawing.Point(19, 97);
+            this.labelKursortBeschreibung.Location = new System.Drawing.Point(32, 95);
             this.labelKursortBeschreibung.Name = "labelKursortBeschreibung";
             this.labelKursortBeschreibung.Size = new System.Drawing.Size(198, 32);
             this.labelKursortBeschreibung.TabIndex = 54;
@@ -2483,7 +2584,7 @@
             // textBoxKursortBezeichnung
             // 
             this.textBoxKursortBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursortBezeichnung.Location = new System.Drawing.Point(335, 41);
+            this.textBoxKursortBezeichnung.Location = new System.Drawing.Point(261, 44);
             this.textBoxKursortBezeichnung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxKursortBezeichnung.Name = "textBoxKursortBezeichnung";
             this.textBoxKursortBezeichnung.Size = new System.Drawing.Size(297, 38);
@@ -2493,7 +2594,7 @@
             // 
             this.labelKursortBezeichnung.AutoSize = true;
             this.labelKursortBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursortBezeichnung.Location = new System.Drawing.Point(19, 44);
+            this.labelKursortBezeichnung.Location = new System.Drawing.Point(32, 44);
             this.labelKursortBezeichnung.Name = "labelKursortBezeichnung";
             this.labelKursortBezeichnung.Size = new System.Drawing.Size(189, 32);
             this.labelKursortBezeichnung.TabIndex = 52;
@@ -2501,6 +2602,10 @@
             // 
             // panelKursbuchung
             // 
+            this.panelKursbuchung.Controls.Add(this.labelKursbuchungPreisOhneAbzug);
+            this.panelKursbuchung.Controls.Add(this.labelKursbuchungProzent);
+            this.panelKursbuchung.Controls.Add(this.labelKursbuchungKursID);
+            this.panelKursbuchung.Controls.Add(this.labelKursbuchungKontaktID);
             this.panelKursbuchung.Controls.Add(this.linkLabelKursAuswaehlen);
             this.panelKursbuchung.Controls.Add(this.linkLabelKontaktAuswaehlen);
             this.panelKursbuchung.Controls.Add(this.textBoxKursbuchungPreis);
@@ -2523,27 +2628,131 @@
             this.panelKursbuchung.TabIndex = 49;
             this.panelKursbuchung.Visible = false;
             // 
-            // buttonKursbuchungSpeichern
+            // linkLabelKursAuswaehlen
             // 
-            this.buttonKursbuchungSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursbuchungSpeichern.Location = new System.Drawing.Point(412, 341);
-            this.buttonKursbuchungSpeichern.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonKursbuchungSpeichern.Name = "buttonKursbuchungSpeichern";
-            this.buttonKursbuchungSpeichern.Size = new System.Drawing.Size(239, 66);
-            this.buttonKursbuchungSpeichern.TabIndex = 39;
-            this.buttonKursbuchungSpeichern.Text = "Speichern";
-            this.buttonKursbuchungSpeichern.UseVisualStyleBackColor = true;
+            this.linkLabelKursAuswaehlen.AutoSize = true;
+            this.linkLabelKursAuswaehlen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelKursAuswaehlen.Location = new System.Drawing.Point(641, 80);
+            this.linkLabelKursAuswaehlen.Name = "linkLabelKursAuswaehlen";
+            this.linkLabelKursAuswaehlen.Size = new System.Drawing.Size(128, 29);
+            this.linkLabelKursAuswaehlen.TabIndex = 70;
+            this.linkLabelKursAuswaehlen.TabStop = true;
+            this.linkLabelKursAuswaehlen.Text = "auswählen";
+            this.linkLabelKursAuswaehlen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelKursAuswaehlen_LinkClicked);
             // 
-            // buttonKursbuchungAbbrechen
+            // linkLabelKontaktAuswaehlen
             // 
-            this.buttonKursbuchungAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursbuchungAbbrechen.Location = new System.Drawing.Point(135, 341);
-            this.buttonKursbuchungAbbrechen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonKursbuchungAbbrechen.Name = "buttonKursbuchungAbbrechen";
-            this.buttonKursbuchungAbbrechen.Size = new System.Drawing.Size(239, 66);
-            this.buttonKursbuchungAbbrechen.TabIndex = 38;
-            this.buttonKursbuchungAbbrechen.Text = "Abbrechen";
-            this.buttonKursbuchungAbbrechen.UseVisualStyleBackColor = true;
+            this.linkLabelKontaktAuswaehlen.AutoSize = true;
+            this.linkLabelKontaktAuswaehlen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelKontaktAuswaehlen.Location = new System.Drawing.Point(641, 31);
+            this.linkLabelKontaktAuswaehlen.Name = "linkLabelKontaktAuswaehlen";
+            this.linkLabelKontaktAuswaehlen.Size = new System.Drawing.Size(128, 29);
+            this.linkLabelKontaktAuswaehlen.TabIndex = 69;
+            this.linkLabelKontaktAuswaehlen.TabStop = true;
+            this.linkLabelKontaktAuswaehlen.Text = "auswählen";
+            this.linkLabelKontaktAuswaehlen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelKontaktAuswaehlen_LinkClicked);
+            // 
+            // textBoxKursbuchungPreis
+            // 
+            this.textBoxKursbuchungPreis.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursbuchungPreis.Location = new System.Drawing.Point(333, 215);
+            this.textBoxKursbuchungPreis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursbuchungPreis.Name = "textBoxKursbuchungPreis";
+            this.textBoxKursbuchungPreis.ReadOnly = true;
+            this.textBoxKursbuchungPreis.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursbuchungPreis.TabIndex = 68;
+            // 
+            // textBoxKursbuchungMitglied
+            // 
+            this.textBoxKursbuchungMitglied.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursbuchungMitglied.Location = new System.Drawing.Point(333, 120);
+            this.textBoxKursbuchungMitglied.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursbuchungMitglied.Name = "textBoxKursbuchungMitglied";
+            this.textBoxKursbuchungMitglied.ReadOnly = true;
+            this.textBoxKursbuchungMitglied.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursbuchungMitglied.TabIndex = 67;
+            // 
+            // textBoxKursbuchungKurs
+            // 
+            this.textBoxKursbuchungKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursbuchungKurs.Location = new System.Drawing.Point(333, 73);
+            this.textBoxKursbuchungKurs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursbuchungKurs.Name = "textBoxKursbuchungKurs";
+            this.textBoxKursbuchungKurs.ReadOnly = true;
+            this.textBoxKursbuchungKurs.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursbuchungKurs.TabIndex = 66;
+            this.textBoxKursbuchungKurs.TextChanged += new System.EventHandler(this.textBoxKursbuchungKurs_TextChanged);
+            // 
+            // textBoxKursbuchungKontakt
+            // 
+            this.textBoxKursbuchungKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursbuchungKontakt.Location = new System.Drawing.Point(333, 26);
+            this.textBoxKursbuchungKontakt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursbuchungKontakt.Name = "textBoxKursbuchungKontakt";
+            this.textBoxKursbuchungKontakt.ReadOnly = true;
+            this.textBoxKursbuchungKontakt.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursbuchungKontakt.TabIndex = 65;
+            this.textBoxKursbuchungKontakt.TextChanged += new System.EventHandler(this.textBoxKursbuchungKontakt_TextChanged);
+            // 
+            // labelKursbuchungKontakt
+            // 
+            this.labelKursbuchungKontakt.AutoSize = true;
+            this.labelKursbuchungKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursbuchungKontakt.Location = new System.Drawing.Point(85, 28);
+            this.labelKursbuchungKontakt.Name = "labelKursbuchungKontakt";
+            this.labelKursbuchungKontakt.Size = new System.Drawing.Size(120, 32);
+            this.labelKursbuchungKontakt.TabIndex = 64;
+            this.labelKursbuchungKontakt.Text = "Kontakt:";
+            // 
+            // labelKursbuchungBonus
+            // 
+            this.labelKursbuchungBonus.AutoSize = true;
+            this.labelKursbuchungBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursbuchungBonus.Location = new System.Drawing.Point(85, 169);
+            this.labelKursbuchungBonus.Name = "labelKursbuchungBonus";
+            this.labelKursbuchungBonus.Size = new System.Drawing.Size(228, 32);
+            this.labelKursbuchungBonus.TabIndex = 63;
+            this.labelKursbuchungBonus.Text = "Bonus abziehen:";
+            // 
+            // labelKursbuchungMitglied
+            // 
+            this.labelKursbuchungMitglied.AutoSize = true;
+            this.labelKursbuchungMitglied.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursbuchungMitglied.Location = new System.Drawing.Point(85, 122);
+            this.labelKursbuchungMitglied.Name = "labelKursbuchungMitglied";
+            this.labelKursbuchungMitglied.Size = new System.Drawing.Size(123, 32);
+            this.labelKursbuchungMitglied.TabIndex = 62;
+            this.labelKursbuchungMitglied.Text = "Mitglied:";
+            // 
+            // labelKursbuchungKurs
+            // 
+            this.labelKursbuchungKurs.AutoSize = true;
+            this.labelKursbuchungKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursbuchungKurs.Location = new System.Drawing.Point(85, 75);
+            this.labelKursbuchungKurs.Name = "labelKursbuchungKurs";
+            this.labelKursbuchungKurs.Size = new System.Drawing.Size(81, 32);
+            this.labelKursbuchungKurs.TabIndex = 61;
+            this.labelKursbuchungKurs.Text = "Kurs:";
+            // 
+            // dateTimePickerKursbuchungDatum
+            // 
+            this.dateTimePickerKursbuchungDatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerKursbuchungDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerKursbuchungDatum.Location = new System.Drawing.Point(333, 262);
+            this.dateTimePickerKursbuchungDatum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerKursbuchungDatum.Name = "dateTimePickerKursbuchungDatum";
+            this.dateTimePickerKursbuchungDatum.Size = new System.Drawing.Size(297, 34);
+            this.dateTimePickerKursbuchungDatum.TabIndex = 51;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(85, 263);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(229, 32);
+            this.label18.TabIndex = 42;
+            this.label18.Text = "Buchungsdatum:";
             // 
             // labelKursbuchungPreis
             // 
@@ -2568,218 +2777,31 @@
             this.comboBoxKursbuchungBonus.Name = "comboBoxKursbuchungBonus";
             this.comboBoxKursbuchungBonus.Size = new System.Drawing.Size(297, 39);
             this.comboBoxKursbuchungBonus.TabIndex = 41;
+            this.comboBoxKursbuchungBonus.Visible = false;
+            this.comboBoxKursbuchungBonus.SelectedIndexChanged += new System.EventHandler(this.comboBoxKursbuchungBonus_SelectedIndexChanged);
             // 
-            // label18
+            // buttonKursbuchungSpeichern
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(85, 263);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(229, 32);
-            this.label18.TabIndex = 42;
-            this.label18.Text = "Buchungsdatum:";
+            this.buttonKursbuchungSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKursbuchungSpeichern.Location = new System.Drawing.Point(412, 341);
+            this.buttonKursbuchungSpeichern.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKursbuchungSpeichern.Name = "buttonKursbuchungSpeichern";
+            this.buttonKursbuchungSpeichern.Size = new System.Drawing.Size(239, 66);
+            this.buttonKursbuchungSpeichern.TabIndex = 39;
+            this.buttonKursbuchungSpeichern.Text = "Speichern";
+            this.buttonKursbuchungSpeichern.UseVisualStyleBackColor = true;
             // 
-            // dateTimePickerKursbuchungDatum
+            // buttonKursbuchungAbbrechen
             // 
-            this.dateTimePickerKursbuchungDatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerKursbuchungDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerKursbuchungDatum.Location = new System.Drawing.Point(333, 262);
-            this.dateTimePickerKursbuchungDatum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePickerKursbuchungDatum.Name = "dateTimePickerKursbuchungDatum";
-            this.dateTimePickerKursbuchungDatum.Size = new System.Drawing.Size(297, 34);
-            this.dateTimePickerKursbuchungDatum.TabIndex = 51;
-            // 
-            // labelKursbuchungKurs
-            // 
-            this.labelKursbuchungKurs.AutoSize = true;
-            this.labelKursbuchungKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursbuchungKurs.Location = new System.Drawing.Point(85, 75);
-            this.labelKursbuchungKurs.Name = "labelKursbuchungKurs";
-            this.labelKursbuchungKurs.Size = new System.Drawing.Size(81, 32);
-            this.labelKursbuchungKurs.TabIndex = 61;
-            this.labelKursbuchungKurs.Text = "Kurs:";
-            // 
-            // labelKursbuchungMitglied
-            // 
-            this.labelKursbuchungMitglied.AutoSize = true;
-            this.labelKursbuchungMitglied.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursbuchungMitglied.Location = new System.Drawing.Point(85, 122);
-            this.labelKursbuchungMitglied.Name = "labelKursbuchungMitglied";
-            this.labelKursbuchungMitglied.Size = new System.Drawing.Size(123, 32);
-            this.labelKursbuchungMitglied.TabIndex = 62;
-            this.labelKursbuchungMitglied.Text = "Mitglied:";
-            // 
-            // labelKursbuchungBonus
-            // 
-            this.labelKursbuchungBonus.AutoSize = true;
-            this.labelKursbuchungBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursbuchungBonus.Location = new System.Drawing.Point(85, 169);
-            this.labelKursbuchungBonus.Name = "labelKursbuchungBonus";
-            this.labelKursbuchungBonus.Size = new System.Drawing.Size(228, 32);
-            this.labelKursbuchungBonus.TabIndex = 63;
-            this.labelKursbuchungBonus.Text = "Bonus abziehen:";
-            // 
-            // labelKursbuchungKontakt
-            // 
-            this.labelKursbuchungKontakt.AutoSize = true;
-            this.labelKursbuchungKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursbuchungKontakt.Location = new System.Drawing.Point(85, 28);
-            this.labelKursbuchungKontakt.Name = "labelKursbuchungKontakt";
-            this.labelKursbuchungKontakt.Size = new System.Drawing.Size(120, 32);
-            this.labelKursbuchungKontakt.TabIndex = 64;
-            this.labelKursbuchungKontakt.Text = "Kontakt:";
-            // 
-            // textBoxKursbuchungKontakt
-            // 
-            this.textBoxKursbuchungKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursbuchungKontakt.Location = new System.Drawing.Point(333, 26);
-            this.textBoxKursbuchungKontakt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursbuchungKontakt.Name = "textBoxKursbuchungKontakt";
-            this.textBoxKursbuchungKontakt.ReadOnly = true;
-            this.textBoxKursbuchungKontakt.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursbuchungKontakt.TabIndex = 65;
-            // 
-            // textBoxKursbuchungKurs
-            // 
-            this.textBoxKursbuchungKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursbuchungKurs.Location = new System.Drawing.Point(333, 73);
-            this.textBoxKursbuchungKurs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursbuchungKurs.Name = "textBoxKursbuchungKurs";
-            this.textBoxKursbuchungKurs.ReadOnly = true;
-            this.textBoxKursbuchungKurs.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursbuchungKurs.TabIndex = 66;
-            // 
-            // textBoxKursbuchungMitglied
-            // 
-            this.textBoxKursbuchungMitglied.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursbuchungMitglied.Location = new System.Drawing.Point(333, 120);
-            this.textBoxKursbuchungMitglied.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursbuchungMitglied.Name = "textBoxKursbuchungMitglied";
-            this.textBoxKursbuchungMitglied.ReadOnly = true;
-            this.textBoxKursbuchungMitglied.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursbuchungMitglied.TabIndex = 67;
-            // 
-            // textBoxKursbuchungPreis
-            // 
-            this.textBoxKursbuchungPreis.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursbuchungPreis.Location = new System.Drawing.Point(333, 215);
-            this.textBoxKursbuchungPreis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursbuchungPreis.Name = "textBoxKursbuchungPreis";
-            this.textBoxKursbuchungPreis.ReadOnly = true;
-            this.textBoxKursbuchungPreis.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursbuchungPreis.TabIndex = 68;
-            // 
-            // linkLabelKontaktAuswaehlen
-            // 
-            this.linkLabelKontaktAuswaehlen.AutoSize = true;
-            this.linkLabelKontaktAuswaehlen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelKontaktAuswaehlen.Location = new System.Drawing.Point(641, 31);
-            this.linkLabelKontaktAuswaehlen.Name = "linkLabelKontaktAuswaehlen";
-            this.linkLabelKontaktAuswaehlen.Size = new System.Drawing.Size(128, 29);
-            this.linkLabelKontaktAuswaehlen.TabIndex = 69;
-            this.linkLabelKontaktAuswaehlen.TabStop = true;
-            this.linkLabelKontaktAuswaehlen.Text = "auswählen";
-            this.linkLabelKontaktAuswaehlen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelKontaktAuswaehlen_LinkClicked);
-            // 
-            // linkLabelKursAuswaehlen
-            // 
-            this.linkLabelKursAuswaehlen.AutoSize = true;
-            this.linkLabelKursAuswaehlen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelKursAuswaehlen.Location = new System.Drawing.Point(641, 80);
-            this.linkLabelKursAuswaehlen.Name = "linkLabelKursAuswaehlen";
-            this.linkLabelKursAuswaehlen.Size = new System.Drawing.Size(128, 29);
-            this.linkLabelKursAuswaehlen.TabIndex = 70;
-            this.linkLabelKursAuswaehlen.TabStop = true;
-            this.linkLabelKursAuswaehlen.Text = "auswählen";
-            this.linkLabelKursAuswaehlen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelKursAuswaehlen_LinkClicked);
-            // 
-            // groupBoxKursleiterDaten
-            // 
-            this.groupBoxKursleiterDaten.Controls.Add(this.labelKursleiterID);
-            this.groupBoxKursleiterDaten.Controls.Add(this.linkLabelKursleiterAuswaehlen);
-            this.groupBoxKursleiterDaten.Controls.Add(this.textBoxKursleiterName);
-            this.groupBoxKursleiterDaten.Controls.Add(this.label28);
-            this.groupBoxKursleiterDaten.Controls.Add(this.textBoxKursleiterHonorar);
-            this.groupBoxKursleiterDaten.Controls.Add(this.label24);
-            this.groupBoxKursleiterDaten.Controls.Add(this.textBoxKursleiterZulage);
-            this.groupBoxKursleiterDaten.Controls.Add(this.label16);
-            this.groupBoxKursleiterDaten.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxKursleiterDaten.Location = new System.Drawing.Point(1329, 18);
-            this.groupBoxKursleiterDaten.Name = "groupBoxKursleiterDaten";
-            this.groupBoxKursleiterDaten.Size = new System.Drawing.Size(487, 300);
-            this.groupBoxKursleiterDaten.TabIndex = 60;
-            this.groupBoxKursleiterDaten.TabStop = false;
-            this.groupBoxKursleiterDaten.Text = "Kursleiter";
-            // 
-            // textBoxKursleiterZulage
-            // 
-            this.textBoxKursleiterZulage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursleiterZulage.Location = new System.Drawing.Point(148, 195);
-            this.textBoxKursleiterZulage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursleiterZulage.Name = "textBoxKursleiterZulage";
-            this.textBoxKursleiterZulage.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursleiterZulage.TabIndex = 53;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(14, 198);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(111, 32);
-            this.label16.TabIndex = 52;
-            this.label16.Text = "Zulage:";
-            // 
-            // textBoxKursleiterHonorar
-            // 
-            this.textBoxKursleiterHonorar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursleiterHonorar.Location = new System.Drawing.Point(148, 146);
-            this.textBoxKursleiterHonorar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursleiterHonorar.Name = "textBoxKursleiterHonorar";
-            this.textBoxKursleiterHonorar.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursleiterHonorar.TabIndex = 55;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(14, 149);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(125, 32);
-            this.label24.TabIndex = 54;
-            this.label24.Text = "Honorar:";
-            // 
-            // textBoxKursleiterName
-            // 
-            this.textBoxKursleiterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursleiterName.Location = new System.Drawing.Point(148, 49);
-            this.textBoxKursleiterName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursleiterName.Name = "textBoxKursleiterName";
-            this.textBoxKursleiterName.ReadOnly = true;
-            this.textBoxKursleiterName.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursleiterName.TabIndex = 57;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(14, 52);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(98, 32);
-            this.label28.TabIndex = 56;
-            this.label28.Text = "Name:";
-            // 
-            // linkLabelKursleiterAuswaehlen
-            // 
-            this.linkLabelKursleiterAuswaehlen.AutoSize = true;
-            this.linkLabelKursleiterAuswaehlen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelKursleiterAuswaehlen.Location = new System.Drawing.Point(317, 89);
-            this.linkLabelKursleiterAuswaehlen.Name = "linkLabelKursleiterAuswaehlen";
-            this.linkLabelKursleiterAuswaehlen.Size = new System.Drawing.Size(128, 29);
-            this.linkLabelKursleiterAuswaehlen.TabIndex = 58;
-            this.linkLabelKursleiterAuswaehlen.TabStop = true;
-            this.linkLabelKursleiterAuswaehlen.Text = "auswählen";
-            this.linkLabelKursleiterAuswaehlen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelKursleiterAuswaehlen_LinkClicked);
+            this.buttonKursbuchungAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKursbuchungAbbrechen.Location = new System.Drawing.Point(135, 341);
+            this.buttonKursbuchungAbbrechen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKursbuchungAbbrechen.Name = "buttonKursbuchungAbbrechen";
+            this.buttonKursbuchungAbbrechen.Size = new System.Drawing.Size(239, 66);
+            this.buttonKursbuchungAbbrechen.TabIndex = 38;
+            this.buttonKursbuchungAbbrechen.Text = "Abbrechen";
+            this.buttonKursbuchungAbbrechen.UseVisualStyleBackColor = true;
+            this.buttonKursbuchungAbbrechen.Click += new System.EventHandler(this.buttonKursbuchungAbbrechen_Click);
             // 
             // panelKursleiterSuche
             // 
@@ -2795,19 +2817,54 @@
             this.panelKursleiterSuche.TabIndex = 50;
             this.panelKursleiterSuche.Visible = false;
             // 
-            // panelKursSuche
+            // buttonKursleiterSuchen
             // 
-            this.panelKursSuche.Controls.Add(this.listViewKurs);
-            this.panelKursSuche.Controls.Add(this.textBoxKursSucheBezeichnung);
-            this.panelKursSuche.Controls.Add(this.buttonKursSuchen);
-            this.panelKursSuche.Controls.Add(this.labelSucheKurskategorie);
-            this.panelKursSuche.Controls.Add(this.labelSucheKursbezeichnung);
-            this.panelKursSuche.Controls.Add(this.comboBoxKursSucheKurskategorie);
-            this.panelKursSuche.Location = new System.Drawing.Point(1, 67);
-            this.panelKursSuche.Name = "panelKursSuche";
-            this.panelKursSuche.Size = new System.Drawing.Size(1198, 412);
-            this.panelKursSuche.TabIndex = 51;
-            this.panelKursSuche.Visible = false;
+            this.buttonKursleiterSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKursleiterSuchen.Location = new System.Drawing.Point(1112, 26);
+            this.buttonKursleiterSuchen.Name = "buttonKursleiterSuchen";
+            this.buttonKursleiterSuchen.Size = new System.Drawing.Size(126, 41);
+            this.buttonKursleiterSuchen.TabIndex = 56;
+            this.buttonKursleiterSuchen.Text = "Suchen";
+            this.buttonKursleiterSuchen.UseVisualStyleBackColor = true;
+            this.buttonKursleiterSuchen.Click += new System.EventHandler(this.buttonKursleiterSuchen_Click);
+            // 
+            // labelSucheKursleiterVorname
+            // 
+            this.labelSucheKursleiterVorname.AutoSize = true;
+            this.labelSucheKursleiterVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSucheKursleiterVorname.Location = new System.Drawing.Point(54, 28);
+            this.labelSucheKursleiterVorname.Name = "labelSucheKursleiterVorname";
+            this.labelSucheKursleiterVorname.Size = new System.Drawing.Size(138, 32);
+            this.labelSucheKursleiterVorname.TabIndex = 55;
+            this.labelSucheKursleiterVorname.Text = "Vorname:";
+            // 
+            // labelSucheKursleiterNachname
+            // 
+            this.labelSucheKursleiterNachname.AutoSize = true;
+            this.labelSucheKursleiterNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSucheKursleiterNachname.Location = new System.Drawing.Point(576, 28);
+            this.labelSucheKursleiterNachname.Name = "labelSucheKursleiterNachname";
+            this.labelSucheKursleiterNachname.Size = new System.Drawing.Size(160, 32);
+            this.labelSucheKursleiterNachname.TabIndex = 54;
+            this.labelSucheKursleiterNachname.Text = "Nachname:";
+            // 
+            // textBoxKursleiterSucheNachname
+            // 
+            this.textBoxKursleiterSucheNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursleiterSucheNachname.Location = new System.Drawing.Point(748, 25);
+            this.textBoxKursleiterSucheNachname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursleiterSucheNachname.Name = "textBoxKursleiterSucheNachname";
+            this.textBoxKursleiterSucheNachname.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursleiterSucheNachname.TabIndex = 53;
+            // 
+            // textBoxKursleiterSucheVorname
+            // 
+            this.textBoxKursleiterSucheVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursleiterSucheVorname.Location = new System.Drawing.Point(201, 26);
+            this.textBoxKursleiterSucheVorname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursleiterSucheVorname.Name = "textBoxKursleiterSucheVorname";
+            this.textBoxKursleiterSucheVorname.Size = new System.Drawing.Size(297, 38);
+            this.textBoxKursleiterSucheVorname.TabIndex = 52;
             // 
             // listViewKursleiter
             // 
@@ -2819,7 +2876,7 @@
             this.columnHeader15,
             this.columnHeader16});
             this.listViewKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewKursleiter.Location = new System.Drawing.Point(58, 80);
+            this.listViewKursleiter.Location = new System.Drawing.Point(49, 80);
             this.listViewKursleiter.Name = "listViewKursleiter";
             this.listViewKursleiter.Size = new System.Drawing.Size(1190, 302);
             this.listViewKursleiter.TabIndex = 0;
@@ -2827,44 +2884,6 @@
             this.listViewKursleiter.View = System.Windows.Forms.View.Details;
             this.listViewKursleiter.SelectedIndexChanged += new System.EventHandler(this.listViewKursleiter_SelectedIndexChanged);
             this.listViewKursleiter.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewKursleiter_MouseDoubleClick);
-            // 
-            // textBoxKursleiterSucheVorname
-            // 
-            this.textBoxKursleiterSucheVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursleiterSucheVorname.Location = new System.Drawing.Point(206, 26);
-            this.textBoxKursleiterSucheVorname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursleiterSucheVorname.Name = "textBoxKursleiterSucheVorname";
-            this.textBoxKursleiterSucheVorname.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursleiterSucheVorname.TabIndex = 52;
-            // 
-            // textBoxKursleiterSucheNachname
-            // 
-            this.textBoxKursleiterSucheNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursleiterSucheNachname.Location = new System.Drawing.Point(719, 25);
-            this.textBoxKursleiterSucheNachname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxKursleiterSucheNachname.Name = "textBoxKursleiterSucheNachname";
-            this.textBoxKursleiterSucheNachname.Size = new System.Drawing.Size(297, 38);
-            this.textBoxKursleiterSucheNachname.TabIndex = 53;
-            // 
-            // labelSucheKursleiterNachname
-            // 
-            this.labelSucheKursleiterNachname.AutoSize = true;
-            this.labelSucheKursleiterNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSucheKursleiterNachname.Location = new System.Drawing.Point(554, 28);
-            this.labelSucheKursleiterNachname.Name = "labelSucheKursleiterNachname";
-            this.labelSucheKursleiterNachname.Size = new System.Drawing.Size(160, 32);
-            this.labelSucheKursleiterNachname.TabIndex = 54;
-            this.labelSucheKursleiterNachname.Text = "Nachname:";
-            // 
-            // labelSucheKursleiterVorname
-            // 
-            this.labelSucheKursleiterVorname.AutoSize = true;
-            this.labelSucheKursleiterVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSucheKursleiterVorname.Location = new System.Drawing.Point(66, 28);
-            this.labelSucheKursleiterVorname.Name = "labelSucheKursleiterVorname";
-            this.labelSucheKursleiterVorname.Size = new System.Drawing.Size(138, 32);
-            this.labelSucheKursleiterVorname.TabIndex = 55;
-            this.labelSucheKursleiterVorname.Text = "Vorname:";
             // 
             // columnHeader11
             // 
@@ -2895,68 +2914,19 @@
             this.columnHeader16.Text = "Straße";
             this.columnHeader16.Width = 333;
             // 
-            // buttonKursleiterSuchen
+            // panelKursSuche
             // 
-            this.buttonKursleiterSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursleiterSuchen.Location = new System.Drawing.Point(1072, 26);
-            this.buttonKursleiterSuchen.Name = "buttonKursleiterSuchen";
-            this.buttonKursleiterSuchen.Size = new System.Drawing.Size(126, 41);
-            this.buttonKursleiterSuchen.TabIndex = 56;
-            this.buttonKursleiterSuchen.Text = "Suchen";
-            this.buttonKursleiterSuchen.UseVisualStyleBackColor = true;
-            this.buttonKursleiterSuchen.Click += new System.EventHandler(this.buttonKursleiterSuchen_Click);
-            // 
-            // labelSucheKurskategorie
-            // 
-            this.labelSucheKurskategorie.AutoSize = true;
-            this.labelSucheKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSucheKurskategorie.Location = new System.Drawing.Point(515, 23);
-            this.labelSucheKurskategorie.Name = "labelSucheKurskategorie";
-            this.labelSucheKurskategorie.Size = new System.Drawing.Size(199, 32);
-            this.labelSucheKurskategorie.TabIndex = 22;
-            this.labelSucheKurskategorie.Text = "Kurskategorie:";
-            // 
-            // labelSucheKursbezeichnung
-            // 
-            this.labelSucheKursbezeichnung.AutoSize = true;
-            this.labelSucheKursbezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSucheKursbezeichnung.Location = new System.Drawing.Point(64, 18);
-            this.labelSucheKursbezeichnung.Name = "labelSucheKursbezeichnung";
-            this.labelSucheKursbezeichnung.Size = new System.Drawing.Size(189, 32);
-            this.labelSucheKursbezeichnung.TabIndex = 23;
-            this.labelSucheKursbezeichnung.Text = "Bezeichnung:";
-            // 
-            // comboBoxKursSucheKurskategorie
-            // 
-            this.comboBoxKursSucheKurskategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxKursSucheKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxKursSucheKurskategorie.FormattingEnabled = true;
-            this.comboBoxKursSucheKurskategorie.Items.AddRange(new object[] {
-            ""});
-            this.comboBoxKursSucheKurskategorie.Location = new System.Drawing.Point(714, 21);
-            this.comboBoxKursSucheKurskategorie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxKursSucheKurskategorie.Name = "comboBoxKursSucheKurskategorie";
-            this.comboBoxKursSucheKurskategorie.Size = new System.Drawing.Size(297, 39);
-            this.comboBoxKursSucheKurskategorie.TabIndex = 25;
-            // 
-            // buttonKursSuchen
-            // 
-            this.buttonKursSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursSuchen.Location = new System.Drawing.Point(1055, 20);
-            this.buttonKursSuchen.Name = "buttonKursSuchen";
-            this.buttonKursSuchen.Size = new System.Drawing.Size(126, 41);
-            this.buttonKursSuchen.TabIndex = 57;
-            this.buttonKursSuchen.Text = "Suchen";
-            this.buttonKursSuchen.UseVisualStyleBackColor = true;
-            this.buttonKursSuchen.Click += new System.EventHandler(this.buttonKursSuchen_Click);
-            // 
-            // textBoxKursSucheBezeichnung
-            // 
-            this.textBoxKursSucheBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursSucheBezeichnung.Location = new System.Drawing.Point(251, 20);
-            this.textBoxKursSucheBezeichnung.Name = "textBoxKursSucheBezeichnung";
-            this.textBoxKursSucheBezeichnung.Size = new System.Drawing.Size(252, 34);
-            this.textBoxKursSucheBezeichnung.TabIndex = 58;
+            this.panelKursSuche.Controls.Add(this.listViewKurs);
+            this.panelKursSuche.Controls.Add(this.textBoxKursSucheBezeichnung);
+            this.panelKursSuche.Controls.Add(this.buttonKursSuchen);
+            this.panelKursSuche.Controls.Add(this.labelSucheKurskategorie);
+            this.panelKursSuche.Controls.Add(this.labelSucheKursbezeichnung);
+            this.panelKursSuche.Controls.Add(this.comboBoxKursSucheKurskategorie);
+            this.panelKursSuche.Location = new System.Drawing.Point(1, 67);
+            this.panelKursSuche.Name = "panelKursSuche";
+            this.panelKursSuche.Size = new System.Drawing.Size(1198, 412);
+            this.panelKursSuche.TabIndex = 51;
+            this.panelKursSuche.Visible = false;
             // 
             // listViewKurs
             // 
@@ -2993,42 +2963,127 @@
             this.columnHeader20.Text = "Seminarnummer";
             this.columnHeader20.Width = 274;
             // 
-            // labelKursleiterID
+            // textBoxKursSucheBezeichnung
             // 
-            this.labelKursleiterID.AutoSize = true;
-            this.labelKursleiterID.Location = new System.Drawing.Point(145, 95);
-            this.labelKursleiterID.Name = "labelKursleiterID";
-            this.labelKursleiterID.Size = new System.Drawing.Size(109, 32);
-            this.labelKursleiterID.TabIndex = 57;
-            this.labelKursleiterID.Text = "label31";
-            this.labelKursleiterID.Visible = false;
+            this.textBoxKursSucheBezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKursSucheBezeichnung.Location = new System.Drawing.Point(251, 20);
+            this.textBoxKursSucheBezeichnung.Name = "textBoxKursSucheBezeichnung";
+            this.textBoxKursSucheBezeichnung.Size = new System.Drawing.Size(252, 34);
+            this.textBoxKursSucheBezeichnung.TabIndex = 58;
+            // 
+            // buttonKursSuchen
+            // 
+            this.buttonKursSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKursSuchen.Location = new System.Drawing.Point(1055, 20);
+            this.buttonKursSuchen.Name = "buttonKursSuchen";
+            this.buttonKursSuchen.Size = new System.Drawing.Size(126, 41);
+            this.buttonKursSuchen.TabIndex = 57;
+            this.buttonKursSuchen.Text = "Suchen";
+            this.buttonKursSuchen.UseVisualStyleBackColor = true;
+            this.buttonKursSuchen.Click += new System.EventHandler(this.buttonKursSuchen_Click);
+            // 
+            // labelSucheKurskategorie
+            // 
+            this.labelSucheKurskategorie.AutoSize = true;
+            this.labelSucheKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSucheKurskategorie.Location = new System.Drawing.Point(511, 23);
+            this.labelSucheKurskategorie.Name = "labelSucheKurskategorie";
+            this.labelSucheKurskategorie.Size = new System.Drawing.Size(199, 32);
+            this.labelSucheKurskategorie.TabIndex = 22;
+            this.labelSucheKurskategorie.Text = "Kurskategorie:";
+            // 
+            // labelSucheKursbezeichnung
+            // 
+            this.labelSucheKursbezeichnung.AutoSize = true;
+            this.labelSucheKursbezeichnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSucheKursbezeichnung.Location = new System.Drawing.Point(57, 18);
+            this.labelSucheKursbezeichnung.Name = "labelSucheKursbezeichnung";
+            this.labelSucheKursbezeichnung.Size = new System.Drawing.Size(189, 32);
+            this.labelSucheKursbezeichnung.TabIndex = 23;
+            this.labelSucheKursbezeichnung.Text = "Bezeichnung:";
+            // 
+            // comboBoxKursSucheKurskategorie
+            // 
+            this.comboBoxKursSucheKurskategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxKursSucheKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxKursSucheKurskategorie.FormattingEnabled = true;
+            this.comboBoxKursSucheKurskategorie.Items.AddRange(new object[] {
+            ""});
+            this.comboBoxKursSucheKurskategorie.Location = new System.Drawing.Point(714, 21);
+            this.comboBoxKursSucheKurskategorie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKursSucheKurskategorie.Name = "comboBoxKursSucheKurskategorie";
+            this.comboBoxKursSucheKurskategorie.Size = new System.Drawing.Size(297, 39);
+            this.comboBoxKursSucheKurskategorie.TabIndex = 25;
+            // 
+            // labelKursbuchungKontaktID
+            // 
+            this.labelKursbuchungKontaktID.AutoSize = true;
+            this.labelKursbuchungKontaktID.Location = new System.Drawing.Point(259, 33);
+            this.labelKursbuchungKontaktID.Name = "labelKursbuchungKontaktID";
+            this.labelKursbuchungKontaktID.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungKontaktID.TabIndex = 71;
+            this.labelKursbuchungKontaktID.Text = "label31";
+            this.labelKursbuchungKontaktID.Visible = false;
+            // 
+            // labelKursbuchungKursID
+            // 
+            this.labelKursbuchungKursID.AutoSize = true;
+            this.labelKursbuchungKursID.Location = new System.Drawing.Point(259, 82);
+            this.labelKursbuchungKursID.Name = "labelKursbuchungKursID";
+            this.labelKursbuchungKursID.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungKursID.TabIndex = 72;
+            this.labelKursbuchungKursID.Text = "label32";
+            this.labelKursbuchungKursID.Visible = false;
+            // 
+            // labelKursbuchungProzent
+            // 
+            this.labelKursbuchungProzent.AutoSize = true;
+            this.labelKursbuchungProzent.Location = new System.Drawing.Point(663, 175);
+            this.labelKursbuchungProzent.Name = "labelKursbuchungProzent";
+            this.labelKursbuchungProzent.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungProzent.TabIndex = 73;
+            this.labelKursbuchungProzent.Text = "label31";
+            this.labelKursbuchungProzent.Visible = false;
+            // 
+            // labelKursbuchungPreisOhneAbzug
+            // 
+            this.labelKursbuchungPreisOhneAbzug.AutoSize = true;
+            this.labelKursbuchungPreisOhneAbzug.Location = new System.Drawing.Point(663, 227);
+            this.labelKursbuchungPreisOhneAbzug.Name = "labelKursbuchungPreisOhneAbzug";
+            this.labelKursbuchungPreisOhneAbzug.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungPreisOhneAbzug.TabIndex = 74;
+            this.labelKursbuchungPreisOhneAbzug.Text = "label31";
+            this.labelKursbuchungPreisOhneAbzug.Visible = false;
             // 
             // FrmHinzufügenBearbeiten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1861, 1055);
+            this.ClientSize = new System.Drawing.Size(1861, 1051);
+            this.Controls.Add(this.panelKurs);
+            this.Controls.Add(this.panelKontaktSuche);
             this.Controls.Add(this.panelKursbuchung);
-            this.Controls.Add(this.panelKursleiterSuche);
             this.Controls.Add(this.labelÜberschrift);
             this.Controls.Add(this.panelMitgliedschaft);
             this.Controls.Add(this.panelKassabuch);
             this.Controls.Add(this.panelRechnung);
             this.Controls.Add(this.panelSchluessel);
             this.Controls.Add(this.panelKassabuchkonto);
-            this.Controls.Add(this.panelPass);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.panelTitel);
-            this.Controls.Add(this.panelBankverbindung);
             this.Controls.Add(this.panelAltersgruppeSozialgruppeKurskategorie);
             this.Controls.Add(this.panelGutschein);
             this.Controls.Add(this.panelKontakt);
             this.Controls.Add(this.panelKursort);
-            this.Controls.Add(this.panelKurs);
-            this.Controls.Add(this.panelKontaktSuche);
             this.Controls.Add(this.panelKursSuche);
+            this.Controls.Add(this.panelPass);
+            this.Controls.Add(this.panelBankverbindung);
+            this.Controls.Add(this.panelKursleiterSuche);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(250, 20);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmHinzufügenBearbeiten";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHinzufügenBearbeiten";
@@ -3039,6 +3094,8 @@
             this.panelTitel.PerformLayout();
             this.panelKurs.ResumeLayout(false);
             this.panelKurs.PerformLayout();
+            this.groupBoxKursleiterDaten.ResumeLayout(false);
+            this.groupBoxKursleiterDaten.PerformLayout();
             this.panelBankverbindung.ResumeLayout(false);
             this.panelBankverbindung.PerformLayout();
             this.panelPass.ResumeLayout(false);
@@ -3063,8 +3120,6 @@
             this.panelKursort.PerformLayout();
             this.panelKursbuchung.ResumeLayout(false);
             this.panelKursbuchung.PerformLayout();
-            this.groupBoxKursleiterDaten.ResumeLayout(false);
-            this.groupBoxKursleiterDaten.PerformLayout();
             this.panelKursleiterSuche.ResumeLayout(false);
             this.panelKursleiterSuche.PerformLayout();
             this.panelKursSuche.ResumeLayout(false);
@@ -3325,5 +3380,9 @@
         internal System.Windows.Forms.ComboBox comboBoxKursSucheKurskategorie;
         private System.Windows.Forms.Label labelKursleiterID;
         public System.Windows.Forms.Panel panelKursbuchung;
+        private System.Windows.Forms.Label labelKursbuchungKursID;
+        private System.Windows.Forms.Label labelKursbuchungKontaktID;
+        private System.Windows.Forms.Label labelKursbuchungProzent;
+        private System.Windows.Forms.Label labelKursbuchungPreisOhneAbzug;
     }
 }

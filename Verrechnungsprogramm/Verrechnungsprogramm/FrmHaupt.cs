@@ -47,9 +47,10 @@ namespace Verrechnungsprogramm
             listViewRechnung.FullRowSelect = true;
             listViewKursleiter.FullRowSelect = true;
             listViewKursort.FullRowSelect = true;
+            listViewKursbuchung.FullRowSelect = true;
 
+            listViewKursbuchung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listViewKurs.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            
 
             FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Maximized;
@@ -1527,12 +1528,20 @@ namespace Verrechnungsprogramm
             FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
             fHinzuBea.BackColor = this.BackColor;
             fHinzuBea.Text = buttonHinzufügen.Text;
-            fHinzuBea.labelÜberschrift.Text = buttonKursbuchungBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = buttonNeueKursbuchung.Text;
             fHinzuBea.ShowDialog();
 
             kursbuchungEinlesen();
         }
 
-       
+        private void buttonKursbuchungBearbeiten_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewKursbuchung_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            
+        }
     }
 }

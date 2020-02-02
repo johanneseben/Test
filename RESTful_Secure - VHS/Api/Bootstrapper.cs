@@ -206,33 +206,33 @@
             {
                 try
                 {
-                    session.Save(postleitzahl);
-                    session.Save(kursort);
-                    session.Save(titel);
-                    session.Save(kurskategorie);
-                    session.Save(kurs);
-                    session.Save(termin);
-                    session.Save(altersgruppe);
-                    session.Save(sozialgruppe);
-                    session.Save(staatsbuergerschaft);
-                    session.Save(kontakt);
-                    session.Save(bankverbindung);
-                    session.Save(rechnung);
-                    session.Save(kontaktkurs);
-                    session.Save(kursleiter);
-                    session.Save(kursleiterKurs);
-                    session.Save(gutschein);
-                    session.Save(pass);
-                    session.Save(kassabuchkonto);
-                    session.Save(schluessel);
-                    session.Save(mitgliedschaft);
-                    session.Save(kassabuchkonto);
-                    session.Save(kassabuch);
-                    session.Save(mitgliedschaftKontakt);
-                    session.Save(benutzer);
-                    session.Save(benutzer1);
-                    session.Save(kontaktGutschein);
-                    session.Save(schluesselKontakt);
+                    //session.Save(postleitzahl);
+                    //session.Save(kursort);
+                    //session.Save(titel);
+                    //session.Save(kurskategorie);
+                    //session.Save(kurs);
+                    //session.Save(termin);
+                    //session.Save(altersgruppe);
+                    //session.Save(sozialgruppe);
+                    //session.Save(staatsbuergerschaft);
+                    //session.Save(kontakt);
+                    //session.Save(bankverbindung);
+                    //session.Save(rechnung);
+                    //session.Save(kontaktkurs);
+                    //session.Save(kursleiter);
+                    //session.Save(kursleiterKurs);
+                    //session.Save(gutschein);
+                    //session.Save(pass);
+                    //session.Save(kassabuchkonto);
+                    //session.Save(schluessel);
+                    //session.Save(mitgliedschaft);
+                    //session.Save(kassabuchkonto);
+                    //session.Save(kassabuch);
+                    //session.Save(mitgliedschaftKontakt);
+                    //session.Save(benutzer);
+                    //session.Save(benutzer1);
+                    //session.Save(kontaktGutschein);
+                    //session.Save(schluesselKontakt);
 
                     tran.Commit();
                 }
