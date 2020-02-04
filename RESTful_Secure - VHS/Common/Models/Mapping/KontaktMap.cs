@@ -15,6 +15,8 @@ namespace Common.Models.Mapping
             References(x => x.TitelID).Column("TitelID").Nullable().Not.LazyLoad();
             Map(x => x.Vorname).Not.Nullable();
             Map(x => x.Nachname).Not.Nullable();
+            Map(x => x.Benutzername);
+            Map(x => x.Passwort);
             Map(x => x.SVNr);
             Map(x => x.Geschlecht);
             Map(x => x.Familienstand);

@@ -14,6 +14,7 @@ namespace Common.Models
         //public virtual DateTime TeilnahmebestaetigungDatum { get; set; }
         public virtual DateTime Buchungsdatum { get; set; }
         public virtual bool Bezahlt { get; set; }
+        public virtual double NeuerPreis { get; set; }
         public virtual bool Bonus { get; set; }
         public virtual Kontakt KontakID { get; set; }
         public virtual Kurs KursID { get; set; }

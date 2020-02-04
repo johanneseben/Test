@@ -14,6 +14,7 @@ namespace Common.Models.Mapping
             Id(x => x.KontaktKursID).GeneratedBy.HiLo("10");
             //Map(x => x.Teilnahmebestaetigung);
             //Map(x => x.TeilnahmebestaetigungDatum);
+            Map(x => x.NeuerPreis);
             Map(x => x.Buchungsdatum);
             Map(x => x.Bonus);
             Map(x => x.Bezahlt);
