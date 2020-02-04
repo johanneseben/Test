@@ -2037,6 +2037,8 @@ namespace Verrechnungsprogramm
             request.AddHeader("Content-Type", "application/json");
             var response = client.Execute<List<Kassabuchkonto>>(request);
 
+            int inde = textBoxKontostand.Text.Length - 2;
+
             foreach (Kassabuchkonto k in response.Data)
             {
                 if (k.KassabuchkontoID == Convert.ToInt32(labelID.Text))
@@ -2044,7 +2046,7 @@ namespace Verrechnungsprogramm
                     kassabuchkonto.KassabuchkontoID = Convert.ToInt32(labelID.Text);
                     kassabuchkonto.Kontonummer = textBoxKontonummer.Text;
                     kassabuchkonto.Kontobezeichnung = textBoxKontobezeichnung.Text;
-                    kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text.Substring(2, 6));
+                    kassabuchkonto.Kontostand = Convert.ToDouble(textBoxKontostand.Text.Substring(2, inde));
 
 
 
@@ -2165,7 +2167,7 @@ namespace Verrechnungsprogramm
             kassabuch.KassabuchkontoID.KassabuchkontoID = id2;
 
 
-            geldeinzahlen();
+            geldeinzahlenhinzufügen();
 
             var request = new RestRequest("kassabuecher", Method.POST);
             request.AddHeader("Content-Type", "application/json");
@@ -2177,7 +2179,7 @@ namespace Verrechnungsprogramm
             MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
         }
 
-        private void geldeinzahlen()
+        private void geldeinzahlenhinzufügen()
         {
             Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
 
@@ -2215,6 +2217,49 @@ namespace Verrechnungsprogramm
                         MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     
+                }
+            }
+        }
+
+        private void geldeinzahlenbearbeiten()
+        {
+            Kassabuchkonto kassabuchkonto = new Kassabuchkonto();
+
+            var request = new RestRequest("kassabuchkonten", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kassabuchkonto>>(request);
+
+            Kassabuch kassabuch = new Kassabuch();
+
+            var requestkassabuch = new RestRequest("kassabuecher", Method.GET);
+            requestkassabuch.AddHeader("Content-Type", "application/json");
+            var responsekassabuch = client.Execute<List<Kassabuch>>(requestkassabuch);
+
+            int inde = comboBoxKassabuchkontoID.Text.IndexOf(" ");
+
+            int inde2 = textBoxBetrag.Text.Length - 2;
+
+            foreach (Kassabuchkonto k in response.Data)
+            {
+                if (k.KassabuchkontoID == Convert.ToInt32(comboBoxKassabuchkontoID.Text.Substring(0, inde)))
+                {
+                    kassabuchkonto.KassabuchkontoID = k.KassabuchkontoID;
+                    kassabuchkonto.Kontonummer = k.Kontonummer;
+                    kassabuchkonto.Kontobezeichnung = k.Kontobezeichnung;
+                    kassabuchkonto.Kontostand = k.Kontostand + Convert.ToDouble(textBoxBetrag.Text.Substring(2, inde2));
+
+
+
+                    var request1 = new RestRequest("kassabuchkonten", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kassabuchkonto);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
             }
         }
@@ -2329,7 +2374,7 @@ namespace Verrechnungsprogramm
 
 
 
-                  
+                    geldeinzahlenbearbeiten();
 
 
                     var request1 = new RestRequest("kassabuecher", Method.PUT);
