@@ -276,7 +276,7 @@ namespace Verrechnungsprogramm
                 this.Height = 410;
                 this.Width = 460;
                 this.Location = new Point(200, 150);
-                panelKursort.Location = new Point(0,50);
+                panelKursort.Location = new Point(0, 50);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Mitgliedschaft"))
             {
@@ -295,6 +295,14 @@ namespace Verrechnungsprogramm
                 panelKontaktSuche.Location = new Point(0, 60);
             }
             if (labelÜberschrift.Text.Equals("neue Kursbuchung"))
+            {
+                panelKursbuchung.Visible = true;
+                this.Height = 450;
+                this.Width = 630;
+                this.Location = new Point(200, 150);
+                panelKursbuchung.Location = new Point(-15, 60);
+            }
+            if (labelÜberschrift.Text.Equals("Kursbuchung bearbeiten"))
             {
                 panelKursbuchung.Visible = true;
                 this.Height = 450;
@@ -910,6 +918,7 @@ namespace Verrechnungsprogramm
                     request1.AddJsonBody(kurs);
                     var response1 = client.Execute(request1);
 
+
                     if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
                         MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -992,6 +1001,8 @@ namespace Verrechnungsprogramm
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(kurs);
             var response = client.Execute(request);
+
+           
 
         }
 
@@ -1510,14 +1521,14 @@ namespace Verrechnungsprogramm
                 kursleiterBearbeiten();
                 this.Close();
             }
-            if(labelÜberschrift.Text.Equals("Kursleiter anlegen"))
+            if (labelÜberschrift.Text.Equals("Kursleiter anlegen"))
             {
                 kursleiterHinzufügen();
                 FrmHaupt fHaupt = new FrmHaupt();
                 fHaupt.kursleiterEinlesen();
                 this.Close();
             }
-            if(labelÜberschrift.Text.Equals("neue Kursbuchung"))
+            if ((labelÜberschrift.Text.Equals("neue Kursbuchung")) || (labelÜberschrift.Text.Equals("Kursbuchung bearbeiten")))
             {
                 labelKursbuchungKontaktID.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text + "";
                 textBoxKursbuchungKontakt.Text = listViewKontakt.SelectedItems[0].SubItems[2].Text + " " + listViewKontakt.SelectedItems[0].SubItems[3].Text;
@@ -2085,7 +2096,7 @@ namespace Verrechnungsprogramm
 
         }
 
-      
+
 
         private void kassabuchHinzufügen()
         {
@@ -2145,13 +2156,13 @@ namespace Verrechnungsprogramm
 
             kassabuch.KassabuchkontoID = kassabuchkonto;
 
-            
+
 
 
             kassabuch.Datum = dateTimePickerKassabuch.Value;
-            
-          
-            
+
+
+
             kassabuch.Buchungstext = textBoxBuchungstext.Text;
             kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text);
 
@@ -2173,7 +2184,7 @@ namespace Verrechnungsprogramm
             request.AddJsonBody(kassabuch);
             var response = client.Execute(request);
 
-          
+
 
             MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
         }
@@ -2193,7 +2204,7 @@ namespace Verrechnungsprogramm
             var responsekassabuch = client.Execute<List<Kassabuch>>(requestkassabuch);
 
             int inde = comboBoxKassabuchkontoID.Text.IndexOf(" ");
-           
+
 
             foreach (Kassabuchkonto k in response.Data)
             {
@@ -2215,7 +2226,7 @@ namespace Verrechnungsprogramm
                     {
                         MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
                 }
             }
         }
@@ -2273,31 +2284,31 @@ namespace Verrechnungsprogramm
             requestKassabuch.AddHeader("Content-Type", "application/json");
             var responseKassabuch = client.Execute<List<Kassabuch>>(requestKassabuch);
 
-            
+
 
             var requestKassabuchkonto = new RestRequest("kassabuchkonten", Method.GET);
             requestKassabuchkonto.AddHeader("Content-Type", "application/json");
             var responseKassabuchkonto = client.Execute<List<Kassabuchkonto>>(requestKassabuchkonto);
 
-           
+
 
             var requestKontakt = new RestRequest("kontakte", Method.GET);
             requestKontakt.AddHeader("Content-Type", "application/json");
             var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
 
-            
+
 
             foreach (Kassabuch k in responseKassabuch.Data)
             {
-               
+
 
                 if (k.KassabuchID == Convert.ToInt32(labelID.Text))
                 {
                     kassabuch.KassabuchID = Convert.ToInt32(labelID.Text);
-                    
+
                     kassabuch.Buchungstext = textBoxBuchungstext.Text;
-                    kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text.Substring(2, 5)); 
-                   
+                    kassabuch.Betrag = Convert.ToDouble(textBoxBetrag.Text.Substring(2, 5));
+
 
 
 
@@ -2332,7 +2343,7 @@ namespace Verrechnungsprogramm
 
 
 
-                    
+
 
                     kassabuch.KontaktID = kontakt;
 
@@ -2352,8 +2363,8 @@ namespace Verrechnungsprogramm
 
                     kassabuch.KassabuchkontoID = kassabuchkonto;
 
-                   
-                    
+
+
 
                     int inde3 = comboBoxKontaktID.Text.IndexOf(" ");
                     int id = Convert.ToInt32(comboBoxKontaktID.Text.Substring(0, inde3));
@@ -2381,7 +2392,7 @@ namespace Verrechnungsprogramm
                     request1.AddJsonBody(kassabuch);
                     var response1 = client.Execute(request1);
 
-                    
+
 
                     if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
@@ -2537,12 +2548,12 @@ namespace Verrechnungsprogramm
 
             }
 
-                panelKontaktSuche.Visible = true;
-                this.Height = 450;
-                this.Width = 800;
-                this.Location = new Point(200, 150);
-                panelKontaktSuche.Location = new Point(0, 60);
-            
+            panelKontaktSuche.Visible = true;
+            this.Height = 450;
+            this.Width = 800;
+            this.Location = new Point(200, 150);
+            panelKontaktSuche.Location = new Point(0, 60);
+
         }
 
         private void linkLabelKursAuswaehlen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -2599,58 +2610,19 @@ namespace Verrechnungsprogramm
 
         private void textBoxKursbuchungKontakt_TextChanged(object sender, EventArgs e)
         {
-            MitgliedschaftKontakt mitgliedschaftKontakt = new MitgliedschaftKontakt();
-
-            var request1 = new RestRequest("mitgliedschaftKontakte", Method.GET);
-            request1.AddHeader("Content-Type", "application/json");
-            var response1 = client.Execute<List<MitgliedschaftKontakt>>(request1);
-
-            foreach (MitgliedschaftKontakt mk in response1.Data)
-            {
-                if(labelKursbuchungKontaktID.Text.Equals(mk.KontaktID.KontaktID.ToString()))
-                {
-                    labelKursbuchungProzent.Text = mk.MitgliedschaftID.Ermaessigung.ToString();
-                    textBoxKursbuchungMitglied.Text = "ja";
-                }
-                else
-                {
-                    textBoxKursbuchungMitglied.Text = "nein";
-                }
-            }
-
-            if(textBoxKursbuchungMitglied.Text.Equals("ja"))
-            {
-                comboBoxKursbuchungBonus.Visible = true;
-            }
-            else
-            {
-                comboBoxKursbuchungBonus.Visible = false;
-            }
+            
         }
 
         private void textBoxKursbuchungKurs_TextChanged(object sender, EventArgs e)
         {
-            Kurs kurs = new Kurs();
-
-            var requestKurs = new RestRequest("kurse", Method.GET);
-            requestKurs.AddHeader("Content-Type", "application/json");
-            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
-
-            foreach(Kurs k in responseKurs.Data)
-            {
-                if(k.KursID.ToString().Equals(labelKursbuchungKursID.Text))
-                {
-                    textBoxKursbuchungPreis.Text = k.Preis.ToString();
-                    labelKursbuchungPreisOhneAbzug.Text = k.Preis.ToString();
-                }
-            }
+            
         }
 
         private void comboBoxKursbuchungBonus_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxKursbuchungBonus.Text.Equals("ja"))
             {
-                textBoxKursbuchungPreis.Text = (Convert.ToDouble(labelKursbuchungPreisOhneAbzug.Text)/ 100 * (100 - Convert.ToDouble(labelKursbuchungProzent.Text))).ToString();
+                textBoxKursbuchungPreis.Text = (Convert.ToDouble(labelKursbuchungPreisOhneAbzug.Text) / 100 * (100 - Convert.ToDouble(labelKursbuchungProzent.Text))).ToString();
             }
             else
             {
@@ -2661,6 +2633,239 @@ namespace Verrechnungsprogramm
         private void buttonKursbuchungAbbrechen_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonKursbuchungSpeichern_Click(object sender, EventArgs e)
+        {
+            if (labelÜberschrift.Text.Equals("neue Kursbuchung"))
+            {
+                //kursbuchungHinzufügen();
+                this.Close();
+            }
+            if (labelÜberschrift.Text.Equals("Kursbuchung bearbeiten"))
+            {
+                //kursbuchungBearbeiten();
+                this.Close();
+            }
+        }
+
+        private void kursbuchungHinzufügen()
+        {
+            KontaktKurs kontaktKurs = new KontaktKurs();
+            Kontakt kontakt = new Kontakt();
+            Kurs kurs = new Kurs();
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+            kontaktKurs.Buchungsdatum = dateTimePickerKursbuchungDatum.Value;
+            //kontaktKurs.Bezahlt = 
+            kontaktKurs.NeuerPreis = Convert.ToDouble(textBoxKursbuchungPreis.Text);
+
+            foreach (Kontakt k in responseKontakt.Data)
+            {
+                if (k.KontaktID.ToString().Equals(labelKursbuchungKontaktID.Text))
+                {
+                    kontakt.KontaktID = k.KontaktID;
+                    kontakt.TitelID = k.TitelID;
+                    kontakt.Vorname = k.Vorname;
+                    kontakt.Nachname = k.Nachname;
+                    kontakt.SVNr = k.SVNr;
+                    kontakt.Geschlecht = k.Geschlecht;
+                    kontakt.Familienstand = k.Familienstand;
+                    kontakt.Email = k.Email;
+                    kontakt.Telefonnummer = k.Telefonnummer;
+                    kontakt.Strasse = k.Strasse;
+                    kontakt.PostleitzahlID = k.PostleitzahlID;
+                    kontakt.AltersgruppeID = k.AltersgruppeID;
+                    kontakt.SozialgruppeID = k.SozialgruppeID;
+                    kontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+                }
+            }
+
+            kontaktKurs.KontakID = kontakt;
+
+            foreach(Kurs k in responseKurs.Data)
+            {
+                if(k.KursortID.ToString().Equals(labelKursbuchungKursID.Text))
+                {
+                    kurs.KursID = k.KursID;
+                    kurs.Bezeichnung = k.Bezeichnung;
+                    kurs.Preis = k.Preis;
+                    kurs.MinTeilnehmer = k.MinTeilnehmer;
+                    kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                    kurs.AnzEinheiten = k.AnzEinheiten;
+                    kurs.Verbindlichkeit = k.Verbindlichkeit;
+                    kurs.Foerderung = k.Foerderung;
+                    kurs.Status = k.Status;
+                    kurs.Beschreibung = k.Beschreibung;
+                    kurs.ZeitVon = k.ZeitVon;
+                    kurs.ZeitBis = k.ZeitBis;
+                    kurs.DatumVon = k.DatumVon;
+                    kurs.DatumBis = k.DatumBis;
+                    kurs.Seminarnummer = k.Seminarnummer;
+                    kurs.KurskategorieID = k.KurskategorieID;
+                    kurs.KursortID = k.KursortID;
+                    kurs.Anmeldeschluss = k.Anmeldeschluss;
+                    kurs.Anmerkung = k.Anmerkung;
+                    kurs.Anzeigen = k.Anzeigen;
+                }
+            }
+            kontaktKurs.KursID = kurs;
+
+            var request = new RestRequest("kontaktKurse", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kontaktKurs);
+            var response = client.Execute(request);
+        }
+
+        private void kursbuchungBearbeiten()
+        {
+            KontaktKurs kontaktKurs = new KontaktKurs();
+            Kontakt kontakt = new Kontakt();
+            Kurs kurs = new Kurs();
+
+            var requestKontaktKurs = new RestRequest("kontaktKurse", Method.GET);
+            requestKontaktKurs.AddHeader("Content-Type", "application/json");
+            var responseKontaktKurs = client.Execute<List<KontaktKurs>>(requestKontaktKurs);
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+            foreach(KontaktKurs kk in responseKontaktKurs.Data)
+            {
+                if(kk.KontaktKursID.ToString().Equals(labelID.Text))
+                {
+                    kontaktKurs.KontaktKursID = Convert.ToInt32(labelID.Text);
+                    kontaktKurs.Buchungsdatum = dateTimePickerKursbuchungDatum.Value;
+                    //kontaktKurs.Bezahlt = 
+                    kontaktKurs.NeuerPreis = Convert.ToDouble(textBoxKursbuchungPreis.Text);
+                    
+                    foreach(Kontakt k in responseKontakt.Data)
+                    {
+                        if(k.KontaktID.ToString().Equals(labelKursbuchungKontaktID.Text))
+                        {
+                            kontakt.KontaktID = k.KontaktID;
+                            kontakt.TitelID = k.TitelID;
+                            kontakt.Vorname = k.Vorname;
+                            kontakt.Nachname = k.Nachname;
+                            kontakt.SVNr = k.SVNr;
+                            kontakt.Geschlecht = k.Geschlecht;
+                            kontakt.Familienstand = k.Familienstand;
+                            kontakt.Email = k.Email;
+                            kontakt.Telefonnummer = k.Telefonnummer;
+                            kontakt.Strasse = k.Strasse;
+                            kontakt.PostleitzahlID = k.PostleitzahlID;
+                            kontakt.AltersgruppeID = k.AltersgruppeID;
+                            kontakt.SozialgruppeID = k.SozialgruppeID;
+                            kontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+                        }
+                    }
+
+                    kontaktKurs.KontakID = kontakt;
+
+                    foreach (Kurs k in responseKurs.Data)
+                    {
+                        if (k.KursortID.ToString().Equals(labelKursbuchungKursID.Text))
+                        {
+                            kurs.KursID = k.KursID;
+                            kurs.Bezeichnung = k.Bezeichnung;
+                            kurs.Preis = k.Preis;
+                            kurs.MinTeilnehmer = k.MinTeilnehmer;
+                            kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                            kurs.AnzEinheiten = k.AnzEinheiten;
+                            kurs.Verbindlichkeit = k.Verbindlichkeit;
+                            kurs.Foerderung = k.Foerderung;
+                            kurs.Status = k.Status;
+                            kurs.Beschreibung = k.Beschreibung;
+                            kurs.ZeitVon = k.ZeitVon;
+                            kurs.ZeitBis = k.ZeitBis;
+                            kurs.DatumVon = k.DatumVon;
+                            kurs.DatumBis = k.DatumBis;
+                            kurs.Seminarnummer = k.Seminarnummer;
+                            kurs.KurskategorieID = k.KurskategorieID;
+                            kurs.KursortID = k.KursortID;
+                            kurs.Anmeldeschluss = k.Anmeldeschluss;
+                            kurs.Anmerkung = k.Anmerkung;
+                            kurs.Anzeigen = k.Anzeigen;
+                        }
+                    }
+                    kontaktKurs.KursID = kurs;
+
+                    var request1 = new RestRequest("kontaktKurse", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kontaktKurs);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+            }
+        }
+
+        private void labelKursbuchungKursID_TextChanged(object sender, EventArgs e)
+        {
+            Kurs kurs = new Kurs();
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            foreach (Kurs k in responseKurs.Data)
+            {
+                if (k.KursID.ToString().Equals(labelKursbuchungKursID.Text))
+                {
+                    textBoxKursbuchungPreis.Text = k.Preis.ToString();
+                    labelKursbuchungPreisOhneAbzug.Text = k.Preis.ToString();
+                }
+            }
+        }
+
+        private void labelKursbuchungKontaktID_TextChanged(object sender, EventArgs e)
+        {
+            MitgliedschaftKontakt mitgliedschaftKontakt = new MitgliedschaftKontakt();
+
+            var request1 = new RestRequest("mitgliedschaftKontakte", Method.GET);
+            request1.AddHeader("Content-Type", "application/json");
+            var response1 = client.Execute<List<MitgliedschaftKontakt>>(request1);
+
+            foreach (MitgliedschaftKontakt mk in response1.Data)
+            {
+                if (labelKursbuchungKontaktID.Text.Equals(mk.KontaktID.KontaktID.ToString()))
+                {
+                    labelKursbuchungProzent.Text = mk.MitgliedschaftID.Ermaessigung.ToString();
+                    textBoxKursbuchungMitglied.Text = "ja";
+                }
+                else
+                {
+                    textBoxKursbuchungMitglied.Text = "nein";
+                }
+            }
+
+            if (textBoxKursbuchungMitglied.Text.Equals("ja"))
+            {
+                comboBoxKursbuchungBonus.Visible = true;
+            }
+            else
+            {
+                comboBoxKursbuchungBonus.Visible = false;
+            }
         }
 
         private void rechnungHinzufügen()

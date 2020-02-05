@@ -238,6 +238,10 @@
             this.textBoxKursortBezeichnung = new System.Windows.Forms.TextBox();
             this.labelKursortBezeichnung = new System.Windows.Forms.Label();
             this.panelKursbuchung = new System.Windows.Forms.Panel();
+            this.labelKursbuchungPreisOhneAbzug = new System.Windows.Forms.Label();
+            this.labelKursbuchungProzent = new System.Windows.Forms.Label();
+            this.labelKursbuchungKursID = new System.Windows.Forms.Label();
+            this.labelKursbuchungKontaktID = new System.Windows.Forms.Label();
             this.linkLabelKursAuswaehlen = new System.Windows.Forms.LinkLabel();
             this.linkLabelKontaktAuswaehlen = new System.Windows.Forms.LinkLabel();
             this.textBoxKursbuchungPreis = new System.Windows.Forms.TextBox();
@@ -278,10 +282,6 @@
             this.labelSucheKurskategorie = new System.Windows.Forms.Label();
             this.labelSucheKursbezeichnung = new System.Windows.Forms.Label();
             this.comboBoxKursSucheKurskategorie = new System.Windows.Forms.ComboBox();
-            this.labelKursbuchungKontaktID = new System.Windows.Forms.Label();
-            this.labelKursbuchungKursID = new System.Windows.Forms.Label();
-            this.labelKursbuchungProzent = new System.Windows.Forms.Label();
-            this.labelKursbuchungPreisOhneAbzug = new System.Windows.Forms.Label();
             this.panelAltersgruppeSozialgruppeKurskategorie.SuspendLayout();
             this.panelTitel.SuspendLayout();
             this.panelKurs.SuspendLayout();
@@ -816,7 +816,7 @@
             // buttonKursSpeichern
             // 
             this.buttonKursSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursSpeichern.Location = new System.Drawing.Point(857, 478);
+            this.buttonKursSpeichern.Location = new System.Drawing.Point(696, 487);
             this.buttonKursSpeichern.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKursSpeichern.Name = "buttonKursSpeichern";
             this.buttonKursSpeichern.Size = new System.Drawing.Size(423, 66);
@@ -828,7 +828,7 @@
             // buttonKursAbbrechen
             // 
             this.buttonKursAbbrechen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursAbbrechen.Location = new System.Drawing.Point(396, 478);
+            this.buttonKursAbbrechen.Location = new System.Drawing.Point(235, 487);
             this.buttonKursAbbrechen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKursAbbrechen.Name = "buttonKursAbbrechen";
             this.buttonKursAbbrechen.Size = new System.Drawing.Size(423, 66);
@@ -2628,6 +2628,48 @@
             this.panelKursbuchung.TabIndex = 49;
             this.panelKursbuchung.Visible = false;
             // 
+            // labelKursbuchungPreisOhneAbzug
+            // 
+            this.labelKursbuchungPreisOhneAbzug.AutoSize = true;
+            this.labelKursbuchungPreisOhneAbzug.Location = new System.Drawing.Point(663, 227);
+            this.labelKursbuchungPreisOhneAbzug.Name = "labelKursbuchungPreisOhneAbzug";
+            this.labelKursbuchungPreisOhneAbzug.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungPreisOhneAbzug.TabIndex = 74;
+            this.labelKursbuchungPreisOhneAbzug.Text = "label31";
+            this.labelKursbuchungPreisOhneAbzug.Visible = false;
+            // 
+            // labelKursbuchungProzent
+            // 
+            this.labelKursbuchungProzent.AutoSize = true;
+            this.labelKursbuchungProzent.Location = new System.Drawing.Point(663, 175);
+            this.labelKursbuchungProzent.Name = "labelKursbuchungProzent";
+            this.labelKursbuchungProzent.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungProzent.TabIndex = 73;
+            this.labelKursbuchungProzent.Text = "label31";
+            this.labelKursbuchungProzent.Visible = false;
+            // 
+            // labelKursbuchungKursID
+            // 
+            this.labelKursbuchungKursID.AutoSize = true;
+            this.labelKursbuchungKursID.Location = new System.Drawing.Point(259, 82);
+            this.labelKursbuchungKursID.Name = "labelKursbuchungKursID";
+            this.labelKursbuchungKursID.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungKursID.TabIndex = 72;
+            this.labelKursbuchungKursID.Text = "label32";
+            this.labelKursbuchungKursID.Visible = false;
+            this.labelKursbuchungKursID.TextChanged += new System.EventHandler(this.labelKursbuchungKursID_TextChanged);
+            // 
+            // labelKursbuchungKontaktID
+            // 
+            this.labelKursbuchungKontaktID.AutoSize = true;
+            this.labelKursbuchungKontaktID.Location = new System.Drawing.Point(259, 33);
+            this.labelKursbuchungKontaktID.Name = "labelKursbuchungKontaktID";
+            this.labelKursbuchungKontaktID.Size = new System.Drawing.Size(54, 17);
+            this.labelKursbuchungKontaktID.TabIndex = 71;
+            this.labelKursbuchungKontaktID.Text = "label31";
+            this.labelKursbuchungKontaktID.Visible = false;
+            this.labelKursbuchungKontaktID.TextChanged += new System.EventHandler(this.labelKursbuchungKontaktID_TextChanged);
+            // 
             // linkLabelKursAuswaehlen
             // 
             this.linkLabelKursAuswaehlen.AutoSize = true;
@@ -2790,6 +2832,7 @@
             this.buttonKursbuchungSpeichern.TabIndex = 39;
             this.buttonKursbuchungSpeichern.Text = "Speichern";
             this.buttonKursbuchungSpeichern.UseVisualStyleBackColor = true;
+            this.buttonKursbuchungSpeichern.Click += new System.EventHandler(this.buttonKursbuchungSpeichern_Click);
             // 
             // buttonKursbuchungAbbrechen
             // 
@@ -3015,54 +3058,12 @@
             this.comboBoxKursSucheKurskategorie.Size = new System.Drawing.Size(297, 39);
             this.comboBoxKursSucheKurskategorie.TabIndex = 25;
             // 
-            // labelKursbuchungKontaktID
-            // 
-            this.labelKursbuchungKontaktID.AutoSize = true;
-            this.labelKursbuchungKontaktID.Location = new System.Drawing.Point(259, 33);
-            this.labelKursbuchungKontaktID.Name = "labelKursbuchungKontaktID";
-            this.labelKursbuchungKontaktID.Size = new System.Drawing.Size(54, 17);
-            this.labelKursbuchungKontaktID.TabIndex = 71;
-            this.labelKursbuchungKontaktID.Text = "label31";
-            this.labelKursbuchungKontaktID.Visible = false;
-            // 
-            // labelKursbuchungKursID
-            // 
-            this.labelKursbuchungKursID.AutoSize = true;
-            this.labelKursbuchungKursID.Location = new System.Drawing.Point(259, 82);
-            this.labelKursbuchungKursID.Name = "labelKursbuchungKursID";
-            this.labelKursbuchungKursID.Size = new System.Drawing.Size(54, 17);
-            this.labelKursbuchungKursID.TabIndex = 72;
-            this.labelKursbuchungKursID.Text = "label32";
-            this.labelKursbuchungKursID.Visible = false;
-            // 
-            // labelKursbuchungProzent
-            // 
-            this.labelKursbuchungProzent.AutoSize = true;
-            this.labelKursbuchungProzent.Location = new System.Drawing.Point(663, 175);
-            this.labelKursbuchungProzent.Name = "labelKursbuchungProzent";
-            this.labelKursbuchungProzent.Size = new System.Drawing.Size(54, 17);
-            this.labelKursbuchungProzent.TabIndex = 73;
-            this.labelKursbuchungProzent.Text = "label31";
-            this.labelKursbuchungProzent.Visible = false;
-            // 
-            // labelKursbuchungPreisOhneAbzug
-            // 
-            this.labelKursbuchungPreisOhneAbzug.AutoSize = true;
-            this.labelKursbuchungPreisOhneAbzug.Location = new System.Drawing.Point(663, 227);
-            this.labelKursbuchungPreisOhneAbzug.Name = "labelKursbuchungPreisOhneAbzug";
-            this.labelKursbuchungPreisOhneAbzug.Size = new System.Drawing.Size(54, 17);
-            this.labelKursbuchungPreisOhneAbzug.TabIndex = 74;
-            this.labelKursbuchungPreisOhneAbzug.Text = "label31";
-            this.labelKursbuchungPreisOhneAbzug.Visible = false;
-            // 
             // FrmHinzufügenBearbeiten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1861, 1051);
             this.Controls.Add(this.panelKurs);
-            this.Controls.Add(this.panelKontaktSuche);
-            this.Controls.Add(this.panelKursbuchung);
             this.Controls.Add(this.labelÜberschrift);
             this.Controls.Add(this.panelMitgliedschaft);
             this.Controls.Add(this.panelKassabuch);
@@ -3075,10 +3076,12 @@
             this.Controls.Add(this.panelGutschein);
             this.Controls.Add(this.panelKontakt);
             this.Controls.Add(this.panelKursort);
-            this.Controls.Add(this.panelKursSuche);
             this.Controls.Add(this.panelPass);
             this.Controls.Add(this.panelBankverbindung);
             this.Controls.Add(this.panelKursleiterSuche);
+            this.Controls.Add(this.panelKursSuche);
+            this.Controls.Add(this.panelKontaktSuche);
+            this.Controls.Add(this.panelKursbuchung);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(250, 20);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -3351,7 +3354,6 @@
         public System.Windows.Forms.DateTimePicker dateTimePickerKursbuchungDatum;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label labelKursbuchungPreis;
-        internal System.Windows.Forms.ComboBox comboBoxKursbuchungBonus;
         private System.Windows.Forms.Button buttonKursbuchungSpeichern;
         private System.Windows.Forms.Button buttonKursbuchungAbbrechen;
         private System.Windows.Forms.Panel panelKursleiterSuche;
@@ -3380,9 +3382,10 @@
         internal System.Windows.Forms.ComboBox comboBoxKursSucheKurskategorie;
         private System.Windows.Forms.Label labelKursleiterID;
         public System.Windows.Forms.Panel panelKursbuchung;
-        private System.Windows.Forms.Label labelKursbuchungKursID;
-        private System.Windows.Forms.Label labelKursbuchungKontaktID;
-        private System.Windows.Forms.Label labelKursbuchungProzent;
-        private System.Windows.Forms.Label labelKursbuchungPreisOhneAbzug;
+        public System.Windows.Forms.ComboBox comboBoxKursbuchungBonus;
+        public System.Windows.Forms.Label labelKursbuchungKursID;
+        public System.Windows.Forms.Label labelKursbuchungKontaktID;
+        public System.Windows.Forms.Label labelKursbuchungProzent;
+        public System.Windows.Forms.Label labelKursbuchungPreisOhneAbzug;
     }
 }

@@ -13,6 +13,8 @@ namespace Common.Models
         public virtual Titel TitelID { get; set; }
         public virtual string Vorname { get; set; }
         public virtual string Nachname { get; set; }
+        public virtual string Benutzername { get; set; }
+        public virtual string Passwort { get; set; }
         public virtual string SVNr { get; set; }
         public virtual string Geschlecht { get; set; }
         public virtual string Familienstand { get; set; }

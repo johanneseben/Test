@@ -775,6 +775,7 @@ namespace Verrechnungsprogramm
             listViewKurs.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
             labelBtKurs.Visible = true;
+            labelBtKursTermin.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
             kurseEinlesen();
@@ -787,6 +788,7 @@ namespace Verrechnungsprogramm
             listViewKurskategorie.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
             labelBtKurskategorie.Visible = true;
+            labelBtKursTermin.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
             kurskategorieEinlesen();
@@ -1343,6 +1345,7 @@ namespace Verrechnungsprogramm
             listViewKursort.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
             labelBtKursort.Visible = true;
+            labelBtKursTermin.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
             kursortEinlesen();
@@ -1360,6 +1363,7 @@ namespace Verrechnungsprogramm
             listViewKursleiter.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
             labelBtKursleiter.Visible = true;
+            labelBtKursTermin.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
             kursleiterEinlesen();
@@ -1411,9 +1415,11 @@ namespace Verrechnungsprogramm
             listViewTeilnehmer.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
             labelBtTeilnehmer.Visible = true;
+            labelBtKursTermin.Visible = true;
             labelKurs.Visible = true;
             comboBoxKursTeilnehmer.Visible = true;
             labelKursleiter.Visible = true;
+            buttonTeilnehmerDrucken.Visible = true;
             textBoxKursleiter.Visible = true;
 
             comboBoxKursTeilnehmer.Items.Clear();
@@ -1472,6 +1478,7 @@ namespace Verrechnungsprogramm
             labelÜberschrift.Text = "Offene Rechnungen";
             listViewOffeneRechnung.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
+            labelBtKursTermin.Visible = true;
             labelBtOffeneRechnungen.Visible = true;
             offenePostenEinlesen();
         }
@@ -1591,6 +1598,7 @@ namespace Verrechnungsprogramm
             listViewKursbuchung.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
             labelBtKursbuchung.Visible = true;
+            labelBtKursTermin.Visible = true;
             labelKursbuchungVon.Visible = true;
             labelKursbuchungBis.Visible = true;
             dateTimePickerKursbuchungBis.Visible = true;
@@ -1675,7 +1683,35 @@ namespace Verrechnungsprogramm
 
         private void buttonKursbuchungBearbeiten_Click(object sender, EventArgs e)
         {
+            if (listViewKursbuchung.SelectedItems.Count == 0 || listViewKursbuchung.SelectedItems.Count > 1)
+                return;
 
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            KontaktKurs kontaktKurs = new KontaktKurs();
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonHinzufügen.Text;
+            fHinzuBea.labelÜberschrift.Text = buttonKursbuchungBearbeiten.Text;
+
+            var requestKontaktKurs = new RestRequest("kontaktKurse", Method.GET);
+            requestKontaktKurs.AddHeader("Content-Type", "application/json");
+            var responseKontaktKurs = client.Execute<List<KontaktKurs>>(requestKontaktKurs);
+
+            fHinzuBea.labelID.Text = listViewKursbuchung.SelectedItems[0].SubItems[0].Text;
+            foreach(KontaktKurs kk in responseKontaktKurs.Data)
+            {
+                if(kk.KontaktKursID.ToString().Equals(listViewKursbuchung.SelectedItems[0].SubItems[0].Text))
+                {
+                    fHinzuBea.textBoxKursbuchungKontakt.Text = kk.KontakID.Vorname.ToString() + " " + kk.KontakID.Nachname.ToString();
+                    fHinzuBea.textBoxKursbuchungKurs.Text = kk.KursID.Bezeichnung.ToString();
+                    fHinzuBea.labelKursbuchungKontaktID.Text = kk.KontakID.KontaktID.ToString();
+                    fHinzuBea.labelKursbuchungKursID.Text = kk.KursID.KursID.ToString();
+                    //fHinzuBea.comboBoxKursbuchungBonus.SelectedItem = "True";
+                }
+            }
+
+            fHinzuBea.ShowDialog();
+
+            kursbuchungEinlesen();
         }
 
         private void listViewKursbuchung_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -1683,6 +1719,72 @@ namespace Verrechnungsprogramm
             
         }
 
-       
+        private void buttonTermine_Click(object sender, EventArgs e)
+        {
+            //labelBtKursTermin.Visible = true;
+        }
+
+        private void buttonTeilnehmerDrucken_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Word.Application wordapp = new Microsoft.Office.Interop.Word.Application();
+            if (wordapp == null)
+            {
+                MessageBox.Show("Es konnte keine Verbindung zu Word hergestellt werden!");
+                return;
+            }
+
+            if(comboBoxKursTeilnehmer.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie einen Kurs aus!");
+                return;
+            }
+
+            wordapp.Visible = true;
+            wordapp.Documents.Open(System.Windows.Forms.Application.StartupPath + "\\VorlageTeilnehmerliste.docx");
+
+
+
+            //Kontakt kontakt = new Kontakt();
+            //KontaktKurs kontaktKurs = new KontaktKurs();
+            //Kurs kurs = new Kurs();
+
+
+            //var requestKontakt = new RestRequest("kontakte", Method.GET);
+            //requestKontakt.AddHeader("Content-Type", "application/json");
+            //var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+            //var requestKontaktKurs = new RestRequest("kontaktKurse", Method.GET);
+            //requestKontaktKurs.AddHeader("Content-Type", "application/json");
+            //var responseKontaktKurs = client.Execute<List<KontaktKurs>>(requestKontaktKurs);
+
+            //var requestKurs = new RestRequest("kurse", Method.GET);
+            //requestKurs.AddHeader("Content-Type", "application/json");
+            //var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+
+            
+
+            string Vorname = "Vorname".ToString();
+            string Nachname = "Nachachname".ToString();
+            string Kursbezeichnung = "Kursbezeichnung".ToString();
+            string Kursleiter = "Kursleiter".ToString();
+            //string Kontakttitel = "Kontakttitel".ToString();
+
+            //wordapp.ActiveDocument.FormFields[Kontakttitel].Result = kontakt.TitelID.Bezeichnung.ToString();
+
+
+            wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = comboBoxKursTeilnehmer.Text;
+            wordapp.ActiveDocument.FormFields[Kursleiter].Result = textBoxKursleiter.Text;
+
+            for (int i = 0; i >= listViewKursbuchung.Items.Count; i++)
+            {
+                wordapp.ActiveDocument.FormFields[Vorname].Result = listViewTeilnehmer.Items[i].SubItems[0].Text;
+                wordapp.ActiveDocument.FormFields[Nachname].Result = listViewTeilnehmer.Items[i].SubItems[1].Text;
+            }
+            //if (wordapp.ActiveDocument.FormFields[Kontakttitel].Result == (""))
+            //{
+            //    wordapp.ActiveDocument.FormFields[Kontakttitel].Range.Font.Hidden = Convert.ToInt32(true);
+            //}
+        }
     }
 }
