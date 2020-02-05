@@ -1275,6 +1275,10 @@ namespace Verrechnungsprogramm
                     kurs.MinTeilnehmer = k.MinTeilnehmer;
                     kurs.MaxTeilnehmer = k.MaxTeilnehmer;
                     kurs.AnzEinheiten = k.AnzEinheiten;
+                    kurs.DatumVon = k.DatumVon;
+                    kurs.ZeitVon = k.ZeitVon;
+                    kurs.KursortID = k.KursortID;
+                    kurs.Kursort1 = k.Kursort1;
                 }
 
                 rechnung.KursID = kurs;
@@ -1295,24 +1299,33 @@ namespace Verrechnungsprogramm
             string Kurspreis = "Kurspreis".ToString();
             string Kontakttitel = "Kontakttitel".ToString();
             string Anrede = "Anrede".ToString();
-          
-            
+            string Kursdatum = "Kursdatum".ToString();
+            string Kursuhrzeit = "Kursuhrzeit".ToString();
+            string Kursort = "Kursort".ToString();
+
+
 
 
             wordapp.ActiveDocument.FormFields[Rechnungsnummer].Result = listViewRechnung.SelectedItems[0].SubItems[1].Text;
             //wordapp.ActiveDocument.FormFields[Rechnungsdatum].Result = listViewRechnung.SelectedItems[0].SubItems[2].Text;
             //wordapp.ActiveDocument.FormFields[Kontaktvorname].Result = kontakt.Vorname.ToString();
-            wordapp.ActiveDocument.FormFields[Kontaktnachname].Result = kontakt.Nachname.ToString();
+            wordapp.ActiveDocument.FormFields[Kontaktnachname].Result = kontakt.Nachname.ToString() + (",");
             //wordapp.ActiveDocument.FormFields[Kontaktstrasse].Result = kontakt.Strasse.ToString();
             //wordapp.ActiveDocument.FormFields[Kontaktplz].Result = kontakt.PostleitzahlID.Plz.ToString();
             //wordapp.ActiveDocument.FormFields[Kontaktort].Result = kontakt.PostleitzahlID.Ort.ToString();
             wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = kurs.Bezeichnung.ToString();
             wordapp.ActiveDocument.FormFields[Kurspreis].Result = kurs.Preis.ToString("c2");
             wordapp.ActiveDocument.FormFields[Kontakttitel].Result = kontakt.TitelID.Bezeichnung.ToString();
+            wordapp.ActiveDocument.FormFields[Kursdatum].Result = kurs.DatumVon.ToString().Substring(0, 10);
+            wordapp.ActiveDocument.FormFields[Kursuhrzeit].Result = kurs.ZeitVon.ToString().Substring(11, 5);
+            wordapp.ActiveDocument.FormFields[Kursort].Result = kurs.KursortID.Bezeichnung.ToString();
 
             if (wordapp.ActiveDocument.FormFields[Kontakttitel].Result == (""))
             {
-                wordapp.ActiveDocument.FormFields[Kontakttitel].Range.Font.Hidden = Convert.ToInt32(true);
+                //wordapp.ActiveDocument.FormFields[Kontakttitel].Range.Font.Hidden = Convert.ToInt32(true);
+                wordapp.ActiveDocument.FormFields[Kontakttitel].Result = kontakt.Nachname.ToString() + (",");
+                wordapp.ActiveDocument.FormFields[Kontaktnachname].Range.Font.Hidden = Convert.ToInt32(true);
+
             }
 
             if (kontakt.Geschlecht.ToString() == ("m"))
