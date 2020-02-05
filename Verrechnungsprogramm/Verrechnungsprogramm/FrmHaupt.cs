@@ -1283,26 +1283,55 @@ namespace Verrechnungsprogramm
 
 
             string Rechnungsnummer = "Rechnungsnummer".ToString();
-            string Rechnungsdatum = "Rechnungsdatum".ToString();
-            string Kontaktvorname = "Kontaktvorname".ToString();
+            //string Rechnungsdatum = "Rechnungsdatum".ToString();
+            //string Kontaktvorname = "Kontaktvorname".ToString();
             string Kontaktnachname = "Kontaktnachname".ToString();
-            string Kontaktstrasse = "Kontaktstrasse".ToString();
-            string Kontaktort = "Kontaktort".ToString();
-            string Kontaktplz = "Kontaktplz".ToString();
+            //string Kontaktstrasse = "Kontaktstrasse".ToString();
+            //string Kontaktort = "Kontaktort".ToString();
+            //string Kontaktplz = "Kontaktplz".ToString();
             string Kursbezeichnung = "Kursbezeichnung".ToString();
             string Kurspreis = "Kurspreis".ToString();
+            string Kontakttitel = "Kontakttitel".ToString();
+            string Anrede = "Anrede".ToString();
+          
+            
 
 
             wordapp.ActiveDocument.FormFields[Rechnungsnummer].Result = listViewRechnung.SelectedItems[0].SubItems[1].Text;
-            wordapp.ActiveDocument.FormFields[Rechnungsdatum].Result = listViewRechnung.SelectedItems[0].SubItems[2].Text;
-            wordapp.ActiveDocument.FormFields[Kontaktvorname].Result = kontakt.Vorname.ToString();
+            //wordapp.ActiveDocument.FormFields[Rechnungsdatum].Result = listViewRechnung.SelectedItems[0].SubItems[2].Text;
+            //wordapp.ActiveDocument.FormFields[Kontaktvorname].Result = kontakt.Vorname.ToString();
             wordapp.ActiveDocument.FormFields[Kontaktnachname].Result = kontakt.Nachname.ToString();
-            wordapp.ActiveDocument.FormFields[Kontaktstrasse].Result = kontakt.Strasse.ToString();
-            wordapp.ActiveDocument.FormFields[Kontaktplz].Result = kontakt.PostleitzahlID.Plz.ToString();
-            wordapp.ActiveDocument.FormFields[Kontaktort].Result = kontakt.PostleitzahlID.Ort.ToString();
+            //wordapp.ActiveDocument.FormFields[Kontaktstrasse].Result = kontakt.Strasse.ToString();
+            //wordapp.ActiveDocument.FormFields[Kontaktplz].Result = kontakt.PostleitzahlID.Plz.ToString();
+            //wordapp.ActiveDocument.FormFields[Kontaktort].Result = kontakt.PostleitzahlID.Ort.ToString();
             wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = kurs.Bezeichnung.ToString();
             wordapp.ActiveDocument.FormFields[Kurspreis].Result = kurs.Preis.ToString("c2");
+            wordapp.ActiveDocument.FormFields[Kontakttitel].Result = kontakt.TitelID.Bezeichnung.ToString();
 
+            if (wordapp.ActiveDocument.FormFields[Kontakttitel].Result == (""))
+            {
+                wordapp.ActiveDocument.FormFields[Kontakttitel].Range.Font.Hidden = Convert.ToInt32(true);
+            }
+
+            if (kontakt.Geschlecht.ToString() == ("m"))
+            {
+                wordapp.ActiveDocument.FormFields[Anrede].Result = ("Sehr geehrter Herr");
+              
+
+            }
+            else if (kontakt.Geschlecht.ToString() == ("männlich"))
+            {
+                wordapp.ActiveDocument.FormFields[Anrede].Result = ("Sehr geehrter Herr");
+               
+            }
+            else
+            {
+                wordapp.ActiveDocument.FormFields[Anrede].Result = ("Sehr geehrte Frau");
+                
+            }
+           
+
+            
 
 
         }
