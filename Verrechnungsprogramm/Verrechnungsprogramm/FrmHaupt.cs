@@ -12,6 +12,8 @@ using System.Collections;
 using Common.Models;
 using RestSharp.Authenticators;
 
+
+
 namespace Verrechnungsprogramm
 {
     public partial class FrmHaupt : Form
@@ -175,6 +177,7 @@ namespace Verrechnungsprogramm
             listViewKursbuchung.Visible = false;
             buttonNeueKursbuchung.Visible = false;
             buttonKursbuchungBearbeiten.Visible = false;
+            btnRechnungdrucken.Visible = false;
         }
 
         private void buttonKontakt_Click(object sender, EventArgs e)
@@ -1146,6 +1149,7 @@ namespace Verrechnungsprogramm
             labelBtFinanz.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
+            btnRechnungdrucken.Visible = true;
             RechnungEinlesen();
         }
 
@@ -1195,6 +1199,112 @@ namespace Verrechnungsprogramm
 
             fHinzuBea.ShowDialog();
             RechnungEinlesen();
+        }
+
+        private void btnRechnungdrucken_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Word.Application wordapp = new Microsoft.Office.Interop.Word.Application();
+            if (wordapp == null)
+            {
+                MessageBox.Show("Es konnte keine Verbindung zu Word hergestellt werden!");
+                return;
+            }
+
+            if ((listViewRechnung.SelectedItems.Count == 0) || (listViewRechnung.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Bitte wählen Sie einen Datensatz aus");
+                return;
+            }
+
+            wordapp.Visible = true;
+            wordapp.Documents.Open(System.Windows.Forms.Application.StartupPath + "\\VorlageRechnung.docx");
+
+
+            
+            Kontakt kontakt = new Kontakt();
+            Rechnung rechnung = new Rechnung();
+            Kurs kurs = new Kurs();
+            
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+            var requestRechnung = new RestRequest("rechnungen", Method.GET);
+            requestRechnung.AddHeader("Content-Type", "application/json");
+            var responseRechnung = client.Execute<List<Rechnung>>(requestRechnung);
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+
+
+            foreach (Kontakt kk in responseKontakt.Data)
+            {
+                if (kk.KontaktID.ToString().Equals(listViewRechnung.SelectedItems[0].SubItems[3].Text))
+                {
+                    kontakt.KontaktID = kk.KontaktID;
+                    kontakt.TitelID = kk.TitelID;
+                    kontakt.Vorname = kk.Vorname;
+                    kontakt.Nachname = kk.Nachname;
+                    kontakt.SVNr = kk.SVNr;
+                    kontakt.Geschlecht = kk.Geschlecht;
+                    kontakt.Familienstand = kk.Familienstand;
+                    kontakt.Email = kk.Email;
+                    kontakt.Telefonnummer = kk.Telefonnummer;
+                    kontakt.Strasse = kk.Strasse;
+                    kontakt.PostleitzahlID = kk.PostleitzahlID;
+                    kontakt.AltersgruppeID = kk.AltersgruppeID;
+                    kontakt.SozialgruppeID = kk.SozialgruppeID;
+                    kontakt.StaatsbuergerschaftID = kk.StaatsbuergerschaftID;
+                }
+
+                rechnung.KontaktID = kontakt;
+            }
+
+            foreach (Kurs k in responseKurs.Data)
+            {
+                if (k.KursID.ToString().Equals(listViewRechnung.SelectedItems[0].SubItems[4].Text))
+                {
+                    kurs.KursID = k.KursID;
+                    kurs.Bezeichnung = k.Bezeichnung;
+                    kurs.Preis = k.Preis;
+                    kurs.MinTeilnehmer = k.MinTeilnehmer;
+                    kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                    kurs.AnzEinheiten = k.AnzEinheiten;
+                }
+
+                rechnung.KursID = kurs;
+            }
+
+
+
+
+
+            string Rechnungsnummer = "Rechnungsnummer".ToString();
+            string Rechnungsdatum = "Rechnungsdatum".ToString();
+            string Kontaktvorname = "Kontaktvorname".ToString();
+            string Kontaktnachname = "Kontaktnachname".ToString();
+            string Kontaktstrasse = "Kontaktstrasse".ToString();
+            string Kontaktort = "Kontaktort".ToString();
+            string Kontaktplz = "Kontaktplz".ToString();
+            string Kursbezeichnung = "Kursbezeichnung".ToString();
+            string Kurspreis = "Kurspreis".ToString();
+
+
+            wordapp.ActiveDocument.FormFields[Rechnungsnummer].Result = listViewRechnung.SelectedItems[0].SubItems[1].Text;
+            wordapp.ActiveDocument.FormFields[Rechnungsdatum].Result = listViewRechnung.SelectedItems[0].SubItems[2].Text;
+            wordapp.ActiveDocument.FormFields[Kontaktvorname].Result = kontakt.Vorname.ToString();
+            wordapp.ActiveDocument.FormFields[Kontaktnachname].Result = kontakt.Nachname.ToString();
+            wordapp.ActiveDocument.FormFields[Kontaktstrasse].Result = kontakt.Strasse.ToString();
+            wordapp.ActiveDocument.FormFields[Kontaktplz].Result = kontakt.PostleitzahlID.Plz.ToString();
+            wordapp.ActiveDocument.FormFields[Kontaktort].Result = kontakt.PostleitzahlID.Ort.ToString();
+            wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = kurs.Bezeichnung.ToString();
+            wordapp.ActiveDocument.FormFields[Kurspreis].Result = kurs.Preis.ToString("c2");
+
+
+
         }
 
         private void buttonKursort_Click(object sender, EventArgs e)
@@ -1543,5 +1653,7 @@ namespace Verrechnungsprogramm
         {
             
         }
+
+       
     }
 }

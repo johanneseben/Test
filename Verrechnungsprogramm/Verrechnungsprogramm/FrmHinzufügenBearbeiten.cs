@@ -847,7 +847,6 @@ namespace Verrechnungsprogramm
             var responseKursort = client.Execute<List<Kursort>>(requestKursort);
 
             var requestKurs = new RestRequest("kurse", Method.GET);
-
             requestKurs.AddHeader("Content-Type", "application/json");
             var responseKurs = client.Execute<List<Kurs>>(requestKurs);
 
@@ -2747,7 +2746,7 @@ namespace Verrechnungsprogramm
 
 
 
-            MessageBox.Show("Das Kassabuch wurde erfolgreich hinzugefügt");
+            MessageBox.Show("Die Rechnung wurde erfolgreich hinzugefügt");
         }
 
         private void rechnungBearbeiten()
