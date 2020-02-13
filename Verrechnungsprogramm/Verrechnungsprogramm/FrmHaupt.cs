@@ -50,6 +50,7 @@ namespace Verrechnungsprogramm
             listViewKursleiter.FullRowSelect = true;
             listViewKursort.FullRowSelect = true;
             listViewKursbuchung.FullRowSelect = true;
+            listViewSchluesselverwaltung.FullRowSelect = true;
 
             listViewKursbuchung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listViewKurs.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -178,6 +179,7 @@ namespace Verrechnungsprogramm
             buttonNeueKursbuchung.Visible = false;
             buttonKursbuchungBearbeiten.Visible = false;
             btnRechnungdrucken.Visible = false;
+            listViewSchluesselverwaltung.Visible = false;
         }
 
         private void buttonKontakt_Click(object sender, EventArgs e)
@@ -405,6 +407,7 @@ namespace Verrechnungsprogramm
             RechnungEinlesen();
             kursortEinlesen();
             kursleiterEinlesen();
+            SchluesselVerwaltungEinlesen();
         }
 
 
@@ -1798,6 +1801,43 @@ namespace Verrechnungsprogramm
             //{
             //    wordapp.ActiveDocument.FormFields[Kontakttitel].Range.Font.Hidden = Convert.ToInt32(true);
             //}
+        }
+
+        private void buttonSchluesselVerwaltung_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Schlüsselverwaltung";
+            listViewSchluesselverwaltung.Visible = true;
+            tableLayoutPanelStammdaten.Visible = true;
+            labelBtSchluesselverwaltung.Visible = true;
+            labelBtStammdaten.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonBearbeiten.Visible = true;
+            SchluesselVerwaltungEinlesen();
+        }
+
+        private void SchluesselVerwaltungEinlesen()
+        {
+            listViewSchluesselverwaltung.Items.Clear();
+
+            var request = new RestRequest("schluesselKontakte", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<SchluesselKontakt>>(request);
+
+
+
+            foreach (SchluesselKontakt sk in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(sk.SchluesselKontaktID.ToString());
+                lvItem.SubItems.Add(sk.SchluesselID.SchluesselID.ToString());
+                lvItem.SubItems.Add(sk.KontaktID.KontaktID.ToString());
+                lvItem.SubItems.Add(sk.SchluesselID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(sk.Herausgeber.ToString());
+                lvItem.SubItems.Add(sk.AusgabeAm.ToString("dd.MM.yyyy"));
+                lvItem.SubItems.Add(sk.RetourAm.ToString("dd.MM.yyyy"));         // erst durch Bearbeitung soll dort ein Datum stehen -> also erst wenn er den Schlüssel zurückgegeben hat
+
+                listViewSchluesselverwaltung.Items.Add(lvItem);
+            }
         }
     }
 }
