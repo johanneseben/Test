@@ -1781,7 +1781,7 @@ namespace Verrechnungsprogramm
             
 
             string Vorname = "Vorname".ToString();
-            string Nachname = "Nachachname".ToString();
+            string Nachname = "Nachname".ToString();
             string Kursbezeichnung = "Kursbezeichnung".ToString();
             string Kursleiter = "Kursleiter".ToString();
             //string Kontakttitel = "Kontakttitel".ToString();
@@ -1792,10 +1792,14 @@ namespace Verrechnungsprogramm
             wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = comboBoxKursTeilnehmer.Text;
             wordapp.ActiveDocument.FormFields[Kursleiter].Result = textBoxKursleiter.Text;
 
+            //wordapp.ActiveDocument.FormFields[Vorname].Result = "Mathias";
+            //wordapp.ActiveDocument.FormFields[Nachname].Result = "Bittmann";
+            //wordapp.ActiveDocument.FormFields[Vorname].Result = "Franz";
+            //wordapp.ActiveDocument.FormFields[Nachname].Result = "Kautz";
             for (int i = 0; i >= listViewKursbuchung.Items.Count; i++)
             {
-                wordapp.ActiveDocument.FormFields[Vorname].Result = listViewTeilnehmer.Items[i].SubItems[0].Text;
-                wordapp.ActiveDocument.FormFields[Nachname].Result = listViewTeilnehmer.Items[i].SubItems[1].Text;
+                wordapp.ActiveDocument.FormFields[Vorname+i].Result = listViewTeilnehmer.Items[i].SubItems[0].Text;
+                wordapp.ActiveDocument.FormFields[Nachname+i].Result = listViewTeilnehmer.Items[i].SubItems[1].Text;
             }
             //if (wordapp.ActiveDocument.FormFields[Kontakttitel].Result == (""))
             //{
