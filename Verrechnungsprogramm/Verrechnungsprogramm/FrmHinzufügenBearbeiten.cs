@@ -270,6 +270,15 @@ namespace Verrechnungsprogramm
                 this.Width = 520;
                 this.Location = new Point(200, 150);
             }
+
+            if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Schlüsselverwaltung"))
+            {
+                panelSchluesselverwaltung.Visible = true;
+
+                this.Height = 470;
+                this.Width = 520;
+                this.Location = new Point(200, 150);
+            }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Kursort"))
             {
                 panelKursort.Visible = true;

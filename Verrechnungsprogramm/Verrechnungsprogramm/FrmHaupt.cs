@@ -1839,7 +1839,6 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(sk.Herausgeber.ToString());
                 lvItem.SubItems.Add(sk.AusgabeAm.ToString("dd.MM.yyyy"));
                 lvItem.SubItems.Add(sk.RetourAm.ToString("dd.MM.yyyy"));         // erst durch Bearbeitung soll dort ein Datum stehen -> also erst wenn er den Schlüssel zurückgegeben hat
-
                 listViewSchluesselverwaltung.Items.Add(lvItem);
             }
         }
