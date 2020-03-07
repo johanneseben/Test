@@ -20,6 +20,7 @@ namespace Verrechnungsprogramm
     {
         RestClient client;
         HttpBasicAuthenticator Authenticator;
+        public int terminEinheitCounter = 1;
 
         public FrmHaupt()
         {
@@ -51,6 +52,9 @@ namespace Verrechnungsprogramm
             listViewKursort.FullRowSelect = true;
             listViewKursbuchung.FullRowSelect = true;
             listViewSchluesselverwaltung.FullRowSelect = true;
+            listViewMitglieder.FullRowSelect = true;
+            listViewKursleiterZuweisen.FullRowSelect = true;
+
 
             listViewKursbuchung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listViewKurs.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -180,6 +184,18 @@ namespace Verrechnungsprogramm
             buttonKursbuchungBearbeiten.Visible = false;
             btnRechnungdrucken.Visible = false;
             listViewSchluesselverwaltung.Visible = false;
+            buttonKontaktSuchen.Visible = false;
+            labelNachname.Visible = false;
+            textBoxNachname.Visible = false;
+            labelVorname.Visible = false;
+            textBoxVorname.Visible = false;
+            buttonTeilnehmerDrucken.Visible = false;
+            labelBtKursleiterZuweisen.Visible = false;
+            listViewKursleiterZuweisen.Visible = false;
+            buttonMitglieder.Visible = false;
+            labelBtMitglieder.Visible = false;
+            panelTermine.Visible = false;
+
         }
 
         private void buttonKontakt_Click(object sender, EventArgs e)
@@ -191,6 +207,11 @@ namespace Verrechnungsprogramm
             tableLayoutPanelStammdaten.Visible = true;
             buttonHinzufügen.Visible = true;
             buttonBearbeiten.Visible = true;
+            buttonKontaktSuchen.Visible = true;
+            labelNachname.Visible = true;
+            textBoxNachname.Visible = true;
+            labelVorname.Visible = true;
+            textBoxVorname.Visible = true;
             kontakteEinlesen();
         }
 
@@ -359,6 +380,7 @@ namespace Verrechnungsprogramm
             labelBtKursTermin.Visible = false;
             labelBtFinanz.Visible = false;
             tableLayoutPanelStammdaten.Visible = true;
+            buttonMitglieder.Visible = true;
         }
 
         private void buttonKursTermin_Click(object sender, EventArgs e)
@@ -383,31 +405,62 @@ namespace Verrechnungsprogramm
 
         private void buttonHinzufügen_Click(object sender, EventArgs e)
         {
-            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
-            fHinzuBea.BackColor = this.BackColor;
-            fHinzuBea.Text = buttonHinzufügen.Text;
-            fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonHinzufügen.Text;
+            if (labelÜberschrift.Text.Equals("Termine"))
+            {
+                groupBox1.Visible = true;
 
-           
+                var request = new RestRequest("kurse", Method.GET);
+                request.AddHeader("Content-Type", "application/json");
+                var response = client.Execute<List<Kurs>>(request);
 
-            fHinzuBea.ShowDialog();
+                foreach (Kurs k in response.Data)
+                {
+                    comboBoxKurse.Items.Add(k.Bezeichnung);
+                }
 
-            sozialgruppeEinlesen();
-            altersgruppenEinlesen();
-            titelEinlesen();
-            kurseEinlesen();
-            kontakteEinlesen();
-            kurskategorieEinlesen();
-            bankverbindungEinlesen();
-            passEinlesen();
-            gutscheinEinlesen();
-            schluesselEinlesen();
-            KassabuchkontoEinlesen();
-            KassabuchEinlesen();
-            RechnungEinlesen();
-            kursortEinlesen();
-            kursleiterEinlesen();
-            SchluesselVerwaltungEinlesen();
+
+
+            }
+            else
+            {
+
+                FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+                fHinzuBea.BackColor = this.BackColor;
+                fHinzuBea.Text = buttonHinzufügen.Text;
+
+                if (labelBtKursleiterZuweisen.Visible == true)
+                {
+                    fHinzuBea.labelÜberschrift.Text = "neuen Kursleiter zuweisen";
+                }
+                else
+                {
+                    fHinzuBea.labelÜberschrift.Text = labelÜberschrift.Text + " " + buttonHinzufügen.Text;
+                }
+
+
+
+                fHinzuBea.ShowDialog();
+
+                sozialgruppeEinlesen();
+                altersgruppenEinlesen();
+                titelEinlesen();
+                kurseEinlesen();
+                kontakteEinlesen();
+                kurskategorieEinlesen();
+                bankverbindungEinlesen();
+                passEinlesen();
+                gutscheinEinlesen();
+                schluesselEinlesen();
+                KassabuchkontoEinlesen();
+                KassabuchEinlesen();
+                RechnungEinlesen();
+                kursortEinlesen();
+                kursleiterEinlesen();
+                SchluesselVerwaltungEinlesen();
+                KursleiterZuweisenEinlesen();
+                MitgliederEinlesen();
+                KursleiterZuweisenEinlesen();
+            }
         }
 
 
@@ -728,7 +781,45 @@ namespace Verrechnungsprogramm
             {
                 kursleiterBearbeiten();
             }
+            if(labelÜberschrift.Text.Equals("Kursleiter zuweisen"))
+            {
+                kursleiterZuweisenBearbeiten();
+            }
 
+        }
+
+        public void kursleiterZuweisenBearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            if (listViewKursleiterZuweisen.SelectedItems.Count == 0)
+                return;
+            fHinzuBea.panelKursleiterKurs.Visible = true;
+
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+            fHinzuBea.labelÜberschrift.Text = "Kursleiter Zuweisung bearbeiten";
+
+            fHinzuBea.labelID.Text = listViewKursleiterZuweisen.SelectedItems[0].SubItems[0].Text;
+
+            var requestKursleiterKurs = new RestRequest("kursleiterKurse", Method.GET);
+            requestKursleiterKurs.AddHeader("Content-Type", "application/json");
+            var responseKursleiterKurs = client.Execute<List<KursleiterKurs>>(requestKursleiterKurs);
+
+            foreach (KursleiterKurs kk in responseKursleiterKurs.Data)
+            {
+                if (kk.KursleiterKursID.ToString().Equals(listViewKursleiterZuweisen.SelectedItems[0].SubItems[0].Text))
+                {
+                    fHinzuBea.comboBoxKursleiterKursKurs.Text = kk.KursID.Bezeichnung.ToString();
+                    fHinzuBea.textBoxKursleiterName.Text = (kk.KursleiterID.KontaktID.Vorname.ToString() + " " + kk.KursleiterID.KontaktID.Nachname.ToString());
+                    fHinzuBea.labelKursleiterID.Text = kk.KursleiterID.KursleiterID.ToString();
+                    fHinzuBea.textBoxKursleiterHonorar.Text = kk.Honorar.ToString();
+                    fHinzuBea.textBoxKursleiterZulage.Text = kk.Zulage.ToString();
+                }
+            }
+
+
+            fHinzuBea.ShowDialog();
+            KursleiterZuweisenEinlesen();
         }
 
         private void contextMenuStripTitel_Opening(object sender, CancelEventArgs e)
@@ -1737,7 +1828,13 @@ namespace Verrechnungsprogramm
 
         private void buttonTermine_Click(object sender, EventArgs e)
         {
-            //labelBtKursTermin.Visible = true;
+            labelBtKursTermin.Visible = true;
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Termine";
+            panelTermine.Visible = true;
+            tableLayoutPanelKursTermin.Visible = true;
+            labelBtTermin.Visible = true;
+            buttonHinzufügen.Visible = true;
         }
 
         private void buttonTeilnehmerDrucken_Click(object sender, EventArgs e)
@@ -1840,6 +1937,267 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(sk.AusgabeAm.ToString("dd.MM.yyyy"));
                 lvItem.SubItems.Add(sk.RetourAm.ToString("dd.MM.yyyy"));         // erst durch Bearbeitung soll dort ein Datum stehen -> also erst wenn er den Schlüssel zurückgegeben hat
                 listViewSchluesselverwaltung.Items.Add(lvItem);
+            }
+        }
+
+        private void buttonKontaktSuchen_Click(object sender, EventArgs e)
+        {
+            listViewKontakt.Items.Clear();
+
+            string vorname = textBoxVorname.Text;
+            string nachname = textBoxNachname.Text;
+
+            int vornL = textBoxVorname.Text.Length;
+            int nachL = textBoxNachname.Text.Length;
+
+
+            var request = new RestRequest("kontakte", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kontakt>>(request);
+
+
+
+            foreach (Kontakt k in response.Data)
+            {
+                if ((k.Vorname.ToLower().Substring(0, vornL).Equals(vorname)) && (k.Nachname.ToLower().Substring(0, nachL).Equals(nachname)))
+                {
+                    ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                    lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.Vorname.ToString());
+                    lvItem.SubItems.Add(k.Nachname.ToString());
+                    lvItem.SubItems.Add(k.SVNr.ToString());
+                    lvItem.SubItems.Add(k.Geschlecht.ToString());
+                    lvItem.SubItems.Add(k.Familienstand.ToString());
+                    lvItem.SubItems.Add(k.Email.ToString());
+                    lvItem.SubItems.Add(k.Telefonnummer.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                    lvItem.SubItems.Add(k.Strasse.ToString());
+                    lvItem.SubItems.Add(k.AltersgruppeID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.SozialgruppeID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.StaatsbuergerschaftID.Staat.ToString());
+
+                    listViewKontakt.Items.Add(lvItem);
+                }
+                else if ((k.Vorname.Substring(0, vornL).Equals(vorname)) && (k.Nachname.Substring(0, nachL).Equals(nachname)))
+                {
+                    ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                    lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.Vorname.ToString());
+                    lvItem.SubItems.Add(k.Nachname.ToString());
+                    lvItem.SubItems.Add(k.SVNr.ToString());
+                    lvItem.SubItems.Add(k.Geschlecht.ToString());
+                    lvItem.SubItems.Add(k.Familienstand.ToString());
+                    lvItem.SubItems.Add(k.Email.ToString());
+                    lvItem.SubItems.Add(k.Telefonnummer.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                    lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                    lvItem.SubItems.Add(k.Strasse.ToString());
+                    lvItem.SubItems.Add(k.AltersgruppeID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.SozialgruppeID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(k.StaatsbuergerschaftID.Staat.ToString());
+
+                    listViewKontakt.Items.Add(lvItem);
+                }
+            }
+        }
+
+        private void bearbeitenToolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            kursBearbeiten();
+        }
+
+        private void buttonKursleiterZuweisen_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Kursleiter zuweisen";
+            listViewKursleiterZuweisen.Visible = true;
+            tableLayoutPanelKursTermin.Visible = true;
+            labelBtKursleiterZuweisen.Visible = true;
+            labelBtKursTermin.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonBearbeiten.Visible = true;
+            KursleiterZuweisenEinlesen();
+        }
+
+        public void KursleiterZuweisenEinlesen()
+        {
+            listViewKursleiterZuweisen.Items.Clear();
+
+            var request = new RestRequest("kursleiterKurse", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<KursleiterKurs>>(request);
+
+            foreach (KursleiterKurs k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KursleiterKursID.ToString());
+                lvItem.SubItems.Add(k.KursleiterID.KontaktID.Vorname.ToString() + " " + k.KursleiterID.KontaktID.Nachname.ToString());
+                lvItem.SubItems.Add(k.KursID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Honorar.ToString());
+                lvItem.SubItems.Add(k.Zulage.ToString());
+                
+                listViewKursleiterZuweisen.Items.Add(lvItem);
+            }
+        }
+
+        private void listViewKursleiterZuweisen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonMitglieder_Click(object sender, EventArgs e)
+        {
+            allesVisibleFalseSetzen();
+            labelÜberschrift.Text = "Mitglied";
+            listViewMitglieder.Visible = true;
+            tableLayoutPanelStammdaten.Visible = true;
+            labelBtMitglieder.Visible = true;
+            labelBtStammdaten.Visible = true;
+            buttonHinzufügen.Visible = true;
+            buttonMitglieder.Visible = true;
+            MitgliederEinlesen();
+        }
+
+        private void MitgliederEinlesen()
+        {
+            listViewMitglieder.Items.Clear();
+
+            var request = new RestRequest("mitgliedschaftKontakte", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<MitgliedschaftKontakt>>(request);
+
+            foreach (MitgliedschaftKontakt m in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(m.MitgliedschaftKontaktID.ToString());
+                lvItem.SubItems.Add(m.KontaktID.Vorname.ToString());
+                lvItem.SubItems.Add(m.KontaktID.Nachname.ToString());
+                lvItem.SubItems.Add(m.MitgliedschaftID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(m.Kalenderjahr.ToString());
+
+                listViewMitglieder.Items.Add(lvItem);
+            }
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            termineEinlesen();
+        }
+
+        private void termineEinlesen()
+        {
+            listViewTermine.Items.Clear();
+
+            var request = new RestRequest("termine", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Termin>>(request);
+
+            foreach (Termin t in response.Data)
+            {
+                if (t.TerminDatum.ToShortDateString().Equals(dateTimePickerDatum.Value.ToShortDateString()))
+                {
+                    ListViewItem lvItem = new ListViewItem(t.TerminID.ToString());
+                    lvItem.SubItems.Add(t.TerminBeginn.ToShortTimeString());
+                    lvItem.SubItems.Add(t.TerminEnde.ToShortTimeString());
+                    lvItem.SubItems.Add(t.TerminBetreff.ToString());
+                    lvItem.SubItems.Add(t.TerminZusatz.ToString());
+                    lvItem.SubItems.Add(t.TerminIntern.ToString());
+                    lvItem.SubItems.Add(t.KursID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(t.KursID.KursortID.Bezeichnung.ToString());
+
+                    listViewTermine.Items.Add(lvItem);
+                }
+            }
+        }
+
+        private void comboBoxKurse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var request = new RestRequest("kurse", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kurs>>(request);
+
+            var requestTermin = new RestRequest("termine", Method.GET);
+            requestTermin.AddHeader("Content-Type", "application/json");
+            var responseTermin = client.Execute<List<Termin>>(requestTermin);
+
+                foreach (Kurs k in response.Data)
+                {
+
+                    if (k.Bezeichnung.Equals(comboBoxKurse.Text))
+                    {
+                        textBoxTerminVon.Text = k.ZeitVon.ToShortTimeString();
+                        textBoxTerminBis.Text = k.ZeitBis.ToShortTimeString();
+                        //textBoxTerminBetreff.Text = "Einheit " + terminEinheitCounter;
+                        textBoxAnzEinheiten.Text = k.AnzEinheiten.ToString();
+                    }
+                }
+            
+
+        }
+
+        private void buttonNaechsterTermin_Click(object sender, EventArgs e)
+        {
+
+            Termin termin = new Termin();
+            Kurs kurs = new Kurs();
+
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            termin.TerminDatum = dateTimePickerTerminDatum.Value;
+            termin.TerminBeginn = Convert.ToDateTime(textBoxTerminVon.Text);
+            termin.TerminEnde = Convert.ToDateTime(textBoxTerminBis.Text);
+            termin.TerminBetreff = textBoxTerminBetreff.Text;
+            termin.TerminIntern = textBoxTerminIntern.Text;
+            termin.TerminZusatz = textBoxTerminZusatz.Text;
+
+            foreach (Kurs k in responseKurs.Data)
+            {
+                if (k.Bezeichnung.ToString().Equals(comboBoxKurse.Text))
+                {
+                    kurs.KursID = k.KursID;
+                    kurs.Bezeichnung = k.Bezeichnung;
+                    kurs.Preis = k.Preis;
+                    kurs.MinTeilnehmer = k.MinTeilnehmer;
+                    kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                    kurs.AnzEinheiten = k.AnzEinheiten;
+                    kurs.Verbindlichkeit = k.Verbindlichkeit;
+                    kurs.Foerderung = k.Foerderung;
+                    kurs.Status = k.Status;
+                    kurs.Beschreibung = k.Beschreibung;
+                    kurs.ZeitVon = k.ZeitVon;
+                    kurs.ZeitBis = k.ZeitBis;
+                    kurs.DatumVon = k.DatumVon;
+                    kurs.DatumBis = k.DatumBis;
+                    kurs.Seminarnummer = k.Seminarnummer;
+                    kurs.KurskategorieID = k.KurskategorieID;
+                    kurs.KursortID = k.KursortID;
+                    kurs.Anmeldeschluss = k.Anmeldeschluss;
+                    kurs.Anmerkung = k.Anmerkung;
+                    kurs.Anzeigen = k.Anzeigen;
+                }
+            }
+            termin.KursID = kurs;
+
+            var request = new RestRequest("termine", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(termin);
+            var response = client.Execute(request);
+
+            //terminEinheitCounter++;
+
+            groupBox1.Visible = false;
+
+            if(terminEinheitCounter == Convert.ToInt32(textBoxAnzEinheiten.Text))
+            {
+                terminEinheitCounter = 1;
             }
         }
     }

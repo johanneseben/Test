@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using RestSharp;
 using System.Collections;
 using Common.Models;
+using RestSharp.Authenticators;
 
 
 
@@ -18,14 +19,21 @@ namespace Verrechnungsprogramm
 {
     public partial class Form1 : Form
     {
+        RestClient client;
+        HttpBasicAuthenticator Authenticator;
+
         public Form1()
         {
             InitializeComponent();
+            client = new RestClient("http://vhs-mistelbach.projects.hakmistelbach.ac.at:20218")
+            {
+                Authenticator = new HttpBasicAuthenticator("demo", "demo")
+            };
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var client = new RestClient("http://localhost:8888");
+            //var client = new RestClient("http://localhost:8888");
 
             var request = new RestRequest("benutzer", Method.GET);
 
@@ -61,7 +69,7 @@ namespace Verrechnungsprogramm
         {
             FrmHaupt fHaupt = new FrmHaupt();
 
-            var client = new RestClient("http://localhost:8888");
+           // var client = new RestClient("http://localhost:8888");
             var request = new RestRequest("benutzer", Method.GET);
             request.AddHeader("Content-Type", "application/json");
             var response = client.Execute<List<Benutzer>>(request);
@@ -84,7 +92,8 @@ namespace Verrechnungsprogramm
                 fHaupt.Location = new System.Drawing.Point(0, 0);
                 fHaupt.BackColor = this.BackColor;
                 fHaupt.ShowDialog();
-                
+
+                this.Hide();
                 //this.Close();
                 
             }

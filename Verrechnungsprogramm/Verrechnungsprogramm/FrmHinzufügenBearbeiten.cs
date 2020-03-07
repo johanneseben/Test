@@ -34,6 +34,10 @@ namespace Verrechnungsprogramm
 
         private void FrmHinzufügenBearbeiten_Load(object sender, EventArgs e)
         {
+            var requestMitgliedschaft = new RestRequest("mitgliedschaften", Method.GET);
+            requestMitgliedschaft.AddHeader("Content-Type", "application/json");
+            var responseMitgliedschaft = client.Execute<List<Mitgliedschaft>>(requestMitgliedschaft);
+
 
             var requestTitel = new RestRequest("titel", Method.GET);
             requestTitel.AddHeader("Content-Type", "application/json");
@@ -79,6 +83,7 @@ namespace Verrechnungsprogramm
             requestKontakt.AddHeader("Content-Type", "application/json");
             var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
 
+            
 
             var requestKursort = new RestRequest("kursorte", Method.GET);
             requestKursort.AddHeader("Content-Type", "application/json");
@@ -87,6 +92,11 @@ namespace Verrechnungsprogramm
             foreach (Titel t in responseTitel.Data)
             {
                 comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
+            }
+
+            foreach(Mitgliedschaft m in responseMitgliedschaft.Data)
+            {
+                comboBoxMitKontaktMitArt.Items.Add(m.Bezeichnung.ToString());
             }
 
             foreach (Kassabuchkonto k in responseKassabuchkonto.Data)
@@ -107,6 +117,11 @@ namespace Verrechnungsprogramm
             foreach (Kurs rkk in responseKurs.Data)
             {
                 comboBoxRechnungKursID.Items.Add(rkk.KursID.ToString() + " " + rkk.Bezeichnung.ToString());
+            }
+
+            foreach (Kurs k in responseKurs.Data)
+            {
+                comboBoxKursleiterKursKurs.Items.Add(k.Bezeichnung.ToString());
             }
 
             foreach (Postleitzahl p in responsePlz.Data)
@@ -209,7 +224,7 @@ namespace Verrechnungsprogramm
             {
                 panelKurs.Visible = true;
                 this.Height = 565;
-                this.Width = 1420;
+                this.Width = 1120;
                 this.Location = new Point(70, 120);
                 panelKurs.Location = new Point(0, 70);
             }
@@ -318,6 +333,25 @@ namespace Verrechnungsprogramm
                 this.Width = 630;
                 this.Location = new Point(200, 150);
                 panelKursbuchung.Location = new Point(-15, 60);
+            }
+
+            if (labelÜberschrift.Text.Equals("neuen Kursleiter zuweisen"))
+            {
+                panelKursleiterKurs.Visible = true;
+                this.Height = 500;
+                this.Width = 630;
+                this.Location = new Point(200, 150);
+                panelKursleiterKurs.Location = new Point(-15, 60);
+            }
+            if (labelÜberschrift.Text.Equals("Kursleiter Zuweisung bearbeiten"))
+            {
+                panelKursleiterSuche.Visible = false;
+                panelKontaktSuche.Visible = false;
+                panelKursleiterKurs.Visible = true;
+                this.Height = 500;
+                this.Width = 630;
+                this.Location = new Point(200, 150);
+                panelKursleiterKurs.Location = new Point(-15, 60);
             }
 
 
@@ -854,6 +888,7 @@ namespace Verrechnungsprogramm
             Kurs kurs = new Kurs();
             Kurskategorie kurskategorie = new Kurskategorie();
             Kursort kursort = new Kursort();
+            KursleiterKurs kursleiterKurs = new KursleiterKurs();
 
             var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
             requestKurskategorie.AddHeader("Content-Type", "application/json");
@@ -946,6 +981,8 @@ namespace Verrechnungsprogramm
             Kurs kurs = new Kurs();
             Kurskategorie kurskategorie = new Kurskategorie();
             Kursort kursort = new Kursort();
+            Kursleiter kursleiter = new Kursleiter();
+            KursleiterKurs kursleiterKurs = new KursleiterKurs();
 
             var requestKurskategorie = new RestRequest("kurskategorien", Method.GET);
             requestKurskategorie.AddHeader("Content-Type", "application/json");
@@ -1010,8 +1047,6 @@ namespace Verrechnungsprogramm
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(kurs);
             var response = client.Execute(request);
-
-           
 
         }
 
@@ -1548,6 +1583,19 @@ namespace Verrechnungsprogramm
                 this.Location = new Point(200, 150);
                 panelKursbuchung.Location = new Point(-15, 60);
             }
+
+            if ((labelÜberschrift.Text.Equals("Mitglied anlegen")) || (labelÜberschrift.Text.Equals("Mitglied bearbeiten")))
+            {
+                labelMitKontaktId.Text = listViewKontakt.SelectedItems[0].SubItems[0].Text + "";
+                textBoxMitKontaktKontakt.Text = listViewKontakt.SelectedItems[0].SubItems[2].Text + " " + listViewKontakt.SelectedItems[0].SubItems[3].Text;
+                panelMitgliedschaftKontakt.Visible = true;
+                panelKontaktSuche.Visible = false;
+                this.Height = 450;
+                this.Width = 630;
+                this.Location = new Point(200, 150);
+                panelMitgliedschaftKontakt.Location = new Point(-15, 60);
+            }
+
 
         }
 
@@ -2508,7 +2556,7 @@ namespace Verrechnungsprogramm
         private void linkLabelKursleiterAuswaehlen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             panelKursleiterSuche.Visible = true;
-            panelKurs.Visible = false;
+            panelKursleiterKurs.Visible = false;
 
             listViewKursleiter.Items.Clear();
 
@@ -2526,6 +2574,11 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.KontaktID.Strasse.ToString());
                 listViewKursleiter.Items.Add(lvItem);
             }
+
+            this.Height = 450;
+            this.Width = 1000;
+            this.Location = new Point(200, 150);
+            panelKursleiterSuche.Location = new Point(0, 60);
         }
 
         private void linkLabelKontaktAuswaehlen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -2602,7 +2655,11 @@ namespace Verrechnungsprogramm
             textBoxKursleiterName.Text = listViewKursleiter.SelectedItems[0].SubItems[1].Text.ToString() + " " + listViewKursleiter.SelectedItems[0].SubItems[2].Text.ToString();
             labelKursleiterID.Text = listViewKursleiter.SelectedItems[0].SubItems[0].Text.ToString();
             panelKursleiterSuche.Visible = false;
-            panelKurs.Visible = true;
+            panelKursleiterKurs.Visible = true;
+            this.Height = 500;
+            this.Width = 630;
+            this.Location = new Point(200, 150);
+            panelKursleiterKurs.Location = new Point(-15, 60);
         }
 
         private void listViewKurs_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -2648,12 +2705,12 @@ namespace Verrechnungsprogramm
         {
             if (labelÜberschrift.Text.Equals("neue Kursbuchung"))
             {
-                //kursbuchungHinzufügen();
+                kursbuchungHinzufügen();
                 this.Close();
             }
             if (labelÜberschrift.Text.Equals("Kursbuchung bearbeiten"))
             {
-                //kursbuchungBearbeiten();
+                kursbuchungBearbeiten();
                 this.Close();
             }
         }
@@ -2701,7 +2758,7 @@ namespace Verrechnungsprogramm
 
             foreach(Kurs k in responseKurs.Data)
             {
-                if(k.KursortID.ToString().Equals(labelKursbuchungKursID.Text))
+                if(k.KursID.ToString().Equals(labelKursbuchungKursID.Text))
                 {
                     kurs.KursID = k.KursID;
                     kurs.Bezeichnung = k.Bezeichnung;
@@ -2785,7 +2842,7 @@ namespace Verrechnungsprogramm
 
                     foreach (Kurs k in responseKurs.Data)
                     {
-                        if (k.KursortID.ToString().Equals(labelKursbuchungKursID.Text))
+                        if (k.KursID.ToString().Equals(labelKursbuchungKursID.Text))
                         {
                             kurs.KursID = k.KursID;
                             kurs.Bezeichnung = k.Bezeichnung;
@@ -2875,6 +2932,282 @@ namespace Verrechnungsprogramm
             {
                 comboBoxKursbuchungBonus.Visible = false;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (labelÜberschrift.Text.Equals("Kursleiter Zuweisung bearbeiten"))
+            {
+                kursleiterZuweisenBearbeiten();
+                this.Close();
+            }
+
+            if (labelÜberschrift.Text.Equals("neuen Kursleiter zuweisen"))
+            {
+                kursleiterZuweisenHinzufügen();
+                this.Close();
+            }
+        }
+
+        private void kursleiterZuweisenHinzufügen()
+        {
+            KursleiterKurs kursleiterKurs = new KursleiterKurs();
+            Kursleiter kursleiter = new Kursleiter();
+            Kurs kurs = new Kurs();
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            var requestKursleiter = new RestRequest("kursleiter", Method.GET);
+            requestKursleiter.AddHeader("Content-Type", "application/json");
+            var responseKursleiter = client.Execute<List<Kursleiter>>(requestKursleiter);
+
+            kursleiterKurs.Honorar = Convert.ToDouble(textBoxKursleiterHonorar.Text);
+            kursleiterKurs.Zulage = Convert.ToDouble(textBoxKursleiterZulage.Text);
+
+            foreach (Kursleiter k in responseKursleiter.Data)
+            {
+                if (k.KursleiterID.ToString().Equals(labelKursleiterID.Text))
+                {
+                    kursleiter.KursleiterID = k.KursleiterID;
+                    kursleiter.KontaktID = k.KontaktID;
+                }
+            }
+            kursleiterKurs.KursleiterID = kursleiter;
+
+            foreach (Kurs k in responseKurs.Data)
+            {
+                if (k.Bezeichnung.ToString().Equals(comboBoxKursleiterKursKurs.Text))
+                {
+                    kurs.KursID = k.KursID;
+                    kurs.Bezeichnung = k.Bezeichnung;
+                    kurs.Preis = k.Preis;
+                    kurs.MinTeilnehmer = k.MinTeilnehmer;
+                    kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                    kurs.AnzEinheiten = k.AnzEinheiten;
+                    kurs.Verbindlichkeit = k.Verbindlichkeit;
+                    kurs.Foerderung = k.Foerderung;
+                    kurs.Status = k.Status;
+                    kurs.Beschreibung = k.Beschreibung;
+                    kurs.ZeitVon = k.ZeitVon;
+                    kurs.ZeitBis = k.ZeitBis;
+                    kurs.DatumVon = k.DatumVon;
+                    kurs.DatumBis = k.DatumBis;
+                    kurs.Seminarnummer = k.Seminarnummer;
+                    kurs.KurskategorieID = k.KurskategorieID;
+                    kurs.KursortID = k.KursortID;
+                    kurs.Anmeldeschluss = k.Anmeldeschluss;
+                    kurs.Anmerkung = k.Anmerkung;
+                    kurs.Anzeigen = k.Anzeigen;
+                }
+            }
+            kursleiterKurs.KursID = kurs;
+
+            var request = new RestRequest("kursleiterKurse", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(kursleiterKurs);
+            var response = client.Execute(request);
+        }
+
+        private void kursleiterZuweisenBearbeiten()
+        {
+            KursleiterKurs kursleiterKurs = new KursleiterKurs();
+            Kursleiter kursleiter = new Kursleiter();
+            Kurs kurs = new Kurs();
+
+            var requestKurs = new RestRequest("kurse", Method.GET);
+            requestKurs.AddHeader("Content-Type", "application/json");
+            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+            var requestKursleiter = new RestRequest("kursleiter", Method.GET);
+            requestKursleiter.AddHeader("Content-Type", "application/json");
+            var responseKursleiter = client.Execute<List<Kursleiter>>(requestKursleiter);
+
+            var requestKursleiterKurs = new RestRequest("kursleiterKurse", Method.GET);
+            requestKursleiterKurs.AddHeader("Content-Type", "application/json");
+            var responseKursleiterKurs = client.Execute<List<KursleiterKurs>>(requestKursleiterKurs);
+
+
+            foreach (KursleiterKurs kk in responseKursleiterKurs.Data)
+            {
+                if (kk.KursleiterKursID == Convert.ToInt32(labelID.Text))
+                {
+                    kursleiterKurs.Honorar = Convert.ToDouble(textBoxKursleiterHonorar.Text);
+                    kursleiterKurs.Zulage = Convert.ToDouble(textBoxKursleiterZulage.Text);
+
+                    foreach (Kursleiter k in responseKursleiter.Data)
+                    {
+                        if (k.KursleiterID.ToString().Equals(labelKursleiterID.Text))
+                        {
+                            kursleiter.KursleiterID = k.KursleiterID;
+                            kursleiter.KontaktID = k.KontaktID;
+                        }
+                    }
+                    kursleiterKurs.KursleiterID = kursleiter;
+
+                    foreach (Kurs k in responseKurs.Data)
+                    {
+                        if (k.KursID.ToString().Equals(labelKursbuchungKursID.Text))
+                        {
+                            kurs.KursID = k.KursID;
+                            kurs.Bezeichnung = k.Bezeichnung;
+                            kurs.Preis = k.Preis;
+                            kurs.MinTeilnehmer = k.MinTeilnehmer;
+                            kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                            kurs.AnzEinheiten = k.AnzEinheiten;
+                            kurs.Verbindlichkeit = k.Verbindlichkeit;
+                            kurs.Foerderung = k.Foerderung;
+                            kurs.Status = k.Status;
+                            kurs.Beschreibung = k.Beschreibung;
+                            kurs.ZeitVon = k.ZeitVon;
+                            kurs.ZeitBis = k.ZeitBis;
+                            kurs.DatumVon = k.DatumVon;
+                            kurs.DatumBis = k.DatumBis;
+                            kurs.Seminarnummer = k.Seminarnummer;
+                            kurs.KurskategorieID = k.KurskategorieID;
+                            kurs.KursortID = k.KursortID;
+                            kurs.Anmeldeschluss = k.Anmeldeschluss;
+                            kurs.Anmerkung = k.Anmerkung;
+                            kurs.Anzeigen = k.Anzeigen;
+                        }
+                    }
+                    kursleiterKurs.KursID = kurs;
+
+                    var request1 = new RestRequest("kursleiterKurs", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(kursleiterKurs);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+            }
+        }
+
+        private void buttonKursleiterKursAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonMitlgiedschaftKontaktAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void linkLabelMitKontakt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            listViewKontakt.Items.Clear();
+            var request = new RestRequest("kontakte", Method.GET);
+
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kontakt>>(request);
+
+            foreach (Kontakt k in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(k.KontaktID.ToString());
+                lvItem.SubItems.Add(k.TitelID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.Vorname.ToString());
+                lvItem.SubItems.Add(k.Nachname.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Plz.ToString());
+                lvItem.SubItems.Add(k.PostleitzahlID.Ort.ToString());
+                lvItem.SubItems.Add(k.Strasse.ToString());
+                lvItem.SubItems.Add(k.SVNr.ToString());
+                lvItem.SubItems.Add(k.Geschlecht.ToString());
+                lvItem.SubItems.Add(k.Familienstand.ToString());
+
+                listViewKontakt.Items.Add(lvItem);
+            }
+            panelMitgliedschaftKontakt.Visible = false;
+            panelKontaktSuche.Visible = true;
+            this.Height = 450;
+            this.Width = 800;
+            this.Location = new Point(200, 150);
+            panelKontaktSuche.Location = new Point(0, 60);
+        }
+
+        private void buttonMitgliedschaftKontaktSpeichern_Click(object sender, EventArgs e)
+        {
+            if (labelÜberschrift.Text.Equals("Mitglied anlegen"))
+            {
+                mitgliedHinzufügen();
+                this.Close();
+            }
+            if (labelÜberschrift.Text.Equals("Mitlgied bearbeiten"))
+            {
+                mitgliedBearbeiten();
+                this.Close();
+            }
+        }
+
+        private void mitgliedHinzufügen()
+        {
+            Mitgliedschaft mitgliedschaft = new Mitgliedschaft();
+            Kontakt kontakt = new Kontakt();
+            MitgliedschaftKontakt mitgliedschaftKontakt = new MitgliedschaftKontakt();
+
+            var requestKontakt = new RestRequest("kontakte", Method.GET);
+            requestKontakt.AddHeader("Content-Type", "application/json");
+            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+
+            var requestMitgliedschaft = new RestRequest("mitgliedschaften", Method.GET);
+            requestMitgliedschaft.AddHeader("Content-Type", "application/json");
+            var responseMitgliedschaft = client.Execute<List<Mitgliedschaft>>(requestMitgliedschaft);
+
+            mitgliedschaftKontakt.Kalenderjahr = Convert.ToInt32(textBoxMitKontaktKalenderjahr.Text);
+
+            foreach (Kontakt k in responseKontakt.Data)
+            {
+                if (k.KontaktID.ToString().Equals(labelMitKontaktId.Text))
+                {
+                    kontakt.KontaktID = k.KontaktID;
+                    kontakt.TitelID = k.TitelID;
+                    kontakt.Vorname = k.Vorname;
+                    kontakt.Nachname = k.Nachname;
+                    kontakt.SVNr = k.SVNr;
+                    kontakt.Geschlecht = k.Geschlecht;
+                    kontakt.Familienstand = k.Familienstand;
+                    kontakt.Email = k.Email;
+                    kontakt.Telefonnummer = k.Telefonnummer;
+                    kontakt.Strasse = k.Strasse;
+                    kontakt.PostleitzahlID = k.PostleitzahlID;
+                    kontakt.AltersgruppeID = k.AltersgruppeID;
+                    kontakt.SozialgruppeID = k.SozialgruppeID;
+                    kontakt.StaatsbuergerschaftID = k.StaatsbuergerschaftID;
+                }
+            }
+
+            mitgliedschaftKontakt.KontaktID = kontakt;
+
+            foreach (Mitgliedschaft m in responseMitgliedschaft.Data)
+            {
+                if (m.Bezeichnung.ToString().Equals(comboBoxMitKontaktMitArt.Text))
+                {
+                    mitgliedschaft.MitgliedschaftID = m.MitgliedschaftID;
+                    mitgliedschaft.Bezeichnung = comboBoxMitKontaktMitArt.Text;
+                    mitgliedschaft.Mitgliedsbeitrag = m.Mitgliedsbeitrag;
+                    mitgliedschaft.Ermaessigung = m.Ermaessigung;
+                }
+            }
+
+            mitgliedschaftKontakt.MitgliedschaftID = mitgliedschaft;
+
+            var request = new RestRequest("mitgliedschaftKontakte", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(mitgliedschaftKontakt);
+            var response = client.Execute(request);
+
+        }
+
+        private void mitgliedBearbeiten()
+        {
+
         }
 
         private void rechnungHinzufügen()
