@@ -2001,8 +2001,8 @@
             this.comboBoxGeschlecht.FormattingEnabled = true;
             this.comboBoxGeschlecht.Items.AddRange(new object[] {
             "",
-            "männlich",
-            "weiblich"});
+            "m",
+            "w"});
             this.comboBoxGeschlecht.Location = new System.Drawing.Point(288, 199);
             this.comboBoxGeschlecht.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxGeschlecht.Name = "comboBoxGeschlecht";
@@ -3287,10 +3287,11 @@
             this.panelMitgliedschaftKontakt.Controls.Add(this.labelMitKontaktKalenderjahr);
             this.panelMitgliedschaftKontakt.Controls.Add(this.buttonMitgliedschaftKontaktSpeichern);
             this.panelMitgliedschaftKontakt.Controls.Add(this.buttonMitlgiedschaftKontaktAbbrechen);
-            this.panelMitgliedschaftKontakt.Location = new System.Drawing.Point(2, 65);
+            this.panelMitgliedschaftKontakt.Location = new System.Drawing.Point(2, 64);
             this.panelMitgliedschaftKontakt.Name = "panelMitgliedschaftKontakt";
             this.panelMitgliedschaftKontakt.Size = new System.Drawing.Size(670, 385);
             this.panelMitgliedschaftKontakt.TabIndex = 60;
+            this.panelMitgliedschaftKontakt.Visible = false;
             // 
             // linkLabelMitKontakt
             // 
@@ -3403,28 +3404,28 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1861, 1051);
+            this.Controls.Add(this.panelKontakt);
             this.Controls.Add(this.panelKursleiterKurs);
-            this.Controls.Add(this.panelKursbuchung);
-            this.Controls.Add(this.panelPass);
-            this.Controls.Add(this.panelKursSuche);
-            this.Controls.Add(this.panelSchluesselverwaltung);
             this.Controls.Add(this.labelÜberschrift);
-            this.Controls.Add(this.panelMitgliedschaft);
-            this.Controls.Add(this.panelKassabuch);
             this.Controls.Add(this.panelRechnung);
             this.Controls.Add(this.panelSchluessel);
+            this.Controls.Add(this.panelMitgliedschaftKontakt);
             this.Controls.Add(this.panelKassabuchkonto);
             this.Controls.Add(this.labelID);
-            this.Controls.Add(this.panelTitel);
             this.Controls.Add(this.panelAltersgruppeSozialgruppeKurskategorie);
             this.Controls.Add(this.panelGutschein);
             this.Controls.Add(this.panelKursort);
             this.Controls.Add(this.panelBankverbindung);
             this.Controls.Add(this.panelKontaktSuche);
-            this.Controls.Add(this.panelMitgliedschaftKontakt);
             this.Controls.Add(this.panelKurs);
-            this.Controls.Add(this.panelKontakt);
             this.Controls.Add(this.panelKursleiterSuche);
+            this.Controls.Add(this.panelKursbuchung);
+            this.Controls.Add(this.panelPass);
+            this.Controls.Add(this.panelKursSuche);
+            this.Controls.Add(this.panelSchluesselverwaltung);
+            this.Controls.Add(this.panelMitgliedschaft);
+            this.Controls.Add(this.panelKassabuch);
+            this.Controls.Add(this.panelTitel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(250, 20);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

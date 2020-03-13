@@ -3033,6 +3033,7 @@ namespace Verrechnungsprogramm
             {
                 if (kk.KursleiterKursID == Convert.ToInt32(labelID.Text))
                 {
+                    kursleiterKurs.KursleiterKursID = Convert.ToInt32(labelID.Text);
                     kursleiterKurs.Honorar = Convert.ToDouble(textBoxKursleiterHonorar.Text);
                     kursleiterKurs.Zulage = Convert.ToDouble(textBoxKursleiterZulage.Text);
 
@@ -3048,7 +3049,7 @@ namespace Verrechnungsprogramm
 
                     foreach (Kurs k in responseKurs.Data)
                     {
-                        if (k.KursID.ToString().Equals(labelKursbuchungKursID.Text))
+                        if (k.Bezeichnung.ToString().Equals(comboBoxKursleiterKursKurs.Text))
                         {
                             kurs.KursID = k.KursID;
                             kurs.Bezeichnung = k.Bezeichnung;
@@ -3074,7 +3075,7 @@ namespace Verrechnungsprogramm
                     }
                     kursleiterKurs.KursID = kurs;
 
-                    var request1 = new RestRequest("kursleiterKurs", Method.PUT);
+                    var request1 = new RestRequest("kursleiterKurse", Method.PUT);
                     request1.AddHeader("Content-Type", "application/json");
                     request1.AddJsonBody(kursleiterKurs);
                     var response1 = client.Execute(request1);

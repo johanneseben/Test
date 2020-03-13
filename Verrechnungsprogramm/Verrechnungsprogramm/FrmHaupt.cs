@@ -20,7 +20,7 @@ namespace Verrechnungsprogramm
     {
         RestClient client;
         HttpBasicAuthenticator Authenticator;
-        public int terminEinheitCounter = 1;
+        public int terminEinheitCounter = 0;
 
         public FrmHaupt()
         {
@@ -54,6 +54,8 @@ namespace Verrechnungsprogramm
             listViewSchluesselverwaltung.FullRowSelect = true;
             listViewMitglieder.FullRowSelect = true;
             listViewKursleiterZuweisen.FullRowSelect = true;
+            listViewOffeneRechnung.FullRowSelect = true;
+            listViewTermine.FullRowSelect = true;
 
 
             listViewKursbuchung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -192,9 +194,11 @@ namespace Verrechnungsprogramm
             buttonTeilnehmerDrucken.Visible = false;
             labelBtKursleiterZuweisen.Visible = false;
             listViewKursleiterZuweisen.Visible = false;
-            buttonMitglieder.Visible = false;
+            //buttonMitglieder.Visible = false;
             labelBtMitglieder.Visible = false;
             panelTermine.Visible = false;
+            listViewMitglieder.Visible = false;
+            groupBox1.Visible = false;
 
         }
 
@@ -407,19 +411,17 @@ namespace Verrechnungsprogramm
         {
             if (labelÜberschrift.Text.Equals("Termine"))
             {
+                textBoxTerminBetreff.Text = "";
+                textBoxTerminBis.Text = "";
+                textBoxTerminVon.Text = "";
+                textBoxTerminZusatz.Text = "";
+                textBoxTerminIntern.Text = "";
+                textBoxAnzEinheiten.Text = "";
+                textBoxFreieEinheiten.Text = "";
+                dateTimePickerTerminDatum.Value = DateTime.Now;
+                comboBoxKurse.Text = "";
+                groupBox1.Text = "anlegen";
                 groupBox1.Visible = true;
-
-                var request = new RestRequest("kurse", Method.GET);
-                request.AddHeader("Content-Type", "application/json");
-                var response = client.Execute<List<Kurs>>(request);
-
-                foreach (Kurs k in response.Data)
-                {
-                    comboBoxKurse.Items.Add(k.Bezeichnung);
-                }
-
-
-
             }
             else
             {
@@ -785,6 +787,37 @@ namespace Verrechnungsprogramm
             {
                 kursleiterZuweisenBearbeiten();
             }
+            if(labelÜberschrift.Text.Equals("Termine"))
+            {
+                terminBearbeiten();
+            }
+
+        }
+
+        public void terminBearbeiten()
+        {
+            groupBox1.Text = "bearbeiten";
+            groupBox1.Visible = true;
+
+            dateTimePickerTerminDatum.Value = Convert.ToDateTime(listViewTermine.SelectedItems[0].SubItems[8].Text);
+            textBoxTerminVon.Text = listViewTermine.SelectedItems[0].SubItems[1].Text;
+            textBoxTerminBis.Text = listViewTermine.SelectedItems[0].SubItems[2].Text;
+            textBoxTerminBetreff.Text = listViewTermine.SelectedItems[0].SubItems[3].Text;
+            textBoxTerminZusatz.Text = listViewTermine.SelectedItems[0].SubItems[4].Text;
+            textBoxTerminIntern.Text = listViewTermine.SelectedItems[0].SubItems[5].Text;
+
+            var requestTermin = new RestRequest("termine", Method.GET);
+            requestTermin.AddHeader("Content-Type", "application/json");
+            var responseTermin = client.Execute<List<Termin>>(requestTermin);
+
+            foreach (Termin t in responseTermin.Data)
+            {
+                if(t.KursID.Bezeichnung.Equals(listViewTermine.SelectedItems[0].SubItems[6].Text))
+                {
+                    comboBoxKurse.Text = listViewTermine.SelectedItems[0].SubItems[6].Text;
+                }
+            }
+
 
         }
 
@@ -793,6 +826,7 @@ namespace Verrechnungsprogramm
             FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
             if (listViewKursleiterZuweisen.SelectedItems.Count == 0)
                 return;
+
             fHinzuBea.panelKursleiterKurs.Visible = true;
 
             fHinzuBea.BackColor = this.BackColor;
@@ -1601,7 +1635,7 @@ namespace Verrechnungsprogramm
 
             foreach (KontaktKurs kk in response.Data)
             {
-                if (kk.Bezahlt == true)
+                if (kk.Bezahlt == false)
                 {
                     ListViewItem lvItem = new ListViewItem(kk.KontakID.Vorname.ToString());
                     lvItem.SubItems.Add(kk.KontakID.Nachname.ToString());
@@ -1713,6 +1747,8 @@ namespace Verrechnungsprogramm
             buttonKursbuchungSuchen.Visible = true;
             buttonNeueKursbuchung.Visible = true;
             buttonKursbuchungBearbeiten.Visible = true;
+            dateTimePickerKursbuchungBis.Value = DateTime.Now;
+            dateTimePickerKursbuchungVon.Value = DateTime.Now.AddDays(-1);
             kursbuchungEinlesen();
         }
 
@@ -1747,7 +1783,7 @@ namespace Verrechnungsprogramm
 
             foreach (KontaktKurs kk in responseKontaktKurs.Data)
             {
-                if (dateTimePickerKursbuchungVon.Value <= kk.Buchungsdatum && dateTimePickerKursbuchungBis.Value >= kk.Buchungsdatum)
+                if (dateTimePickerKursbuchungVon.Value.Day < kk.Buchungsdatum.Day && dateTimePickerKursbuchungBis.Value.Day >= kk.Buchungsdatum.Day)
                 {
                     ListViewItem lvItem = new ListViewItem(kk.KontaktKursID.ToString());
                     lvItem.SubItems.Add(kk.KontakID.Vorname.ToString());
@@ -1763,17 +1799,19 @@ namespace Verrechnungsprogramm
 
         private void dateTimePickerKursbuchungBis_ValueChanged(object sender, EventArgs e)
         {
-            if(dateTimePickerKursbuchungBis.Value < dateTimePickerKursbuchungVon.Value)
+            if(dateTimePickerKursbuchungVon.Value.Day > dateTimePickerKursbuchungBis.Value.Day)
             {
                 MessageBox.Show("Das Datum muss größer als " + dateTimePickerKursbuchungVon.Value.ToShortDateString() + " sein.");
+                dateTimePickerKursbuchungBis.Value = dateTimePickerKursbuchungVon.Value.AddDays(+1);
             }
         }
 
         private void dateTimePickerKursbuchungVon_ValueChanged(object sender, EventArgs e)
         {
-            if (dateTimePickerKursbuchungBis.Value < dateTimePickerKursbuchungVon.Value)
+            if (dateTimePickerKursbuchungBis.Value.Day < dateTimePickerKursbuchungVon.Value.Day)
             {
                 MessageBox.Show("Das Datum muss kleiner als " + dateTimePickerKursbuchungBis.Value.ToShortDateString() + " sein.");
+                dateTimePickerKursbuchungVon.Value = dateTimePickerKursbuchungBis.Value.AddDays(-1);
             }
         }
 
@@ -1834,7 +1872,18 @@ namespace Verrechnungsprogramm
             panelTermine.Visible = true;
             tableLayoutPanelKursTermin.Visible = true;
             labelBtTermin.Visible = true;
+            labelBtKursTermin.Visible = true;
             buttonHinzufügen.Visible = true;
+
+            var request = new RestRequest("kurse", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kurs>>(request);
+
+            foreach (Kurs k in response.Data)
+            {
+                comboBoxKurse.Items.Add(k.Bezeichnung);
+                comboBoxKursTermin.Items.Add(k.Bezeichnung);
+            }
         }
 
         private void buttonTeilnehmerDrucken_Click(object sender, EventArgs e)
@@ -2087,6 +2136,36 @@ namespace Verrechnungsprogramm
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             termineEinlesen();
+            groupBox1.Visible = false;
+            buttonBearbeiten.Visible = false;
+            comboBoxKursTermin.Text = "";
+        }
+
+        private void termineEinlesen2()
+        {
+            listViewTermine.Items.Clear();
+
+            var request = new RestRequest("termine", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Termin>>(request);
+
+            foreach (Termin t in response.Data)
+            {
+                if (t.KursID.Bezeichnung.Equals(comboBoxKursTermin.Text))
+                {
+                    ListViewItem lvItem = new ListViewItem(t.TerminID.ToString());
+                    lvItem.SubItems.Add(t.TerminBeginn.ToShortTimeString());
+                    lvItem.SubItems.Add(t.TerminEnde.ToShortTimeString());
+                    lvItem.SubItems.Add(t.TerminBetreff.ToString());
+                    lvItem.SubItems.Add(t.TerminZusatz.ToString());
+                    lvItem.SubItems.Add(t.TerminIntern.ToString());
+                    lvItem.SubItems.Add(t.KursID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(t.KursID.KursortID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(t.TerminDatum.ToShortDateString());
+
+                    listViewTermine.Items.Add(lvItem);
+                }
+            }
         }
 
         private void termineEinlesen()
@@ -2109,6 +2188,7 @@ namespace Verrechnungsprogramm
                     lvItem.SubItems.Add(t.TerminIntern.ToString());
                     lvItem.SubItems.Add(t.KursID.Bezeichnung.ToString());
                     lvItem.SubItems.Add(t.KursID.KursortID.Bezeichnung.ToString());
+                    lvItem.SubItems.Add(t.TerminDatum.ToShortDateString());
 
                     listViewTermine.Items.Add(lvItem);
                 }
@@ -2125,80 +2205,219 @@ namespace Verrechnungsprogramm
             requestTermin.AddHeader("Content-Type", "application/json");
             var responseTermin = client.Execute<List<Termin>>(requestTermin);
 
-                foreach (Kurs k in response.Data)
-                {
+            foreach (Kurs k in response.Data)
+            {
 
-                    if (k.Bezeichnung.Equals(comboBoxKurse.Text))
+                if (k.Bezeichnung.Equals(comboBoxKurse.Text))
+                {
+                    foreach (Termin t in responseTermin.Data)
                     {
-                        textBoxTerminVon.Text = k.ZeitVon.ToShortTimeString();
-                        textBoxTerminBis.Text = k.ZeitBis.ToShortTimeString();
-                        //textBoxTerminBetreff.Text = "Einheit " + terminEinheitCounter;
-                        textBoxAnzEinheiten.Text = k.AnzEinheiten.ToString();
+                       // MessageBox.Show(k.Bezeichnung.ToString() + " / " + t.KursID.Bezeichnung.ToString());
+                        if (k.Bezeichnung.ToString().Equals(t.KursID.Bezeichnung.ToString()))
+                        { 
+                            terminEinheitCounter++;
+                        }
+
                     }
+                    textBoxTerminVon.Text = k.ZeitVon.ToShortTimeString();
+                    textBoxTerminBis.Text = k.ZeitBis.ToShortTimeString();
+                    //textBoxTerminBetreff.Text = "Einheit " + terminEinheitCounter;
+                    textBoxAnzEinheiten.Text = k.AnzEinheiten.ToString();
+                    textBoxFreieEinheiten.Text = (k.AnzEinheiten - Convert.ToInt32(terminEinheitCounter)).ToString();
+                    if(textBoxFreieEinheiten.Text.Equals("0"))
+                    {
+                        MessageBox.Show("bei diesem Kurs haben sie schon alle Termine vergeben!");
+                        return;
+                    }
+                    terminEinheitCounter = 0;
+
                 }
-            
+            }
+
 
         }
 
         private void buttonNaechsterTermin_Click(object sender, EventArgs e)
         {
+            if (groupBox1.Text.Equals("anlegen"))
+            {
+                Termin termin = new Termin();
+                Kurs kurs = new Kurs();
 
+
+                var requestKurs = new RestRequest("kurse", Method.GET);
+                requestKurs.AddHeader("Content-Type", "application/json");
+                var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+                termin.TerminDatum = dateTimePickerTerminDatum.Value;
+                termin.TerminBeginn = Convert.ToDateTime(textBoxTerminVon.Text);
+                termin.TerminEnde = Convert.ToDateTime(textBoxTerminBis.Text);
+                termin.TerminBetreff = textBoxTerminBetreff.Text;
+                termin.TerminIntern = textBoxTerminIntern.Text;
+                termin.TerminZusatz = textBoxTerminZusatz.Text;
+
+                foreach (Kurs k in responseKurs.Data)
+                {
+                    if (k.Bezeichnung.ToString().Equals(comboBoxKurse.Text))
+                    {
+                        kurs.KursID = k.KursID;
+                        kurs.Bezeichnung = k.Bezeichnung;
+                        kurs.Preis = k.Preis;
+                        kurs.MinTeilnehmer = k.MinTeilnehmer;
+                        kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                        kurs.AnzEinheiten = k.AnzEinheiten;
+                        kurs.Verbindlichkeit = k.Verbindlichkeit;
+                        kurs.Foerderung = k.Foerderung;
+                        kurs.Status = k.Status;
+                        kurs.Beschreibung = k.Beschreibung;
+                        kurs.ZeitVon = k.ZeitVon;
+                        kurs.ZeitBis = k.ZeitBis;
+                        kurs.DatumVon = k.DatumVon;
+                        kurs.DatumBis = k.DatumBis;
+                        kurs.Seminarnummer = k.Seminarnummer;
+                        kurs.KurskategorieID = k.KurskategorieID;
+                        kurs.KursortID = k.KursortID;
+                        kurs.Anmeldeschluss = k.Anmeldeschluss;
+                        kurs.Anmerkung = k.Anmerkung;
+                        kurs.Anzeigen = k.Anzeigen;
+                    }
+                }
+                termin.KursID = kurs;
+
+                var request = new RestRequest("termine", Method.POST);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddJsonBody(termin);
+                var response = client.Execute(request);
+
+                //terminEinheitCounter++;
+
+                groupBox1.Visible = false;
+            }
+
+            if (groupBox1.Text.Equals("bearbeiten"))
+            {
+                int terminID = Convert.ToInt32(listViewTermine.SelectedItems[0].SubItems[0].Text);
+                Termin termin = new Termin();
+                Kurs kurs = new Kurs();
+
+                var requestTermin = new RestRequest("termine", Method.GET);
+                requestTermin.AddHeader("Content-Type", "application/json");
+                var responseTermin = client.Execute<List<Termin>>(requestTermin);
+
+                var requestKurs = new RestRequest("kurse", Method.GET);
+                requestKurs.AddHeader("Content-Type", "application/json");
+                var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+
+                foreach (Termin t in responseTermin.Data)
+                {
+                    if (t.TerminID == terminID)
+                    {
+                        termin.TerminID = terminID;
+                        termin.TerminDatum = dateTimePickerTerminDatum.Value;
+                        termin.TerminBeginn = Convert.ToDateTime(textBoxTerminVon.Text);
+                        termin.TerminEnde = Convert.ToDateTime(textBoxTerminBis.Text);
+                        termin.TerminBetreff = textBoxTerminBetreff.Text;
+                        termin.TerminIntern = textBoxTerminIntern.Text;
+                        termin.TerminZusatz = textBoxTerminZusatz.Text;
+
+                        foreach (Kurs k in responseKurs.Data)
+                        {
+                            if (k.Bezeichnung.ToString().Equals(comboBoxKurse.Text))
+                            {
+                                kurs.KursID = k.KursID;
+                                kurs.Bezeichnung = k.Bezeichnung;
+                                kurs.Preis = k.Preis;
+                                kurs.MinTeilnehmer = k.MinTeilnehmer;
+                                kurs.MaxTeilnehmer = k.MaxTeilnehmer;
+                                kurs.AnzEinheiten = k.AnzEinheiten;
+                                kurs.Verbindlichkeit = k.Verbindlichkeit;
+                                kurs.Foerderung = k.Foerderung;
+                                kurs.Status = k.Status;
+                                kurs.Beschreibung = k.Beschreibung;
+                                kurs.ZeitVon = k.ZeitVon;
+                                kurs.ZeitBis = k.ZeitBis;
+                                kurs.DatumVon = k.DatumVon;
+                                kurs.DatumBis = k.DatumBis;
+                                kurs.Seminarnummer = k.Seminarnummer;
+                                kurs.KurskategorieID = k.KurskategorieID;
+                                kurs.KursortID = k.KursortID;
+                                kurs.Anmeldeschluss = k.Anmeldeschluss;
+                                kurs.Anmerkung = k.Anmerkung;
+                                kurs.Anzeigen = k.Anzeigen;
+                            }
+                        }
+                        termin.KursID = kurs;
+
+                        var request1 = new RestRequest("termine", Method.PUT);
+                        request1.AddHeader("Content-Type", "application/json");
+                        request1.AddJsonBody(termin);
+                        var response1 = client.Execute(request1);
+
+                        if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                        {
+                            MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erfolgreich geändert!");
+                        }
+
+                        termineEinlesen();
+
+                        groupBox1.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void listViewTermine_Click(object sender, EventArgs e)
+        {
+            if(listViewTermine.SelectedItems.Count ==1)
+            {
+                buttonBearbeiten.Visible = true;
+            }
+        }
+
+        private void dateTimePickerTerminDatum_ValueChanged(object sender, EventArgs e)
+        {
             Termin termin = new Termin();
             Kurs kurs = new Kurs();
 
+            var request = new RestRequest("kurse", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Kurs>>(request);
 
-            var requestKurs = new RestRequest("kurse", Method.GET);
-            requestKurs.AddHeader("Content-Type", "application/json");
-            var responseKurs = client.Execute<List<Kurs>>(requestKurs);
+            var requestTermin = new RestRequest("termine", Method.GET);
+            requestTermin.AddHeader("Content-Type", "application/json");
+            var responseTermin = client.Execute<List<Termin>>(requestTermin);
 
-            termin.TerminDatum = dateTimePickerTerminDatum.Value;
-            termin.TerminBeginn = Convert.ToDateTime(textBoxTerminVon.Text);
-            termin.TerminEnde = Convert.ToDateTime(textBoxTerminBis.Text);
-            termin.TerminBetreff = textBoxTerminBetreff.Text;
-            termin.TerminIntern = textBoxTerminIntern.Text;
-            termin.TerminZusatz = textBoxTerminZusatz.Text;
-
-            foreach (Kurs k in responseKurs.Data)
+            foreach(Kurs k in response.Data)
             {
-                if (k.Bezeichnung.ToString().Equals(comboBoxKurse.Text))
+                if(comboBoxKurse.Text.Equals(k.Bezeichnung.ToString()))
                 {
-                    kurs.KursID = k.KursID;
-                    kurs.Bezeichnung = k.Bezeichnung;
-                    kurs.Preis = k.Preis;
-                    kurs.MinTeilnehmer = k.MinTeilnehmer;
-                    kurs.MaxTeilnehmer = k.MaxTeilnehmer;
-                    kurs.AnzEinheiten = k.AnzEinheiten;
-                    kurs.Verbindlichkeit = k.Verbindlichkeit;
-                    kurs.Foerderung = k.Foerderung;
-                    kurs.Status = k.Status;
-                    kurs.Beschreibung = k.Beschreibung;
-                    kurs.ZeitVon = k.ZeitVon;
-                    kurs.ZeitBis = k.ZeitBis;
-                    kurs.DatumVon = k.DatumVon;
-                    kurs.DatumBis = k.DatumBis;
-                    kurs.Seminarnummer = k.Seminarnummer;
-                    kurs.KurskategorieID = k.KurskategorieID;
-                    kurs.KursortID = k.KursortID;
-                    kurs.Anmeldeschluss = k.Anmeldeschluss;
-                    kurs.Anmerkung = k.Anmerkung;
-                    kurs.Anzeigen = k.Anzeigen;
+                    if ((dateTimePickerTerminDatum.Value.Day < k.DatumVon.Day) || (dateTimePickerTerminDatum.Value.Day > k.DatumBis.Day))
+                    {
+                        MessageBox.Show("Das Datum liegt außerhalb der Kursdauer!");
+                    }
+
+                    foreach(Termin t in responseTermin.Data)
+                    {
+                        if(t.TerminDatum.Day == dateTimePickerTerminDatum.Value.Day)
+                        {
+                            MessageBox.Show("An diesem Tag gibt es bereits einen Kurs: " + k.Bezeichnung);
+                        }
+                    }
+                    
                 }
             }
-            termin.KursID = kurs;
+            
 
-            var request = new RestRequest("termine", Method.POST);
-            request.AddHeader("Content-Type", "application/json");
-            request.AddJsonBody(termin);
-            var response = client.Execute(request);
+            
+        }
 
-            //terminEinheitCounter++;
-
-            groupBox1.Visible = false;
-
-            if(terminEinheitCounter == Convert.ToInt32(textBoxAnzEinheiten.Text))
-            {
-                terminEinheitCounter = 1;
-            }
+        private void comboBoxKursTermin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            termineEinlesen2();
         }
     }
 }

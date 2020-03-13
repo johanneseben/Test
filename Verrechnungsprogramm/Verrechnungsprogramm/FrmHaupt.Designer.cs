@@ -303,6 +303,11 @@
             this.columnHeader118 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader119 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader120 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBoxFreieEinheiten = new System.Windows.Forms.TextBox();
+            this.labelFreieEinheiten = new System.Windows.Forms.Label();
+            this.columnHeader122 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelKursTermin = new System.Windows.Forms.Label();
+            this.comboBoxKursTermin = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanelÜberschrift.SuspendLayout();
             this.tableLayoutPanelStammdaten.SuspendLayout();
             this.contextMenuStripKontakt.SuspendLayout();
@@ -368,30 +373,27 @@
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonKontakt, 1, 0);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSozialgruppe, 1, 3);
             this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtSozialgruppe, 0, 3);
-            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonBankverbindung, 1, 4);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtMitglieder, 0, 9);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonPass, 1, 5);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonMitglieder, 1, 9);
             this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtSchluessel, 0, 6);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSchluessel, 1, 6);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonMitgliedschaft, 1, 8);
+            this.tableLayoutPanelStammdaten.Controls.Add(this.buttonBankverbindung, 1, 4);
             this.tableLayoutPanelStammdaten.Location = new System.Drawing.Point(9, 199);
             this.tableLayoutPanelStammdaten.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelStammdaten.Name = "tableLayoutPanelStammdaten";
-            this.tableLayoutPanelStammdaten.RowCount = 15;
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelStammdaten.RowCount = 10;
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelStammdaten.Size = new System.Drawing.Size(235, 524);
             this.tableLayoutPanelStammdaten.TabIndex = 2;
             this.tableLayoutPanelStammdaten.Visible = false;
@@ -400,20 +402,20 @@
             // labelBtSchluesselverwaltung
             // 
             this.labelBtSchluesselverwaltung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSchluesselverwaltung.Location = new System.Drawing.Point(0, 260);
+            this.labelBtSchluesselverwaltung.Location = new System.Drawing.Point(0, 365);
             this.labelBtSchluesselverwaltung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSchluesselverwaltung.Name = "labelBtSchluesselverwaltung";
-            this.labelBtSchluesselverwaltung.Size = new System.Drawing.Size(11, 35);
+            this.labelBtSchluesselverwaltung.Size = new System.Drawing.Size(12, 50);
             this.labelBtSchluesselverwaltung.TabIndex = 23;
             this.labelBtSchluesselverwaltung.Visible = false;
             // 
             // buttonSchluesselVerwaltung
             // 
             this.buttonSchluesselVerwaltung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSchluesselVerwaltung.Location = new System.Drawing.Point(12, 259);
+            this.buttonSchluesselVerwaltung.Location = new System.Drawing.Point(12, 364);
             this.buttonSchluesselVerwaltung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSchluesselVerwaltung.Name = "buttonSchluesselVerwaltung";
-            this.buttonSchluesselVerwaltung.Size = new System.Drawing.Size(223, 37);
+            this.buttonSchluesselVerwaltung.Size = new System.Drawing.Size(223, 52);
             this.buttonSchluesselVerwaltung.TabIndex = 19;
             this.buttonSchluesselVerwaltung.Text = "Schlüsselverwaltung";
             this.buttonSchluesselVerwaltung.UseVisualStyleBackColor = true;
@@ -422,50 +424,50 @@
             // labelBtMitgliedschaft
             // 
             this.labelBtMitgliedschaft.BackColor = System.Drawing.Color.Lime;
-            this.labelBtMitgliedschaft.Location = new System.Drawing.Point(0, 297);
+            this.labelBtMitgliedschaft.Location = new System.Drawing.Point(0, 417);
             this.labelBtMitgliedschaft.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtMitgliedschaft.Name = "labelBtMitgliedschaft";
-            this.labelBtMitgliedschaft.Size = new System.Drawing.Size(11, 35);
+            this.labelBtMitgliedschaft.Size = new System.Drawing.Size(12, 50);
             this.labelBtMitgliedschaft.TabIndex = 18;
             this.labelBtMitgliedschaft.Visible = false;
             // 
             // labelBtPass
             // 
             this.labelBtPass.BackColor = System.Drawing.Color.Lime;
-            this.labelBtPass.Location = new System.Drawing.Point(0, 186);
+            this.labelBtPass.Location = new System.Drawing.Point(0, 261);
             this.labelBtPass.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtPass.Name = "labelBtPass";
-            this.labelBtPass.Size = new System.Drawing.Size(11, 35);
+            this.labelBtPass.Size = new System.Drawing.Size(12, 50);
             this.labelBtPass.TabIndex = 11;
             this.labelBtPass.Visible = false;
             // 
             // labelBtBankverbindung
             // 
             this.labelBtBankverbindung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtBankverbindung.Location = new System.Drawing.Point(0, 149);
+            this.labelBtBankverbindung.Location = new System.Drawing.Point(0, 209);
             this.labelBtBankverbindung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtBankverbindung.Name = "labelBtBankverbindung";
-            this.labelBtBankverbindung.Size = new System.Drawing.Size(11, 35);
+            this.labelBtBankverbindung.Size = new System.Drawing.Size(12, 50);
             this.labelBtBankverbindung.TabIndex = 9;
             this.labelBtBankverbindung.Visible = false;
             // 
             // labelBtAltersgruppe
             // 
             this.labelBtAltersgruppe.BackColor = System.Drawing.Color.Lime;
-            this.labelBtAltersgruppe.Location = new System.Drawing.Point(0, 75);
+            this.labelBtAltersgruppe.Location = new System.Drawing.Point(0, 105);
             this.labelBtAltersgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtAltersgruppe.Name = "labelBtAltersgruppe";
-            this.labelBtAltersgruppe.Size = new System.Drawing.Size(11, 35);
+            this.labelBtAltersgruppe.Size = new System.Drawing.Size(12, 50);
             this.labelBtAltersgruppe.TabIndex = 5;
             this.labelBtAltersgruppe.Visible = false;
             // 
             // buttonAltersgruppe
             // 
             this.buttonAltersgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAltersgruppe.Location = new System.Drawing.Point(12, 74);
+            this.buttonAltersgruppe.Location = new System.Drawing.Point(12, 104);
             this.buttonAltersgruppe.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAltersgruppe.Name = "buttonAltersgruppe";
-            this.buttonAltersgruppe.Size = new System.Drawing.Size(223, 37);
+            this.buttonAltersgruppe.Size = new System.Drawing.Size(223, 52);
             this.buttonAltersgruppe.TabIndex = 2;
             this.buttonAltersgruppe.Text = "Altersgruppe";
             this.buttonAltersgruppe.UseVisualStyleBackColor = true;
@@ -474,10 +476,10 @@
             // buttonTitel
             // 
             this.buttonTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTitel.Location = new System.Drawing.Point(12, 37);
+            this.buttonTitel.Location = new System.Drawing.Point(12, 52);
             this.buttonTitel.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitel.Name = "buttonTitel";
-            this.buttonTitel.Size = new System.Drawing.Size(223, 37);
+            this.buttonTitel.Size = new System.Drawing.Size(223, 52);
             this.buttonTitel.TabIndex = 0;
             this.buttonTitel.Text = "Titel";
             this.buttonTitel.UseVisualStyleBackColor = true;
@@ -486,10 +488,10 @@
             // labelBtTitel
             // 
             this.labelBtTitel.BackColor = System.Drawing.Color.Lime;
-            this.labelBtTitel.Location = new System.Drawing.Point(0, 38);
+            this.labelBtTitel.Location = new System.Drawing.Point(0, 53);
             this.labelBtTitel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtTitel.Name = "labelBtTitel";
-            this.labelBtTitel.Size = new System.Drawing.Size(11, 35);
+            this.labelBtTitel.Size = new System.Drawing.Size(12, 50);
             this.labelBtTitel.TabIndex = 3;
             this.labelBtTitel.Visible = false;
             // 
@@ -499,7 +501,7 @@
             this.labelBtKontakt.Location = new System.Drawing.Point(0, 1);
             this.labelBtKontakt.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKontakt.Name = "labelBtKontakt";
-            this.labelBtKontakt.Size = new System.Drawing.Size(11, 35);
+            this.labelBtKontakt.Size = new System.Drawing.Size(12, 50);
             this.labelBtKontakt.TabIndex = 4;
             this.labelBtKontakt.Visible = false;
             // 
@@ -509,7 +511,7 @@
             this.buttonKontakt.Location = new System.Drawing.Point(12, 0);
             this.buttonKontakt.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKontakt.Name = "buttonKontakt";
-            this.buttonKontakt.Size = new System.Drawing.Size(223, 37);
+            this.buttonKontakt.Size = new System.Drawing.Size(223, 52);
             this.buttonKontakt.TabIndex = 1;
             this.buttonKontakt.Text = "Kontakt";
             this.buttonKontakt.UseVisualStyleBackColor = true;
@@ -518,10 +520,10 @@
             // buttonSozialgruppe
             // 
             this.buttonSozialgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSozialgruppe.Location = new System.Drawing.Point(12, 111);
+            this.buttonSozialgruppe.Location = new System.Drawing.Point(12, 156);
             this.buttonSozialgruppe.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSozialgruppe.Name = "buttonSozialgruppe";
-            this.buttonSozialgruppe.Size = new System.Drawing.Size(223, 37);
+            this.buttonSozialgruppe.Size = new System.Drawing.Size(223, 52);
             this.buttonSozialgruppe.TabIndex = 6;
             this.buttonSozialgruppe.Text = "Sozialgruppe";
             this.buttonSozialgruppe.UseVisualStyleBackColor = true;
@@ -530,20 +532,20 @@
             // labelBtSozialgruppe
             // 
             this.labelBtSozialgruppe.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSozialgruppe.Location = new System.Drawing.Point(0, 112);
+            this.labelBtSozialgruppe.Location = new System.Drawing.Point(0, 157);
             this.labelBtSozialgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSozialgruppe.Name = "labelBtSozialgruppe";
-            this.labelBtSozialgruppe.Size = new System.Drawing.Size(11, 35);
+            this.labelBtSozialgruppe.Size = new System.Drawing.Size(12, 50);
             this.labelBtSozialgruppe.TabIndex = 7;
             this.labelBtSozialgruppe.Visible = false;
             // 
             // buttonBankverbindung
             // 
             this.buttonBankverbindung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBankverbindung.Location = new System.Drawing.Point(12, 148);
+            this.buttonBankverbindung.Location = new System.Drawing.Point(12, 208);
             this.buttonBankverbindung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBankverbindung.Name = "buttonBankverbindung";
-            this.buttonBankverbindung.Size = new System.Drawing.Size(223, 37);
+            this.buttonBankverbindung.Size = new System.Drawing.Size(223, 52);
             this.buttonBankverbindung.TabIndex = 8;
             this.buttonBankverbindung.Text = "Bankverbindung";
             this.buttonBankverbindung.UseVisualStyleBackColor = true;
@@ -552,10 +554,10 @@
             // buttonPass
             // 
             this.buttonPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPass.Location = new System.Drawing.Point(12, 185);
+            this.buttonPass.Location = new System.Drawing.Point(12, 260);
             this.buttonPass.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPass.Name = "buttonPass";
-            this.buttonPass.Size = new System.Drawing.Size(223, 37);
+            this.buttonPass.Size = new System.Drawing.Size(223, 52);
             this.buttonPass.TabIndex = 10;
             this.buttonPass.Text = "Pass";
             this.buttonPass.UseVisualStyleBackColor = true;
@@ -564,20 +566,20 @@
             // labelBtSchluessel
             // 
             this.labelBtSchluessel.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSchluessel.Location = new System.Drawing.Point(0, 223);
+            this.labelBtSchluessel.Location = new System.Drawing.Point(0, 313);
             this.labelBtSchluessel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSchluessel.Name = "labelBtSchluessel";
-            this.labelBtSchluessel.Size = new System.Drawing.Size(11, 35);
+            this.labelBtSchluessel.Size = new System.Drawing.Size(12, 50);
             this.labelBtSchluessel.TabIndex = 13;
             this.labelBtSchluessel.Visible = false;
             // 
             // buttonSchluessel
             // 
             this.buttonSchluessel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSchluessel.Location = new System.Drawing.Point(12, 222);
+            this.buttonSchluessel.Location = new System.Drawing.Point(12, 312);
             this.buttonSchluessel.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSchluessel.Name = "buttonSchluessel";
-            this.buttonSchluessel.Size = new System.Drawing.Size(223, 37);
+            this.buttonSchluessel.Size = new System.Drawing.Size(223, 52);
             this.buttonSchluessel.TabIndex = 15;
             this.buttonSchluessel.Text = "Schlüssel";
             this.buttonSchluessel.UseVisualStyleBackColor = true;
@@ -586,10 +588,10 @@
             // buttonMitgliedschaft
             // 
             this.buttonMitgliedschaft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMitgliedschaft.Location = new System.Drawing.Point(12, 296);
+            this.buttonMitgliedschaft.Location = new System.Drawing.Point(12, 416);
             this.buttonMitgliedschaft.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMitgliedschaft.Name = "buttonMitgliedschaft";
-            this.buttonMitgliedschaft.Size = new System.Drawing.Size(223, 37);
+            this.buttonMitgliedschaft.Size = new System.Drawing.Size(223, 52);
             this.buttonMitgliedschaft.TabIndex = 17;
             this.buttonMitgliedschaft.Text = "Mitgliedschaft";
             this.buttonMitgliedschaft.UseVisualStyleBackColor = true;
@@ -1231,7 +1233,7 @@
             this.buttonKursleiterZuweisen.Location = new System.Drawing.Point(12, 440);
             this.buttonKursleiterZuweisen.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursleiterZuweisen.Name = "buttonKursleiterZuweisen";
-            this.buttonKursleiterZuweisen.Size = new System.Drawing.Size(223, 52);
+            this.buttonKursleiterZuweisen.Size = new System.Drawing.Size(223, 61);
             this.buttonKursleiterZuweisen.TabIndex = 16;
             this.buttonKursleiterZuweisen.Text = "Kursleiter zuweisen";
             this.buttonKursleiterZuweisen.UseVisualStyleBackColor = true;
@@ -2258,6 +2260,8 @@
             // panelTermine
             // 
             this.panelTermine.BackColor = System.Drawing.Color.AliceBlue;
+            this.panelTermine.Controls.Add(this.comboBoxKursTermin);
+            this.panelTermine.Controls.Add(this.labelKursTermin);
             this.panelTermine.Controls.Add(this.groupBox1);
             this.panelTermine.Controls.Add(this.dateTimePickerDatum);
             this.panelTermine.Controls.Add(this.labelDatum);
@@ -2272,6 +2276,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelFreieEinheiten);
+            this.groupBox1.Controls.Add(this.textBoxFreieEinheiten);
             this.groupBox1.Controls.Add(this.textBoxAnzEinheiten);
             this.groupBox1.Controls.Add(this.labelAnzEinheiten);
             this.groupBox1.Controls.Add(this.textBoxTerminBis);
@@ -2412,6 +2418,7 @@
             this.dateTimePickerTerminDatum.Name = "dateTimePickerTerminDatum";
             this.dateTimePickerTerminDatum.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerTerminDatum.TabIndex = 3;
+            this.dateTimePickerTerminDatum.ValueChanged += new System.EventHandler(this.dateTimePickerTerminDatum_ValueChanged);
             // 
             // labelDatumDesTermins
             // 
@@ -2437,9 +2444,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 17);
+            this.label1.Size = new System.Drawing.Size(139, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Termine festlegen für:";
+            this.label1.Text = "Termin festlegen für:";
             // 
             // dateTimePickerDatum
             // 
@@ -2478,16 +2485,18 @@
             this.columnHeader126,
             this.columnHeader127,
             this.columnHeader128,
-            this.columnHeader129});
+            this.columnHeader129,
+            this.columnHeader122});
             this.listViewTermine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTermine.HideSelection = false;
             this.listViewTermine.Location = new System.Drawing.Point(36, 70);
             this.listViewTermine.Margin = new System.Windows.Forms.Padding(4);
             this.listViewTermine.Name = "listViewTermine";
-            this.listViewTermine.Size = new System.Drawing.Size(1277, 161);
+            this.listViewTermine.Size = new System.Drawing.Size(1508, 161);
             this.listViewTermine.TabIndex = 0;
             this.listViewTermine.UseCompatibleStateImageBehavior = false;
             this.listViewTermine.View = System.Windows.Forms.View.Details;
+            this.listViewTermine.Click += new System.EventHandler(this.listViewTermine_Click);
             // 
             // columnHeader121
             // 
@@ -2526,7 +2535,7 @@
             // columnHeader129
             // 
             this.columnHeader129.Text = "Kursort";
-            this.columnHeader129.Width = 188;
+            this.columnHeader129.Width = 236;
             // 
             // btnRechnungdrucken
             // 
@@ -2708,23 +2717,22 @@
             // buttonMitglieder
             // 
             this.buttonMitglieder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMitglieder.Location = new System.Drawing.Point(23, 826);
+            this.buttonMitglieder.Location = new System.Drawing.Point(12, 468);
             this.buttonMitglieder.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMitglieder.Name = "buttonMitglieder";
-            this.buttonMitglieder.Size = new System.Drawing.Size(223, 50);
+            this.buttonMitglieder.Size = new System.Drawing.Size(223, 56);
             this.buttonMitglieder.TabIndex = 24;
             this.buttonMitglieder.Text = "Mitglied";
             this.buttonMitglieder.UseVisualStyleBackColor = true;
-            this.buttonMitglieder.Visible = false;
             this.buttonMitglieder.Click += new System.EventHandler(this.buttonMitglieder_Click);
             // 
             // labelBtMitglieder
             // 
             this.labelBtMitglieder.BackColor = System.Drawing.Color.Lime;
-            this.labelBtMitglieder.Location = new System.Drawing.Point(11, 826);
+            this.labelBtMitglieder.Location = new System.Drawing.Point(0, 469);
             this.labelBtMitglieder.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtMitglieder.Name = "labelBtMitglieder";
-            this.labelBtMitglieder.Size = new System.Drawing.Size(11, 49);
+            this.labelBtMitglieder.Size = new System.Drawing.Size(12, 54);
             this.labelBtMitglieder.TabIndex = 54;
             this.labelBtMitglieder.Visible = false;
             // 
@@ -2769,18 +2777,58 @@
             this.columnHeader120.Text = "Kalenderjahr";
             this.columnHeader120.Width = 306;
             // 
+            // textBoxFreieEinheiten
+            // 
+            this.textBoxFreieEinheiten.Location = new System.Drawing.Point(792, 36);
+            this.textBoxFreieEinheiten.Name = "textBoxFreieEinheiten";
+            this.textBoxFreieEinheiten.ReadOnly = true;
+            this.textBoxFreieEinheiten.Size = new System.Drawing.Size(55, 22);
+            this.textBoxFreieEinheiten.TabIndex = 19;
+            // 
+            // labelFreieEinheiten
+            // 
+            this.labelFreieEinheiten.AutoSize = true;
+            this.labelFreieEinheiten.Location = new System.Drawing.Point(754, 39);
+            this.labelFreieEinheiten.Name = "labelFreieEinheiten";
+            this.labelFreieEinheiten.Size = new System.Drawing.Size(32, 17);
+            this.labelFreieEinheiten.TabIndex = 20;
+            this.labelFreieEinheiten.Text = "frei:";
+            // 
+            // columnHeader122
+            // 
+            this.columnHeader122.Text = "Datum";
+            this.columnHeader122.Width = 166;
+            // 
+            // labelKursTermin
+            // 
+            this.labelKursTermin.AutoSize = true;
+            this.labelKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursTermin.Location = new System.Drawing.Point(761, 28);
+            this.labelKursTermin.Name = "labelKursTermin";
+            this.labelKursTermin.Size = new System.Drawing.Size(201, 25);
+            this.labelKursTermin.TabIndex = 6;
+            this.labelKursTermin.Text = "Termine für den Kurs:";
+            // 
+            // comboBoxKursTermin
+            // 
+            this.comboBoxKursTermin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxKursTermin.FormattingEnabled = true;
+            this.comboBoxKursTermin.Location = new System.Drawing.Point(995, 23);
+            this.comboBoxKursTermin.Name = "comboBoxKursTermin";
+            this.comboBoxKursTermin.Size = new System.Drawing.Size(215, 33);
+            this.comboBoxKursTermin.TabIndex = 7;
+            this.comboBoxKursTermin.SelectedIndexChanged += new System.EventHandler(this.comboBoxKursTermin_SelectedIndexChanged);
+            // 
             // FrmHaupt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.panelTermine);
             this.Controls.Add(this.tableLayoutPanelKursTermin);
-            this.Controls.Add(this.labelBtMitglieder);
-            this.Controls.Add(this.buttonMitglieder);
-            this.Controls.Add(this.listViewMitglieder);
             this.Controls.Add(this.tableLayoutPanelStammdaten);
+            this.Controls.Add(this.listViewMitglieder);
             this.Controls.Add(this.listViewKursleiterZuweisen);
             this.Controls.Add(this.labelNachname);
             this.Controls.Add(this.labelBtGutschein);
@@ -2828,6 +2876,7 @@
             this.Controls.Add(this.listViewKurs);
             this.Controls.Add(this.listViewKontakt);
             this.Controls.Add(this.buttonTeilnehmerDrucken);
+            this.Controls.Add(this.panelTermine);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmHaupt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -3133,5 +3182,10 @@
         private System.Windows.Forms.TextBox textBoxTerminVon;
         private System.Windows.Forms.TextBox textBoxAnzEinheiten;
         private System.Windows.Forms.Label labelAnzEinheiten;
+        private System.Windows.Forms.Label labelFreieEinheiten;
+        private System.Windows.Forms.TextBox textBoxFreieEinheiten;
+        private System.Windows.Forms.ComboBox comboBoxKursTermin;
+        private System.Windows.Forms.Label labelKursTermin;
+        private System.Windows.Forms.ColumnHeader columnHeader122;
     }
 }
