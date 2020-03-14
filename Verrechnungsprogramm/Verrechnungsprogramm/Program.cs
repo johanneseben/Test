@@ -16,7 +16,7 @@ namespace Verrechnungsprogramm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmHaupt());
+            Application.Run(new Form1());
         }
     }
 }
