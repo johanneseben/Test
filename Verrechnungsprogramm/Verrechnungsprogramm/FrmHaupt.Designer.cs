@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("50");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("10");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("1");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("irgendwas");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("unnötig");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("lol");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHaupt));
             this.tableLayoutPanelÜberschrift = new System.Windows.Forms.TableLayoutPanel();
             this.labelÜberschrift = new System.Windows.Forms.Label();
             this.tableLayoutPanelStammdaten = new System.Windows.Forms.TableLayoutPanel();
@@ -45,11 +52,13 @@
             this.buttonKontakt = new System.Windows.Forms.Button();
             this.buttonSozialgruppe = new System.Windows.Forms.Button();
             this.labelBtSozialgruppe = new System.Windows.Forms.Label();
-            this.buttonBankverbindung = new System.Windows.Forms.Button();
+            this.labelBtMitglieder = new System.Windows.Forms.Label();
             this.buttonPass = new System.Windows.Forms.Button();
+            this.buttonMitglieder = new System.Windows.Forms.Button();
             this.labelBtSchluessel = new System.Windows.Forms.Label();
             this.buttonSchluessel = new System.Windows.Forms.Button();
             this.buttonMitgliedschaft = new System.Windows.Forms.Button();
+            this.buttonBankverbindung = new System.Windows.Forms.Button();
             this.labelBtGutschein = new System.Windows.Forms.Label();
             this.buttonGutschein = new System.Windows.Forms.Button();
             this.listViewKontakt = new System.Windows.Forms.ListView();
@@ -244,7 +253,11 @@
             this.buttonNeueKursbuchung = new System.Windows.Forms.Button();
             this.buttonKursbuchungBearbeiten = new System.Windows.Forms.Button();
             this.panelTermine = new System.Windows.Forms.Panel();
+            this.comboBoxKursTermin = new System.Windows.Forms.ComboBox();
+            this.labelKursTermin = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelFreieEinheiten = new System.Windows.Forms.Label();
+            this.textBoxFreieEinheiten = new System.Windows.Forms.TextBox();
             this.textBoxAnzEinheiten = new System.Windows.Forms.TextBox();
             this.labelAnzEinheiten = new System.Windows.Forms.Label();
             this.textBoxTerminBis = new System.Windows.Forms.TextBox();
@@ -274,6 +287,7 @@
             this.columnHeader127 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader128 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader129 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader122 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRechnungdrucken = new System.Windows.Forms.Button();
             this.buttonTeilnehmerDrucken = new System.Windows.Forms.Button();
             this.listViewSchluesselverwaltung = new System.Windows.Forms.ListView();
@@ -295,19 +309,17 @@
             this.columnHeader113 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader114 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader115 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonMitglieder = new System.Windows.Forms.Button();
-            this.labelBtMitglieder = new System.Windows.Forms.Label();
             this.listViewMitglieder = new System.Windows.Forms.ListView();
             this.columnHeader116 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader117 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader118 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader119 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader120 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBoxFreieEinheiten = new System.Windows.Forms.TextBox();
-            this.labelFreieEinheiten = new System.Windows.Forms.Label();
-            this.columnHeader122 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.labelKursTermin = new System.Windows.Forms.Label();
-            this.comboBoxKursTermin = new System.Windows.Forms.ComboBox();
+            this.btnBenutzerHinzufügen = new System.Windows.Forms.Button();
+            this.btnBenutzerbearbeiten = new System.Windows.Forms.Button();
+            this.panelDropdown = new System.Windows.Forms.Panel();
+            this.buttonnameändern = new System.Windows.Forms.Button();
+            this.btnlogout = new System.Windows.Forms.Button();
             this.tableLayoutPanelÜberschrift.SuspendLayout();
             this.tableLayoutPanelStammdaten.SuspendLayout();
             this.contextMenuStripKontakt.SuspendLayout();
@@ -326,6 +338,7 @@
             this.tableLayoutPanelFinanz.SuspendLayout();
             this.panelTermine.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panelDropdown.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelÜberschrift
@@ -335,11 +348,12 @@
             this.tableLayoutPanelÜberschrift.Controls.Add(this.labelÜberschrift, 0, 0);
             this.tableLayoutPanelÜberschrift.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanelÜberschrift.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelÜberschrift.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelÜberschrift.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelÜberschrift.Name = "tableLayoutPanelÜberschrift";
             this.tableLayoutPanelÜberschrift.RowCount = 1;
             this.tableLayoutPanelÜberschrift.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelÜberschrift.Size = new System.Drawing.Size(1924, 114);
+            this.tableLayoutPanelÜberschrift.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.tableLayoutPanelÜberschrift.Size = new System.Drawing.Size(1443, 93);
             this.tableLayoutPanelÜberschrift.TabIndex = 1;
             // 
             // labelÜberschrift
@@ -348,9 +362,10 @@
             this.labelÜberschrift.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelÜberschrift.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelÜberschrift.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelÜberschrift.Location = new System.Drawing.Point(3, 0);
+            this.labelÜberschrift.Location = new System.Drawing.Point(2, 0);
+            this.labelÜberschrift.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelÜberschrift.Name = "labelÜberschrift";
-            this.labelÜberschrift.Size = new System.Drawing.Size(1918, 114);
+            this.labelÜberschrift.Size = new System.Drawing.Size(1439, 93);
             this.labelÜberschrift.TabIndex = 0;
             this.labelÜberschrift.Text = "VHS Mistelbach";
             this.labelÜberschrift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -359,7 +374,7 @@
             // 
             this.tableLayoutPanelStammdaten.ColumnCount = 2;
             this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
+            this.tableLayoutPanelStammdaten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtSchluesselverwaltung, 0, 7);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSchluesselVerwaltung, 1, 7);
             this.tableLayoutPanelStammdaten.Controls.Add(this.labelBtMitgliedschaft, 0, 8);
@@ -380,7 +395,7 @@
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonSchluessel, 1, 6);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonMitgliedschaft, 1, 8);
             this.tableLayoutPanelStammdaten.Controls.Add(this.buttonBankverbindung, 1, 4);
-            this.tableLayoutPanelStammdaten.Location = new System.Drawing.Point(9, 199);
+            this.tableLayoutPanelStammdaten.Location = new System.Drawing.Point(7, 162);
             this.tableLayoutPanelStammdaten.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelStammdaten.Name = "tableLayoutPanelStammdaten";
             this.tableLayoutPanelStammdaten.RowCount = 10;
@@ -394,7 +409,7 @@
             this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelStammdaten.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanelStammdaten.Size = new System.Drawing.Size(235, 524);
+            this.tableLayoutPanelStammdaten.Size = new System.Drawing.Size(176, 426);
             this.tableLayoutPanelStammdaten.TabIndex = 2;
             this.tableLayoutPanelStammdaten.Visible = false;
             this.tableLayoutPanelStammdaten.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelStammdaten_Paint);
@@ -402,20 +417,20 @@
             // labelBtSchluesselverwaltung
             // 
             this.labelBtSchluesselverwaltung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSchluesselverwaltung.Location = new System.Drawing.Point(0, 365);
+            this.labelBtSchluesselverwaltung.Location = new System.Drawing.Point(0, 295);
             this.labelBtSchluesselverwaltung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSchluesselverwaltung.Name = "labelBtSchluesselverwaltung";
-            this.labelBtSchluesselverwaltung.Size = new System.Drawing.Size(12, 50);
+            this.labelBtSchluesselverwaltung.Size = new System.Drawing.Size(9, 40);
             this.labelBtSchluesselverwaltung.TabIndex = 23;
             this.labelBtSchluesselverwaltung.Visible = false;
             // 
             // buttonSchluesselVerwaltung
             // 
             this.buttonSchluesselVerwaltung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSchluesselVerwaltung.Location = new System.Drawing.Point(12, 364);
+            this.buttonSchluesselVerwaltung.Location = new System.Drawing.Point(9, 294);
             this.buttonSchluesselVerwaltung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSchluesselVerwaltung.Name = "buttonSchluesselVerwaltung";
-            this.buttonSchluesselVerwaltung.Size = new System.Drawing.Size(223, 52);
+            this.buttonSchluesselVerwaltung.Size = new System.Drawing.Size(167, 42);
             this.buttonSchluesselVerwaltung.TabIndex = 19;
             this.buttonSchluesselVerwaltung.Text = "Schlüsselverwaltung";
             this.buttonSchluesselVerwaltung.UseVisualStyleBackColor = true;
@@ -424,50 +439,50 @@
             // labelBtMitgliedschaft
             // 
             this.labelBtMitgliedschaft.BackColor = System.Drawing.Color.Lime;
-            this.labelBtMitgliedschaft.Location = new System.Drawing.Point(0, 417);
+            this.labelBtMitgliedschaft.Location = new System.Drawing.Point(0, 337);
             this.labelBtMitgliedschaft.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtMitgliedschaft.Name = "labelBtMitgliedschaft";
-            this.labelBtMitgliedschaft.Size = new System.Drawing.Size(12, 50);
+            this.labelBtMitgliedschaft.Size = new System.Drawing.Size(9, 40);
             this.labelBtMitgliedschaft.TabIndex = 18;
             this.labelBtMitgliedschaft.Visible = false;
             // 
             // labelBtPass
             // 
             this.labelBtPass.BackColor = System.Drawing.Color.Lime;
-            this.labelBtPass.Location = new System.Drawing.Point(0, 261);
+            this.labelBtPass.Location = new System.Drawing.Point(0, 211);
             this.labelBtPass.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtPass.Name = "labelBtPass";
-            this.labelBtPass.Size = new System.Drawing.Size(12, 50);
+            this.labelBtPass.Size = new System.Drawing.Size(9, 40);
             this.labelBtPass.TabIndex = 11;
             this.labelBtPass.Visible = false;
             // 
             // labelBtBankverbindung
             // 
             this.labelBtBankverbindung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtBankverbindung.Location = new System.Drawing.Point(0, 209);
+            this.labelBtBankverbindung.Location = new System.Drawing.Point(0, 169);
             this.labelBtBankverbindung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtBankverbindung.Name = "labelBtBankverbindung";
-            this.labelBtBankverbindung.Size = new System.Drawing.Size(12, 50);
+            this.labelBtBankverbindung.Size = new System.Drawing.Size(9, 40);
             this.labelBtBankverbindung.TabIndex = 9;
             this.labelBtBankverbindung.Visible = false;
             // 
             // labelBtAltersgruppe
             // 
             this.labelBtAltersgruppe.BackColor = System.Drawing.Color.Lime;
-            this.labelBtAltersgruppe.Location = new System.Drawing.Point(0, 105);
+            this.labelBtAltersgruppe.Location = new System.Drawing.Point(0, 85);
             this.labelBtAltersgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtAltersgruppe.Name = "labelBtAltersgruppe";
-            this.labelBtAltersgruppe.Size = new System.Drawing.Size(12, 50);
+            this.labelBtAltersgruppe.Size = new System.Drawing.Size(9, 40);
             this.labelBtAltersgruppe.TabIndex = 5;
             this.labelBtAltersgruppe.Visible = false;
             // 
             // buttonAltersgruppe
             // 
             this.buttonAltersgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAltersgruppe.Location = new System.Drawing.Point(12, 104);
+            this.buttonAltersgruppe.Location = new System.Drawing.Point(9, 84);
             this.buttonAltersgruppe.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAltersgruppe.Name = "buttonAltersgruppe";
-            this.buttonAltersgruppe.Size = new System.Drawing.Size(223, 52);
+            this.buttonAltersgruppe.Size = new System.Drawing.Size(167, 42);
             this.buttonAltersgruppe.TabIndex = 2;
             this.buttonAltersgruppe.Text = "Altersgruppe";
             this.buttonAltersgruppe.UseVisualStyleBackColor = true;
@@ -476,10 +491,10 @@
             // buttonTitel
             // 
             this.buttonTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTitel.Location = new System.Drawing.Point(12, 52);
+            this.buttonTitel.Location = new System.Drawing.Point(9, 42);
             this.buttonTitel.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitel.Name = "buttonTitel";
-            this.buttonTitel.Size = new System.Drawing.Size(223, 52);
+            this.buttonTitel.Size = new System.Drawing.Size(167, 42);
             this.buttonTitel.TabIndex = 0;
             this.buttonTitel.Text = "Titel";
             this.buttonTitel.UseVisualStyleBackColor = true;
@@ -488,10 +503,10 @@
             // labelBtTitel
             // 
             this.labelBtTitel.BackColor = System.Drawing.Color.Lime;
-            this.labelBtTitel.Location = new System.Drawing.Point(0, 53);
+            this.labelBtTitel.Location = new System.Drawing.Point(0, 43);
             this.labelBtTitel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtTitel.Name = "labelBtTitel";
-            this.labelBtTitel.Size = new System.Drawing.Size(12, 50);
+            this.labelBtTitel.Size = new System.Drawing.Size(9, 40);
             this.labelBtTitel.TabIndex = 3;
             this.labelBtTitel.Visible = false;
             // 
@@ -501,17 +516,17 @@
             this.labelBtKontakt.Location = new System.Drawing.Point(0, 1);
             this.labelBtKontakt.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKontakt.Name = "labelBtKontakt";
-            this.labelBtKontakt.Size = new System.Drawing.Size(12, 50);
+            this.labelBtKontakt.Size = new System.Drawing.Size(9, 40);
             this.labelBtKontakt.TabIndex = 4;
             this.labelBtKontakt.Visible = false;
             // 
             // buttonKontakt
             // 
             this.buttonKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKontakt.Location = new System.Drawing.Point(12, 0);
+            this.buttonKontakt.Location = new System.Drawing.Point(9, 0);
             this.buttonKontakt.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKontakt.Name = "buttonKontakt";
-            this.buttonKontakt.Size = new System.Drawing.Size(223, 52);
+            this.buttonKontakt.Size = new System.Drawing.Size(167, 42);
             this.buttonKontakt.TabIndex = 1;
             this.buttonKontakt.Text = "Kontakt";
             this.buttonKontakt.UseVisualStyleBackColor = true;
@@ -520,10 +535,10 @@
             // buttonSozialgruppe
             // 
             this.buttonSozialgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSozialgruppe.Location = new System.Drawing.Point(12, 156);
+            this.buttonSozialgruppe.Location = new System.Drawing.Point(9, 126);
             this.buttonSozialgruppe.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSozialgruppe.Name = "buttonSozialgruppe";
-            this.buttonSozialgruppe.Size = new System.Drawing.Size(223, 52);
+            this.buttonSozialgruppe.Size = new System.Drawing.Size(167, 42);
             this.buttonSozialgruppe.TabIndex = 6;
             this.buttonSozialgruppe.Text = "Sozialgruppe";
             this.buttonSozialgruppe.UseVisualStyleBackColor = true;
@@ -532,54 +547,64 @@
             // labelBtSozialgruppe
             // 
             this.labelBtSozialgruppe.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSozialgruppe.Location = new System.Drawing.Point(0, 157);
+            this.labelBtSozialgruppe.Location = new System.Drawing.Point(0, 127);
             this.labelBtSozialgruppe.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSozialgruppe.Name = "labelBtSozialgruppe";
-            this.labelBtSozialgruppe.Size = new System.Drawing.Size(12, 50);
+            this.labelBtSozialgruppe.Size = new System.Drawing.Size(9, 40);
             this.labelBtSozialgruppe.TabIndex = 7;
             this.labelBtSozialgruppe.Visible = false;
             // 
-            // buttonBankverbindung
+            // labelBtMitglieder
             // 
-            this.buttonBankverbindung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBankverbindung.Location = new System.Drawing.Point(12, 208);
-            this.buttonBankverbindung.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonBankverbindung.Name = "buttonBankverbindung";
-            this.buttonBankverbindung.Size = new System.Drawing.Size(223, 52);
-            this.buttonBankverbindung.TabIndex = 8;
-            this.buttonBankverbindung.Text = "Bankverbindung";
-            this.buttonBankverbindung.UseVisualStyleBackColor = true;
-            this.buttonBankverbindung.Click += new System.EventHandler(this.buttonBankverbindung_Click);
+            this.labelBtMitglieder.BackColor = System.Drawing.Color.Lime;
+            this.labelBtMitglieder.Location = new System.Drawing.Point(0, 379);
+            this.labelBtMitglieder.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.labelBtMitglieder.Name = "labelBtMitglieder";
+            this.labelBtMitglieder.Size = new System.Drawing.Size(9, 44);
+            this.labelBtMitglieder.TabIndex = 54;
+            this.labelBtMitglieder.Visible = false;
             // 
             // buttonPass
             // 
             this.buttonPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPass.Location = new System.Drawing.Point(12, 260);
+            this.buttonPass.Location = new System.Drawing.Point(9, 210);
             this.buttonPass.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPass.Name = "buttonPass";
-            this.buttonPass.Size = new System.Drawing.Size(223, 52);
+            this.buttonPass.Size = new System.Drawing.Size(167, 42);
             this.buttonPass.TabIndex = 10;
             this.buttonPass.Text = "Pass";
             this.buttonPass.UseVisualStyleBackColor = true;
             this.buttonPass.Click += new System.EventHandler(this.button1_Click_2);
             // 
+            // buttonMitglieder
+            // 
+            this.buttonMitglieder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMitglieder.Location = new System.Drawing.Point(9, 378);
+            this.buttonMitglieder.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonMitglieder.Name = "buttonMitglieder";
+            this.buttonMitglieder.Size = new System.Drawing.Size(167, 46);
+            this.buttonMitglieder.TabIndex = 24;
+            this.buttonMitglieder.Text = "Mitglied";
+            this.buttonMitglieder.UseVisualStyleBackColor = true;
+            this.buttonMitglieder.Click += new System.EventHandler(this.buttonMitglieder_Click);
+            // 
             // labelBtSchluessel
             // 
             this.labelBtSchluessel.BackColor = System.Drawing.Color.Lime;
-            this.labelBtSchluessel.Location = new System.Drawing.Point(0, 313);
+            this.labelBtSchluessel.Location = new System.Drawing.Point(0, 253);
             this.labelBtSchluessel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtSchluessel.Name = "labelBtSchluessel";
-            this.labelBtSchluessel.Size = new System.Drawing.Size(12, 50);
+            this.labelBtSchluessel.Size = new System.Drawing.Size(9, 40);
             this.labelBtSchluessel.TabIndex = 13;
             this.labelBtSchluessel.Visible = false;
             // 
             // buttonSchluessel
             // 
             this.buttonSchluessel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSchluessel.Location = new System.Drawing.Point(12, 312);
+            this.buttonSchluessel.Location = new System.Drawing.Point(9, 252);
             this.buttonSchluessel.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSchluessel.Name = "buttonSchluessel";
-            this.buttonSchluessel.Size = new System.Drawing.Size(223, 52);
+            this.buttonSchluessel.Size = new System.Drawing.Size(167, 42);
             this.buttonSchluessel.TabIndex = 15;
             this.buttonSchluessel.Text = "Schlüssel";
             this.buttonSchluessel.UseVisualStyleBackColor = true;
@@ -588,32 +613,44 @@
             // buttonMitgliedschaft
             // 
             this.buttonMitgliedschaft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMitgliedschaft.Location = new System.Drawing.Point(12, 416);
+            this.buttonMitgliedschaft.Location = new System.Drawing.Point(9, 336);
             this.buttonMitgliedschaft.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMitgliedschaft.Name = "buttonMitgliedschaft";
-            this.buttonMitgliedschaft.Size = new System.Drawing.Size(223, 52);
+            this.buttonMitgliedschaft.Size = new System.Drawing.Size(167, 42);
             this.buttonMitgliedschaft.TabIndex = 17;
             this.buttonMitgliedschaft.Text = "Mitgliedschaft";
             this.buttonMitgliedschaft.UseVisualStyleBackColor = true;
             this.buttonMitgliedschaft.Click += new System.EventHandler(this.buttonMitgliedschaft_Click);
             // 
+            // buttonBankverbindung
+            // 
+            this.buttonBankverbindung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBankverbindung.Location = new System.Drawing.Point(9, 168);
+            this.buttonBankverbindung.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonBankverbindung.Name = "buttonBankverbindung";
+            this.buttonBankverbindung.Size = new System.Drawing.Size(167, 42);
+            this.buttonBankverbindung.TabIndex = 8;
+            this.buttonBankverbindung.Text = "Bankverbindung";
+            this.buttonBankverbindung.UseVisualStyleBackColor = true;
+            this.buttonBankverbindung.Click += new System.EventHandler(this.buttonBankverbindung_Click);
+            // 
             // labelBtGutschein
             // 
             this.labelBtGutschein.BackColor = System.Drawing.Color.Lime;
-            this.labelBtGutschein.Location = new System.Drawing.Point(9, 759);
+            this.labelBtGutschein.Location = new System.Drawing.Point(7, 617);
             this.labelBtGutschein.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtGutschein.Name = "labelBtGutschein";
-            this.labelBtGutschein.Size = new System.Drawing.Size(11, 49);
+            this.labelBtGutschein.Size = new System.Drawing.Size(8, 40);
             this.labelBtGutschein.TabIndex = 12;
             this.labelBtGutschein.Visible = false;
             // 
             // buttonGutschein
             // 
             this.buttonGutschein.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGutschein.Location = new System.Drawing.Point(21, 758);
+            this.buttonGutschein.Location = new System.Drawing.Point(16, 616);
             this.buttonGutschein.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGutschein.Name = "buttonGutschein";
-            this.buttonGutschein.Size = new System.Drawing.Size(223, 50);
+            this.buttonGutschein.Size = new System.Drawing.Size(167, 41);
             this.buttonGutschein.TabIndex = 16;
             this.buttonGutschein.Text = "Gutschein";
             this.buttonGutschein.UseVisualStyleBackColor = true;
@@ -641,10 +678,10 @@
             this.listViewKontakt.ContextMenuStrip = this.contextMenuStripKontakt;
             this.listViewKontakt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKontakt.HideSelection = false;
-            this.listViewKontakt.Location = new System.Drawing.Point(300, 260);
-            this.listViewKontakt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewKontakt.Location = new System.Drawing.Point(225, 211);
+            this.listViewKontakt.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKontakt.Name = "listViewKontakt";
-            this.listViewKontakt.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKontakt.Size = new System.Drawing.Size(1208, 358);
             this.listViewKontakt.TabIndex = 3;
             this.listViewKontakt.UseCompatibleStateImageBehavior = false;
             this.listViewKontakt.View = System.Windows.Forms.View.Details;
@@ -729,13 +766,13 @@
             this.contextMenuStripKontakt.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem});
             this.contextMenuStripKontakt.Name = "contextMenuStripTitel";
-            this.contextMenuStripKontakt.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripKontakt.Size = new System.Drawing.Size(131, 26);
             this.contextMenuStripKontakt.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripKontakt_Opening);
             // 
             // bearbeitenToolStripMenuItem
             // 
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
             // 
@@ -743,13 +780,13 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1797, 894);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1348, 726);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(111, 60);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(83, 49);
             this.tableLayoutPanel1.TabIndex = 4;
             this.tableLayoutPanel1.Visible = false;
             // 
@@ -765,42 +802,42 @@
             this.tableLayoutPanelOberKategorien.Controls.Add(this.buttonStammdaten, 0, 0);
             this.tableLayoutPanelOberKategorien.Controls.Add(this.buttonKursTermin, 1, 0);
             this.tableLayoutPanelOberKategorien.Controls.Add(this.labelBtStammdaten, 0, 1);
-            this.tableLayoutPanelOberKategorien.Location = new System.Drawing.Point(243, 118);
-            this.tableLayoutPanelOberKategorien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelOberKategorien.Location = new System.Drawing.Point(182, 96);
+            this.tableLayoutPanelOberKategorien.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelOberKategorien.Name = "tableLayoutPanelOberKategorien";
             this.tableLayoutPanelOberKategorien.RowCount = 2;
             this.tableLayoutPanelOberKategorien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelOberKategorien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
-            this.tableLayoutPanelOberKategorien.Size = new System.Drawing.Size(1613, 81);
+            this.tableLayoutPanelOberKategorien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
+            this.tableLayoutPanelOberKategorien.Size = new System.Drawing.Size(1210, 66);
             this.tableLayoutPanelOberKategorien.TabIndex = 4;
             // 
             // labelBtFinanz
             // 
             this.labelBtFinanz.BackColor = System.Drawing.Color.Lime;
-            this.labelBtFinanz.Location = new System.Drawing.Point(1075, 74);
+            this.labelBtFinanz.Location = new System.Drawing.Point(807, 60);
             this.labelBtFinanz.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.labelBtFinanz.Name = "labelBtFinanz";
-            this.labelBtFinanz.Size = new System.Drawing.Size(536, 7);
+            this.labelBtFinanz.Size = new System.Drawing.Size(402, 6);
             this.labelBtFinanz.TabIndex = 5;
             this.labelBtFinanz.Visible = false;
             // 
             // labelBtKursTermin
             // 
             this.labelBtKursTermin.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursTermin.Location = new System.Drawing.Point(538, 74);
+            this.labelBtKursTermin.Location = new System.Drawing.Point(404, 60);
             this.labelBtKursTermin.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.labelBtKursTermin.Name = "labelBtKursTermin";
-            this.labelBtKursTermin.Size = new System.Drawing.Size(535, 7);
+            this.labelBtKursTermin.Size = new System.Drawing.Size(401, 6);
             this.labelBtKursTermin.TabIndex = 4;
             this.labelBtKursTermin.Visible = false;
             // 
             // buttonFinanz
             // 
             this.buttonFinanz.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFinanz.Location = new System.Drawing.Point(1074, 0);
+            this.buttonFinanz.Location = new System.Drawing.Point(806, 0);
             this.buttonFinanz.Margin = new System.Windows.Forms.Padding(0);
             this.buttonFinanz.Name = "buttonFinanz";
-            this.buttonFinanz.Size = new System.Drawing.Size(539, 73);
+            this.buttonFinanz.Size = new System.Drawing.Size(404, 59);
             this.buttonFinanz.TabIndex = 2;
             this.buttonFinanz.Text = "Finanz";
             this.buttonFinanz.UseVisualStyleBackColor = true;
@@ -812,7 +849,7 @@
             this.buttonStammdaten.Location = new System.Drawing.Point(0, 0);
             this.buttonStammdaten.Margin = new System.Windows.Forms.Padding(0);
             this.buttonStammdaten.Name = "buttonStammdaten";
-            this.buttonStammdaten.Size = new System.Drawing.Size(537, 73);
+            this.buttonStammdaten.Size = new System.Drawing.Size(403, 59);
             this.buttonStammdaten.TabIndex = 0;
             this.buttonStammdaten.Text = "Stammdaten";
             this.buttonStammdaten.UseVisualStyleBackColor = true;
@@ -821,10 +858,10 @@
             // buttonKursTermin
             // 
             this.buttonKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursTermin.Location = new System.Drawing.Point(537, 0);
+            this.buttonKursTermin.Location = new System.Drawing.Point(403, 0);
             this.buttonKursTermin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursTermin.Name = "buttonKursTermin";
-            this.buttonKursTermin.Size = new System.Drawing.Size(537, 73);
+            this.buttonKursTermin.Size = new System.Drawing.Size(403, 59);
             this.buttonKursTermin.TabIndex = 1;
             this.buttonKursTermin.Text = "Kurse und Termine";
             this.buttonKursTermin.UseVisualStyleBackColor = true;
@@ -833,20 +870,20 @@
             // labelBtStammdaten
             // 
             this.labelBtStammdaten.BackColor = System.Drawing.Color.Lime;
-            this.labelBtStammdaten.Location = new System.Drawing.Point(1, 74);
+            this.labelBtStammdaten.Location = new System.Drawing.Point(1, 60);
             this.labelBtStammdaten.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.labelBtStammdaten.Name = "labelBtStammdaten";
-            this.labelBtStammdaten.Size = new System.Drawing.Size(535, 7);
+            this.labelBtStammdaten.Size = new System.Drawing.Size(401, 6);
             this.labelBtStammdaten.TabIndex = 3;
             this.labelBtStammdaten.Visible = false;
             // 
             // buttonHinzufügen
             // 
             this.buttonHinzufügen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHinzufügen.Location = new System.Drawing.Point(247, 894);
-            this.buttonHinzufügen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonHinzufügen.Location = new System.Drawing.Point(185, 726);
+            this.buttonHinzufügen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonHinzufügen.Name = "buttonHinzufügen";
-            this.buttonHinzufügen.Size = new System.Drawing.Size(269, 63);
+            this.buttonHinzufügen.Size = new System.Drawing.Size(202, 51);
             this.buttonHinzufügen.TabIndex = 5;
             this.buttonHinzufügen.Text = "anlegen";
             this.buttonHinzufügen.UseVisualStyleBackColor = true;
@@ -856,10 +893,10 @@
             // buttonBearbeiten
             // 
             this.buttonBearbeiten.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBearbeiten.Location = new System.Drawing.Point(523, 894);
-            this.buttonBearbeiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBearbeiten.Location = new System.Drawing.Point(392, 726);
+            this.buttonBearbeiten.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBearbeiten.Name = "buttonBearbeiten";
-            this.buttonBearbeiten.Size = new System.Drawing.Size(269, 63);
+            this.buttonBearbeiten.Size = new System.Drawing.Size(202, 51);
             this.buttonBearbeiten.TabIndex = 6;
             this.buttonBearbeiten.Text = "bearbeiten";
             this.buttonBearbeiten.UseVisualStyleBackColor = true;
@@ -874,10 +911,10 @@
             this.listViewAltersgruppe.ContextMenuStrip = this.contextMenuStripAltersgruppe;
             this.listViewAltersgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewAltersgruppe.HideSelection = false;
-            this.listViewAltersgruppe.Location = new System.Drawing.Point(300, 260);
-            this.listViewAltersgruppe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewAltersgruppe.Location = new System.Drawing.Point(225, 211);
+            this.listViewAltersgruppe.Margin = new System.Windows.Forms.Padding(2);
             this.listViewAltersgruppe.Name = "listViewAltersgruppe";
-            this.listViewAltersgruppe.Size = new System.Drawing.Size(1609, 440);
+            this.listViewAltersgruppe.Size = new System.Drawing.Size(1208, 358);
             this.listViewAltersgruppe.TabIndex = 7;
             this.listViewAltersgruppe.UseCompatibleStateImageBehavior = false;
             this.listViewAltersgruppe.View = System.Windows.Forms.View.Details;
@@ -899,13 +936,13 @@
             this.contextMenuStripAltersgruppe.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem2});
             this.contextMenuStripAltersgruppe.Name = "contextMenuStripTitel";
-            this.contextMenuStripAltersgruppe.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripAltersgruppe.Size = new System.Drawing.Size(131, 26);
             this.contextMenuStripAltersgruppe.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripAltersgruppe_Opening);
             // 
             // bearbeitenToolStripMenuItem2
             // 
             this.bearbeitenToolStripMenuItem2.Name = "bearbeitenToolStripMenuItem2";
-            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem2.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem2.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem2_Click);
             // 
@@ -918,10 +955,10 @@
             this.listViewTitel.ContextMenuStrip = this.contextMenuStripTitel;
             this.listViewTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTitel.HideSelection = false;
-            this.listViewTitel.Location = new System.Drawing.Point(300, 260);
-            this.listViewTitel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewTitel.Location = new System.Drawing.Point(225, 211);
+            this.listViewTitel.Margin = new System.Windows.Forms.Padding(2);
             this.listViewTitel.Name = "listViewTitel";
-            this.listViewTitel.Size = new System.Drawing.Size(1609, 440);
+            this.listViewTitel.Size = new System.Drawing.Size(1208, 358);
             this.listViewTitel.TabIndex = 8;
             this.listViewTitel.UseCompatibleStateImageBehavior = false;
             this.listViewTitel.View = System.Windows.Forms.View.Details;
@@ -948,13 +985,13 @@
             this.contextMenuStripTitel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem1});
             this.contextMenuStripTitel.Name = "contextMenuStripTitel";
-            this.contextMenuStripTitel.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripTitel.Size = new System.Drawing.Size(131, 26);
             this.contextMenuStripTitel.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTitel_Opening);
             // 
             // bearbeitenToolStripMenuItem1
             // 
             this.bearbeitenToolStripMenuItem1.Name = "bearbeitenToolStripMenuItem1";
-            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem1.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem1.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem1_Click);
             // 
@@ -966,10 +1003,10 @@
             this.listViewSozialgruppe.ContextMenuStrip = this.contextMenuStripSozialgruppe;
             this.listViewSozialgruppe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewSozialgruppe.HideSelection = false;
-            this.listViewSozialgruppe.Location = new System.Drawing.Point(300, 260);
-            this.listViewSozialgruppe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewSozialgruppe.Location = new System.Drawing.Point(225, 211);
+            this.listViewSozialgruppe.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSozialgruppe.Name = "listViewSozialgruppe";
-            this.listViewSozialgruppe.Size = new System.Drawing.Size(1609, 440);
+            this.listViewSozialgruppe.Size = new System.Drawing.Size(1208, 358);
             this.listViewSozialgruppe.TabIndex = 9;
             this.listViewSozialgruppe.UseCompatibleStateImageBehavior = false;
             this.listViewSozialgruppe.View = System.Windows.Forms.View.Details;
@@ -991,13 +1028,13 @@
             this.contextMenuStripSozialgruppe.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem3});
             this.contextMenuStripSozialgruppe.Name = "contextMenuStripTitel";
-            this.contextMenuStripSozialgruppe.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripSozialgruppe.Size = new System.Drawing.Size(131, 26);
             this.contextMenuStripSozialgruppe.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSozialgruppe_Opening);
             // 
             // bearbeitenToolStripMenuItem3
             // 
             this.bearbeitenToolStripMenuItem3.Name = "bearbeitenToolStripMenuItem3";
-            this.bearbeitenToolStripMenuItem3.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem3.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem3.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem3.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem3_Click);
             // 
@@ -1005,7 +1042,7 @@
             // 
             this.tableLayoutPanelKursTermin.ColumnCount = 2;
             this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
+            this.tableLayoutPanelKursTermin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtKursleiterZuweisen, 0, 8);
             this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtOffeneRechnungen, 0, 7);
             this.tableLayoutPanelKursTermin.Controls.Add(this.labelBtKursbuchung, 0, 6);
@@ -1024,7 +1061,7 @@
             this.tableLayoutPanelKursTermin.Controls.Add(this.buttonKursbuchung, 1, 6);
             this.tableLayoutPanelKursTermin.Controls.Add(this.buttonOffenePosten, 1, 7);
             this.tableLayoutPanelKursTermin.Controls.Add(this.buttonKursleiterZuweisen, 1, 8);
-            this.tableLayoutPanelKursTermin.Location = new System.Drawing.Point(9, 199);
+            this.tableLayoutPanelKursTermin.Location = new System.Drawing.Point(7, 162);
             this.tableLayoutPanelKursTermin.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelKursTermin.Name = "tableLayoutPanelKursTermin";
             this.tableLayoutPanelKursTermin.RowCount = 9;
@@ -1037,67 +1074,67 @@
             this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanelKursTermin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanelKursTermin.Size = new System.Drawing.Size(235, 501);
+            this.tableLayoutPanelKursTermin.Size = new System.Drawing.Size(176, 407);
             this.tableLayoutPanelKursTermin.TabIndex = 10;
             this.tableLayoutPanelKursTermin.Visible = false;
             // 
             // labelBtKursleiterZuweisen
             // 
             this.labelBtKursleiterZuweisen.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursleiterZuweisen.Location = new System.Drawing.Point(0, 441);
+            this.labelBtKursleiterZuweisen.Location = new System.Drawing.Point(0, 361);
             this.labelBtKursleiterZuweisen.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKursleiterZuweisen.Name = "labelBtKursleiterZuweisen";
-            this.labelBtKursleiterZuweisen.Size = new System.Drawing.Size(12, 59);
+            this.labelBtKursleiterZuweisen.Size = new System.Drawing.Size(9, 45);
             this.labelBtKursleiterZuweisen.TabIndex = 17;
             this.labelBtKursleiterZuweisen.Visible = false;
             // 
             // labelBtOffeneRechnungen
             // 
             this.labelBtOffeneRechnungen.BackColor = System.Drawing.Color.Lime;
-            this.labelBtOffeneRechnungen.Location = new System.Drawing.Point(0, 386);
+            this.labelBtOffeneRechnungen.Location = new System.Drawing.Point(0, 316);
             this.labelBtOffeneRechnungen.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtOffeneRechnungen.Name = "labelBtOffeneRechnungen";
-            this.labelBtOffeneRechnungen.Size = new System.Drawing.Size(11, 53);
+            this.labelBtOffeneRechnungen.Size = new System.Drawing.Size(8, 43);
             this.labelBtOffeneRechnungen.TabIndex = 15;
             this.labelBtOffeneRechnungen.Visible = false;
             // 
             // labelBtKursbuchung
             // 
             this.labelBtKursbuchung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursbuchung.Location = new System.Drawing.Point(0, 331);
+            this.labelBtKursbuchung.Location = new System.Drawing.Point(0, 271);
             this.labelBtKursbuchung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKursbuchung.Name = "labelBtKursbuchung";
-            this.labelBtKursbuchung.Size = new System.Drawing.Size(11, 53);
+            this.labelBtKursbuchung.Size = new System.Drawing.Size(8, 43);
             this.labelBtKursbuchung.TabIndex = 12;
             this.labelBtKursbuchung.Visible = false;
             // 
             // labelBtTeilnehmer
             // 
             this.labelBtTeilnehmer.BackColor = System.Drawing.Color.Lime;
-            this.labelBtTeilnehmer.Location = new System.Drawing.Point(0, 276);
+            this.labelBtTeilnehmer.Location = new System.Drawing.Point(0, 226);
             this.labelBtTeilnehmer.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtTeilnehmer.Name = "labelBtTeilnehmer";
-            this.labelBtTeilnehmer.Size = new System.Drawing.Size(11, 53);
+            this.labelBtTeilnehmer.Size = new System.Drawing.Size(8, 43);
             this.labelBtTeilnehmer.TabIndex = 11;
             this.labelBtTeilnehmer.Visible = false;
             // 
             // labelBtTermin
             // 
             this.labelBtTermin.BackColor = System.Drawing.Color.Lime;
-            this.labelBtTermin.Location = new System.Drawing.Point(0, 111);
+            this.labelBtTermin.Location = new System.Drawing.Point(0, 91);
             this.labelBtTermin.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtTermin.Name = "labelBtTermin";
-            this.labelBtTermin.Size = new System.Drawing.Size(11, 53);
+            this.labelBtTermin.Size = new System.Drawing.Size(8, 43);
             this.labelBtTermin.TabIndex = 5;
             this.labelBtTermin.Visible = false;
             // 
             // buttonTermine
             // 
             this.buttonTermine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTermine.Location = new System.Drawing.Point(12, 110);
+            this.buttonTermine.Location = new System.Drawing.Point(9, 90);
             this.buttonTermine.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTermine.Name = "buttonTermine";
-            this.buttonTermine.Size = new System.Drawing.Size(223, 55);
+            this.buttonTermine.Size = new System.Drawing.Size(167, 45);
             this.buttonTermine.TabIndex = 2;
             this.buttonTermine.Text = "Termine";
             this.buttonTermine.UseVisualStyleBackColor = true;
@@ -1106,10 +1143,10 @@
             // buttonKurskategorie
             // 
             this.buttonKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKurskategorie.Location = new System.Drawing.Point(12, 55);
+            this.buttonKurskategorie.Location = new System.Drawing.Point(9, 45);
             this.buttonKurskategorie.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKurskategorie.Name = "buttonKurskategorie";
-            this.buttonKurskategorie.Size = new System.Drawing.Size(223, 55);
+            this.buttonKurskategorie.Size = new System.Drawing.Size(167, 45);
             this.buttonKurskategorie.TabIndex = 0;
             this.buttonKurskategorie.Text = "Kurskategorie";
             this.buttonKurskategorie.UseVisualStyleBackColor = true;
@@ -1118,10 +1155,10 @@
             // labelBtKurskategorie
             // 
             this.labelBtKurskategorie.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKurskategorie.Location = new System.Drawing.Point(0, 56);
+            this.labelBtKurskategorie.Location = new System.Drawing.Point(0, 46);
             this.labelBtKurskategorie.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKurskategorie.Name = "labelBtKurskategorie";
-            this.labelBtKurskategorie.Size = new System.Drawing.Size(11, 53);
+            this.labelBtKurskategorie.Size = new System.Drawing.Size(8, 43);
             this.labelBtKurskategorie.TabIndex = 3;
             this.labelBtKurskategorie.Visible = false;
             // 
@@ -1131,17 +1168,17 @@
             this.labelBtKurs.Location = new System.Drawing.Point(0, 1);
             this.labelBtKurs.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKurs.Name = "labelBtKurs";
-            this.labelBtKurs.Size = new System.Drawing.Size(11, 53);
+            this.labelBtKurs.Size = new System.Drawing.Size(8, 43);
             this.labelBtKurs.TabIndex = 4;
             this.labelBtKurs.Visible = false;
             // 
             // buttonKurs
             // 
             this.buttonKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKurs.Location = new System.Drawing.Point(12, 0);
+            this.buttonKurs.Location = new System.Drawing.Point(9, 0);
             this.buttonKurs.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKurs.Name = "buttonKurs";
-            this.buttonKurs.Size = new System.Drawing.Size(223, 55);
+            this.buttonKurs.Size = new System.Drawing.Size(167, 45);
             this.buttonKurs.TabIndex = 1;
             this.buttonKurs.Text = "Kurs";
             this.buttonKurs.UseVisualStyleBackColor = true;
@@ -1150,10 +1187,10 @@
             // buttonKursleiter
             // 
             this.buttonKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursleiter.Location = new System.Drawing.Point(12, 165);
+            this.buttonKursleiter.Location = new System.Drawing.Point(9, 135);
             this.buttonKursleiter.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursleiter.Name = "buttonKursleiter";
-            this.buttonKursleiter.Size = new System.Drawing.Size(223, 55);
+            this.buttonKursleiter.Size = new System.Drawing.Size(167, 45);
             this.buttonKursleiter.TabIndex = 6;
             this.buttonKursleiter.Text = "Kursleiter";
             this.buttonKursleiter.UseVisualStyleBackColor = true;
@@ -1162,10 +1199,10 @@
             // buttonKursort
             // 
             this.buttonKursort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursort.Location = new System.Drawing.Point(12, 220);
+            this.buttonKursort.Location = new System.Drawing.Point(9, 180);
             this.buttonKursort.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursort.Name = "buttonKursort";
-            this.buttonKursort.Size = new System.Drawing.Size(223, 55);
+            this.buttonKursort.Size = new System.Drawing.Size(167, 45);
             this.buttonKursort.TabIndex = 7;
             this.buttonKursort.Text = "Kursort";
             this.buttonKursort.UseVisualStyleBackColor = true;
@@ -1174,30 +1211,30 @@
             // labelBtKursleiter
             // 
             this.labelBtKursleiter.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursleiter.Location = new System.Drawing.Point(0, 166);
+            this.labelBtKursleiter.Location = new System.Drawing.Point(0, 136);
             this.labelBtKursleiter.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKursleiter.Name = "labelBtKursleiter";
-            this.labelBtKursleiter.Size = new System.Drawing.Size(11, 53);
+            this.labelBtKursleiter.Size = new System.Drawing.Size(8, 43);
             this.labelBtKursleiter.TabIndex = 9;
             this.labelBtKursleiter.Visible = false;
             // 
             // labelBtKursort
             // 
             this.labelBtKursort.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKursort.Location = new System.Drawing.Point(0, 221);
+            this.labelBtKursort.Location = new System.Drawing.Point(0, 181);
             this.labelBtKursort.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKursort.Name = "labelBtKursort";
-            this.labelBtKursort.Size = new System.Drawing.Size(11, 53);
+            this.labelBtKursort.Size = new System.Drawing.Size(8, 43);
             this.labelBtKursort.TabIndex = 8;
             this.labelBtKursort.Visible = false;
             // 
             // buttonTeilnehmer
             // 
             this.buttonTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTeilnehmer.Location = new System.Drawing.Point(12, 275);
+            this.buttonTeilnehmer.Location = new System.Drawing.Point(9, 225);
             this.buttonTeilnehmer.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTeilnehmer.Name = "buttonTeilnehmer";
-            this.buttonTeilnehmer.Size = new System.Drawing.Size(223, 55);
+            this.buttonTeilnehmer.Size = new System.Drawing.Size(167, 45);
             this.buttonTeilnehmer.TabIndex = 10;
             this.buttonTeilnehmer.Text = "Teilnehmer";
             this.buttonTeilnehmer.UseVisualStyleBackColor = true;
@@ -1206,10 +1243,10 @@
             // buttonKursbuchung
             // 
             this.buttonKursbuchung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursbuchung.Location = new System.Drawing.Point(12, 330);
+            this.buttonKursbuchung.Location = new System.Drawing.Point(9, 270);
             this.buttonKursbuchung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursbuchung.Name = "buttonKursbuchung";
-            this.buttonKursbuchung.Size = new System.Drawing.Size(223, 55);
+            this.buttonKursbuchung.Size = new System.Drawing.Size(167, 45);
             this.buttonKursbuchung.TabIndex = 13;
             this.buttonKursbuchung.Text = "Kursbuchung";
             this.buttonKursbuchung.UseVisualStyleBackColor = true;
@@ -1218,10 +1255,10 @@
             // buttonOffenePosten
             // 
             this.buttonOffenePosten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffenePosten.Location = new System.Drawing.Point(12, 385);
+            this.buttonOffenePosten.Location = new System.Drawing.Point(9, 315);
             this.buttonOffenePosten.Margin = new System.Windows.Forms.Padding(0);
             this.buttonOffenePosten.Name = "buttonOffenePosten";
-            this.buttonOffenePosten.Size = new System.Drawing.Size(223, 55);
+            this.buttonOffenePosten.Size = new System.Drawing.Size(167, 45);
             this.buttonOffenePosten.TabIndex = 14;
             this.buttonOffenePosten.Text = "Offene Rechnungen";
             this.buttonOffenePosten.UseVisualStyleBackColor = true;
@@ -1230,10 +1267,10 @@
             // buttonKursleiterZuweisen
             // 
             this.buttonKursleiterZuweisen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursleiterZuweisen.Location = new System.Drawing.Point(12, 440);
+            this.buttonKursleiterZuweisen.Location = new System.Drawing.Point(9, 360);
             this.buttonKursleiterZuweisen.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKursleiterZuweisen.Name = "buttonKursleiterZuweisen";
-            this.buttonKursleiterZuweisen.Size = new System.Drawing.Size(223, 61);
+            this.buttonKursleiterZuweisen.Size = new System.Drawing.Size(167, 47);
             this.buttonKursleiterZuweisen.TabIndex = 16;
             this.buttonKursleiterZuweisen.Text = "Kursleiter zuweisen";
             this.buttonKursleiterZuweisen.UseVisualStyleBackColor = true;
@@ -1265,10 +1302,10 @@
             this.listViewKurs.ContextMenuStrip = this.contextMenuStripKurs;
             this.listViewKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKurs.HideSelection = false;
-            this.listViewKurs.Location = new System.Drawing.Point(300, 260);
-            this.listViewKurs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewKurs.Location = new System.Drawing.Point(225, 211);
+            this.listViewKurs.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKurs.Name = "listViewKurs";
-            this.listViewKurs.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKurs.Size = new System.Drawing.Size(1208, 358);
             this.listViewKurs.TabIndex = 11;
             this.listViewKurs.UseCompatibleStateImageBehavior = false;
             this.listViewKurs.View = System.Windows.Forms.View.Details;
@@ -1361,12 +1398,12 @@
             this.contextMenuStripKurs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem8});
             this.contextMenuStripKurs.Name = "contextMenuStripKurs";
-            this.contextMenuStripKurs.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripKurs.Size = new System.Drawing.Size(131, 26);
             // 
             // bearbeitenToolStripMenuItem8
             // 
             this.bearbeitenToolStripMenuItem8.Name = "bearbeitenToolStripMenuItem8";
-            this.bearbeitenToolStripMenuItem8.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem8.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem8.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem8.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem8_Click);
             // 
@@ -1378,10 +1415,10 @@
             this.listViewKurskategorie.ContextMenuStrip = this.contextMenuStripKurskategorie;
             this.listViewKurskategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKurskategorie.HideSelection = false;
-            this.listViewKurskategorie.Location = new System.Drawing.Point(300, 260);
-            this.listViewKurskategorie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewKurskategorie.Location = new System.Drawing.Point(225, 211);
+            this.listViewKurskategorie.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKurskategorie.Name = "listViewKurskategorie";
-            this.listViewKurskategorie.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKurskategorie.Size = new System.Drawing.Size(1208, 358);
             this.listViewKurskategorie.TabIndex = 12;
             this.listViewKurskategorie.UseCompatibleStateImageBehavior = false;
             this.listViewKurskategorie.View = System.Windows.Forms.View.Details;
@@ -1403,13 +1440,13 @@
             this.contextMenuStripKurskategorie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem4});
             this.contextMenuStripKurskategorie.Name = "contextMenuStripKurskategorie";
-            this.contextMenuStripKurskategorie.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripKurskategorie.Size = new System.Drawing.Size(131, 26);
             this.contextMenuStripKurskategorie.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripKurskategorie_Opening);
             // 
             // bearbeitenToolStripMenuItem4
             // 
             this.bearbeitenToolStripMenuItem4.Name = "bearbeitenToolStripMenuItem4";
-            this.bearbeitenToolStripMenuItem4.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem4.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem4.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem4.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem4_Click);
             // 
@@ -1423,10 +1460,10 @@
             this.listViewBankverbindung.ContextMenuStrip = this.contextMenuStripBankverbindung;
             this.listViewBankverbindung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewBankverbindung.HideSelection = false;
-            this.listViewBankverbindung.Location = new System.Drawing.Point(300, 260);
-            this.listViewBankverbindung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewBankverbindung.Location = new System.Drawing.Point(225, 211);
+            this.listViewBankverbindung.Margin = new System.Windows.Forms.Padding(2);
             this.listViewBankverbindung.Name = "listViewBankverbindung";
-            this.listViewBankverbindung.Size = new System.Drawing.Size(1609, 440);
+            this.listViewBankverbindung.Size = new System.Drawing.Size(1208, 358);
             this.listViewBankverbindung.TabIndex = 14;
             this.listViewBankverbindung.UseCompatibleStateImageBehavior = false;
             this.listViewBankverbindung.View = System.Windows.Forms.View.Details;
@@ -1456,12 +1493,12 @@
             this.contextMenuStripBankverbindung.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ändernToolStripMenuItem});
             this.contextMenuStripBankverbindung.Name = "contextMenuStripBankverbindung";
-            this.contextMenuStripBankverbindung.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripBankverbindung.Size = new System.Drawing.Size(131, 26);
             // 
             // ändernToolStripMenuItem
             // 
             this.ändernToolStripMenuItem.Name = "ändernToolStripMenuItem";
-            this.ändernToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
+            this.ändernToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.ändernToolStripMenuItem.Text = "bearbeiten";
             this.ändernToolStripMenuItem.Click += new System.EventHandler(this.ändernToolStripMenuItem_Click);
             // 
@@ -1476,10 +1513,10 @@
             this.listViewPass.ContextMenuStrip = this.contextMenuStripPass;
             this.listViewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewPass.HideSelection = false;
-            this.listViewPass.Location = new System.Drawing.Point(300, 260);
-            this.listViewPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewPass.Location = new System.Drawing.Point(225, 211);
+            this.listViewPass.Margin = new System.Windows.Forms.Padding(2);
             this.listViewPass.Name = "listViewPass";
-            this.listViewPass.Size = new System.Drawing.Size(1609, 440);
+            this.listViewPass.Size = new System.Drawing.Size(1208, 358);
             this.listViewPass.TabIndex = 16;
             this.listViewPass.UseCompatibleStateImageBehavior = false;
             this.listViewPass.View = System.Windows.Forms.View.Details;
@@ -1516,12 +1553,12 @@
             this.contextMenuStripPass.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem5});
             this.contextMenuStripPass.Name = "contextMenuStripPass";
-            this.contextMenuStripPass.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripPass.Size = new System.Drawing.Size(131, 26);
             // 
             // bearbeitenToolStripMenuItem5
             // 
             this.bearbeitenToolStripMenuItem5.Name = "bearbeitenToolStripMenuItem5";
-            this.bearbeitenToolStripMenuItem5.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem5.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem5.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem5.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem5_Click);
             // 
@@ -1537,10 +1574,10 @@
             this.listViewSchluessel.ContextMenuStrip = this.contextMenuStripGutschein;
             this.listViewSchluessel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewSchluessel.HideSelection = false;
-            this.listViewSchluessel.Location = new System.Drawing.Point(300, 260);
-            this.listViewSchluessel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewSchluessel.Location = new System.Drawing.Point(225, 211);
+            this.listViewSchluessel.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSchluessel.Name = "listViewSchluessel";
-            this.listViewSchluessel.Size = new System.Drawing.Size(1609, 440);
+            this.listViewSchluessel.Size = new System.Drawing.Size(1208, 358);
             this.listViewSchluessel.TabIndex = 17;
             this.listViewSchluessel.UseCompatibleStateImageBehavior = false;
             this.listViewSchluessel.View = System.Windows.Forms.View.Details;
@@ -1577,12 +1614,12 @@
             this.contextMenuStripGutschein.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem7});
             this.contextMenuStripGutschein.Name = "contextMenuStripGutschein";
-            this.contextMenuStripGutschein.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripGutschein.Size = new System.Drawing.Size(131, 26);
             // 
             // bearbeitenToolStripMenuItem7
             // 
             this.bearbeitenToolStripMenuItem7.Name = "bearbeitenToolStripMenuItem7";
-            this.bearbeitenToolStripMenuItem7.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem7.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem7.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem7.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem7_Click);
             // 
@@ -1595,10 +1632,10 @@
             this.listViewGutschein.ContextMenuStrip = this.contextMenuStripGutschein;
             this.listViewGutschein.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewGutschein.HideSelection = false;
-            this.listViewGutschein.Location = new System.Drawing.Point(300, 260);
-            this.listViewGutschein.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewGutschein.Location = new System.Drawing.Point(225, 211);
+            this.listViewGutschein.Margin = new System.Windows.Forms.Padding(2);
             this.listViewGutschein.Name = "listViewGutschein";
-            this.listViewGutschein.Size = new System.Drawing.Size(1609, 440);
+            this.listViewGutschein.Size = new System.Drawing.Size(1208, 358);
             this.listViewGutschein.TabIndex = 18;
             this.listViewGutschein.UseCompatibleStateImageBehavior = false;
             this.listViewGutschein.View = System.Windows.Forms.View.Details;
@@ -1627,10 +1664,10 @@
             this.listViewMitgliedschaft.ContextMenuStrip = this.contextMenuStripMitgliedschaft;
             this.listViewMitgliedschaft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewMitgliedschaft.HideSelection = false;
-            this.listViewMitgliedschaft.Location = new System.Drawing.Point(300, 260);
-            this.listViewMitgliedschaft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewMitgliedschaft.Location = new System.Drawing.Point(225, 211);
+            this.listViewMitgliedschaft.Margin = new System.Windows.Forms.Padding(2);
             this.listViewMitgliedschaft.Name = "listViewMitgliedschaft";
-            this.listViewMitgliedschaft.Size = new System.Drawing.Size(1609, 440);
+            this.listViewMitgliedschaft.Size = new System.Drawing.Size(1208, 358);
             this.listViewMitgliedschaft.TabIndex = 19;
             this.listViewMitgliedschaft.UseCompatibleStateImageBehavior = false;
             this.listViewMitgliedschaft.View = System.Windows.Forms.View.Details;
@@ -1662,12 +1699,12 @@
             this.contextMenuStripMitgliedschaft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ändernToolStripMenuItem1});
             this.contextMenuStripMitgliedschaft.Name = "contextMenuStripMitgliedschaft";
-            this.contextMenuStripMitgliedschaft.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripMitgliedschaft.Size = new System.Drawing.Size(131, 26);
             // 
             // ändernToolStripMenuItem1
             // 
             this.ändernToolStripMenuItem1.Name = "ändernToolStripMenuItem1";
-            this.ändernToolStripMenuItem1.Size = new System.Drawing.Size(150, 24);
+            this.ändernToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.ändernToolStripMenuItem1.Text = "bearbeiten";
             this.ändernToolStripMenuItem1.Click += new System.EventHandler(this.ändernToolStripMenuItem1_Click);
             // 
@@ -1677,12 +1714,12 @@
             this.contextMenuStripSchluessel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem6});
             this.contextMenuStripSchluessel.Name = "contextMenuStripSchluessel";
-            this.contextMenuStripSchluessel.Size = new System.Drawing.Size(151, 28);
+            this.contextMenuStripSchluessel.Size = new System.Drawing.Size(131, 26);
             // 
             // bearbeitenToolStripMenuItem6
             // 
             this.bearbeitenToolStripMenuItem6.Name = "bearbeitenToolStripMenuItem6";
-            this.bearbeitenToolStripMenuItem6.Size = new System.Drawing.Size(150, 24);
+            this.bearbeitenToolStripMenuItem6.Size = new System.Drawing.Size(130, 22);
             this.bearbeitenToolStripMenuItem6.Text = "bearbeiten";
             this.bearbeitenToolStripMenuItem6.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem6_Click);
             // 
@@ -1697,37 +1734,37 @@
             this.tableLayoutPanelFinanz.Controls.Add(this.buttonKassabuchkonto, 1, 0);
             this.tableLayoutPanelFinanz.Controls.Add(this.buttonKassabuch, 1, 1);
             this.tableLayoutPanelFinanz.Controls.Add(this.buttonRechnung, 1, 2);
-            this.tableLayoutPanelFinanz.Location = new System.Drawing.Point(9, 199);
-            this.tableLayoutPanelFinanz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelFinanz.Location = new System.Drawing.Point(7, 162);
+            this.tableLayoutPanelFinanz.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelFinanz.Name = "tableLayoutPanelFinanz";
             this.tableLayoutPanelFinanz.RowCount = 6;
             this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanelFinanz.Size = new System.Drawing.Size(235, 246);
+            this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelFinanz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelFinanz.Size = new System.Drawing.Size(176, 200);
             this.tableLayoutPanelFinanz.TabIndex = 23;
             this.tableLayoutPanelFinanz.Visible = false;
             // 
             // labelBtRechnung
             // 
             this.labelBtRechnung.BackColor = System.Drawing.Color.Lime;
-            this.labelBtRechnung.Location = new System.Drawing.Point(0, 115);
+            this.labelBtRechnung.Location = new System.Drawing.Point(0, 93);
             this.labelBtRechnung.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtRechnung.Name = "labelBtRechnung";
-            this.labelBtRechnung.Size = new System.Drawing.Size(12, 54);
+            this.labelBtRechnung.Size = new System.Drawing.Size(9, 44);
             this.labelBtRechnung.TabIndex = 16;
             this.labelBtRechnung.Visible = false;
             // 
             // labelBtKassabuch
             // 
             this.labelBtKassabuch.BackColor = System.Drawing.Color.Lime;
-            this.labelBtKassabuch.Location = new System.Drawing.Point(0, 58);
+            this.labelBtKassabuch.Location = new System.Drawing.Point(0, 47);
             this.labelBtKassabuch.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKassabuch.Name = "labelBtKassabuch";
-            this.labelBtKassabuch.Size = new System.Drawing.Size(12, 54);
+            this.labelBtKassabuch.Size = new System.Drawing.Size(9, 44);
             this.labelBtKassabuch.TabIndex = 13;
             this.labelBtKassabuch.Visible = false;
             // 
@@ -1737,17 +1774,17 @@
             this.labelBtKassabuchkonto.Location = new System.Drawing.Point(0, 1);
             this.labelBtKassabuchkonto.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.labelBtKassabuchkonto.Name = "labelBtKassabuchkonto";
-            this.labelBtKassabuchkonto.Size = new System.Drawing.Size(12, 54);
+            this.labelBtKassabuchkonto.Size = new System.Drawing.Size(9, 44);
             this.labelBtKassabuchkonto.TabIndex = 12;
             this.labelBtKassabuchkonto.Visible = false;
             // 
             // buttonKassabuchkonto
             // 
             this.buttonKassabuchkonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKassabuchkonto.Location = new System.Drawing.Point(12, 0);
+            this.buttonKassabuchkonto.Location = new System.Drawing.Point(9, 0);
             this.buttonKassabuchkonto.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKassabuchkonto.Name = "buttonKassabuchkonto";
-            this.buttonKassabuchkonto.Size = new System.Drawing.Size(223, 57);
+            this.buttonKassabuchkonto.Size = new System.Drawing.Size(167, 46);
             this.buttonKassabuchkonto.TabIndex = 14;
             this.buttonKassabuchkonto.Text = "Kassabuchkonto";
             this.buttonKassabuchkonto.UseVisualStyleBackColor = true;
@@ -1756,10 +1793,10 @@
             // buttonKassabuch
             // 
             this.buttonKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKassabuch.Location = new System.Drawing.Point(12, 57);
+            this.buttonKassabuch.Location = new System.Drawing.Point(9, 46);
             this.buttonKassabuch.Margin = new System.Windows.Forms.Padding(0);
             this.buttonKassabuch.Name = "buttonKassabuch";
-            this.buttonKassabuch.Size = new System.Drawing.Size(223, 57);
+            this.buttonKassabuch.Size = new System.Drawing.Size(167, 46);
             this.buttonKassabuch.TabIndex = 15;
             this.buttonKassabuch.Text = "Kassabuch";
             this.buttonKassabuch.UseVisualStyleBackColor = true;
@@ -1768,10 +1805,10 @@
             // buttonRechnung
             // 
             this.buttonRechnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRechnung.Location = new System.Drawing.Point(12, 114);
+            this.buttonRechnung.Location = new System.Drawing.Point(9, 92);
             this.buttonRechnung.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRechnung.Name = "buttonRechnung";
-            this.buttonRechnung.Size = new System.Drawing.Size(223, 57);
+            this.buttonRechnung.Size = new System.Drawing.Size(167, 46);
             this.buttonRechnung.TabIndex = 17;
             this.buttonRechnung.Text = "Rechnung";
             this.buttonRechnung.UseVisualStyleBackColor = true;
@@ -1786,10 +1823,9 @@
             this.columnHeader69});
             this.listViewKassabuchkonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKassabuchkonto.HideSelection = false;
-            this.listViewKassabuchkonto.Location = new System.Drawing.Point(300, 260);
-            this.listViewKassabuchkonto.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewKassabuchkonto.Location = new System.Drawing.Point(225, 211);
             this.listViewKassabuchkonto.Name = "listViewKassabuchkonto";
-            this.listViewKassabuchkonto.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKassabuchkonto.Size = new System.Drawing.Size(1208, 358);
             this.listViewKassabuchkonto.TabIndex = 18;
             this.listViewKassabuchkonto.UseCompatibleStateImageBehavior = false;
             this.listViewKassabuchkonto.View = System.Windows.Forms.View.Details;
@@ -1828,10 +1864,9 @@
             this.columnHeader75});
             this.listViewKassabuch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKassabuch.HideSelection = false;
-            this.listViewKassabuch.Location = new System.Drawing.Point(300, 260);
-            this.listViewKassabuch.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewKassabuch.Location = new System.Drawing.Point(225, 211);
             this.listViewKassabuch.Name = "listViewKassabuch";
-            this.listViewKassabuch.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKassabuch.Size = new System.Drawing.Size(1208, 358);
             this.listViewKassabuch.TabIndex = 24;
             this.listViewKassabuch.UseCompatibleStateImageBehavior = false;
             this.listViewKassabuch.View = System.Windows.Forms.View.Details;
@@ -1880,10 +1915,9 @@
             this.columnHeader80});
             this.listViewRechnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewRechnung.HideSelection = false;
-            this.listViewRechnung.Location = new System.Drawing.Point(300, 260);
-            this.listViewRechnung.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewRechnung.Location = new System.Drawing.Point(225, 211);
             this.listViewRechnung.Name = "listViewRechnung";
-            this.listViewRechnung.Size = new System.Drawing.Size(1609, 440);
+            this.listViewRechnung.Size = new System.Drawing.Size(1208, 358);
             this.listViewRechnung.TabIndex = 25;
             this.listViewRechnung.UseCompatibleStateImageBehavior = false;
             this.listViewRechnung.View = System.Windows.Forms.View.Details;
@@ -1922,10 +1956,10 @@
             this.columnHeader82});
             this.listViewTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTeilnehmer.HideSelection = false;
-            this.listViewTeilnehmer.Location = new System.Drawing.Point(300, 260);
-            this.listViewTeilnehmer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewTeilnehmer.Location = new System.Drawing.Point(225, 211);
+            this.listViewTeilnehmer.Margin = new System.Windows.Forms.Padding(2);
             this.listViewTeilnehmer.Name = "listViewTeilnehmer";
-            this.listViewTeilnehmer.Size = new System.Drawing.Size(1609, 440);
+            this.listViewTeilnehmer.Size = new System.Drawing.Size(1208, 358);
             this.listViewTeilnehmer.TabIndex = 16;
             this.listViewTeilnehmer.UseCompatibleStateImageBehavior = false;
             this.listViewTeilnehmer.View = System.Windows.Forms.View.Details;
@@ -1953,10 +1987,10 @@
             this.columnHeader87});
             this.listViewKursort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKursort.HideSelection = false;
-            this.listViewKursort.Location = new System.Drawing.Point(300, 260);
-            this.listViewKursort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewKursort.Location = new System.Drawing.Point(225, 211);
+            this.listViewKursort.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKursort.Name = "listViewKursort";
-            this.listViewKursort.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKursort.Size = new System.Drawing.Size(1208, 358);
             this.listViewKursort.TabIndex = 26;
             this.listViewKursort.UseCompatibleStateImageBehavior = false;
             this.listViewKursort.View = System.Windows.Forms.View.Details;
@@ -2000,10 +2034,10 @@
             this.columnHeader90});
             this.listViewKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKursleiter.HideSelection = false;
-            this.listViewKursleiter.Location = new System.Drawing.Point(300, 260);
-            this.listViewKursleiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewKursleiter.Location = new System.Drawing.Point(225, 211);
+            this.listViewKursleiter.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKursleiter.Name = "listViewKursleiter";
-            this.listViewKursleiter.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKursleiter.Size = new System.Drawing.Size(1208, 358);
             this.listViewKursleiter.TabIndex = 27;
             this.listViewKursleiter.UseCompatibleStateImageBehavior = false;
             this.listViewKursleiter.View = System.Windows.Forms.View.Details;
@@ -2033,10 +2067,10 @@
             this.columnHeader95});
             this.listViewOffeneRechnung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewOffeneRechnung.HideSelection = false;
-            this.listViewOffeneRechnung.Location = new System.Drawing.Point(300, 260);
-            this.listViewOffeneRechnung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewOffeneRechnung.Location = new System.Drawing.Point(225, 211);
+            this.listViewOffeneRechnung.Margin = new System.Windows.Forms.Padding(2);
             this.listViewOffeneRechnung.Name = "listViewOffeneRechnung";
-            this.listViewOffeneRechnung.Size = new System.Drawing.Size(1609, 440);
+            this.listViewOffeneRechnung.Size = new System.Drawing.Size(1208, 358);
             this.listViewOffeneRechnung.TabIndex = 29;
             this.listViewOffeneRechnung.UseCompatibleStateImageBehavior = false;
             this.listViewOffeneRechnung.View = System.Windows.Forms.View.Details;
@@ -2068,10 +2102,10 @@
             this.comboBoxKursTeilnehmer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxKursTeilnehmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKursTeilnehmer.FormattingEnabled = true;
-            this.comboBoxKursTeilnehmer.Location = new System.Drawing.Point(404, 219);
-            this.comboBoxKursTeilnehmer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKursTeilnehmer.Location = new System.Drawing.Point(303, 178);
+            this.comboBoxKursTeilnehmer.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKursTeilnehmer.Name = "comboBoxKursTeilnehmer";
-            this.comboBoxKursTeilnehmer.Size = new System.Drawing.Size(317, 37);
+            this.comboBoxKursTeilnehmer.Size = new System.Drawing.Size(239, 30);
             this.comboBoxKursTeilnehmer.TabIndex = 30;
             this.comboBoxKursTeilnehmer.Visible = false;
             this.comboBoxKursTeilnehmer.SelectedIndexChanged += new System.EventHandler(this.comboBoxKursTeilnehmer_SelectedIndexChanged);
@@ -2080,9 +2114,10 @@
             // 
             this.labelKurs.AutoSize = true;
             this.labelKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKurs.Location = new System.Drawing.Point(308, 222);
+            this.labelKurs.Location = new System.Drawing.Point(231, 180);
+            this.labelKurs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelKurs.Name = "labelKurs";
-            this.labelKurs.Size = new System.Drawing.Size(68, 29);
+            this.labelKurs.Size = new System.Drawing.Size(53, 24);
             this.labelKurs.TabIndex = 31;
             this.labelKurs.Text = "Kurs:";
             this.labelKurs.Visible = false;
@@ -2092,9 +2127,10 @@
             // 
             this.labelKursleiter.AutoSize = true;
             this.labelKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursleiter.Location = new System.Drawing.Point(791, 222);
+            this.labelKursleiter.Location = new System.Drawing.Point(593, 180);
+            this.labelKursleiter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelKursleiter.Name = "labelKursleiter";
-            this.labelKursleiter.Size = new System.Drawing.Size(122, 29);
+            this.labelKursleiter.Size = new System.Drawing.Size(93, 24);
             this.labelKursleiter.TabIndex = 32;
             this.labelKursleiter.Text = "Kursleiter:";
             this.labelKursleiter.Visible = false;
@@ -2102,10 +2138,10 @@
             // textBoxKursleiter
             // 
             this.textBoxKursleiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKursleiter.Location = new System.Drawing.Point(920, 219);
-            this.textBoxKursleiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKursleiter.Location = new System.Drawing.Point(690, 178);
+            this.textBoxKursleiter.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKursleiter.Name = "textBoxKursleiter";
-            this.textBoxKursleiter.Size = new System.Drawing.Size(188, 34);
+            this.textBoxKursleiter.Size = new System.Drawing.Size(142, 28);
             this.textBoxKursleiter.TabIndex = 33;
             this.textBoxKursleiter.Visible = false;
             // 
@@ -2113,9 +2149,10 @@
             // 
             this.labelKursbuchungBis.AutoSize = true;
             this.labelKursbuchungBis.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursbuchungBis.Location = new System.Drawing.Point(791, 222);
+            this.labelKursbuchungBis.Location = new System.Drawing.Point(593, 180);
+            this.labelKursbuchungBis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelKursbuchungBis.Name = "labelKursbuchungBis";
-            this.labelKursbuchungBis.Size = new System.Drawing.Size(53, 29);
+            this.labelKursbuchungBis.Size = new System.Drawing.Size(40, 24);
             this.labelKursbuchungBis.TabIndex = 34;
             this.labelKursbuchungBis.Text = "Bis:";
             this.labelKursbuchungBis.Visible = false;
@@ -2124,9 +2161,10 @@
             // 
             this.labelKursbuchungVon.AutoSize = true;
             this.labelKursbuchungVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursbuchungVon.Location = new System.Drawing.Point(308, 222);
+            this.labelKursbuchungVon.Location = new System.Drawing.Point(231, 180);
+            this.labelKursbuchungVon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelKursbuchungVon.Name = "labelKursbuchungVon";
-            this.labelKursbuchungVon.Size = new System.Drawing.Size(61, 29);
+            this.labelKursbuchungVon.Size = new System.Drawing.Size(50, 24);
             this.labelKursbuchungVon.TabIndex = 35;
             this.labelKursbuchungVon.Text = "Von:";
             this.labelKursbuchungVon.Visible = false;
@@ -2136,10 +2174,10 @@
             this.dateTimePickerKursbuchungVon.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursbuchungVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursbuchungVon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerKursbuchungVon.Location = new System.Drawing.Point(404, 219);
-            this.dateTimePickerKursbuchungVon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerKursbuchungVon.Location = new System.Drawing.Point(303, 178);
+            this.dateTimePickerKursbuchungVon.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKursbuchungVon.Name = "dateTimePickerKursbuchungVon";
-            this.dateTimePickerKursbuchungVon.Size = new System.Drawing.Size(251, 34);
+            this.dateTimePickerKursbuchungVon.Size = new System.Drawing.Size(189, 28);
             this.dateTimePickerKursbuchungVon.TabIndex = 36;
             this.dateTimePickerKursbuchungVon.Visible = false;
             this.dateTimePickerKursbuchungVon.ValueChanged += new System.EventHandler(this.dateTimePickerKursbuchungVon_ValueChanged);
@@ -2149,11 +2187,11 @@
             this.dateTimePickerKursbuchungBis.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursbuchungBis.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerKursbuchungBis.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerKursbuchungBis.Location = new System.Drawing.Point(841, 219);
-            this.dateTimePickerKursbuchungBis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerKursbuchungBis.Location = new System.Drawing.Point(631, 178);
+            this.dateTimePickerKursbuchungBis.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerKursbuchungBis.MaxDate = new System.DateTime(9998, 2, 1, 0, 0, 0, 0);
             this.dateTimePickerKursbuchungBis.Name = "dateTimePickerKursbuchungBis";
-            this.dateTimePickerKursbuchungBis.Size = new System.Drawing.Size(251, 34);
+            this.dateTimePickerKursbuchungBis.Size = new System.Drawing.Size(189, 28);
             this.dateTimePickerKursbuchungBis.TabIndex = 37;
             this.dateTimePickerKursbuchungBis.Value = new System.DateTime(2020, 2, 1, 0, 0, 0, 0);
             this.dateTimePickerKursbuchungBis.Visible = false;
@@ -2173,11 +2211,11 @@
             this.listViewKursbuchung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewKursbuchung.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewKursbuchung.HideSelection = false;
-            this.listViewKursbuchung.Location = new System.Drawing.Point(301, 261);
-            this.listViewKursbuchung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewKursbuchung.Location = new System.Drawing.Point(226, 212);
+            this.listViewKursbuchung.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKursbuchung.MultiSelect = false;
             this.listViewKursbuchung.Name = "listViewKursbuchung";
-            this.listViewKursbuchung.Size = new System.Drawing.Size(1609, 440);
+            this.listViewKursbuchung.Size = new System.Drawing.Size(1208, 358);
             this.listViewKursbuchung.TabIndex = 38;
             this.listViewKursbuchung.UseCompatibleStateImageBehavior = false;
             this.listViewKursbuchung.View = System.Windows.Forms.View.Details;
@@ -2221,10 +2259,10 @@
             // buttonKursbuchungSuchen
             // 
             this.buttonKursbuchungSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursbuchungSuchen.Location = new System.Drawing.Point(1145, 217);
-            this.buttonKursbuchungSuchen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKursbuchungSuchen.Location = new System.Drawing.Point(859, 176);
+            this.buttonKursbuchungSuchen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKursbuchungSuchen.Name = "buttonKursbuchungSuchen";
-            this.buttonKursbuchungSuchen.Size = new System.Drawing.Size(151, 37);
+            this.buttonKursbuchungSuchen.Size = new System.Drawing.Size(113, 30);
             this.buttonKursbuchungSuchen.TabIndex = 39;
             this.buttonKursbuchungSuchen.Text = "Suchen";
             this.buttonKursbuchungSuchen.UseVisualStyleBackColor = true;
@@ -2234,10 +2272,10 @@
             // buttonNeueKursbuchung
             // 
             this.buttonNeueKursbuchung.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNeueKursbuchung.Location = new System.Drawing.Point(248, 826);
-            this.buttonNeueKursbuchung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonNeueKursbuchung.Location = new System.Drawing.Point(186, 671);
+            this.buttonNeueKursbuchung.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNeueKursbuchung.Name = "buttonNeueKursbuchung";
-            this.buttonNeueKursbuchung.Size = new System.Drawing.Size(285, 63);
+            this.buttonNeueKursbuchung.Size = new System.Drawing.Size(214, 51);
             this.buttonNeueKursbuchung.TabIndex = 40;
             this.buttonNeueKursbuchung.Text = "neue Kursbuchung";
             this.buttonNeueKursbuchung.UseVisualStyleBackColor = true;
@@ -2247,10 +2285,10 @@
             // buttonKursbuchungBearbeiten
             // 
             this.buttonKursbuchungBearbeiten.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKursbuchungBearbeiten.Location = new System.Drawing.Point(559, 826);
-            this.buttonKursbuchungBearbeiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKursbuchungBearbeiten.Location = new System.Drawing.Point(419, 671);
+            this.buttonKursbuchungBearbeiten.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKursbuchungBearbeiten.Name = "buttonKursbuchungBearbeiten";
-            this.buttonKursbuchungBearbeiten.Size = new System.Drawing.Size(341, 63);
+            this.buttonKursbuchungBearbeiten.Size = new System.Drawing.Size(256, 51);
             this.buttonKursbuchungBearbeiten.TabIndex = 41;
             this.buttonKursbuchungBearbeiten.Text = "Kursbuchung bearbeiten";
             this.buttonKursbuchungBearbeiten.UseVisualStyleBackColor = true;
@@ -2267,12 +2305,35 @@
             this.panelTermine.Controls.Add(this.labelDatum);
             this.panelTermine.Controls.Add(this.labelTerminDatum);
             this.panelTermine.Controls.Add(this.listViewTermine);
-            this.panelTermine.Location = new System.Drawing.Point(265, 217);
-            this.panelTermine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelTermine.Location = new System.Drawing.Point(199, 176);
+            this.panelTermine.Margin = new System.Windows.Forms.Padding(2);
             this.panelTermine.Name = "panelTermine";
-            this.panelTermine.Size = new System.Drawing.Size(1607, 534);
+            this.panelTermine.Size = new System.Drawing.Size(1205, 434);
             this.panelTermine.TabIndex = 42;
             this.panelTermine.Visible = false;
+            // 
+            // comboBoxKursTermin
+            // 
+            this.comboBoxKursTermin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxKursTermin.FormattingEnabled = true;
+            this.comboBoxKursTermin.Location = new System.Drawing.Point(746, 19);
+            this.comboBoxKursTermin.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxKursTermin.Name = "comboBoxKursTermin";
+            this.comboBoxKursTermin.Size = new System.Drawing.Size(162, 28);
+            this.comboBoxKursTermin.TabIndex = 7;
+            this.comboBoxKursTermin.SelectedIndexChanged += new System.EventHandler(this.comboBoxKursTermin_SelectedIndexChanged);
+            // 
+            // labelKursTermin
+            // 
+            this.labelKursTermin.AutoSize = true;
+            this.labelKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKursTermin.Location = new System.Drawing.Point(571, 23);
+            this.labelKursTermin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelKursTermin.Name = "labelKursTermin";
+            this.labelKursTermin.Size = new System.Drawing.Size(160, 20);
+            this.labelKursTermin.TabIndex = 6;
+            this.labelKursTermin.Text = "Termine für den Kurs:";
             // 
             // groupBox1
             // 
@@ -2295,52 +2356,78 @@
             this.groupBox1.Controls.Add(this.labelDatumDesTermins);
             this.groupBox1.Controls.Add(this.comboBoxKurse);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(36, 258);
+            this.groupBox1.Location = new System.Drawing.Point(27, 210);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1277, 248);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(958, 202);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "anlegen";
             this.groupBox1.Visible = false;
             // 
+            // labelFreieEinheiten
+            // 
+            this.labelFreieEinheiten.AutoSize = true;
+            this.labelFreieEinheiten.Location = new System.Drawing.Point(566, 32);
+            this.labelFreieEinheiten.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelFreieEinheiten.Name = "labelFreieEinheiten";
+            this.labelFreieEinheiten.Size = new System.Drawing.Size(24, 13);
+            this.labelFreieEinheiten.TabIndex = 20;
+            this.labelFreieEinheiten.Text = "frei:";
+            // 
+            // textBoxFreieEinheiten
+            // 
+            this.textBoxFreieEinheiten.Location = new System.Drawing.Point(594, 29);
+            this.textBoxFreieEinheiten.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxFreieEinheiten.Name = "textBoxFreieEinheiten";
+            this.textBoxFreieEinheiten.ReadOnly = true;
+            this.textBoxFreieEinheiten.Size = new System.Drawing.Size(42, 20);
+            this.textBoxFreieEinheiten.TabIndex = 19;
+            // 
             // textBoxAnzEinheiten
             // 
-            this.textBoxAnzEinheiten.Location = new System.Drawing.Point(595, 36);
+            this.textBoxAnzEinheiten.Location = new System.Drawing.Point(446, 29);
+            this.textBoxAnzEinheiten.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAnzEinheiten.Name = "textBoxAnzEinheiten";
             this.textBoxAnzEinheiten.ReadOnly = true;
-            this.textBoxAnzEinheiten.Size = new System.Drawing.Size(55, 22);
+            this.textBoxAnzEinheiten.Size = new System.Drawing.Size(42, 20);
             this.textBoxAnzEinheiten.TabIndex = 18;
             // 
             // labelAnzEinheiten
             // 
             this.labelAnzEinheiten.AutoSize = true;
-            this.labelAnzEinheiten.Location = new System.Drawing.Point(433, 39);
+            this.labelAnzEinheiten.Location = new System.Drawing.Point(325, 32);
+            this.labelAnzEinheiten.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAnzEinheiten.Name = "labelAnzEinheiten";
-            this.labelAnzEinheiten.Size = new System.Drawing.Size(143, 17);
+            this.labelAnzEinheiten.Size = new System.Drawing.Size(107, 13);
             this.labelAnzEinheiten.TabIndex = 17;
             this.labelAnzEinheiten.Text = "Anzahl der Einheiten:";
             // 
             // textBoxTerminBis
             // 
-            this.textBoxTerminBis.Location = new System.Drawing.Point(94, 195);
+            this.textBoxTerminBis.Location = new System.Drawing.Point(70, 158);
+            this.textBoxTerminBis.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTerminBis.Name = "textBoxTerminBis";
             this.textBoxTerminBis.ReadOnly = true;
-            this.textBoxTerminBis.Size = new System.Drawing.Size(200, 22);
+            this.textBoxTerminBis.Size = new System.Drawing.Size(151, 20);
             this.textBoxTerminBis.TabIndex = 16;
             // 
             // textBoxTerminVon
             // 
-            this.textBoxTerminVon.Location = new System.Drawing.Point(94, 145);
+            this.textBoxTerminVon.Location = new System.Drawing.Point(70, 118);
+            this.textBoxTerminVon.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTerminVon.Name = "textBoxTerminVon";
             this.textBoxTerminVon.ReadOnly = true;
-            this.textBoxTerminVon.Size = new System.Drawing.Size(200, 22);
+            this.textBoxTerminVon.Size = new System.Drawing.Size(151, 20);
             this.textBoxTerminVon.TabIndex = 15;
             // 
             // buttonNaechsterTermin
             // 
-            this.buttonNaechsterTermin.Location = new System.Drawing.Point(792, 149);
+            this.buttonNaechsterTermin.Location = new System.Drawing.Point(594, 121);
+            this.buttonNaechsterTermin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNaechsterTermin.Name = "buttonNaechsterTermin";
-            this.buttonNaechsterTermin.Size = new System.Drawing.Size(158, 48);
+            this.buttonNaechsterTermin.Size = new System.Drawing.Size(118, 39);
             this.buttonNaechsterTermin.TabIndex = 14;
             this.buttonNaechsterTermin.Text = "Speichern";
             this.buttonNaechsterTermin.UseVisualStyleBackColor = true;
@@ -2348,84 +2435,94 @@
             // 
             // textBoxTerminIntern
             // 
-            this.textBoxTerminIntern.Location = new System.Drawing.Point(519, 195);
+            this.textBoxTerminIntern.Location = new System.Drawing.Point(389, 158);
+            this.textBoxTerminIntern.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTerminIntern.Name = "textBoxTerminIntern";
-            this.textBoxTerminIntern.Size = new System.Drawing.Size(176, 22);
+            this.textBoxTerminIntern.Size = new System.Drawing.Size(133, 20);
             this.textBoxTerminIntern.TabIndex = 13;
             // 
             // textBoxTerminZusatz
             // 
-            this.textBoxTerminZusatz.Location = new System.Drawing.Point(519, 145);
+            this.textBoxTerminZusatz.Location = new System.Drawing.Point(389, 118);
+            this.textBoxTerminZusatz.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTerminZusatz.Name = "textBoxTerminZusatz";
-            this.textBoxTerminZusatz.Size = new System.Drawing.Size(176, 22);
+            this.textBoxTerminZusatz.Size = new System.Drawing.Size(133, 20);
             this.textBoxTerminZusatz.TabIndex = 12;
             // 
             // textBoxTerminBetreff
             // 
-            this.textBoxTerminBetreff.Location = new System.Drawing.Point(519, 95);
+            this.textBoxTerminBetreff.Location = new System.Drawing.Point(389, 77);
+            this.textBoxTerminBetreff.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTerminBetreff.Name = "textBoxTerminBetreff";
-            this.textBoxTerminBetreff.Size = new System.Drawing.Size(176, 22);
+            this.textBoxTerminBetreff.Size = new System.Drawing.Size(133, 20);
             this.textBoxTerminBetreff.TabIndex = 11;
             // 
             // labelTerminIntern
             // 
             this.labelTerminIntern.AutoSize = true;
-            this.labelTerminIntern.Location = new System.Drawing.Point(433, 198);
+            this.labelTerminIntern.Location = new System.Drawing.Point(325, 161);
+            this.labelTerminIntern.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTerminIntern.Name = "labelTerminIntern";
-            this.labelTerminIntern.Size = new System.Drawing.Size(48, 17);
+            this.labelTerminIntern.Size = new System.Drawing.Size(37, 13);
             this.labelTerminIntern.TabIndex = 10;
             this.labelTerminIntern.Text = "Intern:";
             // 
             // labelterminZusatz
             // 
             this.labelterminZusatz.AutoSize = true;
-            this.labelterminZusatz.Location = new System.Drawing.Point(433, 148);
+            this.labelterminZusatz.Location = new System.Drawing.Point(325, 120);
+            this.labelterminZusatz.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelterminZusatz.Name = "labelterminZusatz";
-            this.labelterminZusatz.Size = new System.Drawing.Size(55, 17);
+            this.labelterminZusatz.Size = new System.Drawing.Size(42, 13);
             this.labelterminZusatz.TabIndex = 9;
             this.labelterminZusatz.Text = "Zusatz:";
             // 
             // labelTerminBetreff
             // 
             this.labelTerminBetreff.AutoSize = true;
-            this.labelTerminBetreff.Location = new System.Drawing.Point(433, 98);
+            this.labelTerminBetreff.Location = new System.Drawing.Point(325, 80);
+            this.labelTerminBetreff.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTerminBetreff.Name = "labelTerminBetreff";
-            this.labelTerminBetreff.Size = new System.Drawing.Size(54, 17);
+            this.labelTerminBetreff.Size = new System.Drawing.Size(41, 13);
             this.labelTerminBetreff.TabIndex = 8;
             this.labelTerminBetreff.Text = "Betreff:";
             // 
             // labelTerminBis
             // 
             this.labelTerminBis.AutoSize = true;
-            this.labelTerminBis.Location = new System.Drawing.Point(23, 198);
+            this.labelTerminBis.Location = new System.Drawing.Point(17, 161);
+            this.labelTerminBis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTerminBis.Name = "labelTerminBis";
-            this.labelTerminBis.Size = new System.Drawing.Size(31, 17);
+            this.labelTerminBis.Size = new System.Drawing.Size(24, 13);
             this.labelTerminBis.TabIndex = 5;
             this.labelTerminBis.Text = "Bis:";
             // 
             // labelTerminVon
             // 
             this.labelTerminVon.AutoSize = true;
-            this.labelTerminVon.Location = new System.Drawing.Point(23, 148);
+            this.labelTerminVon.Location = new System.Drawing.Point(17, 120);
+            this.labelTerminVon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTerminVon.Name = "labelTerminVon";
-            this.labelTerminVon.Size = new System.Drawing.Size(37, 17);
+            this.labelTerminVon.Size = new System.Drawing.Size(29, 13);
             this.labelTerminVon.TabIndex = 4;
             this.labelTerminVon.Text = "Von:";
             // 
             // dateTimePickerTerminDatum
             // 
-            this.dateTimePickerTerminDatum.Location = new System.Drawing.Point(94, 98);
+            this.dateTimePickerTerminDatum.Location = new System.Drawing.Point(70, 80);
+            this.dateTimePickerTerminDatum.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerTerminDatum.Name = "dateTimePickerTerminDatum";
-            this.dateTimePickerTerminDatum.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerTerminDatum.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerTerminDatum.TabIndex = 3;
             this.dateTimePickerTerminDatum.ValueChanged += new System.EventHandler(this.dateTimePickerTerminDatum_ValueChanged);
             // 
             // labelDatumDesTermins
             // 
             this.labelDatumDesTermins.AutoSize = true;
-            this.labelDatumDesTermins.Location = new System.Drawing.Point(23, 98);
+            this.labelDatumDesTermins.Location = new System.Drawing.Point(17, 80);
+            this.labelDatumDesTermins.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDatumDesTermins.Name = "labelDatumDesTermins";
-            this.labelDatumDesTermins.Size = new System.Drawing.Size(53, 17);
+            this.labelDatumDesTermins.Size = new System.Drawing.Size(41, 13);
             this.labelDatumDesTermins.TabIndex = 2;
             this.labelDatumDesTermins.Text = "Datum:";
             // 
@@ -2433,45 +2530,50 @@
             // 
             this.comboBoxKurse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKurse.FormattingEnabled = true;
-            this.comboBoxKurse.Location = new System.Drawing.Point(222, 33);
+            this.comboBoxKurse.Location = new System.Drawing.Point(166, 27);
+            this.comboBoxKurse.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxKurse.Name = "comboBoxKurse";
-            this.comboBoxKurse.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxKurse.Size = new System.Drawing.Size(92, 21);
             this.comboBoxKurse.TabIndex = 1;
             this.comboBoxKurse.SelectedIndexChanged += new System.EventHandler(this.comboBoxKurse_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 36);
+            this.label1.Location = new System.Drawing.Point(16, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 17);
+            this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Termin festlegen für:";
             // 
             // dateTimePickerDatum
             // 
             this.dateTimePickerDatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerDatum.Location = new System.Drawing.Point(284, 26);
+            this.dateTimePickerDatum.Location = new System.Drawing.Point(213, 21);
+            this.dateTimePickerDatum.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerDatum.Name = "dateTimePickerDatum";
-            this.dateTimePickerDatum.Size = new System.Drawing.Size(393, 30);
+            this.dateTimePickerDatum.Size = new System.Drawing.Size(296, 26);
             this.dateTimePickerDatum.TabIndex = 4;
             this.dateTimePickerDatum.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // labelDatum
             // 
             this.labelDatum.AutoSize = true;
-            this.labelDatum.Location = new System.Drawing.Point(490, 33);
+            this.labelDatum.Location = new System.Drawing.Point(368, 27);
+            this.labelDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDatum.Name = "labelDatum";
-            this.labelDatum.Size = new System.Drawing.Size(0, 17);
+            this.labelDatum.Size = new System.Drawing.Size(0, 13);
             this.labelDatum.TabIndex = 3;
             // 
             // labelTerminDatum
             // 
             this.labelTerminDatum.AutoSize = true;
             this.labelTerminDatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTerminDatum.Location = new System.Drawing.Point(39, 29);
+            this.labelTerminDatum.Location = new System.Drawing.Point(29, 24);
+            this.labelTerminDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTerminDatum.Name = "labelTerminDatum";
-            this.labelTerminDatum.Size = new System.Drawing.Size(225, 25);
+            this.labelTerminDatum.Size = new System.Drawing.Size(178, 20);
             this.labelTerminDatum.TabIndex = 2;
             this.labelTerminDatum.Text = "Termine an diesem Tag:";
             // 
@@ -2489,10 +2591,9 @@
             this.columnHeader122});
             this.listViewTermine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTermine.HideSelection = false;
-            this.listViewTermine.Location = new System.Drawing.Point(36, 70);
-            this.listViewTermine.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewTermine.Location = new System.Drawing.Point(27, 57);
             this.listViewTermine.Name = "listViewTermine";
-            this.listViewTermine.Size = new System.Drawing.Size(1508, 161);
+            this.listViewTermine.Size = new System.Drawing.Size(1132, 132);
             this.listViewTermine.TabIndex = 0;
             this.listViewTermine.UseCompatibleStateImageBehavior = false;
             this.listViewTermine.View = System.Windows.Forms.View.Details;
@@ -2537,13 +2638,18 @@
             this.columnHeader129.Text = "Kursort";
             this.columnHeader129.Width = 236;
             // 
+            // columnHeader122
+            // 
+            this.columnHeader122.Text = "Datum";
+            this.columnHeader122.Width = 166;
+            // 
             // btnRechnungdrucken
             // 
             this.btnRechnungdrucken.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRechnungdrucken.Location = new System.Drawing.Point(800, 894);
-            this.btnRechnungdrucken.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRechnungdrucken.Location = new System.Drawing.Point(600, 726);
+            this.btnRechnungdrucken.Margin = new System.Windows.Forms.Padding(2);
             this.btnRechnungdrucken.Name = "btnRechnungdrucken";
-            this.btnRechnungdrucken.Size = new System.Drawing.Size(269, 63);
+            this.btnRechnungdrucken.Size = new System.Drawing.Size(202, 51);
             this.btnRechnungdrucken.TabIndex = 43;
             this.btnRechnungdrucken.Text = "Rechnung drucken";
             this.btnRechnungdrucken.UseVisualStyleBackColor = true;
@@ -2553,10 +2659,10 @@
             // buttonTeilnehmerDrucken
             // 
             this.buttonTeilnehmerDrucken.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTeilnehmerDrucken.Location = new System.Drawing.Point(800, 894);
-            this.buttonTeilnehmerDrucken.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonTeilnehmerDrucken.Location = new System.Drawing.Point(600, 726);
+            this.buttonTeilnehmerDrucken.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTeilnehmerDrucken.Name = "buttonTeilnehmerDrucken";
-            this.buttonTeilnehmerDrucken.Size = new System.Drawing.Size(347, 63);
+            this.buttonTeilnehmerDrucken.Size = new System.Drawing.Size(260, 51);
             this.buttonTeilnehmerDrucken.TabIndex = 44;
             this.buttonTeilnehmerDrucken.Text = "Teilnehmerliste drucken";
             this.buttonTeilnehmerDrucken.UseVisualStyleBackColor = true;
@@ -2575,10 +2681,17 @@
             this.columnHeader109});
             this.listViewSchluesselverwaltung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewSchluesselverwaltung.HideSelection = false;
-            this.listViewSchluesselverwaltung.Location = new System.Drawing.Point(300, 260);
-            this.listViewSchluesselverwaltung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewSchluesselverwaltung.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
+            this.listViewSchluesselverwaltung.Location = new System.Drawing.Point(225, 211);
+            this.listViewSchluesselverwaltung.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSchluesselverwaltung.Name = "listViewSchluesselverwaltung";
-            this.listViewSchluesselverwaltung.Size = new System.Drawing.Size(1608, 440);
+            this.listViewSchluesselverwaltung.Size = new System.Drawing.Size(1207, 358);
             this.listViewSchluesselverwaltung.TabIndex = 45;
             this.listViewSchluesselverwaltung.UseCompatibleStateImageBehavior = false;
             this.listViewSchluesselverwaltung.View = System.Windows.Forms.View.Details;
@@ -2622,30 +2735,30 @@
             // textBoxVorname
             // 
             this.textBoxVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxVorname.Location = new System.Drawing.Point(421, 755);
-            this.textBoxVorname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxVorname.Location = new System.Drawing.Point(316, 613);
+            this.textBoxVorname.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVorname.Name = "textBoxVorname";
-            this.textBoxVorname.Size = new System.Drawing.Size(204, 34);
+            this.textBoxVorname.Size = new System.Drawing.Size(154, 28);
             this.textBoxVorname.TabIndex = 47;
             this.textBoxVorname.Visible = false;
             // 
             // textBoxNachname
             // 
             this.textBoxNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNachname.Location = new System.Drawing.Point(820, 755);
-            this.textBoxNachname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNachname.Location = new System.Drawing.Point(615, 613);
+            this.textBoxNachname.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNachname.Name = "textBoxNachname";
-            this.textBoxNachname.Size = new System.Drawing.Size(212, 34);
+            this.textBoxNachname.Size = new System.Drawing.Size(160, 28);
             this.textBoxNachname.TabIndex = 48;
             this.textBoxNachname.Visible = false;
             // 
             // buttonKontaktSuchen
             // 
             this.buttonKontaktSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKontaktSuchen.Location = new System.Drawing.Point(1050, 754);
-            this.buttonKontaktSuchen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKontaktSuchen.Location = new System.Drawing.Point(788, 613);
+            this.buttonKontaktSuchen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKontaktSuchen.Name = "buttonKontaktSuchen";
-            this.buttonKontaktSuchen.Size = new System.Drawing.Size(151, 37);
+            this.buttonKontaktSuchen.Size = new System.Drawing.Size(113, 30);
             this.buttonKontaktSuchen.TabIndex = 49;
             this.buttonKontaktSuchen.Text = "Suchen";
             this.buttonKontaktSuchen.UseVisualStyleBackColor = true;
@@ -2656,9 +2769,10 @@
             // 
             this.labelVorname.AutoSize = true;
             this.labelVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVorname.Location = new System.Drawing.Point(289, 758);
+            this.labelVorname.Location = new System.Drawing.Point(217, 616);
+            this.labelVorname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelVorname.Name = "labelVorname";
-            this.labelVorname.Size = new System.Drawing.Size(116, 29);
+            this.labelVorname.Size = new System.Drawing.Size(93, 24);
             this.labelVorname.TabIndex = 50;
             this.labelVorname.Text = "Vorname:";
             this.labelVorname.Visible = false;
@@ -2667,9 +2781,10 @@
             // 
             this.labelNachname.AutoSize = true;
             this.labelNachname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNachname.Location = new System.Drawing.Point(677, 758);
+            this.labelNachname.Location = new System.Drawing.Point(508, 616);
+            this.labelNachname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNachname.Name = "labelNachname";
-            this.labelNachname.Size = new System.Drawing.Size(135, 29);
+            this.labelNachname.Size = new System.Drawing.Size(108, 24);
             this.labelNachname.TabIndex = 51;
             this.labelNachname.Text = "Nachname:";
             this.labelNachname.Visible = false;
@@ -2683,9 +2798,11 @@
             this.columnHeader114,
             this.columnHeader115});
             this.listViewKursleiterZuweisen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewKursleiterZuweisen.Location = new System.Drawing.Point(301, 261);
+            this.listViewKursleiterZuweisen.HideSelection = false;
+            this.listViewKursleiterZuweisen.Location = new System.Drawing.Point(226, 212);
+            this.listViewKursleiterZuweisen.Margin = new System.Windows.Forms.Padding(2);
             this.listViewKursleiterZuweisen.Name = "listViewKursleiterZuweisen";
-            this.listViewKursleiterZuweisen.Size = new System.Drawing.Size(1607, 438);
+            this.listViewKursleiterZuweisen.Size = new System.Drawing.Size(1206, 357);
             this.listViewKursleiterZuweisen.TabIndex = 53;
             this.listViewKursleiterZuweisen.UseCompatibleStateImageBehavior = false;
             this.listViewKursleiterZuweisen.View = System.Windows.Forms.View.Details;
@@ -2714,28 +2831,6 @@
             // 
             this.columnHeader115.Text = "Zulage";
             // 
-            // buttonMitglieder
-            // 
-            this.buttonMitglieder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMitglieder.Location = new System.Drawing.Point(12, 468);
-            this.buttonMitglieder.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonMitglieder.Name = "buttonMitglieder";
-            this.buttonMitglieder.Size = new System.Drawing.Size(223, 56);
-            this.buttonMitglieder.TabIndex = 24;
-            this.buttonMitglieder.Text = "Mitglied";
-            this.buttonMitglieder.UseVisualStyleBackColor = true;
-            this.buttonMitglieder.Click += new System.EventHandler(this.buttonMitglieder_Click);
-            // 
-            // labelBtMitglieder
-            // 
-            this.labelBtMitglieder.BackColor = System.Drawing.Color.Lime;
-            this.labelBtMitglieder.Location = new System.Drawing.Point(0, 469);
-            this.labelBtMitglieder.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.labelBtMitglieder.Name = "labelBtMitglieder";
-            this.labelBtMitglieder.Size = new System.Drawing.Size(12, 54);
-            this.labelBtMitglieder.TabIndex = 54;
-            this.labelBtMitglieder.Visible = false;
-            // 
             // listViewMitglieder
             // 
             this.listViewMitglieder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -2745,9 +2840,11 @@
             this.columnHeader119,
             this.columnHeader120});
             this.listViewMitglieder.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewMitglieder.Location = new System.Drawing.Point(301, 261);
+            this.listViewMitglieder.HideSelection = false;
+            this.listViewMitglieder.Location = new System.Drawing.Point(226, 212);
+            this.listViewMitglieder.Margin = new System.Windows.Forms.Padding(2);
             this.listViewMitglieder.Name = "listViewMitglieder";
-            this.listViewMitglieder.Size = new System.Drawing.Size(1607, 438);
+            this.listViewMitglieder.Size = new System.Drawing.Size(1206, 357);
             this.listViewMitglieder.TabIndex = 55;
             this.listViewMitglieder.UseCompatibleStateImageBehavior = false;
             this.listViewMitglieder.View = System.Windows.Forms.View.Details;
@@ -2777,55 +2874,97 @@
             this.columnHeader120.Text = "Kalenderjahr";
             this.columnHeader120.Width = 306;
             // 
-            // textBoxFreieEinheiten
+            // btnBenutzerHinzufügen
             // 
-            this.textBoxFreieEinheiten.Location = new System.Drawing.Point(792, 36);
-            this.textBoxFreieEinheiten.Name = "textBoxFreieEinheiten";
-            this.textBoxFreieEinheiten.ReadOnly = true;
-            this.textBoxFreieEinheiten.Size = new System.Drawing.Size(55, 22);
-            this.textBoxFreieEinheiten.TabIndex = 19;
+            this.btnBenutzerHinzufügen.AutoSize = true;
+            this.btnBenutzerHinzufügen.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnBenutzerHinzufügen.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnBenutzerHinzufügen.FlatAppearance.BorderSize = 0;
+            this.btnBenutzerHinzufügen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+            this.btnBenutzerHinzufügen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnBenutzerHinzufügen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBenutzerHinzufügen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBenutzerHinzufügen.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.btnBenutzerHinzufügen.Image = ((System.Drawing.Image)(resources.GetObject("btnBenutzerHinzufügen.Image")));
+            this.btnBenutzerHinzufügen.Location = new System.Drawing.Point(1430, 5);
+            this.btnBenutzerHinzufügen.Name = "btnBenutzerHinzufügen";
+            this.btnBenutzerHinzufügen.Size = new System.Drawing.Size(86, 86);
+            this.btnBenutzerHinzufügen.TabIndex = 56;
+            this.btnBenutzerHinzufügen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBenutzerHinzufügen.UseVisualStyleBackColor = true;
+            this.btnBenutzerHinzufügen.Click += new System.EventHandler(this.btnBenutzerHinzufügen_Click);
             // 
-            // labelFreieEinheiten
+            // btnBenutzerbearbeiten
             // 
-            this.labelFreieEinheiten.AutoSize = true;
-            this.labelFreieEinheiten.Location = new System.Drawing.Point(754, 39);
-            this.labelFreieEinheiten.Name = "labelFreieEinheiten";
-            this.labelFreieEinheiten.Size = new System.Drawing.Size(32, 17);
-            this.labelFreieEinheiten.TabIndex = 20;
-            this.labelFreieEinheiten.Text = "frei:";
+            this.btnBenutzerbearbeiten.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnBenutzerbearbeiten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBenutzerbearbeiten.FlatAppearance.BorderSize = 0;
+            this.btnBenutzerbearbeiten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnBenutzerbearbeiten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBenutzerbearbeiten.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBenutzerbearbeiten.ForeColor = System.Drawing.Color.Black;
+            this.btnBenutzerbearbeiten.Image = global::Verrechnungsprogramm.Properties.Resources.Dropdownicon_vorklick;
+            this.btnBenutzerbearbeiten.Location = new System.Drawing.Point(0, 0);
+            this.btnBenutzerbearbeiten.Name = "btnBenutzerbearbeiten";
+            this.btnBenutzerbearbeiten.Size = new System.Drawing.Size(265, 64);
+            this.btnBenutzerbearbeiten.TabIndex = 57;
+            this.btnBenutzerbearbeiten.Text = "Benutzername";
+            this.btnBenutzerbearbeiten.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBenutzerbearbeiten.UseVisualStyleBackColor = true;
+            this.btnBenutzerbearbeiten.Click += new System.EventHandler(this.btnBenutzerbearbeiten_Click);
             // 
-            // columnHeader122
+            // panelDropdown
             // 
-            this.columnHeader122.Text = "Datum";
-            this.columnHeader122.Width = 166;
+            this.panelDropdown.Controls.Add(this.btnlogout);
+            this.panelDropdown.Controls.Add(this.buttonnameändern);
+            this.panelDropdown.Controls.Add(this.btnBenutzerbearbeiten);
+            this.panelDropdown.Location = new System.Drawing.Point(1540, 25);
+            this.panelDropdown.MaximumSize = new System.Drawing.Size(265, 231);
+            this.panelDropdown.MinimumSize = new System.Drawing.Size(265, 63);
+            this.panelDropdown.Name = "panelDropdown";
+            this.panelDropdown.Size = new System.Drawing.Size(265, 63);
+            this.panelDropdown.TabIndex = 58;
             // 
-            // labelKursTermin
+            // buttonnameändern
             // 
-            this.labelKursTermin.AutoSize = true;
-            this.labelKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKursTermin.Location = new System.Drawing.Point(761, 28);
-            this.labelKursTermin.Name = "labelKursTermin";
-            this.labelKursTermin.Size = new System.Drawing.Size(201, 25);
-            this.labelKursTermin.TabIndex = 6;
-            this.labelKursTermin.Text = "Termine für den Kurs:";
+            this.buttonnameändern.BackColor = System.Drawing.Color.Azure;
+            this.buttonnameändern.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonnameändern.FlatAppearance.BorderSize = 0;
+            this.buttonnameändern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonnameändern.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonnameändern.ForeColor = System.Drawing.Color.Black;
+            this.buttonnameändern.Location = new System.Drawing.Point(0, 64);
+            this.buttonnameändern.Name = "buttonnameändern";
+            this.buttonnameändern.Size = new System.Drawing.Size(265, 40);
+            this.buttonnameändern.TabIndex = 58;
+            this.buttonnameändern.Text = "Name oder Passwort ändern";
+            this.buttonnameändern.UseVisualStyleBackColor = false;
+            this.buttonnameändern.Click += new System.EventHandler(this.buttonnameändern_Click);
             // 
-            // comboBoxKursTermin
+            // btnlogout
             // 
-            this.comboBoxKursTermin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxKursTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxKursTermin.FormattingEnabled = true;
-            this.comboBoxKursTermin.Location = new System.Drawing.Point(995, 23);
-            this.comboBoxKursTermin.Name = "comboBoxKursTermin";
-            this.comboBoxKursTermin.Size = new System.Drawing.Size(215, 33);
-            this.comboBoxKursTermin.TabIndex = 7;
-            this.comboBoxKursTermin.SelectedIndexChanged += new System.EventHandler(this.comboBoxKursTermin_SelectedIndexChanged);
+            this.btnlogout.BackColor = System.Drawing.Color.Azure;
+            this.btnlogout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnlogout.FlatAppearance.BorderSize = 0;
+            this.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.ForeColor = System.Drawing.Color.Black;
+            this.btnlogout.Location = new System.Drawing.Point(0, 104);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(265, 40);
+            this.btnlogout.TabIndex = 59;
+            this.btnlogout.Text = "Logout";
+            this.btnlogout.UseVisualStyleBackColor = false;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
             // FrmHaupt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.Controls.Add(this.panelDropdown);
+            this.Controls.Add(this.btnBenutzerHinzufügen);
             this.Controls.Add(this.tableLayoutPanelKursTermin);
             this.Controls.Add(this.tableLayoutPanelStammdaten);
             this.Controls.Add(this.listViewMitglieder);
@@ -2877,7 +3016,7 @@
             this.Controls.Add(this.listViewKontakt);
             this.Controls.Add(this.buttonTeilnehmerDrucken);
             this.Controls.Add(this.panelTermine);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmHaupt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Anwendungsprogramm";
@@ -2902,6 +3041,7 @@
             this.panelTermine.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelDropdown.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3187,5 +3327,10 @@
         private System.Windows.Forms.ComboBox comboBoxKursTermin;
         private System.Windows.Forms.Label labelKursTermin;
         private System.Windows.Forms.ColumnHeader columnHeader122;
+        private System.Windows.Forms.Button btnBenutzerHinzufügen;
+        private System.Windows.Forms.Panel panelDropdown;
+        private System.Windows.Forms.Button btnlogout;
+        private System.Windows.Forms.Button buttonnameändern;
+        internal System.Windows.Forms.Button btnBenutzerbearbeiten;
     }
 }

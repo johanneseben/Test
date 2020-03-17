@@ -22,8 +22,11 @@ namespace Verrechnungsprogramm
         HttpBasicAuthenticator Authenticator;
         public int terminEinheitCounter = 0;
 
+        internal static FrmHaupt f2;
+
         public FrmHaupt()
         {
+            f2 = this;
             InitializeComponent();
             //client = new RestClient("http://localhost:8888")
             client = new RestClient("http://vhs-mistelbach.projects.hakmistelbach.ac.at:20218")
@@ -34,6 +37,10 @@ namespace Verrechnungsprogramm
 
         private void frmHaupt_Load(object sender, EventArgs e)
         {
+
+            btnBenutzerbearbeiten.Text = Form1.f1.tbBenutzername.Text;
+
+
             listViewAltersgruppe.FullRowSelect = true;
             listViewSozialgruppe.FullRowSelect = true;
             listViewKontakt.FullRowSelect = true;
@@ -2418,6 +2425,79 @@ namespace Verrechnungsprogramm
         private void comboBoxKursTermin_SelectedIndexChanged(object sender, EventArgs e)
         {
             termineEinlesen2();
+        }
+
+        private void btnBenutzerHinzufügen_Click(object sender, EventArgs e)
+        {
+            
+
+            
+
+
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonHinzufügen.Text;
+
+           
+                fHinzuBea.labelÜberschrift.Text = "Benutzer anlegen";
+            
+          
+
+
+
+            fHinzuBea.ShowDialog();
+
+        }
+
+        private void Benutzerbearbeiten()
+        {
+            FrmHinzufügenBearbeiten fHinzuBea = new FrmHinzufügenBearbeiten();
+         
+            
+
+            fHinzuBea.BackColor = this.BackColor;
+            fHinzuBea.Text = buttonBearbeiten.Text;
+
+
+            fHinzuBea.tbBenutzernameanlegen.Text = btnBenutzerbearbeiten.Text;
+
+            fHinzuBea.labelÜberschrift.Text = "Benutzer bearbeiten";
+
+
+            fHinzuBea.ShowDialog();
+            
+        }
+
+        private void btnBenutzerbearbeiten_Click(object sender, EventArgs e)
+        {
+            if (panelDropdown.Size == panelDropdown.MinimumSize)
+            {
+                panelDropdown.Size = panelDropdown.MaximumSize;
+                btnBenutzerbearbeiten.Image = Properties.Resources.dropdownicon_nachklick;
+            }
+            else
+            {
+                panelDropdown.Size = panelDropdown.MinimumSize;
+                btnBenutzerbearbeiten.Image = Properties.Resources.Dropdownicon_vorklick;
+            }
+           
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            
+            this.Hide();
+
+
+
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
+            
+        }
+
+        private void buttonnameändern_Click(object sender, EventArgs e)
+        {
+            Benutzerbearbeiten();
         }
     }
 }

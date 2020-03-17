@@ -89,6 +89,10 @@ namespace Verrechnungsprogramm
             requestKursort.AddHeader("Content-Type", "application/json");
             var responseKursort = client.Execute<List<Kursort>>(requestKursort);
 
+            var requestBenutzer = new RestRequest("benutzer", Method.GET);
+            requestBenutzer.AddHeader("Content-Type", "application/json");
+            var responseBenutzer = client.Execute<List<Benutzer>>(requestBenutzer);
+
             foreach (Titel t in responseTitel.Data)
             {
                 comboBoxTitel.Items.Add(t.Bezeichnung.ToString());
@@ -354,6 +358,25 @@ namespace Verrechnungsprogramm
                 panelKursleiterKurs.Location = new Point(-15, 60);
             }
 
+
+
+            if (labelÜberschrift.Text.Equals("Benutzer anlegen"))
+            {
+                panelBenutzer.Visible = true;
+
+                this.Height = 300;
+                this.Width = 600;
+                this.Location = new Point(700, 150);
+            }
+
+            if (labelÜberschrift.Text.Equals("Benutzer bearbeiten"))
+            {
+                panelBenutzer.Visible = true;
+
+                this.Height = 300;
+                this.Width = 600;
+                this.Location = new Point(700, 150);
+            }
 
 
         }
@@ -3211,6 +3234,11 @@ namespace Verrechnungsprogramm
 
         }
 
+        private void btnAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void rechnungHinzufügen()
         {
 
@@ -3296,6 +3324,8 @@ namespace Verrechnungsprogramm
 
             MessageBox.Show("Die Rechnung wurde erfolgreich hinzugefügt");
         }
+
+       
 
         private void rechnungBearbeiten()
         {
@@ -3439,6 +3469,82 @@ namespace Verrechnungsprogramm
             {
                 rechnungHinzufügen();
                 this.Close();
+            }
+        }
+
+        private void btnSpeichern_Click(object sender, EventArgs e)
+        {
+            if (tbBenutzernameanlegen.Text == ("") || tbPasswortanlegen.Text == (""))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus.");
+                return;
+            }
+            if (labelÜberschrift.Text.Equals("Benutzer anlegen"))
+            {
+                Benutzeranlegen();
+                this.Close();
+            }
+            else
+            {
+                Benutzerbearbeiten();
+                this.Close();
+            }
+        }
+
+        private void Benutzeranlegen()
+        {
+
+            Benutzer benutzer = new Benutzer();
+
+            benutzer.Benutzername = tbBenutzernameanlegen.Text;
+            benutzer.Passwort = tbPasswortanlegen.Text;
+
+
+
+            var request = new RestRequest("benutzer", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(benutzer);
+            var response = client.Execute(request);
+
+            MessageBox.Show("Der Benutzer wurde erfolgreich angelegt");
+        }
+
+        private void Benutzerbearbeiten()
+        {
+
+            Benutzer benutzer = new Benutzer();
+
+            var request = new RestRequest("benutzer", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Benutzer>>(request);
+
+            
+
+
+            foreach (Benutzer b in response.Data)
+            {
+
+                if (b.Benutzername == FrmHaupt.f2.btnBenutzerbearbeiten.Text)
+                {
+                    benutzer.BenutzerID = b.BenutzerID;
+                    benutzer.Benutzername = tbBenutzernameanlegen.Text;
+                    benutzer.Passwort = tbPasswortanlegen.Text;
+
+                    var request1 = new RestRequest("benutzer", Method.PUT);
+                    request1.AddHeader("Content-Type", "application/json");
+                    request1.AddJsonBody(benutzer);
+                    var response1 = client.Execute(request1);
+
+                    if (response1.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        MessageBox.Show("An error occured", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erfolgreich geändert!");
+                    }
+                }
+
             }
         }
 

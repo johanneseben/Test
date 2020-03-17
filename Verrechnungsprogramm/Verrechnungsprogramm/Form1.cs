@@ -21,9 +21,10 @@ namespace Verrechnungsprogramm
     {
         RestClient client;
         HttpBasicAuthenticator Authenticator;
-
+        internal static Form1 f1;
         public Form1()
         {
+            f1 = this;
             InitializeComponent();
             client = new RestClient("http://vhs-mistelbach.projects.hakmistelbach.ac.at:20218")
             {
@@ -111,6 +112,55 @@ namespace Verrechnungsprogramm
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+      
+
+
+        private void login()
+        {
+            FrmHaupt fHaupt = new FrmHaupt();
+
+            // var client = new RestClient("http://localhost:8888");
+            var request = new RestRequest("benutzer", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            var response = client.Execute<List<Benutzer>>(request);
+            bool richtig = false;
+
+            foreach (Benutzer b in response.Data)
+            {
+                ListViewItem lvItem = new ListViewItem(b.BenutzerID.ToString());
+                lvItem.SubItems.Add(b.Benutzername.ToString());
+                lvItem.SubItems.Add(b.Passwort.ToString());
+
+                if ((lvItem.SubItems[1].Text.ToString().Equals(tbBenutzername.Text.ToString())) && ((lvItem.SubItems[2].Text.ToString().Equals(tbPasswort.Text.ToString()))))
+                {
+                    richtig = true;
+                }
+            }
+            if (richtig == true)
+            {
+                //MessageBox.Show("Erfolgreich angemeldet!");
+                fHaupt.Location = new System.Drawing.Point(0, 0);
+                fHaupt.BackColor = this.BackColor;
+                fHaupt.ShowDialog();
+
+                this.Hide();
+                //this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Benutzername oder Passwort ist falsch!");
+            }
+        }
+
+        private void tbPasswort_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login();
+            }
         }
     }
 }
