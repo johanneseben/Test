@@ -3507,6 +3507,9 @@ namespace Verrechnungsprogramm
             Rechnung rechnung = new Rechnung();
             Kurs kurs = new Kurs();
 
+            Gutschein gutschein = new Gutschein();
+            KontaktGutschein kontaktGutschein = new KontaktGutschein();
+
             var request1 = new RestRequest("kontakte", Method.GET);
             request1.AddHeader("Content-Type", "application/json");
             var response1 = client.Execute<List<Kontakt>>(request1);
@@ -3538,6 +3541,7 @@ namespace Verrechnungsprogramm
             }
 
             rechnung.KontaktID = kontakt;
+            kontaktGutschein.KontaktID = kontakt;
 
 
             var requestKurs = new RestRequest("kurse", Method.GET);
@@ -3555,6 +3559,8 @@ namespace Verrechnungsprogramm
 
                 }
             }
+
+            
 
             rechnung.KursID = kurs;
 
@@ -3577,10 +3583,32 @@ namespace Verrechnungsprogramm
             rechnung.KursID.KursID = id2;
 
 
+            var requestGutschein = new RestRequest("gutscheine", Method.GET);
+            requestGutschein.AddHeader("Content-Type", "application/json");
+            var responseGutschein = client.Execute<List<Gutschein>>(requestGutschein);
+
+            foreach (Gutschein g in responseGutschein.Data)
+            {
+                if (g.GutscheinID.ToString().Equals(comboBoxGutschein.Text))
+                {
+                    gutschein.GutscheinID = g.GutscheinID;
+                    gutschein.Betrag = g.Betrag;
+
+                }
+            }
+
+            kontaktGutschein.GutscheinID = gutschein;
+            kontaktGutschein.Betrag = gutschein.Betrag;
+
             var request = new RestRequest("rechnungen", Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(rechnung);
             var response = client.Execute(request);
+
+            var request5 = new RestRequest("kontaktGutscheine", Method.POST);
+            request5.AddHeader("Content-Type", "application/json");
+            request5.AddJsonBody(kontaktGutschein);
+            var response5 = client.Execute(request5);
 
 
 

@@ -1308,7 +1308,7 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.Rechnungsnummer.ToString());
                 lvItem.SubItems.Add(k.Rechnungsdatum.ToString("dd.MM.yyyy"));
                 lvItem.SubItems.Add(k.KontaktID.KontaktID.ToString());
-                lvItem.SubItems.Add(k.KursID.KursID.ToString() + " " + k.KursID.Bezeichnung.ToString());
+                lvItem.SubItems.Add(k.KursID.KursID.ToString());
                 listViewRechnung.Items.Add(lvItem);
             }
         }
@@ -1452,11 +1452,13 @@ namespace Verrechnungsprogramm
             //wordapp.ActiveDocument.FormFields[Kontaktplz].Result = kontakt.PostleitzahlID.Plz.ToString();
             //wordapp.ActiveDocument.FormFields[Kontaktort].Result = kontakt.PostleitzahlID.Ort.ToString();
             wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = kurs.Bezeichnung.ToString();
+            //wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = listViewRechnung.SelectedItems[0].SubItems[4].Text;
             wordapp.ActiveDocument.FormFields[Kurspreis].Result = kurs.Preis.ToString("c2");
             wordapp.ActiveDocument.FormFields[Kontakttitel].Result = kontakt.TitelID.Bezeichnung.ToString();
             wordapp.ActiveDocument.FormFields[Kursdatum].Result = kurs.DatumVon.ToString().Substring(0, 10);
             wordapp.ActiveDocument.FormFields[Kursuhrzeit].Result = kurs.ZeitVon.ToString().Substring(11, 5);
             wordapp.ActiveDocument.FormFields[Kursort].Result = kurs.KursortID.Bezeichnung.ToString();
+
 
             if (wordapp.ActiveDocument.FormFields[Kontakttitel].Result == (""))
             {
