@@ -195,10 +195,10 @@ namespace Verrechnungsprogramm
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Titel"))
             {
                 panelTitel.Visible = true;
-                this.Height = 300;
+                this.Height = 290;
                 this.Width = 500;
                 this.Location = new Point(200, 150);
-                panelTitel.Location = new Point(0, 45);
+                panelTitel.Location = new Point(10, 70);
             }
             if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Sozialgruppe"))
             {
@@ -388,6 +388,12 @@ namespace Verrechnungsprogramm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(textBoxAltersgruppeSozialgruppeKurskategorieBezeichnung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld darf nicht leer sein!");
+                return;
+            }
+
             if (this.Text.Equals("anlegen"))
             {
                 if (labelÜberschrift.Text.Substring(0, Convert.ToInt32(labelÜberschrift.Text.IndexOf(" "))).Equals("Altersgruppe"))
@@ -808,6 +814,12 @@ namespace Verrechnungsprogramm
 
         private void buttonSpeichernTitel_Click(object sender, EventArgs e)
         {
+            if(textBoxBezeichnungTitel.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Bezeichnung darf nicht leer sein!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("Titel bearbeiten"))
             {
                 titelBearbeiten();
@@ -891,6 +903,61 @@ namespace Verrechnungsprogramm
 
         private void buttonKursSpeichern_Click(object sender, EventArgs e)
         {
+            if(textBoxKursBezeichnung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Bezeichnung darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxKursPreis.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Preis darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxKursMinTeilnehmer.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld (min. Teilnehmer) darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxMaxTeilnehmer.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld (max. Teilnehmer) darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxKursAnzEinheit.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld (Anzahl der Einheiten) darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxKursBeschreibung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Beschreibung darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxKursSeminarnummer.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Seminarnummer darf nicht leer sein!");
+                return;
+            }
+
+            if (comboBoxKursKurskategorie.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte eine Kurskategorie aus!");
+                return;
+            }
+
+            if(comboBoxKursKursort.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Kursort aus!");
+                return;
+            }
+
+            
             if (labelÜberschrift.Text.Equals("Kurs bearbeiten"))
             {
                 kursBearbeiten();
@@ -1075,13 +1142,32 @@ namespace Verrechnungsprogramm
 
         private void buttonBankverbindungSpeichern_Click(object sender, EventArgs e)
         {
-            if (labelÜberschrift.Text.Equals("Bankverbindung bearbeiten"))
+            
+            if (textBoxBankverbindungIBAN.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld IBAN darf nicht leer sein!");
+                return;
+            }
+
+            else if (textBoxBankverbindungKontaktID.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Kontoinhaber darf nicht leer sein!");
+                return;
+            }
+
+            else if (textBoxBankverbindungKontaktID.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld KontaktID darf nicht leer sein!");
+                return;
+            }
+
+            else if (labelÜberschrift.Text.Equals("Bankverbindung bearbeiten"))
             {
                 bankverbindungBearbeiten();
                 this.Close();
             }
 
-            if (labelÜberschrift.Text.Equals("Bankverbindung anlegen"))
+            else if (labelÜberschrift.Text.Equals("Bankverbindung anlegen"))
             {
                 bankverbindungHinzufügen();
                 this.Close();
@@ -1428,16 +1514,18 @@ namespace Verrechnungsprogramm
 
         private void bankverbindungBearbeiten()
         {
-            Bankverbindung bankverbindung = new Bankverbindung();
-            Kontakt aktKontakt = new Kontakt();
 
-            var requestBankverbindung = new RestRequest("bankverbindungen", Method.GET);
-            requestBankverbindung.AddHeader("Content-Type", "application/json");
-            var responseBankverbindung = client.Execute<List<Bankverbindung>>(requestBankverbindung);
+                
+                Bankverbindung bankverbindung = new Bankverbindung();
+                Kontakt aktKontakt = new Kontakt();
 
-            var requestKontakt = new RestRequest("kontakte", Method.GET);
-            requestKontakt.AddHeader("Content-Type", "application/json");
-            var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
+                var requestBankverbindung = new RestRequest("bankverbindungen", Method.GET);
+                requestBankverbindung.AddHeader("Content-Type", "application/json");
+                var responseBankverbindung = client.Execute<List<Bankverbindung>>(requestBankverbindung);
+
+                var requestKontakt = new RestRequest("kontakte", Method.GET);
+                requestKontakt.AddHeader("Content-Type", "application/json");
+                var responseKontakt = client.Execute<List<Kontakt>>(requestKontakt);
 
             foreach (Bankverbindung b in responseBankverbindung.Data)
             {
@@ -1483,12 +1571,13 @@ namespace Verrechnungsprogramm
                         MessageBox.Show("Erfolgreich geändert!");
                     }
                 }
+
             }
         }
 
         private void bankverbindungHinzufügen()
         {
-
+            
             Bankverbindung bankverbindung = new Bankverbindung();
             bankverbindung.IBAN = textBoxBankverbindungIBAN.Text;
             bankverbindung.Kontoinhaber = textBoxBankverbindungKontoinhaber.Text;
@@ -1821,6 +1910,24 @@ namespace Verrechnungsprogramm
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if(textBoxSchluesselBezeichnung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Bezeichnung darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxSchluesselPlatz.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Platz darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxSchluesselCode.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Code darf nicht leer sein!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("Schlüssel bearbeiten"))
             {
                 schluesselBearbeiten();
@@ -1846,6 +1953,18 @@ namespace Verrechnungsprogramm
 
         private void buttonGutscheinSpeichern_Click(object sender, EventArgs e)
         {
+            if(textBoxGutscheinBetrag.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Betrag darf nicht leer sein!");
+                return;
+            }
+
+            if(textBoxGutscheinBezeichnung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Bezeichnung darf nicht leer sein!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("Gutschein bearbeiten"))
             {
                 gutscheinBearbeiten();
@@ -1866,6 +1985,25 @@ namespace Verrechnungsprogramm
 
         private void buttonMitgliedschaftSpeichern_Click(object sender, EventArgs e)
         {
+            if (textBoxMitgliedschaftBezeichnung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Bezeichnung darf nicht leer sein!");
+                return;
+            }
+
+            if(textBoxMitgliedschaftErmaessigung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Ermäßigung darf nicht leer sein!");
+                return;
+            }
+
+            if(textBoxMitgliedschaftMitgliedsbeitrag.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Mitgliedschaftsbeitrag darf nicht leer sein!");
+                return;
+            }
+
+
             if (labelÜberschrift.Text.Equals("Mitgliedschaft bearbeiten"))
             {
                 mitgliedschaftBearbeiten();
@@ -1949,6 +2087,60 @@ namespace Verrechnungsprogramm
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            if(textBoxVorname.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Vorname darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxNachname.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Nachname darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxSVNr.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld SVNr darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxKontaktStrasse.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Straße darf nicht leer sein!");
+                return;
+            }
+
+            if (comboBoxKontaktPostleitzahl.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte eine Postleitzahl aus!");
+                return;
+            }
+
+            if (comboBoxKontaktOrt.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Ort aus!");
+                return;
+            }
+
+            if (comboBoxAltersgruppe.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte eine Altersgruppe aus!");
+                return;
+            }
+
+            if (comboBoxSozialgruppe.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte eine Sozialgruppe aus!");
+                return;
+            }
+
+            if (comboBoxStaatsbuergerschaft.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte eine Staatsbürgerschaft aus!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("Kontakt bearbeiten"))
             {
                 kontaktBearbeiten();
@@ -1962,8 +2154,6 @@ namespace Verrechnungsprogramm
             }
         }
 
-
-
         private void buttonKursortAbbrechen_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -1971,6 +2161,30 @@ namespace Verrechnungsprogramm
 
         private void buttonKursortSpeichern_Click(object sender, EventArgs e)
         {
+            if (textBoxKursortBezeichnung.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Bezeichnung darf nicht leer sein!");
+                return;
+            }
+
+            if (textBoxKursortStrasse.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Straße darf nicht leer sein!");
+                return;
+            }
+
+            if(comboBoxKursortOrt.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Ort aus!");
+                return;
+            }
+
+            if(comboBoxKursortPlz.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Plz aus!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("Kursort bearbeiten"))
             {
                 kursortBearbeiten();
@@ -2726,6 +2940,18 @@ namespace Verrechnungsprogramm
 
         private void buttonKursbuchungSpeichern_Click(object sender, EventArgs e)
         {
+            if(textBoxKursbuchungKurs.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Kurs aus!");
+                return;
+            }
+
+            if(textBoxKursbuchungKontakt.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Kontakt aus!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("neue Kursbuchung"))
             {
                 kursbuchungHinzufügen();
@@ -2959,6 +3185,24 @@ namespace Verrechnungsprogramm
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if(textBoxKursleiterName.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie einen Kursleiter aus!");
+                return;
+            }
+
+            if(textBoxKursleiterHonorar.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Honorar darf nicht leer sein!");
+                return;
+            }
+
+            if(comboBoxKursleiterKursKurs.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie einen Kurs aus!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("Kursleiter Zuweisung bearbeiten"))
             {
                 kursleiterZuweisenBearbeiten();
@@ -3158,6 +3402,24 @@ namespace Verrechnungsprogramm
 
         private void buttonMitgliedschaftKontaktSpeichern_Click(object sender, EventArgs e)
         {
+            if(textBoxMitKontaktKontakt.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Kontakt aus!");
+                return;
+            }
+
+            if(textBoxMitKontaktKalenderjahr.Text.Equals(""))
+            {
+                MessageBox.Show("Das Feld Kalenderjahr darf nicht leer sein!");
+                return;
+            }
+
+            if(comboBoxMitKontaktMitArt.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte eine Mitgliedschaftsart aus!");
+                return;
+            }
+
             if (labelÜberschrift.Text.Equals("Mitglied anlegen"))
             {
                 mitgliedHinzufügen();
@@ -3470,6 +3732,11 @@ namespace Verrechnungsprogramm
                 rechnungHinzufügen();
                 this.Close();
             }
+        }
+
+        private void listViewKontakt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void btnSpeichern_Click(object sender, EventArgs e)

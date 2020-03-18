@@ -803,6 +803,9 @@ namespace Verrechnungsprogramm
 
         public void terminBearbeiten()
         {
+            if (listViewTermine.SelectedItems.Count == 0)
+                return;
+
             groupBox1.Text = "bearbeiten";
             groupBox1.Visible = true;
 
@@ -1305,7 +1308,7 @@ namespace Verrechnungsprogramm
                 lvItem.SubItems.Add(k.Rechnungsnummer.ToString());
                 lvItem.SubItems.Add(k.Rechnungsdatum.ToString("dd.MM.yyyy"));
                 lvItem.SubItems.Add(k.KontaktID.KontaktID.ToString());
-                lvItem.SubItems.Add(k.KursID.KursID.ToString());
+                lvItem.SubItems.Add(k.KursID.KursID.ToString() + " " + k.KursID.Bezeichnung.ToString());
                 listViewRechnung.Items.Add(lvItem);
             }
         }
@@ -1886,6 +1889,9 @@ namespace Verrechnungsprogramm
             request.AddHeader("Content-Type", "application/json");
             var response = client.Execute<List<Kurs>>(request);
 
+            comboBoxKursTermin.Items.Clear();
+            comboBoxKurse.Items.Clear();
+
             foreach (Kurs k in response.Data)
             {
                 comboBoxKurse.Items.Add(k.Bezeichnung);
@@ -1895,6 +1901,12 @@ namespace Verrechnungsprogramm
 
         private void buttonTeilnehmerDrucken_Click(object sender, EventArgs e)
         {
+            if(comboBoxKursTeilnehmer.Text.Equals(""))
+            {
+                MessageBox.Show("Wählen Sie bitte einen Kurs aus!");
+                return;
+            }
+
             Microsoft.Office.Interop.Word.Application wordapp = new Microsoft.Office.Interop.Word.Application();
             if (wordapp == null)
             {
@@ -1941,15 +1953,15 @@ namespace Verrechnungsprogramm
 
             //wordapp.ActiveDocument.FormFields[Kontakttitel].Result = kontakt.TitelID.Bezeichnung.ToString();
 
-
             wordapp.ActiveDocument.FormFields[Kursbezeichnung].Result = comboBoxKursTeilnehmer.Text;
             wordapp.ActiveDocument.FormFields[Kursleiter].Result = textBoxKursleiter.Text;
 
+            
             //wordapp.ActiveDocument.FormFields[Vorname].Result = "Mathias";
             //wordapp.ActiveDocument.FormFields[Nachname].Result = "Bittmann";
             //wordapp.ActiveDocument.FormFields[Vorname].Result = "Franz";
             //wordapp.ActiveDocument.FormFields[Nachname].Result = "Kautz";
-            for (int i = 0; i >= listViewKursbuchung.Items.Count; i++)
+            for (int i = 0; i < listViewTeilnehmer.Items.Count; i++)
             {
                 wordapp.ActiveDocument.FormFields[Vorname+i].Result = listViewTeilnehmer.Items[i].SubItems[0].Text;
                 wordapp.ActiveDocument.FormFields[Nachname+i].Result = listViewTeilnehmer.Items[i].SubItems[1].Text;
@@ -2498,6 +2510,16 @@ namespace Verrechnungsprogramm
         private void buttonnameändern_Click(object sender, EventArgs e)
         {
             Benutzerbearbeiten();
+        }
+
+        private void FrmHaupt_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tableLayoutPanelKursTermin_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
